@@ -11,7 +11,11 @@ app.use(
     extended: true,
   })
 )
-app.get('/welcome', (request, response) => {
+app.get('/backend', (request, response) => {
+  response.send("Hello backend is ready.")
+})
+
+app.get('/backend/welcome', (request, response) => {
   response.send("Hello, Welcome to PM")
 })
 
