@@ -1,16 +1,20 @@
-const express = require('express');
+const express = require('express')
+const bodyParser = require('body-parser')
+const Pool = require('pg').Pool
 
-const app = express();
+const app = express()
+const port = 5000
 
-app.get('/', (req, res, next) => {
-  res.send("Hello, Welcome to PM");
-  // res.status(200).json({
-  //   success: true,
-  //   data: {
-  //     message: 'WELCOME TO PM',
-  //   },
-  // });
-});
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
+app.get('/welcome', (request, response) => {
+  response.send({ info: 'Node.js, Express, and Postgres API' })
+})
 
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => console.log(`Server is running on this port ${PORT}`));
+app.listen(port, () => {
+  console.log(`App running on port ${port}.`)
+})
