@@ -2,13 +2,14 @@ const express = require('express');
 
 const app = express();
 
-app.get('/endpoint-1', (req, res, next) => {
-  res.status(200).json({
-    success: true,
-    data: {
-      message: 'Hello from endpoint 1',
-    },
-  });
+app.get('/', (req, res, next) => {
+  res.send("Welcome to PM");
+  // res.status(200).json({
+  //   success: true,
+  //   data: {
+  //     message: 'WELCOME TO PM',
+  //   },
+  // });
 });
 
 const PORT = process.env.PORT || 5000;
