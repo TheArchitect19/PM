@@ -12,7 +12,7 @@ app.use(
   })
 )
 app.get('/welcome', (request, response) => {
-  response.send({ info: 'Node.js, Express, and Postgres API' })
+  response.send("Hello, Welcome to PM")
 })
 
 app.listen(port, () => {
