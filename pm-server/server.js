@@ -1,16 +1,15 @@
-const { Client } = require('pg');
+const express = require('express');
 
-const client = new Client({
-  user: 'linpostgres',
-  host: 'lin-17746-6070-pgsql-primary.servers.linodedb.net',
-  database: 'postgres',
-  password: 'rd^4qOmguVBJrIWZ',
-  port: 5432,
-//   ssl  : {
-//     ca : fs.readFileSync('./Pandri_Market-ca-certificate.crt')
-//   }
-})
-client.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
+const app = express();
+
+app.get('/endpoint-1', (req, res, next) => {
+  res.status(200).json({
+    success: true,
+    data: {
+      message: 'Hello from endpoint 1',
+    },
+  });
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server is running on this port ${PORT}`));
