@@ -7,25 +7,29 @@ import { Facebook, Github, Twitter, YouTube } from '../components/AllSvgs'
 const Icons = styled.div`
 display:flex;
 flex-direction: column;
-@media(width<700px){
-    flex-direction: row;
-    justify-content:space-around;
-    align-items: center;
-    width:100%;
-}
+
 
 position:absolute;
-bottom: 0;
+bottom: 1rem;
 left: 2rem;
 z-index:3;
 
 &>*:not(:last-child){
     margin: 0.4rem 0;
 }
+@media(width<700px){
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    width:100%;
+    left: 0rem;
+}
 `
 const Line = styled.span`
 width:2px;
 height: 5rem;
+margin-top:1rem;
+margin-left:0.6rem;
 background-color: #ffffff;
 margin-bottom:6px;
 @media(width<700px){
