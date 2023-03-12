@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const Logo = styled.h1`
 display: inline-block;
-color:#ffffff;
+color:#000000;
 font-family: 'Pacifico',cursive;
 
 position: fixed;

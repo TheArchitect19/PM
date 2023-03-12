@@ -14,7 +14,6 @@ body{
     overflow:hidden;
     height:100vh;
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: #131416;
     @media(width<900px){
     overflow-y:scroll;
 }

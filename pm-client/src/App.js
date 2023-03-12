@@ -18,7 +18,7 @@ function App() {
     <GlobalStyle />
     <AnimatedCursor  innerSize={12}
       outerSize={8}
-      color='255,255,255'
+      color='0,0,0'
       outerAlpha={0.2}
       innerScale={1.2}
       outerScale={10}/>

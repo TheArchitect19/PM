@@ -13,6 +13,9 @@ flex-direction: column;
     align-items: center;
     width:100%;
 }
+@media(width<900px){
+    display:none;
+}
 
 position:absolute;
 bottom: 0;
@@ -25,10 +28,11 @@ z-index:3;
 `
 const Line = styled.span`
 width:2px;
+
 height: 5rem;
-background-color: #ffffff;
+background-color: #000000;
 margin-bottom:6px;
-@media(width<700px){
+@media(width<900px){
     display:none;
 }
 `
@@ -39,17 +43,17 @@ export const SocialIcons = (props) => {
         
         <div>
             <NavLink style={{color:'inherit'}} target="_blank" to='/'>
-                <Twitter  width={25} height={25} fill="#ffffff"/>
+                <Twitter  width={25} height={25} fill="#000000"/>
             </NavLink>
         </div>
         <div>
             <NavLink style={{color:'inherit'}} target="_blank" to='/'>
-                <Facebook  width={25} height={25} fill="#ffffff" />
+                <Facebook  width={25} height={25} fill="#000000" />
             </NavLink>
         </div>
         <div>
             <NavLink style={{color:'inherit'}} target="_blank"  to='/'>
-                <YouTube width={25} height={25} fill="#ffffff" />
+                <YouTube width={25} height={25} fill="#000000" />
             </NavLink>
         </div>
 

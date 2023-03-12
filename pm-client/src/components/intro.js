@@ -17,16 +17,16 @@ const Box = styled(motion.div)`
  background: linear-gradient(
   to right,
   ${props => props.theme.text} 50%,
-  #F8B13C 50%) bottom,
+  #FFE7D7 50%) bottom,
   linear-gradient(
   to right,
   ${props => props.theme.text} 50%,
-  #F8B13C 50%) top;
+  #FFE7D7 50%) top;
   
   background-repeat: no-repeat;
   background-size: 100% 3px;
   border-left: 3px solid ${props => props.theme.text};
-  border-right: 3px solid #F8B13C;
+  border-right: 3px solid #FFE7D7;
   
   z-index:1;
 
@@ -73,7 +73,7 @@ font-size: calc(1em + 1.5vw);
 justify-content: space-evenly;
 
 }
-color: ${props => props.theme.body};
+color: ${props => props.theme.text};
 padding: 2rem;
 cursor: pointer;
 
@@ -82,7 +82,7 @@ flex-direction: column;
 justify-content: space-evenly;
 
 &>*:last-child{
-  color: ${props => `rgba(${props.theme.bodyRgba},0.9)`};
+  color: ${props => `rgba(${props.theme.textRgba},0.6)`};
    font-size: calc(0.5rem + 1.2vw);
     font-weight:300;
 }

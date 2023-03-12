@@ -9,13 +9,15 @@ import {LogoComponent} from '../subComponents/LogoComponent';
 import {SocialIcons} from '../subComponents/SocialIcons';
 
 import IMG from '../assets/Images/manager.png'
+import IMG1 from '../assets/Images/about-bg.jpg'
 
 const Box = styled.div`
-background-color: ${props => props.theme.text};
+background-color: ${props => props.theme.body};
 width:100vw;
 height: 100vh;
 position: relative;
 overflow:hidden;
+background-image: url(${IMG1});
 
 background-size: cover;
 background-repeat: no-repeat;
@@ -55,7 +57,7 @@ const ABOUT = styled.div`
 
  margin-top:9%;
  margin-left:6%;
- color:	#F8B13C;
+ color:	#1A1919;
  font-size: 5rem;
  font-weight:700;
  @media(width<450px){
@@ -71,8 +73,8 @@ const ABOUT = styled.div`
 }
 `
 const Main = styled.div`
-border: 2px solid #F8B13C;
-color: ${props => props.theme.body};
+border: 2px solid ${props => props.theme.text};
+color: ${props => props.theme.text};
 padding: 2rem;
 width: 50vw;
 height:60vh;
