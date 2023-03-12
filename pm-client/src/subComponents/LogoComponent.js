@@ -11,7 +11,7 @@ font-family: 'Pacifico',cursive;
 
 position: fixed;
 left: 2rem;
-top: 0.3rem;
+top: 1.5rem;
 z-index: 3;
 `
 
