@@ -11,7 +11,7 @@ const MainContainer = styled.div`
 background: ${props => props.theme.body};
 width: 100vw;
 height: 100vh;
-overflow: hidden;
+overflowY: hidden;
 
 position: relative;
 
@@ -38,14 +38,18 @@ const BLOG = styled(NavLink)`
 color: ${props => props.theme.text};
 position: absolute;
 top:50%;
-right: calc(1rem + 2vw);
+right: calc(0.5rem);
 transform:translate(-50%,-50%);
 transform: rotate(90deg);
 text-decoration: none;
 z-index:1;
+@media(width<450px){
+  top:45%;
+}
 `
 const WORK = styled(NavLink)`
 color: ${props => props.click ? props.theme.body : props.theme.text};
+text-decoration:none;
 position: absolute;
 top:50%;
 left: 1.5rem;
@@ -53,18 +57,29 @@ transform:translate(-50%,-50%);
 transform: rotate(270deg);
 text-decoration: none;
 z-index:1;
+@media(width<450px){
+  left:1rem;
+  top:45%;
+
+}
 `
 const BottomBar = styled.div`
 position:absolute;
-bottom: 1rem;
 left:0;
 width:100%;
+bottom:1.5rem;
 
 display: flex;
 justify-content:space-evenly;
+
+@media(width<450px){
+  bottom:4.5rem;
+
+}
 `
 const ABOUT = styled(NavLink)`
 color: ${props => props.click ? props.theme.body : props.theme.text};
+
 
 text-decoration: none;
 z-index:1;
@@ -87,7 +102,7 @@ to{
 const Center = styled.button`
 position: absolute;
 top: ${props => props.click ? '85%' :'50%' };
-left: ${props => props.click ? '92%' :'50%' };
+left: ${props => props.click ? '90%' :'50%' };
 transform: translate(-50%,-50%);
 border:none;
 outline:none;
@@ -107,6 +122,12 @@ transition: all 1s ease;
   display: ${props => props.click ? 'none' :'inline-block' };
   padding-top: 1rem;
 }
+
+@media(width<450px){
+  top: ${props => props.click ? '75%' :'50%' };
+  left: ${props => props.click ? '80%' :'50%' };
+
+}
 `
 
 const DarkDiv = styled.div`
@@ -119,6 +140,8 @@ const DarkDiv = styled.div`
  height: ${props => props.click ? '100%' :'0%' };
  z-index:1;
  transition: height 0.5s ease, width 1s ease 0.5s;
+
+
 `
 
 export const Main = () => {
@@ -134,8 +157,8 @@ export const Main = () => {
           
           <SocialIcons theme={click ? 'dark' : 'light'} />
           <Center click={click} >
-             <YinYang   onClick={()=> handleClick()} width={click ? 100:180} height={click ? 100:180} fill='currentColor' />
-             <span>click here</span>
+             <YinYang   onClick={()=> handleClick()} width={click ? 90:200} height={click ? 90:180} fill='currentColor' />
+             <span onClick={()=> handleClick()}>click here</span>
              </Center>
 
           <Contact target="_blank" to={{pathname:"mailto:anuragjee2020@gmail.com"}}>
@@ -160,7 +183,7 @@ export const Main = () => {
           </WORK>
           
           <BottomBar>
-             <ABOUT to="/about" >
+             <ABOUT to="/about-us" >
                <motion.h3
                whileHover={{scale:1.1}}
              whileTap={{scale:0.9}}

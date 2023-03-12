@@ -3,6 +3,7 @@ import styled, {keyframes, ThemeProvider} from 'styled-components'
 import {lightTheme} from './Themes'
 import { motion } from 'framer-motion'
 import { PowerButton } from '../subComponents/PowerButton'
+import {MovingComponent} from 'react-moving-text';
 
 import {LogoComponent} from '../subComponents/LogoComponent';
 import {SocialIcons} from '../subComponents/SocialIcons';
@@ -20,7 +21,6 @@ background-image: url(${IMG1});
 
 background-size: cover;
 background-repeat: no-repeat;
-background-attachment: fixed;
 background-position: center;
 width:100vw;
 height:100vh;
@@ -43,14 +43,34 @@ const Manager = styled.div`
   height:auto;
 
  }
+ @media(width<450px){
+ width:56vw;
+ top: 65%;
+ right:8%;
+  img{
+  width:100%;
+ }
+}
 `
 const ABOUT = styled.div`
- position:absolute;
- top:20%;
- left:6%;
+ display:flex;
+
+ margin-top:9%;
+ margin-left:6%;
  color:	#1A1919;
  font-size: 5rem;
  font-weight:700;
+ @media(width<450px){
+   margin-top:29%;
+   font-weight:700;
+
+   font-family: 'Source Sans Pro', sans-serif;
+   
+   margin-left:0%;
+   justify-content:center;
+   align-items:center;
+   font-size: 3.2rem;
+}
 `
 const Main = styled.div`
 border: 2px solid ${props => props.theme.text};
@@ -73,6 +93,23 @@ top: 10rem;
 
 font-family: 'Ubutntu Mono',monospace;
 font-style: italic;
+@media(width<900px){
+  font-size: 2em;
+}
+@media(width<600px){
+  font-size: 1.5em;
+}
+@media(width<450px){
+  font-size: 0.7rem;
+  height:45vh;
+
+  left: calc(5%);
+  top: 18vh;
+  backdrop-filter: blur(2px);
+  padding: 1rem;
+  width: 80vw;
+  
+}
 `
 
 export const AboutPage = () => {
@@ -82,9 +119,18 @@ export const AboutPage = () => {
       <PowerButton />
         <LogoComponent/>
         <SocialIcons />
-        <ABOUT>
-            ABOUT US
+        <MovingComponent
+  type="popIn"
+  duration="1000ms"
+  delay="0s"
+  direction="normal"
+  timing="ease"
+  iteration="1"
+  fillMode="none">
+  <ABOUT>
+         ABOUT US
         </ABOUT>
+</MovingComponent>
         {/* <ParticleComponent theme='dark' /> */}
         <Manager>
           <img src={IMG}alt="manager" />

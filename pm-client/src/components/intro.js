@@ -26,9 +26,14 @@ const Box = styled(motion.div)`
   background-repeat: no-repeat;
   background-size: 100% 3px;
   border-left: 3px solid ${props => props.theme.text};
-  border-right: 3px solid  #FFE7D7;
+  border-right: 3px solid #FFE7D7;
   
   z-index:1;
+
+  @media(width<450px){
+  top:50%;
+
+}
 `
 const SubBox = styled.div`
 width:50%;
@@ -37,8 +42,7 @@ display:flex;
 
 .pic{
   position: absolute;
-  top: 0;
-  bottom: 0;
+  bottom:1%;
   left: 50%;
   transform:translate(-50%,0%);
   width:100%;
@@ -48,6 +52,11 @@ display:flex;
   .pic{
     display:none;
   }
+}
+@media(width<450px){
+   height:100%;
+   width:50%;
+
 }
 `
 
@@ -60,7 +69,9 @@ font-size: calc(1em + 1.5vw);
   font-size: 1.5em;
 }
 @media(width<450px){
-  font-size: 1em;
+  font-size: 1.2em;
+justify-content: space-evenly;
+
 }
 color: ${props => props.theme.text};
 padding: 2rem;

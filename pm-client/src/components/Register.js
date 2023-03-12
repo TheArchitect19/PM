@@ -4,23 +4,39 @@ export const GlobalStyle = createGlobalStyle`
   html, body {
     position: relative;
    min-height: 100vh;
-   background-color: #FFE7D7;
+   min-width:100vw;
+   background-color:  #ffffff;
    display: flex;
    align-items: center;
    justify-content: center;
    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
+   margin-top:30px;
+  
+  }
+  img{
+    position:absolute;
+    width:200px;
+    left:22vw;
+    z-index:1;
   }
 `;
 
 export const Root = styled.div`
   background-color: #FFE7D7;
-  border-radius: 15px;
-  height: 450px;
-  width: 40vw;
+
+  border-radius: 0px;
+  height: 80vh;
+  width: 70vh;
+  margin:1rem;
   position: relative;
   overflow: hidden;
+  @media(width<600px){
+    width: 90vw;
+    height: 80vh;
+  }
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   &::after {
     content: "";
@@ -33,7 +49,6 @@ export const Root = styled.div`
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: cover;
-    background-image: url("https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YnVzc2luZXNzJTIwZGVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
   }
 `;
 
@@ -42,7 +57,8 @@ export const SignupContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 65%;
+
+  width: 90%;
   z-index: 5;
   transition: all 0.3s ease;
   ${props =>
@@ -54,10 +70,10 @@ export const SignupContainer = styled.div`
 `;
 
 export const SignupForm = styled.div`
-  border-radius: 15px;
+  border-radius: 0px;
   background-color: #fff;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 10px;
   opacity: 1;
   visibility: visible;
   transition: all 0.3s ease;
@@ -73,9 +89,10 @@ export const SignupForm = styled.div`
 
 export const SignupButton = styled.button`
   background-color: rgba(0, 0, 0, 0.4);
+
   color: rgba(256, 256, 256, 0.7);
   border: 0;
-  border-radius: 15px;
+  border-radius: 0px;
   display: block;
   margin: 15px auto;
   padding: 15px 45px;
@@ -102,9 +119,10 @@ export const SignupButton = styled.button`
 `;
 
 export const SignupFormTitle = styled.h2`
-  color: #fff;
+  color: #000;
   font-size: 1.7em;
   text-align: center;
+  margin:2px;
   ${props =>
     props.slideUp === true
       ? `
@@ -125,7 +143,6 @@ export const SignupInput = styled.input`
   border-bottom: 1px solid #eee;
   width: 100%;
   font-size: 12px;
-
   &:last-child {
     border-bottom: 0;
   }

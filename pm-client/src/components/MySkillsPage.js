@@ -4,6 +4,7 @@ import { LogoComponent } from '../subComponents/LogoComponent'
 import { SocialIcons } from '../subComponents/SocialIcons'
 // import Particles from 'react-particles-js';
 import { PowerButton } from '../subComponents/PowerButton'
+import IMG from '../assets/Images/register.png'
 
 export const MySkillsPage = () => {
   const toggleLogin = React.useRef(null);
@@ -23,7 +24,8 @@ export const MySkillsPage = () => {
       <PowerButton />
       
       <LogoComponent />
-          <SocialIcons  />
+      <SocialIcons  />
+      <img src={IMG} />
       <Components.Root>
         <Components.SignupContainer signUp ref={signupForm} slideUp={slideUp}>
           <Components.SignupFormTitle
@@ -33,7 +35,7 @@ export const MySkillsPage = () => {
             }}
             slideUp={slideUp}
           >
-            Sign Up
+            Register
           </Components.SignupFormTitle>
           <Components.SignupForm slideUp={slideUp}>
             <Components.SignupInput
@@ -54,45 +56,35 @@ export const MySkillsPage = () => {
               name="password"
              
             />
+                        <Components.SignupInput
+              type="text"
+              placeholder="GST registration details"
+              name="gstregistration"
+            />
+            <Components.SignupInput
+              type="number"
+              placeholder="Pan Card details"
+              name="pancard"
+            />
+            <Components.SignupInput
+              type="number"
+              placeholder="Contact Number"
+              name="contactnumber"
+            />
+            <Components.SignupInput
+              type="text"
+              placeholder="Business Category"
+              name="businesscategory"
+            />
           </Components.SignupForm>
+          
           <Components.SignupButton
             slideUp={slideUp}
           >
             Sign Up
           </Components.SignupButton>
         </Components.SignupContainer>
-        <Components.LoginContainer ref={loginForm} slideUp={slideUp}>
-          <Components.CenterWrapper slideUp={slideUp}>
-            <Components.LoginTitle
-              ref={toggleLogin}
-              slideUp={slideUp}
-              onClick={() => {
-                toggle(true);
-              }}
-            >
-              Login
-            </Components.LoginTitle>
-            <Components.LoginFormContainer slideUp={slideUp}>
-              <Components.LoginInput
-                type="email"
-                placeholder="Email"
-                name="email"
-                
-              />
-              <Components.LoginInput
-                type="password"
-                placeholder="Password"
-                name="password"
-                
-              />
-            </Components.LoginFormContainer>
-            <Components.LoginButton
-              slideUp={slideUp}
-            >
-              Login
-            </Components.LoginButton>
-          </Components.CenterWrapper>
-        </Components.LoginContainer>
+        
       </Components.Root>
     </React.Fragment>
   );
