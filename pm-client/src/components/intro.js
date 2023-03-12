@@ -17,18 +17,23 @@ const Box = styled(motion.div)`
  background: linear-gradient(
   to right,
   ${props => props.theme.text} 50%,
-  #FFE7D7 50%) bottom,
+  #F8B13C 50%) bottom,
   linear-gradient(
   to right,
   ${props => props.theme.text} 50%,
-  #FFE7D7 50%) top;
+  #F8B13C 50%) top;
   
   background-repeat: no-repeat;
   background-size: 100% 3px;
   border-left: 3px solid ${props => props.theme.text};
-  border-right: 3px solid  #FFE7D7;
+  border-right: 3px solid #F8B13C;
   
   z-index:1;
+
+  @media(width<450px){
+  top:50%;
+
+}
 `
 const SubBox = styled.div`
 width:50%;
@@ -37,8 +42,7 @@ display:flex;
 
 .pic{
   position: absolute;
-  top: 0;
-  bottom: 0;
+  bottom:1%;
   left: 50%;
   transform:translate(-50%,0%);
   width:100%;
@@ -48,6 +52,11 @@ display:flex;
   .pic{
     display:none;
   }
+}
+@media(width<450px){
+   height:100%;
+   width:50%;
+
 }
 `
 
@@ -60,9 +69,11 @@ font-size: calc(1em + 1.5vw);
   font-size: 1.5em;
 }
 @media(width<450px){
-  font-size: 1em;
+  font-size: 1.2em;
+justify-content: space-evenly;
+
 }
-color: ${props => props.theme.text};
+color: ${props => props.theme.body};
 padding: 2rem;
 cursor: pointer;
 
@@ -71,7 +82,7 @@ flex-direction: column;
 justify-content: space-evenly;
 
 &>*:last-child{
-  color: ${props => `rgba(${props.theme.textRgba},0.6)`};
+  color: ${props => `rgba(${props.theme.bodyRgba},0.9)`};
    font-size: calc(0.5rem + 1.2vw);
     font-weight:300;
 }

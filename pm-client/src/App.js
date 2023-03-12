@@ -18,7 +18,7 @@ function App() {
     <GlobalStyle />
     <AnimatedCursor  innerSize={12}
       outerSize={8}
-      color='0,0,0'
+      color='255,255,255'
       outerAlpha={0.2}
       innerScale={1.2}
       outerScale={10}/>
@@ -26,7 +26,7 @@ function App() {
 
     <Switch>
       <Route exact path="/" component={Main}/>
-      <Route exact path="/about" component={AboutPage}/>
+      <Route exact path="/about-us" component={AboutPage}/>
       <Route exact path="/services" component={BlogPage}/>
       <Route exact path="/blog" component={WorkPage}/>
       <Route exact path="/register" component={MySkillsPage}/>
