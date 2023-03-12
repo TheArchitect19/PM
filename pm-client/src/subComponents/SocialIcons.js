@@ -7,7 +7,12 @@ import { Facebook, Github, Twitter, YouTube } from '../components/AllSvgs'
 const Icons = styled.div`
 display:flex;
 flex-direction: column;
-align-items: center;
+@media(width<700px){
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    width:100%;
+}
 
 position:absolute;
 bottom: 0;
@@ -17,16 +22,15 @@ z-index:3;
 &>*:not(:last-child){
     margin: 0.4rem 0;
 }
-@media(width<450px){
-  display:none;
-
-}
 `
 const Line = styled.span`
 width:2px;
 height: 5rem;
 background-color: #ffffff;
 margin-bottom:6px;
+@media(width<700px){
+    display:none;
+}
 `
 
 export const SocialIcons = (props) => {
