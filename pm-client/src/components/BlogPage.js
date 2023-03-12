@@ -16,7 +16,7 @@ import { Card5 } from './card5'
 
 
 const Box = styled.div`
-background-color: #131416;
+background-color: #ffffff;
 width:100vw;
 height: 100vh;
 position: relative;

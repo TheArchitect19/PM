@@ -6,12 +6,12 @@ import styled from 'styled-components'
 
 const Logo = styled.h1`
 display: inline-block;
-color:#ffffff;
+color:#000000;
 font-family: 'Pacifico',cursive;
 
 position: fixed;
 left: 2rem;
-top: 0.3rem;
+top: 1.5rem;
 z-index: 3;
 `
 

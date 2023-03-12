@@ -23,8 +23,8 @@ z-index: 3;
 cursor:pointer;
 
 &:hover{
-    background-color: rgba(248, 245, 60);
-    box-shadow: 0 0 8px 3px  rgb(248, 245, 60);
+    background-color: #FFE7D7;
+    box-shadow: 0 0 8px 3px  rgba(0,0,0,0.2);
 }
 
 &>*:first-child{

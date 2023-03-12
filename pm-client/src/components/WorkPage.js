@@ -5,7 +5,7 @@ import { SocialIcons } from '../subComponents/SocialIcons'
 import { PowerButton } from '../subComponents/PowerButton'
 
 import { useEffect } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/swiper-bundle.min.css';
 import SwiperCore,{
   EffectCoverflow,
   Pagination,
