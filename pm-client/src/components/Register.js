@@ -4,7 +4,8 @@ export const GlobalStyle = createGlobalStyle`
   html, body {
     position: relative;
    min-height: 100vh;
-   background-color: #FFE7D7;
+   min-width:100vw;
+   background-color: #131416;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -17,10 +18,16 @@ export const GlobalStyle = createGlobalStyle`
 export const Root = styled.div`
   background-color: #FFE7D7;
   border-radius: 15px;
-  height: 450px;
-  width: 40vw;
+  height: 80vh;
+  width: 70vh;
+  margin:1rem;
   position: relative;
   overflow: hidden;
+
+  @media(width<600px){
+    width: 90vw;
+    height: 80vh;
+  }
 
   &::after {
     content: "";
@@ -42,7 +49,7 @@ export const SignupContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 65%;
+  width: 90%;
   z-index: 5;
   transition: all 0.3s ease;
   ${props =>
