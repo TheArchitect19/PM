@@ -23,7 +23,7 @@ export const MySkillsPage = () => {
       <PowerButton />
       
       <LogoComponent />
-          <SocialIcons  />
+      <SocialIcons  />
       <Components.Root>
         <Components.SignupContainer signUp ref={signupForm} slideUp={slideUp}>
           <Components.SignupFormTitle
@@ -54,7 +54,28 @@ export const MySkillsPage = () => {
               name="password"
              
             />
+                        <Components.SignupInput
+              type="text"
+              placeholder="GST registration details"
+              name="gstregistration"
+            />
+            <Components.SignupInput
+              type="number"
+              placeholder="Pan Card details"
+              name="pancard"
+            />
+            <Components.SignupInput
+              type="number"
+              placeholder="Contact Number"
+              name="contactnumber"
+            />
+            <Components.SignupInput
+              type="text"
+              placeholder="Business Category"
+              name="businesscategory"
+            />
           </Components.SignupForm>
+          
           <Components.SignupButton
             slideUp={slideUp}
           >
