@@ -11,8 +11,12 @@ h1,h2,h3,h4,h5,h6{
 body{
     margin:0;
     padding:0;
-    overflow-x:hidden;
-    font-family: 'Source Sas Pro', sans-serif;
+    overflow:hidden;
+    height:100vh;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #131416;
+    @media(width<900px){
+    overflow-y:scroll;
 }
 
 `
