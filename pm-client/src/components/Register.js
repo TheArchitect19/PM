@@ -15,12 +15,6 @@ export const GlobalStyle = createGlobalStyle`
    margin-top:30px;
   
   }
-  img{
-    position:absolute;
-    width:200px;
-    left:22vw;
-    z-index:1;
-  }
 `;
 
 export const Root = styled.div`
@@ -31,12 +25,23 @@ export const Root = styled.div`
   width: 70vh;
   margin:1rem;
   position: relative;
-  overflow: hidden;
-  @media(width<600px){
+  // overflow: hidden;
+  @media(width<800px){
     width: 90vw;
-    height: 80vh;
+    height: 60vh;
   }
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  img{
+    position:absolute;
+    width:200px;
+    left:-160px;
+    top:-45px;
+    z-index:1;
+    @media(width<800px){
+      display:none;
+    }
+  }
 
   &::after {
     content: "";

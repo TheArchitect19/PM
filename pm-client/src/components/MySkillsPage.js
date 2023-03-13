@@ -25,8 +25,8 @@ export const MySkillsPage = () => {
       
       <LogoComponent />
       <SocialIcons  />
-      <img src={IMG} />
       <Components.Root>
+      <img src={IMG} />
         <Components.SignupContainer signUp ref={signupForm} slideUp={slideUp}>
           <Components.SignupFormTitle
             ref={toggleSignup}
