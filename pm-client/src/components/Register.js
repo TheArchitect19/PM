@@ -162,6 +162,7 @@ export const SignupFormTitle = styled.h2`
   color: #000;
   font-size: 1.7em;
   text-align: center;
+  width:100%;
   margin:2px;
   ${props =>
     props.slideUp === true
@@ -170,6 +171,11 @@ export const SignupFormTitle = styled.h2`
     cursor: pointer;
   `
       : null}
+      div{
+        display:flex;
+        justify-content:center;
+        color:#a05e33;
+      }
 `;
 
 export const SignupInput1 = styled.input`

@@ -73,7 +73,10 @@ export const MySkillsPage = () => {
             }}
             slideUp={slideUp}
           >
+            <div>
             Register
+            </div>
+            
           </Components.SignupFormTitle>
           <Components.SignupForm slideUp={slideUp}>
             <div>
