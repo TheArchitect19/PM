@@ -82,7 +82,7 @@ export const MySkillsPage = () => {
             <div>
             <Components.SignupInput2
               type="text"
-              placeholder="Full name"
+              placeholder="Full Name"
               name="name"
               onChange={(e) => handle(e)}
             />
@@ -99,16 +99,17 @@ export const MySkillsPage = () => {
             <div>
             <Components.SignupInput1
               type="number"
-              placeholder="Contact Number"
-              name="contactno"
-              onChange={(e) => handle(e)}
-            />
-            <Components.SignupInput1
-              type="number"
               placeholder="Whatsapp Number"
               name="whatsappno"
               onChange={(e) => handle(e)}
             />
+            <Components.SignupInput2
+              type="text"
+              placeholder="Designation"
+              name="designation"
+              onChange={(e) => handle(e)}
+            />
+
             </div>
             <div>
             <Components.SignupInput1
@@ -125,6 +126,14 @@ export const MySkillsPage = () => {
             />
             </div>
             <div>
+            <Components.SignupInput2
+              type="text"
+              placeholder="Address"
+              name="address"
+              onChange={(e) => handle(e)}
+            />
+            </div>
+            <div>
             <Components.SignupInput1
               type="password"
               placeholder="Password"
@@ -133,13 +142,13 @@ export const MySkillsPage = () => {
             />
             <Components.SignupInput1
               type="password"
-              placeholder="Re-type password"
+              placeholder="Re-Type Password"
               name="repassword"
               onChange={(e) => handle(e)}
             />
             </div>
             <div className="dropdown">
-            <label for="cars">Company identity :</label>
+            <label for="cars">Company Identity :</label>
             <select id="cars" name="cars">
               <option value="proprietorship">Proprietorship</option>
               <option value="partnership">Partnership</option>
