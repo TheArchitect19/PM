@@ -1,57 +1,64 @@
-import BlogCard from '../subComponents/BlogCard'
+import React from 'react'
+
 import './WorkPage.css'
+
+import leftArrow from '../assets/Images/left-arrow.png'
+import rightArrow from '../assets/Images/right-arrow.png'
+import BlogCard from '../subComponents/BlogCard'
 import { LogoComponent } from '../subComponents/LogoComponent'
-import { SocialIcons } from '../subComponents/SocialIcons'
 import { PowerButton } from '../subComponents/PowerButton'
 
-import { useEffect } from "react";
-import { Swiper, SwiperSlide } from 'swiper/swiper-bundle.min.css';
-import SwiperCore,{
-  EffectCoverflow,
-  Pagination,
-  Navigation
-} from "swiper";
-import { Autoplay } from 'swiper';
-import "swiper/swiper.min.css";
-
-SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
-
 export const WorkPage = () => {
+    const scrollRef = React.useRef(null);
+    const scroll = (direction) => {
+        const { current } = scrollRef;
 
-  SwiperCore.use([Autoplay]);
-  SwiperCore.use([Pagination]);
-  SwiperCore.use([Navigation]);
-
-  return (
-    <>
-<div className="posts-main-container">
-<PowerButton />
-      
-      <LogoComponent />
-      <SocialIcons  />
-        <div className="posts-title">
-            <h1>BLOGS</h1>
+        if (direction === 'left') {
+        current.scrollLeft -= 300;
+        } else {
+        current.scrollLeft += 300;
+        }
+    };
+    return(
+        <div className="workpage">
+            <div className="workpage-body">
+              <LogoComponent/>
+              <PowerButton/>
+                <div className="workpage-title">
+                    Blogs
+                </div>
+                <div className="workpage-slider">
+                    <div className="workpage-topbar-left" onClick={() => scroll('left')}>
+                        Add Blog
+                    </div>
+                    <div className="workpage-topbar-right" onClick={() => scroll('right')}>
+                        Delete Blog
+                    </div>
+                </div>
+                <div className="workpage-events">
+                    <div className="workpage-events-container" ref={scrollRef}>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    </div>
+                </div>
+                <div className="workpage-slider">
+                    <div className="workpage-slider-left" onClick={() => scroll('left')}>
+                        <img src={leftArrow} alt="leftArrow"></img>
+                    </div>
+                    <div className="workpage-slider-right" onClick={() => scroll('right')}>
+                        <img src={rightArrow} alt="rightArrow"></img>
+                    </div>
+                </div>
+            </div>
         </div>
-        <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-      >
-        <SwiperSlide><BlogCard/></SwiperSlide>
-        <SwiperSlide><BlogCard/></SwiperSlide>
-        <SwiperSlide><BlogCard/></SwiperSlide>
-        <SwiperSlide><BlogCard/></SwiperSlide>
-        <SwiperSlide><BlogCard/></SwiperSlide>
-        <SwiperSlide><BlogCard/></SwiperSlide>
-        <SwiperSlide><BlogCard/></SwiperSlide>
-        <SwiperSlide><BlogCard/></SwiperSlide>
-        <SwiperSlide><BlogCard/></SwiperSlide>
-      </Swiper>
-    </div>
-    </>
-  )
-}
+    );
+};

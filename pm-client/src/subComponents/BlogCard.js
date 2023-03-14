@@ -1,23 +1,21 @@
-import React from "react";
+import React from 'react'
+
 import './BlogCard.css'
 
-const BlogCard = () => {
+const EventCard = () => {
   return (
-    <>
-      <div className="postCard-box">
-        <div className="postCard-image">
-          <img src="https://connections4success.net/app/uploads/2019/07/agenda-analysis-business-plan-990818-600x365.jpg" alt="" />
+    <div className="blogcard-card">
+        <img class='blogcard-image' src="https://macln.files.wordpress.com/2011/01/blog_logo.jpg"></img>
+        <div className="blogcard-cardtitle">
+           <div>Blog Title</div>  <div className='card-icon'>❤️</div>
         </div>
-        <div className="postCard-name">Post 1</div>
-        <div className="postCard-details">
-          Company belonging to this post is one the best companies
+        <div className="blogcard-line">
         </div>
-        <div className="postCard-button">
-          <button>Save</button>
+        <div className="blogcard-carddetails">
+            Blog Details
         </div>
-      </div>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default BlogCard;
+export default EventCard

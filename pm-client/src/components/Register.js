@@ -21,14 +21,14 @@ export const Root = styled.div`
   background-color: #FFE7D7;
 
   border-radius: 0px;
-  height: 80vh;
+  height: 83vh;
   width: 70vh;
   margin:1rem;
   position: relative;
   // overflow: hidden;
   @media(width<800px){
     width: 90vw;
-    height: 60vh;
+    height: 65vh;
   }
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
