@@ -19,7 +19,7 @@ border:none;
 display: flex;
 justify-content: center;
 align-items: center;
-z-index: 3;
+z-index: 300;
 cursor:pointer;
 
 &:hover{

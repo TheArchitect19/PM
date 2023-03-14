@@ -12,6 +12,7 @@ import AnimatedCursor from "react-animated-cursor"
 
 import { lightTheme } from "./components/Themes"
 import GlobalStyle from "./globalStyles"
+import { PhysicalShopReg } from "./components/PhysicalShopReg"
 
 function App() {
   return <>
@@ -29,7 +30,7 @@ function App() {
       <Route exact path="/about-us" component={AboutPage}/>
       <Route exact path="/services" component={BlogPage}/>
       <Route exact path="/blog" component={WorkPage}/>
-      <Route exact path="/register" component={MySkillsPage}/>
+      <Route exact path="/register" component={PhysicalShopReg}/>
     </Switch>
 
 
