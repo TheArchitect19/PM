@@ -20,9 +20,7 @@ export const MySkillsPage = () => {
     address: "",
     password: "",
     repassword: "",
-    seller: "0",
-    buyer: "0",
-    designation: "0",
+    designation: "0"
   });
 
   function handle(e) {
@@ -74,45 +72,45 @@ export const MySkillsPage = () => {
             slideUp={slideUp}
           >
             <div>
-            Register
+              Register
             </div>
-            
+
           </Components.SignupFormTitle>
           <Components.SignupForm slideUp={slideUp}>
             <div>
-            <Components.SignupInput2
-              type="text"
-              placeholder="Full Name"
-              name="name"
-              onChange={(e) => handle(e)}
-            />
+              <Components.SignupInput2
+                type="text"
+                placeholder="Full Name"
+                name="name"
+                onChange={(e) => handle(e)}
+              />
             </div>
             <div>
-            <Components.SignupInput2
-              type="email"
-              placeholder="Email"
-              name="email"
-              onChange={(e) => handle(e)}
-            />
+              <Components.SignupInput2
+                type="email"
+                placeholder="Email"
+                name="email"
+                onChange={(e) => handle(e)}
+              />
             </div>
 
             <div>
-            <Components.SignupInput1
-              type="number"
-              placeholder="Whatsapp Number"
-              name="whatsappno"
-              onChange={(e) => handle(e)}
-            />
-            <Components.SignupInput2
-              type="text"
-              placeholder="Designation"
-              name="designation"
-              onChange={(e) => handle(e)}
-            />
+              <Components.SignupInput1
+                type="number"
+                placeholder="Whatsapp Number"
+                name="phone"
+                onChange={(e) => handle(e)}
+              />
+              <Components.SignupInput2
+                type="text"
+                placeholder="Designation"
+                name="designation"
+                onChange={(e) => handle(e)}
+              />
 
             </div>
             <div>
-            <Components.SignupInput1
+              {/* <Components.SignupInput1
               type="text"
               placeholder="GST"
               name="gst"
@@ -123,39 +121,39 @@ export const MySkillsPage = () => {
               placeholder="PAN"
               name="pan"
               onChange={(e) => handle(e)}
-            />
+            /> */}
             </div>
             <div>
-            <Components.SignupInput2
-              type="text"
-              placeholder="Address"
-              name="address"
-              onChange={(e) => handle(e)}
-            />
+              <Components.SignupInput2
+                type="text"
+                placeholder="Address"
+                name="address"
+                onChange={(e) => handle(e)}
+              />
             </div>
             <div>
-            <Components.SignupInput1
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={(e) => handle(e)}
-            />
-            <Components.SignupInput1
-              type="password"
-              placeholder="Re-Type Password"
-              name="repassword"
-              onChange={(e) => handle(e)}
-            />
+              <Components.SignupInput1
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={(e) => handle(e)}
+              />
+              <Components.SignupInput1
+                type="password"
+                placeholder="Re-Type Password"
+                name="repassword"
+                onChange={(e) => handle(e)}
+              />
             </div>
-            <div className="dropdown">
-            <label for="cars">Company Identity :</label>
-            <select id="cars" name="cars">
-              <option value="proprietorship">Proprietorship</option>
-              <option value="partnership">Partnership</option>
-              <option value="publiccompany">Public company</option>
-            </select>
-            </div>
-            
+            {/* <div className="dropdown">
+              <label for="cars">Company Identity :</label>
+              <select id="cars" name="cars">
+                <option value="proprietorship">Proprietorship</option>
+                <option value="partnership">Partnership</option>
+                <option value="publiccompany">Public company</option>
+              </select>
+            </div> */}
+
           </Components.SignupForm>
 
           <Components.SignupButton slideUp={slideUp} onClick={register}>
