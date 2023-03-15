@@ -1,0 +1,51 @@
+.blogcard-card{
+    /* background-color: blueviolet; */
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.blogcard-cardtitle{
+    font-weight:600;
+    margin: 0.5rem 0;
+    min-height: 2.5rem;
+    line-height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.blogcard-cardtitle .card-icon{
+    padding-right: 0.5rem;
+}
+.blogcard-cardtitle .card-icon:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.4);
+}
+
+.blogcard-line{
+    border: 0.1px solid grey;
+    margin: 0.5rem 0;
+    font-weight: lighter;
+}
+
+.blogcard-carddetails{
+    margin: 1rem 0;
+    color: grey;
+}
+
+.blogcard-image{
+    transition: all 0.2s ease-in-out;
+    width: 400px;
+}
+
+@media(width<450px){
+    .blogcard-image{
+        width: 250px;
+    }
+}
+
+.blogcard-image:hover{
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}

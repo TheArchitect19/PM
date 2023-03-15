@@ -21,14 +21,14 @@ export const Root = styled.div`
   background-color: #FFE7D7;
 
   border-radius: 0px;
-  height: 80vh;
+  height: 83vh;
   width: 70vh;
   margin:1rem;
   position: relative;
   // overflow: hidden;
   @media(width<800px){
     width: 90vw;
-    height: 60vh;
+    height: 65vh;
   }
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
@@ -75,8 +75,10 @@ export const SignupContainer = styled.div`
 `;
 
 export const SignupForm = styled.div`
-  border-radius: 0px;
-  background-color: #fff;
+  border-radius: 10px;
+  // background-color: green;
+  display:flex;
+  flex-direction:column;
   overflow: hidden;
   margin-top: 10px;
   opacity: 1;
@@ -90,6 +92,38 @@ export const SignupForm = styled.div`
     visibility: hidden;
   `
       : null}
+
+    div{
+      display:flex;
+      flex-direction:row;
+    }
+    div.dropdown{
+      display:flex;
+      justify-content:center;
+      padding: 1rem 0;
+      
+    }
+    div.dropdown label{
+      padding: 10px 5px;
+      line-height: 30px;
+      font-size: 14px;
+    }
+    
+    div.dropdown select{
+      border: 0;
+      outline: none;
+      box-shadow: none;
+      display: block;
+      // height: 30px;
+      // line-height: 30px;
+      padding: 0px 20px;
+      border-bottom: 1px solid #eee;
+      font-size: 12px;
+      border-radius:10px;
+      border: 3px solid #f0ae82;
+      background-color:#ffffff;
+    }
+
 `;
 
 export const SignupButton = styled.button`
@@ -97,7 +131,8 @@ export const SignupButton = styled.button`
 
   color: rgba(256, 256, 256, 0.7);
   border: 0;
-  border-radius: 0px;
+  border-radius: 10px;
+  
   display: block;
   margin: 15px auto;
   padding: 15px 45px;
@@ -127,6 +162,7 @@ export const SignupFormTitle = styled.h2`
   color: #000;
   font-size: 1.7em;
   text-align: center;
+  width:100%;
   margin:2px;
   ${props =>
     props.slideUp === true
@@ -135,9 +171,14 @@ export const SignupFormTitle = styled.h2`
     cursor: pointer;
   `
       : null}
+      div{
+        display:flex;
+        justify-content:center;
+        color:#a05e33;
+      }
 `;
 
-export const SignupInput = styled.input`
+export const SignupInput1 = styled.input`
   border: 0;
   outline: none;
   box-shadow: none;
@@ -145,16 +186,37 @@ export const SignupInput = styled.input`
   height: 30px;
   line-height: 30px;
   padding: 8px 15px;
-  border-bottom: 1px solid #eee;
+  border-radius:10px;
+  border: 3px solid #f0ae82;
   width: 100%;
   font-size: 12px;
-  &:last-child {
-    border-bottom: 0;
-  }
+  margin:7px;
+  // background-color:black;
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.4);
   }
+
+`;
+export const SignupInput2 = styled.input`
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  border-radius:10px;
+  border: 3px solid #f0ae82;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  padding: 8px 15px;
+
+  width: 100%;
+  font-size: 12px;
+  margin:7px;
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
 `;
 
 // ===================================================== //
