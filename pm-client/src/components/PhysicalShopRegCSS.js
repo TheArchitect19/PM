@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle2 = createGlobalStyle`
   html, body {
     position: relative;
    min-height: 100vh;
@@ -17,18 +17,21 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Root = styled.div`
+export const Root2 = styled.div`
   background-color: #FFE7D7;
 
   border-radius: 0px;
   height: 83vh;
-  width: 70vh;
-  margin:1rem;
+  width: 90vw;
+  margin-top:2rem;
   position: relative;
   // overflow: hidden;
+  overflow-x: hidden;
+                overflow-y: auto;
   @media(width<800px){
     width: 90vw;
-    height: 65vh;
+    height: 115vh;
+    margin-top:20rem;
   }
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
@@ -57,7 +60,7 @@ export const Root = styled.div`
   }
 `;
 
-export const SignupContainer = styled.div`
+export const PhysicalRegContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -74,11 +77,15 @@ export const SignupContainer = styled.div`
       : null}
 `;
 
-export const SignupForm = styled.div`
+export const PhysicalRegForm = styled.div`
   border-radius: 10px;
   // background-color: green;
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
+  @media(width<1000px){
+    flex-direction:column;
+}
+  justify-content:space-between;
   overflow: hidden;
   margin-top: 10px;
   opacity: 1;
@@ -95,11 +102,14 @@ export const SignupForm = styled.div`
 
     div{
       display:flex;
-      flex-direction:row;
+      flex-direction:column;
+      div{
+        display:flex;
+        flex-direction:row;
+      }
     }
     div.dropdown{
       display:flex;
-      justify-content:center;
       padding: 1rem 0;
       
     }
@@ -126,7 +136,7 @@ export const SignupForm = styled.div`
 
 `;
 
-export const SignupButton = styled.button`
+export const PhysicalRegButton = styled.button`
   background-color: rgba(0, 0, 0, 0.4);
 
   color: rgba(256, 256, 256, 0.7);
@@ -158,7 +168,7 @@ export const SignupButton = styled.button`
       : null}
 `;
 
-export const SignupFormTitle = styled.h2`
+export const PhysicalRegFormTitle = styled.h2`
   color: #000;
   font-size: 1.7em;
   text-align: center;
@@ -178,7 +188,7 @@ export const SignupFormTitle = styled.h2`
       }
 `;
 
-export const SignupInput1 = styled.input`
+export const PhysicalRegInput1 = styled.input`
   border: 0;
   outline: none;
   box-shadow: none;
@@ -198,7 +208,7 @@ export const SignupInput1 = styled.input`
   }
 
 `;
-export const SignupInput2 = styled.input`
+export const PhysicalRegInput2 = styled.input`
   border: 0;
   outline: none;
   box-shadow: none;
@@ -219,134 +229,6 @@ export const SignupInput2 = styled.input`
 
 `;
 
-// ===================================================== //
-export const LoginContainer = styled.div`
-  position: absolute;
-  top: 20%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fff;
-  z-index: 5;
-  transition: all 0.3s ease;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -20px;
-    transform: translate(-50%, 0);
-    background-color: #fff;
-    width: 200%;
-    height: 250px;
-    border-radius: 50%;
-    z-index: 4;
-    transition: all 0.3s ease;
-  }
-
-  ${props =>
-    props.slideUp === false
-      ? `top: 90%;
-   -webkit-transition: all 0.3s ease;`
-      : null}
-`;
-
-export const CenterWrapper = styled.div`
-  position: absolute;
-  top: calc(50% - 10%);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 65%;
-  z-index: 5;
-  transition: all 0.3s ease;
-
-  ${props =>
-    props.slideUp === false
-      ? `top: 10%;
-   transform: translate(-50%, 0%);
-   transition: all 0.3s ease;`
-      : null}
-`;
-
-export const LoginTitle = styled.h2`
-  color: #000;
-  font-size: 1.7em;
-  text-align: center;
-
-  ${props =>
-    props.slideUp === false
-      ? `font-size: 1em;
-   margin: 0;
-   padding: 0;
-   cursor: pointer;
-   transition: all 0.3s ease;`
-      : null}
-`;
-
-export const LoginFormContainer = styled.div`
-  border-radius: 15px;
-  background-color: #fff;
-  border: 1px solid #eee;
-  overflow: hidden;
-  margin-top: 50px;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease;
-
-  ${props =>
-    props.slideUp === false
-      ? `opacity: 0;
-   visibility: hidden;
-   transition: all 0.3s ease;`
-      : null}
-`;
-
-export const LoginInput = styled.input`
-  border: 0;
-  outline: none;
-  box-shadow: none;
-  display: block;
-  height: 30px;
-  line-height: 30px;
-  padding: 8px 15px;
-  border-bottom: 1px solid #eee;
-  width: 100%;
-  font-size: 12px;
-  &:last-child {
-    border-bottom: 0;
-  }
-  &::placeholder {
-    color: rgba(0, 0, 0, 0.4);
-  }
-`;
-
-export const LoginButton = styled.button`
-  background-color: #6b92a4;
-  color: rgba(256, 256, 256, 0.7);
-  border: 0;
-  border-radius: 15px;
-  display: block;
-  margin: 15px auto;
-  padding: 15px 45px;
-  width: 100%;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease;
-  &:hover {
-    transition: all 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  ${props =>
-    props.slideUp === false
-      ? `opacity: 0;
-   visibility: hidden;
-   transition: all 0.3s ease;`
-      : null}
-`;
 
 export const InputWrapper = styled.div`
   display: flex;

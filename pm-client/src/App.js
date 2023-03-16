@@ -12,6 +12,7 @@ import AnimatedCursor from "react-animated-cursor"
 
 import { lightTheme } from "./components/Themes"
 import GlobalStyle from "./globalStyles"
+import { PhysicalShopReg } from "./components/PhysicalShopReg"
 
 function App() {
   return <>
@@ -39,4 +40,3 @@ function App() {
 }
 
 export default App
-
