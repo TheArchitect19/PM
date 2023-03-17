@@ -33,7 +33,7 @@ export const Dashboard = () => {
     }
     return (
         <div>
-            <input type="button" onClick={save} value="Click" />
+            <input type="button" onClick={save} value="Save" />
         </div>
     )
 }

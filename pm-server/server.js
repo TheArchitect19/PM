@@ -61,6 +61,18 @@ app.post('/profileSeller', (req, res) => {
   const data = req.body;
   client.query(`update users set (name, email, address, designation, iswhatsapp, password)=($1, $2, $3, $4, $5, $6) where phone=$7 and isd=$8`, [data.name, data.email, data.address, data.designation, data.iswhatsapp, data.password, data.phone, data.isd], (error, results) => {
     if (error) {
+      res.send('-2');
+    }
+    else {
+      res.status(200).send('0');
+    }
+  })
+})
+
+app.post('/login', (req, res) => {
+  const data = req.body;
+  client.query(`select phone, password from users where phone=$2 and isd=$1`, [data.isd, data.phone], (error, results) => {
+    if (error) {
       console.log(error);
       if (error.code === '23505') {
         res.send('-1');
@@ -70,7 +82,19 @@ app.post('/profileSeller', (req, res) => {
       }
     }
     else {
-      res.status(200).send('0');
+      res.status(200).send(results.rows);
+    }
+  })
+})
+
+app.post('/savePassword', (req, res) => {
+  const data = req.body;
+  client.query(`update users set password=$1 where phone=$2 and isd = $3`, [data.password, data.phone, data.isd], (error, results) => {
+    if (error) {
+      res.send('-2');
+    }
+    else {
+      res.status(200).send("0");
     }
   })
 })

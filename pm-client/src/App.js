@@ -13,6 +13,7 @@ import AnimatedCursor from "react-animated-cursor"
 import { lightTheme } from "./components/Themes"
 import GlobalStyle from "./globalStyles"
 import { PhysicalShopReg } from "./components/PhysicalShopReg"
+import { Welcome } from "./components/Welcome"
 
 function App() {
   return <>
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/blog" component={WorkPage} />
         <Route exact path="/register" component={MySkillsPage} />
         <Route exact path="/profile" component={Dashboard} />
+        <Route exact path="/welcome" component={Welcome} />
       </Switch>
     </ThemeProvider>
   </>
