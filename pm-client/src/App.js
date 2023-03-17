@@ -7,6 +7,7 @@ import { AboutPage } from './components/AboutPage'
 import { BlogPage } from './components/BlogPage'
 import { WorkPage } from './components/WorkPage'
 import { MySkillsPage } from './components/MySkillsPage'
+import { Dashboard } from './components/Dashboard'
 import AnimatedCursor from "react-animated-cursor"
 
 
@@ -31,6 +32,7 @@ function App() {
       <Route exact path="/services" component={BlogPage}/>
       <Route exact path="/blog" component={WorkPage}/>
       <Route exact path="/register" component={MySkillsPage}/>
+      <Route exact path="/profile" component={Dashboard}/>
     </Switch>
 
 

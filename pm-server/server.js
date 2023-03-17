@@ -42,8 +42,7 @@ app.get('/view-table', (req, res) => {
 app.post('/register', (req, res) => {
   const data = req.body;
 
-  client.query(`insert into users (name, email, phone, address, seller, buyer, designation, password) values ($1, $2, $3, $4, $5, $6, $7, $8)`, [data.name, data.email, data.phone, data.address, data.seller, data.buyer, data.designation, data.password], (error, results) => {
-
+  client.query(`insert into users (isd, phone) values ($1, $2)`, [data.isd, data.phone], (error, results) => {
     if (error) {
       if (error.code === '23505') {
         res.send('-1');
