@@ -7,6 +7,26 @@ import { PowerButton } from "../subComponents/PowerButton";
 import IMG from "../assets/Images/register.png";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import styled from "styled-components";
+
+const Box = styled.div`
+background-color: #ffffff;
+width:100vw;
+height: 100vh;
+overflow:hidden;
+
+width:100vw;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+button{
+  padding:10px;
+    background:black;
+    color:white;
+}
+`
 
 export const MySkillsPage = () => {
   const toggleLogin = React.useRef(null);
@@ -49,8 +69,10 @@ export const MySkillsPage = () => {
   }
 
   return (
+    <Box>
     <div className="h">
       <input type="button" onClick={register} />
     </div>
+    </Box>
   );
 };
