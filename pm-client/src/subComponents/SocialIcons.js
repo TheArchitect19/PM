@@ -29,12 +29,15 @@ z-index:3;
     width:100%;
     left: 0rem;
 }
+@media(width<900px){
+    display:none;
+}
 `
 const Line = styled.span`
 width:2px;
-
+margin-left: 0.6rem;
 height: 5rem;
-background-color: #ffffff;
+background-color: #000000;
 margin-bottom:6px;
 @media(width<900px){
     display:none;
