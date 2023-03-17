@@ -39,11 +39,29 @@ app.get('/view-table', (req, res) => {
   })
 })
 
-app.post('/register', (req, res) => {
+app.post('/registerSeller', (req, res) => {
   const data = req.body;
 
-  client.query(`insert into users (isd, phone) values ($1, $2)`, [data.isd, data.phone], (error, results) => {
+  client.query(`insert into users (isd, phone, seller, buyer, iswhatsapp) values ($1, $2, 1, 0, 0)`, [data.isd, data.phone], (error, results) => {
     if (error) {
+      if (error.code === '23505') {
+        res.send('-1');
+      }
+      else {
+        res.send('-2');
+      }
+    }
+    else {
+      res.status(200).send('0');
+    }
+  })
+})
+
+app.post('/profileSeller', (req, res) => {
+  const data = req.body;
+  client.query(`update users set (name, email, address, designation, iswhatsapp, password)=($1, $2, $3, $4, $5, $6) where phone=$7 and isd=$8`, [data.name, data.email, data.address, data.designation, data.iswhatsapp, data.password, data.phone, data.isd], (error, results) => {
+    if (error) {
+      console.log(error);
       if (error.code === '23505') {
         res.send('-1');
       }
