@@ -5,10 +5,10 @@ import './WorkPage.css'
 import leftArrow from '../assets/Images/left-arrow.png'
 import rightArrow from '../assets/Images/right-arrow.png'
 import BlogCard from '../subComponents/BlogCard'
-import { LogoComponent } from '../subComponents/LogoComponent'
-import { PowerButton } from '../subComponents/PowerButton'
 
-export const WorkPage = () => {
+const WorkPage = () => {
+
+
     const scrollRef = React.useRef(null);
     const scroll = (direction) => {
         const { current } = scrollRef;
@@ -22,8 +22,6 @@ export const WorkPage = () => {
     return(
         <div className="workpage">
             <div className="workpage-body">
-              <LogoComponent/>
-              <PowerButton/>
                 <div className="workpage-title">
                     Blogs
                 </div>
@@ -62,3 +60,5 @@ export const WorkPage = () => {
         </div>
     );
 };
+
+export default WorkPage
