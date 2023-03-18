@@ -8,23 +8,35 @@ import IMG from "../assets/Images/register.png";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import styled from "styled-components";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css' 
+import Button from '@mui/material/Button';  
 
 const Box = styled.div`
 background-color: #ffffff;
-width:100vw;
 height: 100vh;
 overflow:hidden;
-
 width:100vw;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 
-button{
-  padding:10px;
-    background:black;
-    color:white;
+
+.h .sbt-btn{
+  display:flex;
+  justify-content:center;
+align-items:center;
+}
+
+.h .sbt-btn input{
+  color:white;
+  background-color:#4169e1;
+  padding:0.5rem 1rem;
+  border:none;
+  text-align:center;
+  border-radius:9px;
+  margin:2rem;
 }
 `
 
@@ -68,10 +80,21 @@ export const MySkillsPage = () => {
     console.log(e);
   }
 
+  const [state, setState] = useState({
+    phone: ""
+  });
+
   return (
     <Box>
     <div className="h">
-      <input type="button" onClick={register} />
+        <PhoneInput
+          country={'us'}
+          value={state.phone}
+          onChange={phone => setState({ phone })}
+        />
+        <div className="sbt-btn">
+        <input type="button" value="Confirm" onClick={register} />
+        </div>
     </div>
     </Box>
   );
