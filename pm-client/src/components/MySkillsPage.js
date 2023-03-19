@@ -6,47 +6,28 @@ import { SocialIcons } from "../subComponents/SocialIcons";
 import { PowerButton } from "../subComponents/PowerButton";
 import IMG from "../assets/Images/register.png";
 import Popup from "reactjs-popup";
-// import "reactjs-popup/dist/index.css";
+import "reactjs-popup/dist/index.css";
+import styled from "styled-components";
 import { useCookies } from 'react-cookie';
 
-const SetPassword = (props) => {
-  const [form, setForm] = useState({
-    isd: props.data.isd,
-    phone: props.data.phone,
-    password: "",
-    repassword: ""
-  });
+// const Box = styled.div`
+// background-color: #ffffff;
+// width:100vw;
+// height: 100vh;
+// overflow:hidden;
 
-  function handle(e) {
-    const newData = {...form};
-    newData[e.target.name] = e.target.value;
-  }
+// width:100vw;
+// display:flex;
+// flex-direction:column;
+// justify-content:center;
+// align-items:center;
 
-  async function savePassword() {
-    await fetch("http://localhost:5000/savePassword", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form)
-    })
-    .then(res => res.json())
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  }
-
-  return (
-    <>
-      <input type="password" name="password" placeholder="Password" onChange={(e) => handle(e)} />
-      <input type="password" name="repassword" placeholder="Repeat password" onChange={(e) => handle(e)} />
-      <input type="button" value="Save" onClick={savePassword} />
-    </>
-  )
-}
+// button{
+//   padding:10px;
+//     background:black;
+//     color:white;
+// }
+// `
 
 export const MySkillsPage = () => {
   const toggleLogin = React.useRef(null);
@@ -116,10 +97,12 @@ export const MySkillsPage = () => {
   }
 
   return (
+    // <Box>
     <div className="h">
       <input type="button" onClick={register} value="Register" /><br />
       <input type="button" onClick={login} value="Log In" />
-      {inputPswd ? <SetPassword data={details}/> : <></>}
+      {/* {inputPswd ? <SetPassword data={details}/> : <></>} */}
     </div>
+    // </Box>
   );
 };

@@ -2,7 +2,6 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
-    position: relative;
    min-height: 100vh;
    min-width:100vw;
    background-color:  #ffffff;
@@ -14,6 +13,16 @@ export const GlobalStyle = createGlobalStyle`
    -moz-osx-font-smoothing: grayscale;
    margin-top:30px;
   
+  }
+  .h{
+    background-color:black;
+    height:50vh;
+    width:50vw;
+  }
+  button{
+    padding:10px;
+    background:black;
+    color:white;
   }
 `;
 
