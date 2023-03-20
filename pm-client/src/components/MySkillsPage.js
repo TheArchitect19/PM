@@ -8,26 +8,83 @@ import IMG from "../assets/Images/register.png";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import styled from "styled-components";
-import { useCookies } from 'react-cookie';
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { useCookies } from "react-cookie";
 
-// const Box = styled.div`
-// background-color: #ffffff;
-// width:100vw;
-// height: 100vh;
-// overflow:hidden;
+const Box = styled.div`
+  background-color: #ffffff;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  margin-top:10%;
+  align-items: center;
 
-// width:100vw;
-// display:flex;
-// flex-direction:column;
-// justify-content:center;
-// align-items:center;
+  p {
+    position: absolute;
+    top: 50px;
+  }
 
-// button{
-//   padding:10px;
-//     background:black;
-//     color:white;
-// }
-// `
+  .h .sbt-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .h .sbt-btn input {
+    color: white;
+    background-color: #4169e1;
+    padding: 0.5rem 1rem;
+    border: none;
+    text-align: center;
+    border-radius: 9px;
+    margin: 2rem;
+  }
+`;
+
+const ABOUT = styled.div`
+  display: flex;
+  margin-top: 4%;
+  color: #f8b13c;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-weight: 700;
+
+  background: linear-gradient(
+    to right,
+    hsl(0, 0%, 30%) 0,
+    hsl(0, 0%, 100%) 10%,
+    hsl(0, 0%, 30%) 20%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+
+  @keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 600px;
+    }
+    100% {
+      background-position: 700px;
+    }
+  }
+  @media (width<450px) {
+    margin-top: 29%;
+    font-weight: 700;
+    font-family: "Source Sans Pro", sans-serif;
+
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+  }
+`;
 
 export const MySkillsPage = () => {
   const toggleLogin = React.useRef(null);
@@ -40,7 +97,7 @@ export const MySkillsPage = () => {
 
   const [details, setDetails] = useState({
     isd: "91",
-    phone: "7004690658"
+    phone: "6202872652",
   });
 
   async function register() {
@@ -96,13 +153,25 @@ export const MySkillsPage = () => {
     })
   }
 
+  const [state, setState] = useState({
+    phone: "",
+  });
+
   return (
-    // <Box>
-    <div className="h">
-      <input type="button" onClick={register} value="Register" /><br />
-      <input type="button" onClick={login} value="Log In" />
-      {/* {inputPswd ? <SetPassword data={details}/> : <></>} */}
-    </div>
-    // </Box>
+    <>
+      <ABOUT>Registration</ABOUT>
+      <Box>
+        <div className="h">
+          <PhoneInput
+            country={"us"}
+            value={state.phone}
+            onChange={(phone) => setState({ phone })}
+          />
+          <div className="sbt-btn">
+            <input type="button" value="Confirm" onClick={register} />
+          </div>
+        </div>
+      </Box>
+    </>
   );
 };

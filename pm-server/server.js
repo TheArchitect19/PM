@@ -1,18 +1,20 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const { Client } = require('pg')
 const cors = require("cors");
+const passport = require('passport');
+const cookieSession = require('cookie-session');
+require('./Passport');
 
 const app = express()
 const port = 5000
 app.use(cors());
 
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
+app.use(cookieSession({
+  name: 'google-auth-session',
+  keys: ['key1', 'key2']
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 const client = new Client({
   user: 'admin',
@@ -28,6 +30,86 @@ client.connect(function (err) {
   console.log("Connected!");
 });
 
+
+app.get('/', (req, res) => {
+  res.send("<button><a href='/auth'>Login With Google</a></button>")
+});
+
+async function register(email, name) {
+  console.log(email);
+  client.query(`insert into users (name, email, phone, isd) values ($1, $2, $3, $4)`, [name, email, '', ''], (err, res) => {
+    if (err) {
+      console.log(err);
+      return err.code;
+    }
+    else {
+      console.log('0');
+      return '0';
+    }
+  })
+}
+
+function getNameMail(mail) {
+
+}
+
+// Auth
+app.get('/auth', passport.authenticate('google', {
+  scope:
+    ['email', 'profile']
+}));
+
+// Auth Callback
+app.get('/auth/callback',
+  passport.authenticate('google', {
+    successRedirect: '/auth/callback/success',
+    failureRedirect: '/auth/callback/failure'
+  }));
+
+// Success
+app.get('/auth/callback/success', async (req, res) => {
+  if (!req.user)
+    res.redirect('/auth/callback/failure');
+  const email = req.user.email;
+  const name = req.user.displayName;
+
+  client.query(`insert into users (name, email) values ($1, $2)`, [name, email], (err, res1) => {
+    if (err) {
+      if (err.code === "23505") {
+        client.query(`select name, email from users where email=$1`, [email], (err, res2) => {
+          if (err) {
+            console.log('-1');
+            res.redirect("http://localhost:3000/register");
+          }
+          else {
+            console.log(res2.rows);
+            res.cookie('email', res2.rows[0].email);
+            res.cookie('name', res2.rows[0].name);
+            res.cookie('login', '1')
+            res.redirect("http://localhost:3000/welcome");
+          }
+        })
+      }
+      else {
+        res.redirect("http://localhost:3000/register");
+      }
+    }
+    else {
+      res.cookie('email', email);
+      res.cookie('name', name);
+      res.cookie('login', '1')
+      res.redirect("http://localhost:3000/welcome");
+    }
+  })
+});
+
+// failure
+app.get('/auth/callback/failure', (req, res) => {
+  res.send("Error");
+})
+
+
+
 // end points
 
 app.get('/view-table', (req, res) => {
@@ -41,20 +123,35 @@ app.get('/view-table', (req, res) => {
 
 app.post('/registerSeller', (req, res) => {
   const data = req.body;
+  console.log(data);
+  // const phone = data.substr(data.length - 10);
+  // var i = data.length - 1;
+  // for(let c = 0; c < 10; c++) {
+  //   i--;
+  // }
+  // var isd = "";
+  // for (let x = 0; x <= i; x++) {
+  //   isd += data[x];
+  // }
 
-  client.query(`insert into users (isd, phone, seller, buyer, iswhatsapp) values ($1, $2, 1, 0, 0)`, [data.isd, data.phone], (error, results) => {
-    if (error) {
-      if (error.code === '23505') {
-        res.send('-1');
-      }
-      else {
-        res.send('-2');
-      }
-    }
-    else {
-      res.status(200).send('0');
-    }
-  })
+  // console.log(isd, phone);
+  // client.quert(`select * from users where phone=$1 and isd=$2`, [isd, phone], (error, results) => {
+
+  // })
+  // client.query(`insert into users (isd, phone, seller, buyer, iswhatsapp) values ($1, $2, 1, 0, 0)`, [data.isd, data.phone], (error, results) => {
+  //   if (error) {
+  //     if (error.code === '23505') {
+  //       res.send('-1');
+  //     }
+  //     else {
+  //       res.send('-2');
+  //     }
+  //   }
+  //   else {
+  //     res.status(200).send('0');
+  //   }
+  // })
+  res.send("0");
 })
 
 app.post('/profileSeller', (req, res) => {
