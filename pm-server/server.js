@@ -6,7 +6,7 @@ const cookieSession = require('cookie-session');
 require('./Passport');
 
 const app = express()
-const port = 5000
+const port = 80
 app.use(cors());
 
 app.use(cookieSession({
