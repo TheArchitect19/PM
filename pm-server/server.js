@@ -42,7 +42,7 @@ app.get('/store/auth', passport.authenticate('google', {
 );
 
 // Auth Callback
-app.get('/store/auth/callback',
+app.get('/auth/callback',
   passport.authenticate('google', {
     successRedirect: '/store/auth/callback/success',
     failureRedirect: '/store/auth/callback/failure'
