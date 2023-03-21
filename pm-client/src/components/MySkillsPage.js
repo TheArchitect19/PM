@@ -146,7 +146,7 @@ export const MySkillsPage = () => {
             onChange={(data) => setPhone({ data })}
           /> */}
           <div className="sbt-btn">
-            {/* <a href="http://localhost:5000/auth"> */}
+            {/* <a href="http://localhost:5000/store/auth"> */}
             <a href="https://pandrimarket.com/store/auth">
               <GoogleButton />
             </a>
