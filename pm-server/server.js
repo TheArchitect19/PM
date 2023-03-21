@@ -44,14 +44,14 @@ app.get('/store/auth', passport.authenticate('google', {
 // Auth Callback
 app.get('/store/auth/callback',
   passport.authenticate('google', {
-    successRedirect: '/auth/callback/success',
-    failureRedirect: '/auth/callback/failure'
+    successRedirect: '/store/auth/callback/success',
+    failureRedirect: '/store/auth/callback/failure'
   }));
 
 // Success
 app.get('/store/auth/callback/success', async (req, res) => {
   if (!req.user)
-    res.redirect('/auth/callback/failure');
+    res.redirect('/store/auth/callback/failure');
   const email = req.user.email;
   const name = req.user.displayName;
 
