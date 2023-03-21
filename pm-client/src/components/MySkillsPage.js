@@ -111,7 +111,8 @@ export const MySkillsPage = () => {
       alert("Please enter your 10-digit mobile number.");
       return;
     }
-    await fetch("http://localhost:5000/auth", {
+    // await fetch("http://localhost:5000/auth", {
+    await fetch("https://pandrimarket.com/store/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -145,7 +146,8 @@ export const MySkillsPage = () => {
             onChange={(data) => setPhone({ data })}
           /> */}
           <div className="sbt-btn">
-            <a href="http://localhost:5000/auth">
+            {/* <a href="http://localhost:5000/auth"> */}
+            <a href="https://pandrimarket.com/store/auth">
               <GoogleButton />
             </a>
           </div>
