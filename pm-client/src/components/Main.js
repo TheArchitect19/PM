@@ -193,7 +193,7 @@ export const Main = () => {
                <motion.h3
                whileHover={{scale:1.1}}
              whileTap={{scale:0.9}}
-               >Register</motion.h3>
+               >Join Us</motion.h3>
              </SKILLS>
           </BottomBar>
        </Container>

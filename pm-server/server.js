@@ -49,9 +49,6 @@ async function register(email, name) {
   })
 }
 
-function getNameMail(mail) {
-
-}
 
 // Auth
 app.get('/auth', passport.authenticate('google', {
@@ -73,11 +70,11 @@ app.get('/auth/callback/success', async (req, res) => {
   const email = req.user.email;
   const name = req.user.displayName;
 
-  client.query(`insert into users (name, email) values ($1, $2)`, [name, email], (err, res1) => {
-    if (err) {
-      if (err.code === "23505") {
-        client.query(`select name, email from users where email=$1`, [email], (err, res2) => {
-          if (err) {
+  client.query(`insert into users (name, email) values ($1, $2)`, [name, email], (err1, res1) => {
+    if (err1) {
+      if (err1.code === "23505") {
+        client.query(`select name, email from users where email=$1`, [email], (err2, res2) => {
+          if (err2) {
             console.log('-1');
             res.redirect("http://localhost:3000/register");
           }

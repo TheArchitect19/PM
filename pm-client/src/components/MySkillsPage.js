@@ -10,6 +10,7 @@ import "reactjs-popup/dist/index.css";
 import styled from "styled-components";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import GoogleButton from 'react-google-button'
 import { useCookies } from "react-cookie";
 
 const Box = styled.div`
@@ -92,35 +93,38 @@ export const MySkillsPage = () => {
   const signupForm = React.useRef(null);
   const loginForm = React.useRef(null);
   const [slideUp, toggle] = React.useState(false);
+  const [phone, setPhone] = useState({ data: "" });
   const [cookies, setCookies] = useCookies();
-  const [inputPswd, setInputPswd] = useState(false);
 
-  const [details, setDetails] = useState({
-    isd: "91",
-    phone: "6202872652",
-  });
+  useEffect(() => {
+    function redirect() {
+      if (cookies['login'] === '1') {
+        window.location.href = "/welcome";
+      }
+    }
+    redirect();
+  }, []);
 
   async function register() {
-    await fetch("http://localhost:5000/registerSeller", {
+    const num = phone.data;
+    if (num.length < 10) {
+      alert("Please enter your 10-digit mobile number.");
+      return;
+    }
+    await fetch("http://localhost:5000/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(details),
+      body: JSON.stringify(phone),
     })
       .then((res) => res.json())
       .then((res) => {
         if (res === 0) {
           alert("Account created");
-          setCookies('phone', details.phone);
-          setCookies('isd', details.isd);
-          setCookies('login', 1);
-          window.location.href = "/welcome";
-        }
-        else if (res === -1) {
-          alert("User already exists, Please sign in");
-        }
-        else {
+        } else if (res === -1) {
+          alert("Email already exists");
+        } else {
           alert("Server error");
         }
       })
@@ -130,45 +134,20 @@ export const MySkillsPage = () => {
       });
   }
 
-  async function login() {
-    await fetch("http://localhost:5000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(details),
-    })
-    .then(res => res.json())
-    .then(res => {
-      console.log(res.password);
-      if (res.length === 0) {
-        alert("No such user exists, Please register.");
-      }
-      else if (res.password === undefined) {
-        setInputPswd(true);
-      }
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  }
-
-  const [state, setState] = useState({
-    phone: "",
-  });
-
   return (
     <>
       <ABOUT>Registration</ABOUT>
       <Box>
         <div className="h">
-          <PhoneInput
-            country={"us"}
-            value={state.phone}
-            onChange={(phone) => setState({ phone })}
-          />
+          {/* <PhoneInput
+            country={"in"}
+            value={phone.data}
+            onChange={(data) => setPhone({ data })}
+          /> */}
           <div className="sbt-btn">
-            <input type="button" value="Confirm" onClick={register} />
+            <a href="http://localhost:5000/auth">
+              <GoogleButton />
+            </a>
           </div>
         </div>
       </Box>

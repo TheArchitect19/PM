@@ -73,6 +73,18 @@ export const Dashboard = () => {
                     <div className="col-md-6">
                         <div className="mb-3">
                             <label htmlFor="exampleInputName" className="form-label">
+                                PAN Number
+                            </label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="exampleInputName"
+                                aria-describedby="emailHelp"
+                                name="name"
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="exampleInputName" className="form-label">
                                 Your Full Name
                             </label>
                             <input
@@ -83,6 +95,7 @@ export const Dashboard = () => {
                                 name="name"
                             />
                         </div>
+
                         <div className="mb-3">
                             <label htmlFor="exampleInputEmail1" className="form-label">
                                 Email Address
@@ -104,7 +117,6 @@ export const Dashboard = () => {
                                 className="form-control"
                                 id="exampleInputPhone"
                                 aria-describedby="emailHelp"
-                                value={"+" + form.isd + "-" + form.phone}
                             />
                         </div>
 
