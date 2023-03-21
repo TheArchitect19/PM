@@ -14,6 +14,7 @@ import { lightTheme } from "./components/Themes"
 import GlobalStyle from "./globalStyles"
 import { PhysicalShopReg } from "./components/PhysicalShopReg"
 import { Welcome } from "./components/Welcome"
+import { Shops } from "./components/Shops"
 
 function App() {
   return <>
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/register" component={MySkillsPage} />
         <Route exact path="/profile" component={Dashboard} />
         <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/shops" component={Shops} />
       </Switch>
     </ThemeProvider>
   </>

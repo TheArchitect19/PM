@@ -6,10 +6,13 @@ export const Welcome = () => {
 
     useEffect(() => {
         function checkLog() {
-            if (cookies['login'] !== '1') {
-                alert("Please login to continue.");
-                window.location.href = "/register";
+            if (!cookies.hasOwnProperty('userData')) {
+                if (cookies.hasOwnProperty('login')) {}
             }
+            // if (cookies['login'] !== '1') {
+            //     alert("Please login to continue.");
+            //     window.location.href = "/register";
+            // }
         }
         checkLog();
     }, []);
@@ -33,7 +36,7 @@ export const Welcome = () => {
             <br />
             <input type="button" value="Logout" onClick={logout} />
             <br />
-            <input type="button" value="My Shops" onClick={logout} />
+            <input type="button" value="My Shops" onClick={() => { window.location.href = "/shops" }} />
             <br />
             <input type="button" value="Sell Your Products" onClick={logout} />
         </div>
