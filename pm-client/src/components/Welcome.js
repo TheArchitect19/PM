@@ -30,7 +30,7 @@ export const Welcome = () => {
 
     return (
         <div>
-            Welcome, {cookies['name']}
+            Welcome, {cookies['userData']['name']}
             <br />
             <input type="button" value="Profile" onClick={goToProfile} />
             <br />
