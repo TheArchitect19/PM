@@ -70,8 +70,9 @@ app.get('/store/auth/callback/success', async (req, res) => {
               name: res2.rows[0].name,
               login: 1
             }
-            res.cookie('userData', data, { domain: 'pandrimarket.com', path: '/' });
+            // res.cookie('userData', data);
             // res.redirect("http://localhost:3000/welcome");
+            res.cookie('userData', data, { domain: 'pandrimarket.com', path: '/' });
             res.redirect("https://store.pandrimarket.com/welcome");
           }
         })
@@ -87,8 +88,9 @@ app.get('/store/auth/callback/success', async (req, res) => {
         name: name,
         login: 1
       }
-      res.cookie('userData', data, { domain: 'pandrimarket.com', path: '/' });
+      // res.cookie('userData', data);
       // res.redirect("http://localhost:3000/welcome");
+      res.cookie('userData', data, { domain: 'pandrimarket.com', path: '/' });
       res.redirect("https://store.pandrimarket.com/welcome");
     }
   })

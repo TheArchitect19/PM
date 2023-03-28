@@ -96,13 +96,25 @@ export const MySkillsPage = () => {
   const [phone, setPhone] = useState({ data: "" });
   const [cookies, setCookies] = useCookies();
 
+  // useEffect(() => {
+  //   function redirect() {
+  //     if (cookies['login'] === '1') {
+  //       window.location.href = "/welcome";
+  //     }
+  //   }
+  //   redirect();
+  // }, []);
+
   useEffect(() => {
-    function redirect() {
-      if (cookies['login'] === '1') {
-        window.location.href = "/welcome";
-      }
-    }
-    redirect();
+    // Define the 'otpless' function
+    window.otpless = (otplessUser) => {
+      // Retrieve the user's details after successful login
+      const waName = otplessUser.waName;
+      const waNumber = otplessUser.waNumber;
+
+      // Handle the signup/signin process
+      // ...
+    };
   }, []);
 
   async function register() {
