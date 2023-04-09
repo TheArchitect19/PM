@@ -15,6 +15,7 @@ import GlobalStyle from "./globalStyles"
 import { PhysicalShopReg } from "./components/PhysicalShopReg"
 import { Welcome } from "./components/Welcome"
 import { Shops } from "./components/Shops"
+import { useEffect } from "react"
 
 function App() {
   return <>

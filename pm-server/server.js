@@ -3,12 +3,12 @@ const { Client } = require('pg')
 const cors = require("cors");
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const sdk = require('api')('@msg91api/v5.0#171eja12lf0xqafw');
 require('./Passport');
 
 const app = express()
 const port = 5000
 app.use(cors());
-
 app.use(cookieSession({
   name: 'google-auth-session',
   keys: ['key1', 'key2']
@@ -112,6 +112,23 @@ app.get('/store/view-table', (req, res) => {
     }
     res.status(200).json(results.rows);
   })
+})
+
+app.get('/whatsappLogin', (req, res) => {
+  client.query('insert into users ')
+})
+
+app.get('/otp', (req, res) => {
+  sdk.auth('392871AdtazSD264171a8dP1');
+  sdk.sendSms({
+    template_id: '64303109d6fc054c4e1e4803',
+    sender: 'pandri',
+    short_url: '1 (On) or 0 (Off)',
+    mobiles: '916202872652',
+    VAR1: '1234',
+  })
+    .then(({ data }) => console.log(data))
+    .catch(err => console.error(err));
 })
 
 app.listen(port, () => {

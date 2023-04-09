@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled, {keyframes} from 'styled-components'
 import { LogoComponent } from '../subComponents/LogoComponent'
 import { SocialIcons } from '../subComponents/SocialIcons'
@@ -148,6 +148,17 @@ export const Main = () => {
 
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+
+  useEffect(() => {
+    window.otpless = (otplessUser) => {
+      const waName = otplessUser.waName;
+      const waNumber = otplessUser.waNumber;
+
+      console.log(123);
+      console.log(waName, waNumber);
+    };
+  }, []);
+
   return (
     <MainContainer>
   
@@ -189,11 +200,11 @@ export const Main = () => {
              whileTap={{scale:0.9}}
                >About Us</motion.h3>
              </ABOUT>
-             <SKILLS to="/register">
+             <SKILLS to="/welcome">
                <motion.h3
                whileHover={{scale:1.1}}
              whileTap={{scale:0.9}}
-               >Join Us</motion.h3>
+               >Get Started</motion.h3>
              </SKILLS>
           </BottomBar>
        </Container>
