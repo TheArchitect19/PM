@@ -3,11 +3,10 @@ const { Client } = require('pg')
 const cors = require("cors");
 const passport = require('passport');
 const cookieSession = require('cookie-session');
-const sdk = require('api')('@msg91api/v5.0#171eja12lf0xqafw');
 require('./Passport');
 
-const app = express()
-const port = 5000
+const app = express();
+const port = 5000;
 app.use(cors());
 app.use(cookieSession({
   name: 'google-auth-session',
@@ -22,7 +21,7 @@ const client = new Client({
   database: 'PM',
   password: '?@123PM?@1983',
   port: 5432,
-})
+});
 
 
 client.connect(function (err) {
@@ -88,8 +87,6 @@ app.get('/store/auth/callback/success', async (req, res) => {
         name: name,
         login: 1
       }
-      // res.cookie('userData', data);
-      // res.redirect("http://localhost:3000/welcome");
       res.cookie('userData', data, { domain: 'pandrimarket.com', path: '/' });
       res.redirect("https://store.pandrimarket.com/welcome");
     }
@@ -115,8 +112,9 @@ app.get('/store/view-table', (req, res) => {
 
 app.get('/store/register', (req, res) => {
   console.log(req);
+  console.log(req.body);
 });
 
 app.listen(port, () => {
-  console.log(`App running on port ${port}.`)
+  console.log(`App running on port ${port}.`);
 });

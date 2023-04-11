@@ -96,21 +96,10 @@ export const MySkillsPage = () => {
   const [phone, setPhone] = useState({ data: "" });
   const [cookies, setCookies] = useCookies();
 
-  // useEffect(() => {
-  //   function redirect() {
-  //     if (cookies['login'] === '1') {
-  //       window.location.href = "/welcome";
-  //     }
-  //   }
-  //   redirect();
-  // }, []);
-
   useEffect(() => {
     window.otpless = (otplessUser) => {
       const waName = otplessUser.waName;
       const waNumber = otplessUser.waNumber;
-
-      console.log(waName, waNumber);
     };
   }, []);
 
