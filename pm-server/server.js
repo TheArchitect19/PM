@@ -32,7 +32,7 @@ client.connect(function (err) {
 
 
 app.get('/store', (req, res) => {
-  res.send("Backend is working");
+  res.send("Backend is ready");
 });
 
 // Auth
@@ -104,7 +104,6 @@ app.get('/store/auth/callback/failure', (req, res) => {
 
 
 // end points
-
 app.get('/store/view-table', (req, res) => {
   client.query('SELECT * FROM users', (error, results) => {
     if (error) {
@@ -112,25 +111,12 @@ app.get('/store/view-table', (req, res) => {
     }
     res.status(200).json(results.rows);
   })
-})
+});
 
-app.get('/whatsappLogin', (req, res) => {
-  client.query('insert into users ')
-})
-
-app.get('/otp', (req, res) => {
-  sdk.auth('392871AdtazSD264171a8dP1');
-  sdk.sendSms({
-    template_id: '64303109d6fc054c4e1e4803',
-    sender: 'pandri',
-    short_url: '1 (On) or 0 (Off)',
-    mobiles: '916202872652',
-    VAR1: '1234',
-  })
-    .then(({ data }) => console.log(data))
-    .catch(err => console.error(err));
-})
+app.get('/store/register', (req, res) => {
+  console.log(req);
+});
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
-})
+});
