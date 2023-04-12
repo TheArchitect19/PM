@@ -42,8 +42,13 @@ app.get('/store/view-table', (req, res) => {
 
 app.post('/store/register', (req, res) => {
   client.query(`insert into users (name, phone) values ($1, $2)`, [req.body.name, req.body.number], (err, results) => {
-    if (err.code === '23505') {
-      res.send("-1");
+    if (err) {
+      if (err.code === '23505') {
+        res.send("-1");
+      }
+      else {
+        res.send("1");
+      }
     }
     else {
       res.send("0");

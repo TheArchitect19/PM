@@ -171,6 +171,9 @@ export const Main = () => {
           alert("Phone number already registered. You can continue.");
           window.location.href = "/welcome";
         }
+        else {
+          alert("Server error.");
+        }
       })
       .catch(err => {
         console.log(err);
@@ -178,9 +181,9 @@ export const Main = () => {
   }
 
   useEffect(() => {
-    window.otpless = (otplessUser) => {
-      const waName = otplessUser.waName;
-      const waNumber = otplessUser.waNumber;
+    window.otpless = async (otplessUser) => {
+      const waName = await otplessUser.waName;
+      const waNumber = await otplessUser.waNumber;
       const data = {
         name: waName,
         number: waNumber
