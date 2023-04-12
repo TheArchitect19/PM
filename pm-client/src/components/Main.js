@@ -145,32 +145,49 @@ const DarkDiv = styled.div`
 `
 
 export const Main = () => {
-
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+  const [d, setD] = useState({
+    name: "p"
+  });
 
   async function register(data) {
     console.log(data);
-    await fetch(`https://pandrimarket.com/store/register`, {
+    await fetch(`https://95d5-182-77-95-89.ngrok-free.app/store/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data)
     })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        if (res === 0) {
+          alert("Account registered");
+          window.location.href = "/welcome";
+        }
+        else if (res === -1) {
+          alert("Phone number already registered. You can continue.");
+          window.location.href = "/welcome";
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   useEffect(() => {
     window.otpless = (otplessUser) => {
       const waName = otplessUser.waName;
       const waNumber = otplessUser.waNumber;
-
       const data = {
         name: waName,
         number: waNumber
       };
       register(data);
     };
+
   }, []);
 
   return (
