@@ -34,17 +34,7 @@ app.get('/store', (req, res) => {
 });
 
 // middleware
-function authenticate(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-  if (token == null) return res.sendStatus(401);
 
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  })
-}
 
 // end points
 app.post('/store/login', (req, res) => {
@@ -58,14 +48,32 @@ app.post('/store/login', (req, res) => {
 });
 
 app.get('/store/view-table', authenticate, (req, res) => {
-  client.query('SELECT * FROM users', (error, results) => {
-    if (error) {
-      throw error
-    }
-    res.status(200).json(results.rows);
-  })
-  res.send(req.body);
+  // console.log(res.user);
+  if (res.user.username === "PM" && res.user.password === "?@123PM?@1983") {
+    client.query('SELECT * FROM users', (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.send(results.rows);
+    })
+  }
+  else res.sendStatus(403);
 });
+
+function authenticate(req, res, next) {
+  const token = req.headers.authorization;
+  // const  = authHeader && authHeader.split(' ')[1];
+  if (token == null) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, user) => {
+    if (err) {
+      console.log(err);
+      return res.sendStatus(403);
+    }
+    res.user = user;
+    next();
+  })
+}
 
 app.post('/store/register', (req, res) => {
   client.query(`insert into users (name, phone) values ($1, $2)`, [req.body.name, req.body.number], (err, results) => {
