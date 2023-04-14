@@ -1,0 +1,12 @@
+GET http://localhost:5000/store/view-table
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlBNIiwicGFzc3dvcmQiOiI_QDEyM1BNP0AxOTgzIiwiaWF0IjoxNjgxNDQzOTUwfQ.BUarKqYgCmG2T7VZBEHt0vA1pzxbm4EUFsUyqh2yqoQ
+
+###
+
+POST http://localhost:5000/store/login
+Content-Type: application/json
+
+{
+    "username": "PM",
+    "password": "?@123PM?@1983"
+}

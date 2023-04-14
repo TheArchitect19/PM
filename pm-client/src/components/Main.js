@@ -153,7 +153,7 @@ export const Main = () => {
 
   async function register(data) {
     console.log(data);
-    await fetch(`https://95d5-182-77-95-89.ngrok-free.app/store/register`, {
+    await fetch(`https://pandrimarket.com/store/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -184,18 +184,20 @@ export const Main = () => {
     window.otpless = async (otplessUser) => {
       const waName = await otplessUser.waName;
       const waNumber = await otplessUser.waNumber;
+      const waId = await otplessUser.waId;
+      console.log(waId);
       const data = {
         name: waName,
         number: waNumber
       };
       register(data);
+      console.log(otplessUser);
     };
-
+    // const items = JSON.parse(localStorage.getItem('waId', path='https://otpless.com/'));
   }, []);
 
   return (
     <MainContainer>
-
       <DarkDiv click={click} />
       <Container>
         <LogoComponent theme={click ? 'dark' : 'light'} />
