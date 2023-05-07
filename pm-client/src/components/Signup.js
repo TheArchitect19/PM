@@ -99,7 +99,7 @@ export const Signup = () => {
 
   async function check() {
     if (state.phone.length >= 10) {
-      await fetch(`http://localhost:5000/store/checkSeller`, {
+      await fetch(`https://pandrimarket.com/store/checkSeller`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -134,7 +134,7 @@ export const Signup = () => {
 
   async function register() {
     let token = "";
-    await fetch(`http://localhost:5000/store/regSelGen`, {
+    await fetch(`https://pandrimarket.com/store/regSelGen`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -146,7 +146,7 @@ export const Signup = () => {
         token = res.accessToken;
       })
 
-    await fetch(`http://localhost:5000/store/registerSeller`, {
+    await fetch(`https://pandrimarket.com/store/registerSeller`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
