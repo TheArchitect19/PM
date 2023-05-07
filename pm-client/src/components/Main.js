@@ -151,51 +151,6 @@ export const Main = () => {
     name: "p"
   });
 
-  async function register(data) {
-    console.log(data);
-    await fetch(`https://pandrimarket.com/store/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        if (res === 0) {
-          alert("Account registered");
-          window.location.href = "/welcome";
-        }
-        else if (res === -1) {
-          alert("Phone number already registered. You can continue.");
-          window.location.href = "/welcome";
-        }
-        else {
-          alert("Server error.");
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-
-  useEffect(() => {
-    window.otpless = async (otplessUser) => {
-      const waName = await otplessUser.waName;
-      const waNumber = await otplessUser.waNumber;
-      const waId = await otplessUser.waId;
-      console.log(waId);
-      const data = {
-        name: waName,
-        number: waNumber
-      };
-      register(data);
-      console.log(otplessUser);
-    };
-    // const items = JSON.parse(localStorage.getItem('waId', path='https://otpless.com/'));
-  }, []);
-
   return (
     <MainContainer>
       <DarkDiv click={click} />
@@ -236,7 +191,7 @@ export const Main = () => {
               whileTap={{ scale: 0.9 }}
             >About Us</motion.h3>
           </ABOUT>
-          <SKILLS to="/welcome">
+          <SKILLS to="/signup">
             <motion.h3
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
