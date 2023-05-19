@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.colnav{
+     background: #FFF3B2CC;
+    
+    height: 40vh;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main{
+  display: flex;
+}
+.colnav h3{
+  font-family: 'Poppins';
+  color: #000000;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 15px;
+}
+.colnav h5{
+  font-family: 'Poppins';
+  color: #000000;
+  font-weight: 500;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.inloc{
+  width: 30vw;
+  height: 45px;
+  background: #FFF3B2CC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin-top: 8vh;
+  
+  
+}
+.inloc input{
+  width: 24vw;
+  height: 45px;
+  border: 0px;
+  border-radius: 8px;
+  
+  padding-left: 5px;
+}
+.inloc img{
+  width: 6.5vw;
+  height: 38px;
+  padding: 3.5px;
+  border-radius: 10px;
+  border: 0px;
+}
+.shop{
+  margin-top: 8vh;
+  padding-left: 5px;
+  background:#ffffff;
+  font-weight: 600;
+  border-right: 4px solid #D9D9D9;
+  display: flex;
+  align-items: center;
+}
+.drop{
+  width: 20px;
+  padding: 5px;
+}
+.spim{
+padding: 5px;
+}
+.search{
+  margin-top: 8vh;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: #FFF3B2CC;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.btn{
+  padding: 5px;
+  color: white;
+  background: #E23C51;
+  width: 100px;
+  font-weight: 600;
+  border-radius: 7px;
+  height: 6.5vh;
+}
+.btn:hover{
+  padding: 5px;
+  color: white;
+  background: #e7314a;
+  font-weight: 700;
+}
+.sb{
+  padding: 2px;
+  height: 25px;
+}
+.outcol{
+  display: flex;
+  justify-content: space-between;
+  background: #FFF3B5;
+    
+  
+
+}
+
+@media(max-width:1200px){
+  .ll{
+    display: none;
+  }
+  .outcol{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF3B5;
+      
+    
+  
+  }
+}

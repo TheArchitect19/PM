@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.section4Container {
+  /* magic */
+  display: flex;
+  /* x axis center of child divs */
+  justify-content: center;
+  /* background image */
+  background: url("../assets/svg/hero.png");
+  /* fit the image in the whole background / cover full area */
+  background-size: cover;
+  /* image should not repeat */
+  background-repeat: no-repeat;
+  /* height of div */
+  height: 70vh;
+  /* y axis center of child divs */
+  align-items: center;
+  /* all the child divs will align column wise  */
+  flex-direction: column;
+  /* useful for its child element */
+  position: relative;
+}
+.section4Container div {
+  /* magic */
+  display: flex;
+}
+.abt{
+  width: 100%;
+}
+@media (width<900px) {
+  .section4Container div {
+    flex-direction: column;
+  }
+}
+.section4Container div a {
+  /* decoration starts  */
+  padding: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  /* decoration ends */
+  /* why not black? 100% black is not professional */
+  color: #2f2f2f;
+}
+.section4Container div a:hover {
+  /* decoration starts */
+  color: #ffffff;
+  text-shadow: 1.5px 1.5px 2px rgb(39, 39, 39);
+  /* decoration ends */
+}
+
+.section4Container div:last-child {
+  position: relative;
+  width: 50%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.section4Container div:last-child img {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+}
+
+.s7d1 {
+  height: 30vh;
+  background-color: #ffe2a2;
+  margin-bottom: 13rem;
+}
+@media(width<600px){
+    .section4Container div:last-child {
+      width: 100%;
+    }
+    .str{
+      position: relative;
+    }
+    .section4Container div:last-child img {
+      top: 60px;
+    }
+.s7d1{
+    height:30vh;
+    /* margin-bottom: 5rem; */
+}
+.ourCommunity div:last-child img {
+    padding: 1rem;
+  }
+}
+
+.section4Container3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem 10rem ;
+  }
+  .section4Container3 p {
+      color:#2f2f2f;
+  text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 15px;
+  }
+  .section4Container3 p:last-child{
+      font-size: 23px;
+  }
+  @media(width<900px){
+      .section4Container3 {
+          padding: 0rem;
+      }
+      .section4Container3 p{
+          font-size: 18px;
+      }
+      .section4Container3 p:last-child{
+          font-size: 15px;
+      }
+  }
+
+
+  .section4Container2 {
+    /* magic */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* sending the child element rightwards */
+  /* justify-content: end; */
+  /* color taken from figma file */
+  background: #feffd1;
+  margin: 2rem;
+  border-radius: 20px;
+}
+.section4Container2 div{
+    width: 50%;
+}
+.section4Container2 div img{
+    width: 100%;
+    padding: 2rem 7rem;
+}
+
+.section4Container2 p {
+    /* rightmost half */
+    width: 50%;
+    /* decoration starts */
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins";
+  line-height: 30px;
+  padding: 2rem;
+  color: #2f2f2f;
+  /* decoration ends */
+}
+
+@media(width<1200px){
+    .section4Container2 {
+        justify-content: center;
+        flex-direction: column;
+        margin: 1rem 0.5rem;
+    }
+    .section4Container2 p {
+        width: 100%;
+        padding: 1rem;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 20px;
+        margin: 0;
+    }
+    .section4Container3 p {
+        width: 100%;
+        padding: 1rem;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 20px;
+        margin: 0;
+    }
+    .section4Container2 div{
+        width: 100%;
+    }
+    .section4Container2 div img{
+        padding: 0.5rem;
+    }
+    .s7d1{
+      margin-bottom: 0;
+    }
+}
+
+@media(width<900px){
+
+.section4Container div a {
+  /* decoration starts  */
+  padding: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  /* decoration ends */
+  /* why not black? 100% black is not professional */
+  color: #2f2f2f;
+}
+.section4Container{
+  height: 50vh;
+}
+}

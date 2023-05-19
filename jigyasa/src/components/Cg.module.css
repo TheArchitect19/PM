@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.colnav{
+    background: white;
+    height: 65vh;    
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.tg{   
+    display: flex;
+}
+.tg ul{   
+    padding-right: 3%;
+    list-style: none; 
+}
+.cg{
+    height: 50vh;
+    margin-left: 10vw;
+}
+.it{
+    display: flex;
+    flex-direction: column;
+    margin-right: 5vw;
+}
+.it h3{
+    padding: 3%;
+}
+.it h5{
+    color: #8A8A8A;
+    padding-left: 3%;
+}
+.tg ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #E53F52; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1.13em; /* Also needed for space (tweak if needed) */
+  }
+  @media(max-width:700px){
+    .cg{
+        margin-top: 5vh;
+    }
+    .colnav{
+        flex-direction: column;    
+        display: flex;
+        height: 100vh;
+    }
+  }
+  @media(max-width:400px){
+    .cg{
+        margin-top: 5vh;
+        width: 250px;
+        height: 40vh;
+    }
+    .colnav{
+        flex-direction: column;    
+        display: flex;
+        height: 75vh;
+    }
+    .it h3{
+        padding: 6%;
+        font-size: larger;
+    }
+    .it h5{
+        color: #8A8A8A;
+        padding-left: 5%;
+    }
+    li{
+        font-size: small;
+    }
+  }

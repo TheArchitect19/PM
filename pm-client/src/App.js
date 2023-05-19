@@ -7,7 +7,6 @@ import { AboutPage } from './components/AboutPage'
 import { BlogPage } from './components/BlogPage'
 import { Signup } from './components/Signup'
 import { Dashboard } from './components/Dashboard'
-import { FirebaseLogin } from './components/FirebaseLogin'
 import AnimatedCursor from "react-animated-cursor"
 
 import { lightTheme } from "./components/Themes"

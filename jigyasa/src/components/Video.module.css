@@ -1,0 +1,18 @@
+.vid{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 5vh;
+}
+@media(max-width:400px){
+.vid{
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 0vh;
+}
+}
+
+
