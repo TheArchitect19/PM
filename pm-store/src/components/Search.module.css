@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.colnav{
+    background: linear-gradient(0deg, #FF9B26 , #C549FF 83%);
+    height: 40vh;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main{
+  display: flex;
+}
+.colnav h1{
+  font-family: 'Poppins';
+  color: #830727;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.inloc{
+  width: 30vw;
+  height: 45px;
+  background:  #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin-top: 8vh;
+  border-right: 4px solid #D9D9D9;
+  
+  
+}
+.inloc input{
+  width: 24vw;
+  height: 45px;
+  border: 0px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding-left: 5px;
+}
+.inloc img{
+  width: 6.5vw;
+  height: 38px;
+  padding: 3.5px;
+  border-radius: 10px;
+  border: 0px;
+}
+.shop{
+  margin-top: 8vh;
+  padding-left: 5px;
+  background:#ffffff;
+  font-weight: 600;
+  border-right: 4px solid #D9D9D9;
+  display: flex;
+  align-items: center;
+}
+.drop{
+  width: 20px;
+  padding: 5px;
+}
+.spim{
+padding: 5px;
+}
+.search{
+  margin-top: 8vh;
+  padding-left: 5px;
+  padding-right: 5px;
+  background:#ffffff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.btn{
+  padding: 5px;
+  color: white;
+  background: #E23C51;
+  width: 100px;
+  font-weight: 600;
+  border-radius: 7px;
+  height: 6.5vh;
+  padding-right: 10px;
+}
+.btn:hover{
+  padding: 5px;
+  color: white;
+  background: #e7314a;
+  font-weight: 700;
+}
+.sb{
+  padding: 2px;
+  height: 25px;
+}
+@media(max-width:1100px){
+  .inloc img{
+    display: none;
+  }
+}
+@media(max-width:400px){
+  .colnav{
+    height: 30vh;    
+
+}
+  .colnav h1{
+    font-size: larger;
+  }
+  .inloc{
+    width: 15vw;
+    height: 25px;
+  }
+  .inloc input{
+    width: 15vw;
+    height: 25px;
+   
+  }
+  .shop{
+    font-size: small;
+    height: 25px;
+  }
+  .spim{
+    padding: 2px;
+    height: 20px;
+    }
+    .drop{
+      width: 10px;
+      padding: 2px;
+    }
+    .btn{
+      padding: 1px;
+      color: white;
+      background: #E23C51;
+      width: 80px;
+      font-weight: 100;
+      border-radius: 7px;
+      font-size: small;
+      height: 22px;
+      padding-right: 10px;
+    }
+    .sb{
+      padding: 1px;
+      height: 20px;
+    }
+
+}

@@ -1,0 +1,17 @@
+button{
+    border: none;
+    padding: 1rem;
+    background-color: #fdb2109e;
+    border-radius: 500px ;
+    font-weight: 900;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #ffd57a9e;
+}
+.Button1Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}

@@ -1,0 +1,239 @@
+.section2Container{
+padding: 2rem 0;
+}
+.Section2Wrapper{
+    display: flex;
+    flex-direction: row;
+    background:url('../assets/svg/rounded-div.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding:2.5rem 3rem;
+    height: 400px;
+}
+.section2Img{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section2Img img{
+    /* height: 85%; */
+    width: 100%;
+}
+.section2Details{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 3rem;
+}
+.section2Heading{
+    display: inline-block;
+    border-bottom: 1px solid black;
+    line-height: 50px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.section2Details p{
+    font-size: 16px;
+    padding: 2rem 0;
+    line-height: 25px;
+}
+
+.section2Person{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.section2Person img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.section2Person p{
+    padding-left: 1rem;
+    margin: 0;
+}
+
+@media(width<900px){
+    .section2Container{
+        padding: 1rem 0;
+        }
+        .Section2Wrapper{
+            display: flex;
+            flex-direction: row;
+            background:url('../assets/svg/rounded-div.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            padding:1.5rem 2rem;
+            height: 250px;
+        }
+        .section2Img{
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .section2Img img{
+            height: 65%;
+        }
+        .section2Details{
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            /* align-items: center; */
+            justify-content: center;
+            padding: 1.3rem;
+        }
+        .section2Heading{
+            display: inline-block;
+            border-bottom: 1px solid black;
+            line-height: 26px;
+            font-size: 20px;
+        }
+        
+        .section2Details p{
+            font-size: 14px;
+            padding: 1rem 0;
+            line-height: 20px;
+        }
+        
+        .section2Person{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .section2Person img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .section2Person p{
+            padding-left: 1rem;
+        }
+}
+@media(width<700px){
+    .section2Container{
+        padding: 0.5rem 0;
+        
+        }
+        .Section2Wrapper{
+            display: flex;
+                flex-direction: row;
+                background:url('../assets/svg/rounded-div2.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: right;
+                padding:0.5rem 1rem;
+            height: 250px;
+        }
+        .section2Img{
+            width: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 1rem;
+        }
+        .section2Img img{
+            height: 55%;
+        }
+        .section2Details{
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            /* align-items: center; */
+            justify-content: center;
+            padding: 0.3rem;
+        }
+        .section2Heading{
+            display: inline-block;
+                border-bottom: 1px solid black;
+                line-height: 20px;
+                 font-size: 14px;
+                 font-weight: 700;
+        }
+        
+        .section2Details p{
+            font-size: 12px;
+            padding: 0.5rem 0;
+            line-height: 14px;
+        }
+        
+        .section2Person{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .section2Person img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .section2Person p{
+            padding-left: 1rem;
+        }
+}
+@media(width<500px){
+    .section2Container{
+        padding: 0.5rem 0;
+        
+        }
+        .Section2Wrapper{
+            display: flex;
+                flex-direction: row;
+                background:url('../assets/svg/rounded-div2.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: right;
+                padding:0.5rem 1rem;
+            height: 200px;
+        }
+        .section2Img{
+            width: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 1rem;
+        }
+        .section2Img img{
+            height: 45%;
+        }
+        .section2Details{
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            /* align-items: center; */
+            justify-content: center;
+            padding: 0.3rem;
+        }
+        .section2Heading{
+            display: inline-block;
+            border-bottom: 1px solid black;
+            line-height: 13px;
+             font-size: 10px;
+             font-weight: 700;
+        }
+        
+        .section2Details p{
+            font-size: 9px;
+            padding: 0.5rem 0;
+            line-height: 10px;
+            margin: 0;
+        }
+        
+        .section2Person{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .section2Person img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .section2Person p{
+            padding-left: 0.5rem;
+        }
+}
