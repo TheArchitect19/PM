@@ -8,6 +8,8 @@ import Story from './pages/Story';
 import Home from './pages/Home';
 import Vision from './pages/Vision';
 import Community from './pages/Community';
+import Login from './pages/Login';
+import Signup from './pages/SIgnup';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
                 <Route path="/story" element={(<Story />)} />
                 <Route path="/vision" element={(<Vision />)} />
                 <Route path="/community" element={(<Community />)} />
+                <Route path="/login" element={(<Login />)} />
+                <Route path="/signup" element={(<Signup />)} />
                 </Routes>
       </BrowserRouter>
     </>

@@ -68,7 +68,7 @@ const Navbar = () => {
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link mx-3" href="/">
+              <a class="nav-link mx-3" href="/login">
               <div className={styles.txt}>
               <img className={styles.m} src={losu} alt="" />
               <div className={styles.innertxtl}>
