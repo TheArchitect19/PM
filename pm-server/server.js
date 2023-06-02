@@ -3,7 +3,11 @@ var bodyParser = require('body-parser')
 const { Client } = require('pg');
 const cors = require("cors");
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const {imageUpload, getImg} = require('./upload');
 require('dotenv').config();
+
+const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 const port = 5000;
@@ -26,34 +30,12 @@ client.connect(function (err) {
 	console.log("Connected!");
 });
 
-app.get('/store', (req, res) => {
+app.get('/', (req, res) => {
 	res.send("Backend is ready");
 });
 
-// middleware
-function authenticate(req, res, next) {
-	const authHeader = req.headers.authorization;
-	const token = authHeader && authHeader.split(' ')[1];
-	if (token == null) return res.sendStatus(401);
-
-	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, user) => {
-		if (err) {
-			console.log(err);
-			return res.sendStatus(403);
-		}
-		res.user = user;
-		next();
-	})
-}
-
-app.post('/store/regSelGen', (req, res) => {
-	const data = req.body;
-	const accessToken = jwt.sign(data, process.env.ACCESS_TOKEN_SECRET);
-	res.json({ accessToken: accessToken });
-})
-
-app.get('/store/registerSeller', authenticate, (req, res) => {
-	const phone = res.user.phone;
+app.post('/signup', (req, res) => {
+	const phone = req.body.phone;
 	client.query('insert into users (phone) values ($1)', [phone], (err, results) => {
 		if (err) {
 			res.send('-1');
@@ -64,7 +46,8 @@ app.get('/store/registerSeller', authenticate, (req, res) => {
 	})
 })
 
-app.post('/store/checkSeller', (req, res) => {
+// check if the user with given phone number exists
+app.post('/checkPhoneExists', (req, res) => {
 	const phone = req.body.phone;
 	client.query('select from users where phone = $1', [phone], (err, results) => {
 		if (err) {
@@ -81,6 +64,8 @@ app.post('/store/checkSeller', (req, res) => {
 	});
 })
 
+app.post('/upload', upload.single('image'), imageUpload);
+app.get('/getimg', getImg);
 
 app.listen(5000, () => {
 	console.log("Server Running on port 5000");
