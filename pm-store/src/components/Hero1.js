@@ -3,7 +3,11 @@ import home from "../assets/svg/home.png";
 import ll from "../assets/svg/ll.png";
 import lr from "../assets/svg/lr.png";
 import styles from "./Hero.module.css";
+import PhoneInput from 'react-phone-input-2'
 const Navbar = () => {
+  const [state, setState] = useState({
+    phone: "",
+  });
   return (
     <>
       <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center" }} className={styles.colnav}>
@@ -24,7 +28,7 @@ const Navbar = () => {
             <h1>Login/SignUp</h1>
             <p>Please enter your phone number to continue</p>
 
-            {/* <div style={{ display: !show ? "block" : "none" }}>
+            <div >
               <PhoneInput
                 countryCallingCodeEditable={false}
                 country={'in'}
@@ -34,7 +38,7 @@ const Navbar = () => {
               <br /><br />
               <div id="recaptcha-container"></div>
               <button onClick={check}>Send OTP</button>
-            </div> */}
+            </div> 
 
             {/* <input type="text" name="name" placeholder="Enter Your Phone Number" />
             <button>Verify Number</button> */}
