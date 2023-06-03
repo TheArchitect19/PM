@@ -4,10 +4,87 @@ import ll from "../assets/svg/ll.png";
 import lr from "../assets/svg/lr.png";
 import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { firebase, auth } from './firebase';
+
+const url = "http://localhost:5000";
+
 const Navbar = () => {
   const [state, setState] = useState({
     phone: "",
   });
+  const [password, setPassword] = useState({
+    password: ""
+  });
+  const [show, setShow] = useState(false);
+  const [tog, setTog] = useState(false);
+  const [otp, setotp] = useState('');
+  const [final, setfinal] = useState('');
+
+  function toggle() {
+    setTog(!tog);
+  }
+  function handle(e) {
+    const data = { ...password };
+    data[e.target.name] = e.target.value;
+    setPassword(data);
+  }
+  function login() {
+    console.log(state.phone);
+    console.log(password.password);
+  }
+  async function check() {
+    if (state.phone.length >= 12) {
+
+      // use this block to bypass otp verification
+      
+      // otp verification bypass block ends
+
+      // await fetch(`${url}/checkPhoneExists`, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-type": "application/json",
+      //   },
+      //   body: JSON.stringify(state),
+      // })
+      //   .then(res => res.json())
+      //   .then(res => {
+      //     if (res === 1) {
+      //       // send otp
+      //       const number = "+" + state.phone;
+      //       let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+      //       auth.signInWithPhoneNumber(number, verify).then((result) => {
+      //         setfinal(result);
+      //         alert("OTP Sent");
+      //         setShow(true);
+      //       })
+      //         .catch((err) => {
+      //           alert(err);
+      //           window.location.reload();
+      //         });
+      //     }
+      //     else if (res === 0) {
+      //       alert("This phone number not registered with us. Please signup");
+      //     }
+      //     else {
+      //       alert("Sorry for the error, it will be resolved soon.");
+      //     }
+      //   })
+    }
+    else {
+      alert("Please enter a valid phone number");
+    }
+  }
+  const ValidateOtp = () => {
+    if (otp === null || final === null)
+      return;
+    final.confirm(otp).then((result) => {
+      // success
+      alert("Verified");
+    }).catch((err) => {
+      alert("Wrong code");
+    })
+  }
   return (
     <>
       <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center" }} className={styles.colnav}>
@@ -25,28 +102,47 @@ const Navbar = () => {
 
           </div>
           <div className={styles.login}>
-            <h1>Login/SignUp</h1>
-            <p>Please enter your phone number to continue</p>
+            <h1>Login</h1>
+            <p>Please enter your details to continue</p>
 
-            {/* <div >
+            {tog ? <>
+              <div style={{ color: "black", display: !show ? "block" : "none" }}>
+                <PhoneInput
+                  countryCallingCodeEditable={false}
+                  country={'in'}
+                  value={state.phone}
+                  onChange={phone => setState({ phone })}
+                />
+                <br /><br />
+                <div id="recaptcha-container"></div>
+                <button onClick={check}>Send OTP</button>
+              </div>
+              <div style={{ display: show ? "block" : "none" }}>
+                <input type="text" placeholder={"Enter your OTP"}
+                  onChange={(e) => { setotp(e.target.value) }}></input>
+                <button onClick={ValidateOtp}>Verify</button>
+              </div>
+            </> : <> <div style={{ color: "black" }}>
               <PhoneInput
                 countryCallingCodeEditable={false}
                 country={'in'}
                 value={state.phone}
                 onChange={phone => setState({ phone })}
               />
-              <br /><br />
-              <div id="recaptcha-container"></div>
-              <button onClick={check}>Send OTP</button>
-            </div>  */}
+              <br></br>
+              <input type="text" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} />
+              <br></br>
+              <button onClick={login}>Login</button>
+            </div>
+            </>
+            }
+            <button onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
 
-            {/* <input type="text" name="name" placeholder="Enter Your Phone Number" />
-            <button>Verify Number</button> */}
-            <p>Prefer to sign in with password instead ? <a href="/signup">Click here</a> </p>
+            <p>New user?&nbsp;<a href="/signup">Register Now</a> </p>
           </div>
 
         </div>
-      </div>
+      </div >
     </>
   );
 };

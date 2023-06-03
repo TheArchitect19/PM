@@ -20,7 +20,7 @@ const Navbar = () => {
   const [showPwdField, setPwd] = useState(false);
   const [password, setPassword] = useState({
     password: ""
-  })
+  });
 
   function handle(e) {
     const data = {...password};
@@ -163,7 +163,7 @@ const Navbar = () => {
             {showPwdField ?
               <>
                 Please set up a password for more security.
-                <input type="password" name="password" placeholder="password" onChange={(e) => handle(e)} />
+                <input type="password" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} />
                 <button onClick={savePassword}>Save</button>
                 <button onClick={() => {window.location.href='/welcome'}}>Skip for later</button>
               </>
@@ -179,6 +179,7 @@ const Navbar = () => {
                   <br /><br />
                   <div id="recaptcha-container"></div>
                   <button onClick={check}>Send OTP</button>
+                  <p>Already have an account?&nbsp;<a href="/login">Login Now</a> </p>
                 </div>
                 <div style={{ display: show ? "block" : "none" }}>
                   <input type="text" placeholder={"Enter your OTP"}

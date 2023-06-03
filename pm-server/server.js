@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 	res.send("Backend is ready");
 });
 
+// saves phone number of a user after verifying it
 app.post('/signup', (req, res) => {
 	const phone = req.body.phone;
 	client.query('insert into users (phone) values ($1)', [phone], (err, results) => {
