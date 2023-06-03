@@ -46,6 +46,20 @@ app.post('/signup', (req, res) => {
 	})
 })
 
+//saving the password after signup
+app.post('/savePassword', (req, res) => {
+	const password = req.body.password;
+	client.query('INSERT INTO passwords (password) VALUES ($1)', [password], (err, results) => {
+	  if (err) {
+		 console.error(err);
+		 res.status(500).send('Error saving password');
+	  } else {
+		 res.status(200).send('Password saved successfully');
+	  }
+	});
+ });
+ 
+
 // check if the user with given phone number exists
 app.post('/checkPhoneExists', (req, res) => {
 	const phone = req.body.phone;

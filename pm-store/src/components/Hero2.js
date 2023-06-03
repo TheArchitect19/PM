@@ -108,9 +108,27 @@ const Navbar = () => {
       });
   }
 
-  function savePassword() {
-    console.log(password.password);
+  //function to save password
+  async function savePassword() {
+    if (password.password) {
+      await fetch(`${url}/savePassword`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ password: password.password }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          // Handle the response or perform any necessary actions
+          alert("Password saved successfully");
+        });
+    } else {
+      alert("Please enter a password");
+    }
   }
+
 
   // Validate OTP
   const ValidateOtp = () => {
