@@ -28,7 +28,7 @@ const Navbar = () => {
             <h1>Login/SignUp</h1>
             <p>Please enter your phone number to continue</p>
 
-            <div >
+            {/* <div >
               <PhoneInput
                 countryCallingCodeEditable={false}
                 country={'in'}
@@ -38,7 +38,7 @@ const Navbar = () => {
               <br /><br />
               <div id="recaptcha-container"></div>
               <button onClick={check}>Send OTP</button>
-            </div> 
+            </div>  */}
 
             {/* <input type="text" name="name" placeholder="Enter Your Phone Number" />
             <button>Verify Number</button> */}
