@@ -18,10 +18,10 @@ app.use(bodyParser.json())
 app.use(express.json())
 
 const client = new Client({
-	user: 'admin',
+	user: process.env.db_user,
 	host: '170.187.253.75',
 	database: 'PM',
-	password: '?@123PM?@1983',
+	password: process.env.db_password,
 	port: 5432,
 });
 
