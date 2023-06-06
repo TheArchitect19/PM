@@ -60,6 +60,30 @@ app.post('/savePassword', (req, res) => {
 	});
  });
  
+ // Route for login
+app.post('/login', async (req, res) => {
+	const { phone, password } = req.body;
+ 
+	if (!phone || !password) {
+	  return res.status(400).json({ message: 'Please provide phone and password' });
+	}
+ 
+	try {
+	  // Check if the provided phone and password match a user in the database
+	  const query = 'SELECT * FROM users WHERE phone = $1 AND password = $2';
+	  const result = await client.query(query, [phone, password]);
+ 
+	  if (result.rowCount === 0) {
+		 return res.status(401).json({ message: 'Invalid phone or password' });
+	  }
+ 
+	  // User authenticated successfully
+	  res.json({ message: 'Login successful' });
+	} catch (error) {
+	  console.error('Error during login:', error);
+	  res.status(500).json({ message: 'Internal server error' });
+	}
+ });
 
 // check if the user with given phone number exists
 app.post('/checkPhoneExists', (req, res) => {

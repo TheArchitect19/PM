@@ -29,10 +29,34 @@ const Navbar = () => {
     data[e.target.name] = e.target.value;
     setPassword(data);
   }
-  function login() {
-    console.log(state.phone);
-    console.log(password.password);
+
+  //login fetch
+  async function login() {
+    if(state.phone.length < 12 || password.password.length < 6 ){
+      alert("Please enter correct phone nummber of password !")
+    }
+    else{
+      
+      if (state.phone && password.password) {
+        await fetch(`${url}/login`, {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({  phone: state.phone, password: password.password }),
+        })
+          .then(res => res.json())
+          .then(res => {
+            console.log(res);
+            // Handle the response or perform any necessary actions
+            alert("Login successfully");
+          });
+      } else {
+        alert("Please correct input");
+      }
+    }
   }
+
   async function check() {
     if (state.phone.length >= 12) {
 
