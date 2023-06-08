@@ -32,27 +32,7 @@ const Navbar = () => {
     if (state.phone.length >= 12) {
       
       // use this block to bypass otp verification
-      await fetch(`${url}/signup`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(state),
-      })
-        .then(res => res.json())
-        .then(res => {
-          console.log(res);
-          if (res === 0) {
-            alert("Phone number registered");
-            setPwd(true);
-          }
-          else {
-            alert("Sorry for the error, it will be resolved soon.");
-          }
-        });
-        // otp verification bypass block ends
-
-      // await fetch(`${url}/checkPhoneExists`, {
+      // await fetch(`${url}/signup`, {
       //   method: "POST",
       //   headers: {
       //     "Content-type": "application/json",
@@ -61,27 +41,47 @@ const Navbar = () => {
       // })
       //   .then(res => res.json())
       //   .then(res => {
+      //     console.log(res);
       //     if (res === 0) {
-      //       // send otp
-      //       const number = "+" + state.phone;
-      //       let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-      //       auth.signInWithPhoneNumber(number, verify).then((result) => {
-      //         setfinal(result);
-      //         alert("OTP Sent");
-      //         setshow(true);
-      //       })
-      //         .catch((err) => {
-      //           alert(err);
-      //           window.location.reload();
-      //         });
-      //     }
-      //     else if (res === 1) {
-      //       alert("Phone number already registered. Please login");
+      //       alert("Phone number registered");
+      //       setPwd(true);
       //     }
       //     else {
       //       alert("Sorry for the error, it will be resolved soon.");
       //     }
-      //   })
+      //   });
+        // otp verification bypass block ends
+
+      await fetch(`${url}/checkPhoneExists`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(state),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res === 0) {
+            // send otp
+            const number = "+" + state.phone;
+            let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+            auth.signInWithPhoneNumber(number, verify).then((result) => {
+              setfinal(result);
+              alert("OTP Sent");
+              setshow(true);
+            })
+              .catch((err) => {
+                alert(err);
+                window.location.reload();
+              });
+          }
+          else if (res === 1) {
+            alert("Phone number already registered. Please login");
+          }
+          else {
+            alert("Sorry for the error, it will be resolved soon.");
+          }
+        })
     }
     else {
       alert("Please enter a valid phone number");

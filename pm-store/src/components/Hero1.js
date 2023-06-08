@@ -32,8 +32,8 @@ const Navbar = () => {
 
   //login fetch
   async function login() {
-    if(state.phone.length < 12 || password.password.length < 6 ){
-      alert("Please enter correct phone nummber of password !")
+    if(state.phone.length < 12){
+      alert("Please enter a valid phone number.")
     }
     else{
       
@@ -49,10 +49,15 @@ const Navbar = () => {
           .then(res => {
             console.log(res);
             // Handle the response or perform any necessary actions
-            alert("Login successfully");
+            if (res.ok) {
+              alert(res.message);
+            }
+            else {
+              alert(res.message);
+            }
           });
       } else {
-        alert("Please correct input");
+        alert("Invalid input");
       }
     }
   }
@@ -64,36 +69,36 @@ const Navbar = () => {
       
       // otp verification bypass block ends
 
-      // await fetch(`${url}/checkPhoneExists`, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-type": "application/json",
-      //   },
-      //   body: JSON.stringify(state),
-      // })
-      //   .then(res => res.json())
-      //   .then(res => {
-      //     if (res === 1) {
-      //       // send otp
-      //       const number = "+" + state.phone;
-      //       let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-      //       auth.signInWithPhoneNumber(number, verify).then((result) => {
-      //         setfinal(result);
-      //         alert("OTP Sent");
-      //         setShow(true);
-      //       })
-      //         .catch((err) => {
-      //           alert(err);
-      //           window.location.reload();
-      //         });
-      //     }
-      //     else if (res === 0) {
-      //       alert("This phone number not registered with us. Please signup");
-      //     }
-      //     else {
-      //       alert("Sorry for the error, it will be resolved soon.");
-      //     }
-      //   })
+      await fetch(`${url}/checkPhoneExists`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(state),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res === 1) {
+            // send otp
+            const number = "+" + state.phone;
+            let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+            auth.signInWithPhoneNumber(number, verify).then((result) => {
+              setfinal(result);
+              alert("OTP Sent");
+              setShow(true);
+            })
+              .catch((err) => {
+                alert(err);
+                window.location.reload();
+              });
+          }
+          else if (res === 0) {
+            alert("This phone number not registered with us. Please signup");
+          }
+          else {
+            alert("Sorry for the error, it will be resolved soon.");
+          }
+        })
     }
     else {
       alert("Please enter a valid phone number");
@@ -104,9 +109,21 @@ const Navbar = () => {
       return;
     final.confirm(otp).then((result) => {
       // success
-      alert("Verified");
+      alert("Logged In");
     }).catch((err) => {
-      alert("Wrong code");
+      alert("Invalid OTP, please try again.");
+    })
+  }
+
+  async function click() {
+    await fetch(`${url}/test`, {
+      method: "GET",
+      credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log(res);
+      alert(res.message);
     })
   }
   return (
@@ -161,6 +178,7 @@ const Navbar = () => {
             </>
             }
             <button onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
+            <button onClick={click}>Click</button>
 
             <p>New user?&nbsp;<a href="/signup">Register Now</a> </p>
           </div>
