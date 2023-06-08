@@ -14,7 +14,7 @@ const app = express();
 const port = 5000;
 
 const corsOptions = {
-	origin: "http://localhost:3000",
+	origin: "https://pandrimarket.com",
 	credentials: true,
 };
 
