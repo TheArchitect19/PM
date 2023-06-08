@@ -119,7 +119,7 @@ app.get('/test', (req, res) => {
 		sameSite: 'none',
 		maxAge: 3600 * 1000, // 1 hour
 		domain: 'pandrimarket.com',
-	  });
+	  }).send("0");
 });
 
 app.post('/upload', upload.single('image'), imageUpload);
