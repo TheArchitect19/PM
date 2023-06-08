@@ -7,8 +7,8 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from './firebase';
 
-// const url = "http://localhost:5000";
-const url = "https://backend.pandrimarket.com"
+const url = "http://localhost:5000";
+// const url = "https://backend.pandrimarket.com"
 
 const Navbar = () => {
   const [state, setState] = useState({
@@ -33,18 +33,18 @@ const Navbar = () => {
 
   //login fetch
   async function login() {
-    if(state.phone.length < 12){
+    if (state.phone.length < 12) {
       alert("Please enter a valid phone number.")
     }
-    else{
-      
+    else {
+
       if (state.phone && password.password) {
         await fetch(`${url}/login`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
           },
-          body: JSON.stringify({  phone: state.phone, password: password.password }),
+          body: JSON.stringify({ phone: state.phone, password: password.password }),
         })
           .then(res => res.json())
           .then(res => {
@@ -67,7 +67,7 @@ const Navbar = () => {
     if (state.phone.length >= 12) {
 
       // use this block to bypass otp verification
-      
+
       // otp verification bypass block ends
 
       await fetch(`${url}/checkPhoneExists`, {
@@ -119,13 +119,16 @@ const Navbar = () => {
   async function click() {
     await fetch(`${url}/test`, {
       method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
       credentials: 'include'
     })
-    .then(res => res.json())
-    .then(res => {
-      console.log(res);
-      alert(res.message);
-    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        alert(res.message);
+      })
   }
   return (
     <>

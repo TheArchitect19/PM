@@ -12,13 +12,16 @@ const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 const port = 5000;
-app.use(cors({ origin: "https://pandrimarket.com", credentials: true }));
 
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-// app.use(express.json());
-// app.use(cookieParser());
+const corsOptions = {
+	origin: "http://localhost:3000",
+	credentials: true,
+};
 
+app.use(cors(corsOptions));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -110,8 +113,13 @@ app.post('/checkPhoneExists', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
-	res.cookie('token', 'token', { maxAge: 3600 * 1000 });
-	res.send("0");
+	res.cookie('token', 'your-token-value', {
+		httpOnly: true,
+		secure: true,
+		sameSite: 'none',
+		maxAge: 3600 * 1000, // 1 hour
+		domain: 'pandrimarket.com',
+	  });
 });
 
 app.post('/upload', upload.single('image'), imageUpload);
