@@ -7,7 +7,8 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from './firebase';
 
-const url = "http://localhost:5000";
+// const url = "http://localhost:5000";
+const url = "https://backend.pandrimarket.com"
 
 const Navbar = () => {
   const [state, setState] = useState({
