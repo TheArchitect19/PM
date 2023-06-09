@@ -27,10 +27,19 @@ const Navbar = () => {
             </label>
             <label>
             Business Name :
-                <input type="text" name="name" placeholder="Select your business type" />
+            <select>
+                  <option value="Select your business type" selected>Select your business type</option>
+                  <option value="Clothing/Apparel">Clothing/Apparel</option>
+                  <option value="Home and Furniture">Home and Furniture</option>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Beauty and Personal Care">Beauty and Personal Care</option>
+                  <option value="Sports and Fitness">Sports and Fitness</option>
+                  <option value="Toys and Games">Toys and Games</option>
+                  <option value="Others">Others</option>
+            </select>
             </label>
-            <div >
-            <input type="checkbox" style={{height: '15px',boxShadow:'none'}} ></input>
+            <div style={{display:'flex'}}>
+            <input type="checkbox" style={{height: '15px',boxShadow:'none', width:'5vw',marginTop:'5px', marginLeft:'175px'}} ></input>
             <p style={{color: 'white'}}>Is your shop located outside Chhattisgarh? </p>
             </div>
             <label>
