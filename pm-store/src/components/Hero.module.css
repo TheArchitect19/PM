@@ -8,6 +8,50 @@
     margin-bottom: 5vh;
    
 }
+.colnav1{
+    background: linear-gradient(120.79deg, rgba(247, 186, 65, 0.93) 6.56%, rgba(245, 72, 92, 0.83) 94.06%),
+linear-gradient(0deg, rgba(251, 184, 50, 0.35), rgba(251, 184, 50, 0.35));
+    height: 120vh;    
+    display: flex;
+    text-align: center;
+    align-items:center;
+    margin-bottom: 5vh;
+    flex-direction: column;
+   
+}
+.colnav1 form{
+    margin-top: 60px;
+}
+.colnav1 label{
+   padding: 8px;
+   color: white;
+
+}
+.colnav1 input{
+    box-shadow: 0px 1.2687499523162842px 2.370312452316284px 0px #0000000E;
+
+    box-shadow: 0px 5.800000190734863px 6.662499904632568px 0px #00000016;
+    
+    box-shadow: 0px 14.681249618530273px 17.873437881469727px 0px #0000001D;
+    
+    border: none;
+    margin-left: 25px;
+    padding: 4px;
+    width: 40vw;
+    border-radius: 5px;
+    
+}
+
+.colnav1 h2{
+    padding-top: 25px;
+    color: white;
+   
+}
+.colnav1 h6{
+    padding-top: 2px;
+    color: white;
+   
+}
 .tp{
     width: 100%;
     display: flex;
