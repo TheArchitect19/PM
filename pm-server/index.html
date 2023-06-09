@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Upload</title>
+</head>
+
+<body>
+    <input type="file" id="imageInput">
+    <button onclick="uploadImage()">Upload</button>
+
+    <img id="img" src="">
+    <button onclick="getImage()">GET</button>
+
+    <script>
+        async function uploadImage() {
+            const fileInput = document.getElementById('imageInput');
+            const file = fileInput.files[0];
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            await fetch('http://localhost:5000/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Image uploaded successfully!');
+                    } else {
+                        alert('Errrrrror occurred while uploading image.');
+                    }
+                })
+                .then(data => {
+                    console.log(data);
+                    const imageURL = data.imageURL;
+                    alert('Image uploaded successfully!\nURL: ' + imageURL);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        async function getImage() {
+            await fetch('https://backend.pandrimarket.com/pm_images/hod.png', {
+                method: 'GET'
+            }).then(res => {
+                console.log(res);
+            })
+        }
+    </script>
+</body>
+
+</html>

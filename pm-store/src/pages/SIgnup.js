@@ -5,13 +5,13 @@ import Hero1 from '../components/Hero2'
 
 
 const Home = () => {
-    return (
-      <>
-      <NavHom/>
+  return (
+    <>
+      <NavHom />
       <Hero1 />
-      <Footer/>
-      </>
-    )
-  }
-  
-  export default Home
+      <Footer />
+    </>
+  )
+}
+
+export default Home
