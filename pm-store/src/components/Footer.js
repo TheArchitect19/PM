@@ -1,9 +1,5 @@
 import React from "react";
 import styles from "./Footer.module.css";
-import insta from "../assets/svg/Instagram.png";
-import fb from "../assets/svg/Facebook.png";
-import yt from "../assets/svg/YouTube.png";
-import twitter from "../assets/svg/Twitter.png";
 import {AiFillMail, AiOutlineFacebook, AiOutlineInstagram, AiOutlineYoutube, AiTwotonePhone} from 'react-icons/ai'
 import {RxTwitterLogo} from 'react-icons/rx'
 import {ImLocation} from 'react-icons/im'
@@ -16,27 +12,26 @@ const Footer = () => {
           <div>
             <div className={styles.FooterHeading}>QUICK LINKS</div>
             <ul>
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Our Services</li>
-              <li>Blogs</li>
-              <li>Join Us</li>
-              <li>Sign Up</li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/blogs">Blogs</a></li>
+              <li><a href="/join">Join us</a></li>
+              <li><a href="/login">Sign Up</a></li>
             </ul>
           </div>
           <div>
             <div className={styles.FooterHeading}>COMPANY</div>
             <ul>
-              <li>Story</li>
-              <li>Impact</li>
-              <li>Vision</li>
-              <li>Community</li>
+              <li><a href="/story">Story</a></li>
+              <li><a href="/impact">Impact</a></li>
+              <li><a href="/vision">Vision</a></li>
+              <li><a href="/community">Community</a></li>
             </ul>
           </div>
           <div>
             <div className={styles.FooterHeading}>VISIT OUR BLOG</div>
             <ul>
-              <li><a>Jigyasa </a> by PM</li>
+              <li><a href="/blogs">Jigyasa </a> by PM</li>
             </ul>
             <div className={styles.FooterHeading}>FOLLOW US ON</div>
             <ul>
@@ -49,9 +44,9 @@ const Footer = () => {
           <div>
             <div className={styles.FooterHeading}>CONTACT US</div>
             <ul>
-              <li> <AiTwotonePhone size={20} style={{display:"flex", flexWrap:"wrap", paddingRight:"0.5rem"}}/> 0788-456897</li>
-              <li> <AiFillMail size={20} style={{display:"flex", flexWrap:"wrap", paddingRight:"0.5rem"}}/> jigyasapandrimarket@gmail.com</li>
-              <li> <ImLocation size={20} style={{display:"flex", flexWrap:"wrap", paddingRight:"0.5rem"}}/> Pandri Market, Raipur, C.G., India</li>
+            <a style={{textDecoration: 'none'}} href="tel:+910788-456897"><li> <AiTwotonePhone size={20} style={{display:"flex", flexWrap:"wrap", paddingRight:"0.5rem"}}/> 0788-456897</li></a>
+              <a style={{textDecoration: 'none'}} href="mailto:jigyasapandrimarket@gmail.com"><li> <AiFillMail size={20} style={{display:"flex", flexWrap:"wrap", paddingRight:"0.5rem"}}/> jigyasapandrimarket@gmail.com</li></a>
+              <a style={{textDecoration: 'none'}} href="https://goo.gl/maps/GY2FSKUJaiesTwnk9"><li> <ImLocation size={20} style={{display:"flex", flexWrap:"wrap", paddingRight:"0.5rem"}}/> Pandri Market, Raipur, C.G., India</li></a>
             </ul>
           </div>
         </div>
