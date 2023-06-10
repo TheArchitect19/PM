@@ -1,4 +1,5 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import home from "../assets/svg/home.png";
 import ll from "../assets/svg/ll.png";
 import lr from "../assets/svg/lr.png";
@@ -7,8 +8,8 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from './firebase';
 
-// const url = "http://localhost:5000";
-const url = "https://backend.pandrimarket.com"
+const url = "http://localhost:5000";
+// const url = "https://backend.pandrimarket.com"
 
 const Navbar = () => {
   const [state, setState] = useState({
@@ -21,6 +22,23 @@ const Navbar = () => {
   const [tog, setTog] = useState(false);
   const [otp, setotp] = useState('');
   const [final, setfinal] = useState('');
+
+  useEffect(() => {
+    async function checkLogin() {
+      await fetch(`${url}/checkLogin`, {
+        method: "GET",
+        credentials: "include"
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res === 0) {
+            // user is logged in
+            window.location.href = "/";
+          }
+        })
+    }
+    checkLogin();
+  });
 
   function toggle() {
     setTog(!tog);
@@ -44,14 +62,17 @@ const Navbar = () => {
           headers: {
             "Content-type": "application/json",
           },
+          credentials: 'include',
           body: JSON.stringify({ phone: state.phone, password: password.password }),
         })
-          .then(res => res.json())
           .then(res => {
-            console.log(res);
+            return res.json();
+          })
+          .then(res => {
+            // console.log(res);
             // Handle the response or perform any necessary actions
             if (res.ok) {
-              alert(res.message);
+              window.location.href = res.redirectUrl;
             }
             else {
               alert(res.message);
@@ -116,19 +137,8 @@ const Navbar = () => {
     })
   }
 
-  async function click() {
-    await fetch(`${url}/test`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-      credentials: 'include'
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        alert(res.message);
-      })
+  function click() {
+    window.location.href = "/welcome";
   }
   return (
     <>

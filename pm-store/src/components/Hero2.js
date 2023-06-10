@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import home from "../assets/svg/home.png";
 import ll from "../assets/svg/ll.png";
 import lr from "../assets/svg/lr.png";
@@ -22,15 +22,32 @@ const Navbar = () => {
     password: ""
   });
 
+  useEffect(() => {
+    async function checkLogin() {
+      await fetch(`${url}/checkLogin`, {
+        method: "GET",
+        credentials: "include"
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res === 0) {
+            // user is logged in
+            window.location.href = "/";
+          }
+        })
+    }
+    checkLogin();
+  });
+
   function handle(e) {
-    const data = {...password};
+    const data = { ...password };
     data[e.target.name] = e.target.value;
     setPassword(data);
   }
 
   async function check() {
     if (state.phone.length >= 12) {
-      
+
       // use this block to bypass otp verification
       // await fetch(`${url}/signup`, {
       //   method: "POST",
@@ -50,7 +67,7 @@ const Navbar = () => {
       //       alert("Sorry for the error, it will be resolved soon.");
       //     }
       //   });
-        // otp verification bypass block ends
+      // otp verification bypass block ends
 
       await fetch(`${url}/checkPhoneExists`, {
         method: "POST",
@@ -165,7 +182,7 @@ const Navbar = () => {
                 Please set up a password for more security.
                 <input type="password" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} />
                 <button onClick={savePassword}>Save</button>
-                <button onClick={() => {window.location.href='/welcome'}}>Skip for later</button>
+                <button onClick={() => { window.location.href = '/welcome' }}>Skip for later</button>
               </>
               : <div>
                 <p>Please enter your phone number to continue</p>
