@@ -43,7 +43,7 @@ const Home = () => {
     };
 
     checkLogin();
-  }, [log.length]);
+  }, []);
 
   return (
     <CookiesProvider>
