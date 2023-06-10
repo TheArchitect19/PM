@@ -53,6 +53,17 @@
     /* font-weight: 900; */
     font-family: "Cedarville Cursive", cursive;
 }
+.FooterWrapper div ul li a{
+    color: black;
+}
+.FooterWrapper div ul a li{
+    color: black;
+}
+.FooterWrapper div ul li a:hover{
+    zoom: 1.03;
+    text-decoration:none;
+}
+
 
 @media(width<400px){
     .FooterWrapper div ul li{

@@ -61,7 +61,7 @@ const Navbar = (data) => {
                 </a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link mx-3" href="/">
+                <a class="nav-link mx-3" href="/ays">
                   <div className={styles.txt}>
                     <img className={styles.m} src={store} alt="" />
                     <div className={styles.innertxt}>

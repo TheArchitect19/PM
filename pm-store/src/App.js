@@ -10,6 +10,7 @@ import Vision from './pages/Vision';
 import Community from './pages/Community';
 import Login from './pages/Login';
 import Signup from './pages/SIgnup';
+import RegShop from './pages/RegShop';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/community" element={(<Community />)} />
                 <Route path="/login" element={(<Login />)} />
                 <Route path="/signup" element={(<Signup />)} />
+                <Route path="/ays" element={(<RegShop />)} />
                 </Routes>
       </BrowserRouter>
     </>
