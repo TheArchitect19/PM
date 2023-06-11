@@ -115,7 +115,6 @@ const Navbar = () => {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         if (res === 0) {
           alert("Registered");
           setPwd(true);

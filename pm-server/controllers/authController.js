@@ -12,7 +12,8 @@ const createToken = (data) => {
 
 // saves phone number of a user after verifying it
 module.exports.signup = (req, res) => {
-	const client = req.client
+	const client = req.client;
+	const {phone} = req.body.phone;
 	client.query('insert into users (phone) values ($1)', [phone], (err, results) => {
 		if (err) {
 			res.send('-1');
