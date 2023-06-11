@@ -192,7 +192,7 @@ const Navbar = () => {
             </>
             }
             <button onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
-            <button onClick={click}>Click</button>
+            {/* <button onClick={click}>Click</button> */}
 
             <p>New user?&nbsp;<a href="/signup">Register Now</a> </p>
           </div>

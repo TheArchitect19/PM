@@ -6,6 +6,7 @@ const { Client } = require('pg');
 const cors = require("cors");
 const jwt = require('jsonwebtoken');
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const multer = require('multer');
 const { imageUpload, getImg } = require('./upload');
@@ -51,6 +52,7 @@ app.get('/', (req, res) => {
 });
 
 app.use(authRoutes);
+app.use(userRoutes);
 
 app.get('/test', (req, res) => {
 	res.cookie('token', 'your-token-value', {

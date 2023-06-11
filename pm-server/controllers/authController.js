@@ -71,7 +71,7 @@ module.exports.login = (req, res) => {
 module.exports.savePassword = (req, res) => {
 	const client = req.client
 	const password = req.body.password;
-	client.query('INSERT INTO passwords (password) VALUES ($1)', [password], (err, results) => {
+	client.query('INSERT INTO users (password) VALUES ($1)', [password], (err, results) => {
 		if (err) {
 			console.error(err);
 			res.status(500).send('Error saving password');
