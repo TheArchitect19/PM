@@ -82,7 +82,6 @@ module.exports.savePassword = (req, res) => {
 	const client = req.client
 	const password = req.body.password;
 	const phone = req.body.phone;
-	console.log(phone, password);
 	client.query('update users set password=($1) where phone=($2)', [password, phone], (err, results) => {
 		if (err) {
 			res.status(500).json({ message: 'Internal Error', redirectUrl: '/signup', ok: false});
