@@ -1,8 +1,8 @@
 import { React, useState } from "react";
 import styles from "./Hero.module.css";
 
-const url = "http://localhost:5000";
-// const url = "https://backend.pandrimarket.com"
+// const url = "http://localhost:5000";
+const url = "https://backend.pandrimarket.com"
 
 const Navbar = () => {
     const [data, setData] = useState({
