@@ -142,8 +142,8 @@ const Navbar = () => {
   }
   return (
     <>
-      <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center" }} className={styles.colnav}>
-        <div className={styles.cardoverlay}>
+      <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center",height:"100vh" }} className={styles.colnav}>
+        <div className={styles.cardoverlay} style={{height:'100vh'}}>
           <div className={styles.tp}>
 
           </div>
@@ -163,6 +163,7 @@ const Navbar = () => {
             {tog ? <>
               <div style={{ color: "black", display: !show ? "block" : "none" }}>
                 <PhoneInput
+                  
                   countryCallingCodeEditable={false}
                   country={'in'}
                   value={state.phone}
@@ -178,21 +179,21 @@ const Navbar = () => {
                 <button onClick={ValidateOtp}>Verify</button>
               </div>
             </> : <> <div style={{ color: "black" }}>
-              <PhoneInput
+              <PhoneInput 
                 countryCallingCodeEditable={false}
                 country={'in'}
                 value={state.phone}
                 onChange={phone => setState({ phone })}
+              
               />
               <br></br>
-              <input type="text" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} />
+              <input type="text" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} style={{width:'300px'}} />
               <br></br>
               <button onClick={login}>Login</button>
             </div>
             </>
             }
-            <button onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
-            <button onClick={click}>Click</button>
+            <button className={styles.yo} onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
 
             <p>New user?&nbsp;<a href="/signup">Register Now</a> </p>
           </div>
