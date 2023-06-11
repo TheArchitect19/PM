@@ -13,7 +13,9 @@ const createToken = (data) => {
 // saves phone number of a user after verifying it
 module.exports.signup = (req, res) => {
 	const client = req.client;
-	const {phone} = req.body.phone;
+	const phone = req.body.phone;
+	console.log(phone);
+	console.log(req.body);
 	client.query('insert into users (phone) values ($1)', [phone], (err, results) => {
 		if (err) {
 			res.send('-1');
@@ -79,12 +81,13 @@ module.exports.login = (req, res) => {
 module.exports.savePassword = (req, res) => {
 	const client = req.client
 	const password = req.body.password;
-	client.query('INSERT INTO users (password) VALUES ($1)', [password], (err, results) => {
+	const phone = req.body.phone;
+	console.log(phone, password);
+	client.query('update users set password=($1) where phone=($2)', [password, phone], (err, results) => {
 		if (err) {
-			console.error(err);
-			res.status(500).send('Error saving password');
+			res.status(500).json({ message: 'Internal Error', redirectUrl: '/signup', ok: false});
 		} else {
-			res.status(200).send('Password saved successfully');
+			res.status(200).json({ message: 'Password saved successfully', redirectUrl: '/login', ok: true});
 		}
 	});
 }

@@ -31,7 +31,6 @@ const Home = () => {
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res);
           if (res === 0) {
             // user is logged in
             setLog(true);
