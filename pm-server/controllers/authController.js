@@ -51,7 +51,14 @@ module.exports.login = (req, res) => {
 					else if (pwd === password) {
 						// User authenticated successfully
 						const token = createToken({ "phone": phone });
-						res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
+						// res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
+						res.cookie('login', token, {
+							httpOnly: true,
+							secure: true,
+							sameSite: 'none',
+							maxAge: age * 1000, // 1 hour
+							domain: 'pandrimarket.com',
+						});
 						res.status(200).json({ message: 'Login successful', redirectUrl: '/', ok: true});
 					}
 					else {
@@ -71,7 +78,7 @@ module.exports.login = (req, res) => {
 module.exports.savePassword = (req, res) => {
 	const client = req.client
 	const password = req.body.password;
-	client.query('INSERT INTO passwords (password) VALUES ($1)', [password], (err, results) => {
+	client.query('INSERT INTO users (password) VALUES ($1)', [password], (err, results) => {
 		if (err) {
 			console.error(err);
 			res.status(500).send('Error saving password');

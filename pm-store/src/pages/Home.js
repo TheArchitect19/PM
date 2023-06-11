@@ -15,8 +15,8 @@ import Carousel from '../components/Carousel'
 
 import { useCookies, CookiesProvider } from 'react-cookie';
 
-const url = "http://localhost:5000";
-// const url = "https://backend.pandrimarket.com"
+// const url = "http://localhost:5000";
+const url = "https://backend.pandrimarket.com"
 
 const Home = () => {
   // const [cookies] = useCookies(['login']);

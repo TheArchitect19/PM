@@ -8,8 +8,8 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from './firebase';
 
-const url = "http://localhost:5000";
-// const url = "https://backend.pandrimarket.com"
+// const url = "http://localhost:5000";
+const url = "https://backend.pandrimarket.com"
 
 const Navbar = () => {
   const [state, setState] = useState({
@@ -189,11 +189,12 @@ const Navbar = () => {
               <br></br>
               <input type="text" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} style={{width:'300px'}} />
               <br></br>
-              <button onClick={login}>Login</button>
+              <button  onClick={login}>Login</button>
             </div>
             </>
             }
-            <button className={styles.yo} onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
+            <button style={{width:'200px'}} onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
+            {/* <button onClick={click}>Click</button> */}
 
             <p>New user?&nbsp;<a href="/signup">Register Now</a> </p>
           </div>

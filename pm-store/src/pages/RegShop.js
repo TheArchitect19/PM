@@ -3,8 +3,8 @@ import NavHom from '../components/NavHom'
 import Footer from '../components/Footer'
 import Hero3 from '../components/Hero3'
 
-const url = "http://localhost:5000";
-// const url = "https://backend.pandrimarket.com"
+// const url = "http://localhost:5000";
+const url = "https://backend.pandrimarket.com"
 
 
 const Home = () => {
