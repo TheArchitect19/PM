@@ -15,20 +15,20 @@ import RegShop from './pages/RegShop';
 function App() {
   return (
     <>
-     <BrowserRouter>
-              <Routes>
-                {/* dashboard  */}
-                <Route path="/" element={(<Home />)} />
-                <Route path="/about" element={(<About />)} />
-                <Route path="/blogs" element={(<Blogs />)} />
-                <Route path="/blogs2" element={(<Blogs2 />)} />
-                <Route path="/story" element={(<Story />)} />
-                <Route path="/vision" element={(<Vision />)} />
-                <Route path="/community" element={(<Community />)} />
-                <Route path="/login" element={(<Login />)} />
-                <Route path="/signup" element={(<Signup />)} />
-                <Route path="/ays" element={(<RegShop />)} />
-                </Routes>
+      <BrowserRouter>
+        <Routes>
+          {/* dashboard  */}
+          <Route path="/" element={(<Home />)} />
+          <Route path="/about" element={(<About />)} />
+          <Route path="/blogs" element={(<Blogs />)} />
+          <Route path="/blogs2" element={(<Blogs2 />)} />
+          <Route path="/story" element={(<Story />)} />
+          <Route path="/vision" element={(<Vision />)} />
+          <Route path="/community" element={(<Community />)} />
+          <Route path="/login" element={(<Login />)} />
+          <Route path="/signup" element={(<Signup />)} />
+          <Route path="/ays" element={(<RegShop />)} />
+        </Routes>
       </BrowserRouter>
     </>
   );
