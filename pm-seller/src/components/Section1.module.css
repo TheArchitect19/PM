@@ -1,0 +1,142 @@
+.s1 {
+  display: flex;
+  position: relative;
+  /* height: 30vh; */
+}
+
+.frontimg {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.s1 div img {
+  width: 30%;
+}
+
+.s1left {
+  background-color: #e53f52;
+  width: 50%;
+}
+.s1left div {
+  height: 100%;
+  width: 100%;
+  background: url("../assets/img/vecr.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: #df4c53; */
+}
+.s1left div div {
+  padding: 10rem 5rem 0 5rem;
+  /* width: 50%; */
+}
+
+.s1left div div img {
+  width: 100%;
+}
+.s1right {
+  background-color: #fdb310;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: url("../assets/img/vecy.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 5rem;
+  /* padding: 5rem; */
+}
+.txt p:first-child {
+  text-decoration: underline;
+  font-size: 20px;
+  padding: 1rem 0;
+}
+.txt p:nth-child(2) {
+  font-size: 30px;
+  font-weight: 900;
+  padding: 1rem 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.txt p:nth-child(3) {
+  font-size: 20px;
+  letter-spacing: 5px;
+  padding: 1rem 0;
+}
+
+.txt p a {
+  font-size: 30px;
+  font-weight: 900;
+  font-family: "Cedarville Cursive", cursive;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  font-weight: 900;
+  cursor: pointer;
+  color: white;
+  background: #df4c53;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.btn:hover {
+  color: #df4c53;
+  background: white;
+}
+
+@media(width<600px){
+    .s1 div img {
+        width: 60%;
+      }
+      .s1left div div {
+        padding:1rem;
+        /* width: 50%; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    .txt p:first-child {
+        text-decoration: underline;
+        font-size: 10px;
+        padding: 0.5rem 1rem;
+      }
+      .txt p:nth-child(2) {
+        font-size: 20px;
+        font-weight: 900;
+        padding: 0.5rem 1rem;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .txt p:nth-child(3) {
+        font-size: 10px;
+        padding: 0.5rem 1rem;
+        letter-spacing: 5px;
+      }
+      .txt p{
+        margin: 0;
+        
+    }
+      .txt p a {
+        font-size: 20px;
+        font-weight: 900;
+        font-family: "Cedarville Cursive", cursive;
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem 0;
+        margin-bottom: 1rem;
+        font-size: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        color: white;
+        background: #df4c53;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+}

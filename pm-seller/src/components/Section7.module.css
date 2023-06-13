@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.section4Container {
+  /* magic */
+  display: flex;
+  /* x axis center of child divs */
+  justify-content: center;
+  /* background image */
+  background: url("../assets/svg/hero.png");
+  /* fit the image in the whole background / cover full area */
+  background-size: cover;
+  /* image should not repeat */
+  background-repeat: no-repeat;
+  /* height of div */
+  height: 70vh;
+  /* y axis center of child divs */
+  align-items: center;
+  /* all the child divs will align column wise  */
+  flex-direction: column;
+  /* useful for its child element */
+  position: relative;
+}
+.section4Container div {
+  /* magic */
+  display: flex;
+}
+@media (width<900px) {
+  .section4Container div {
+    flex-direction: column;
+  }
+}
+.section4Container div a {
+  /* decoration starts  */
+  padding: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  /* decoration ends */
+  /* why not black? 100% black is not professional */
+  color: #2f2f2f;
+}
+.section4Container div a:hover {
+  /* decoration starts */
+  color: #ffffff;
+  text-shadow: 1.5px 1.5px 2px rgb(39, 39, 39);
+  /* decoration ends */
+}
+
+.section4Container div:last-child {
+  position: relative;
+  width: 50%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.section4Container div:last-child img {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+}
+
+.s7d1 {
+  height: 30vh;
+  background-color: #ffe2a2;
+  margin-bottom: 13rem;
+}
+
+.ourCommunity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.ourCommunity p {
+  font-size: 25px;
+}
+.ourCommunity div {
+  border-bottom: 2px solid #2f2f2f;
+  width: 20vw;
+  align-self: center;
+}
+.ourCommunity div:last-child img {
+  width: 100%;
+  padding: 5rem;
+}
+
+.ourCommunity div:last-child {
+  width: 100%;
+  /* margin: 3rem; */
+}
+@media(width<600px){
+    .section4Container div:last-child {
+      width: 100%;
+    }
+.s7d1{
+    height: 20vh;
+    margin-bottom: 5rem;
+}
+.ourCommunity div:last-child img {
+    padding: 1rem;
+  }
+}
+
+.section4Container5 {
+  background: #feda8c;
+  display: flex;
+  margin: 5rem 0;
+}
+
+.section4Container5 div:first-child{
+    width: 40vw;
+    position: relative;
+}
+.section4Container5 div:nth-child(2){
+    width: 40vw;
+    padding: 3rem 0;
+}
+.section4Container5 div:last-child{
+    width: 20vw;
+    position: relative;
+}
+
+.stxt {
+  display: flex;
+}
+.txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.txt p:first-child{
+    text-decoration: underline;
+    font-size: 20px;
+    padding: 1rem 0;
+}
+.txt p:nth-child(2){
+    font-size: 30px;
+    font-weight: 900;
+    padding: 1rem 0;
+}
+.txt p:nth-child(3){
+    font-size: 20px;
+    letter-spacing: 5px;
+    padding: 1rem 0;
+}
+
+.txt p a{
+    font-size: 25px;
+    font-weight: 900;
+    font-family: "Cedarville Cursive", cursive;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+  font-weight: 900;
+  cursor: pointer;
+  color: white;
+  background: #df4c53;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.mem {
+  text-transform: uppercase;
+  font-family: "Poppins";
+  font-size: 25px;
+}
+.sc {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.ib {
+  position: absolute;
+  bottom: 0px;
+}
+@media(width<900px){
+    .ib, .sc{
+        display: none;
+    }
+    .section4Container5 div:nth-child(2){
+        width: 100vw;
+        padding: 0rem;
+    }
+    .section4Container5 div:first-child{
+        /* padding: 0rem; */
+        display: none;
+    }
+    .section4Container5 div:last-child{
+        /* padding: 0rem; */
+        display: none;
+    }
+
+
+}
+.col {
+  height: 13vh;
+  background: #f4f4ca;
+  width: 32vw;
+  position: absolute;
+  margin-top: 42vh;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.btn:hover {
+  color: #df4c53;
+  background: white;
+}
+
+
+.abt{
+    width: 100%;
+}
+
+.l1 p h2{
+    color: #535353;
+    font-size: 30px;
+    padding: 1rem 0;
+}
+
+
+@media(width<600px){
+    .s1 div img {
+        width: 60%;
+      }
+      .s1left div div {
+        padding:1rem;
+        /* width: 50%; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    .txt p:first-child {
+        text-decoration: underline;
+        font-size: 15px;
+        padding: 0.5rem 1rem;
+      }
+      .txt p:nth-child(2) {
+        font-size: 20px;
+        font-weight: 900;
+        padding: 0.5rem 1rem;
+        letter-spacing: 3px;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .txt p:nth-child(3) {
+        font-size: 10px;
+        padding: 0.5rem 1rem;
+        letter-spacing: 3px;
+      }
+
+      .txt p a {
+        font-size: 20px;
+        font-weight: 900;
+        font-family: "Cedarville Cursive", cursive;
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+        margin: 0.5rem 0;
+        margin-bottom: 1rem;
+        font-size: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        color: white;
+        background: #df4c53;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      .txt{
+        padding: 0;
+      }
+}

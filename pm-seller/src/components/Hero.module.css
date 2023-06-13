@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.colnav{
+    background: #F5F5F5;
+    height: 90vh;    
+    display: flex;
+    align-items: center;
+    margin-bottom: 5vh;
+   
+}
+.colnav1{
+    background: linear-gradient(120.79deg, rgba(247, 186, 65, 0.93) 6.56%, rgba(245, 72, 92, 0.83) 94.06%),
+linear-gradient(0deg, rgba(251, 184, 50, 0.35), rgba(251, 184, 50, 0.35));
+    height: 120vh;    
+    display: flex;
+    text-align: center;
+    align-items:center;
+    margin-bottom: 5vh;
+    flex-direction: column;
+    padding: 15px;
+}
+.colnav1 form{
+    margin-top: 40px;
+}
+.colnav1 label{
+   padding: 8px;
+   color: white;
+
+}
+.colnav1 input{
+    box-shadow: 0px 1.2687499523162842px 2.370312452316284px 0px #0000000E;
+
+    box-shadow: 0px 5.800000190734863px 6.662499904632568px 0px #00000016;
+    
+    box-shadow: 0px 14.681249618530273px 17.873437881469727px 0px #0000001D;
+    
+    border: none;
+    margin-left: 25px;
+    padding: 4px;
+    width: 40vw;
+    border-radius: 5px;
+    
+}
+.colnav1 select{
+    box-shadow: 0px 1.2687499523162842px 2.370312452316284px 0px #0000000E;
+
+    box-shadow: 0px 5.800000190734863px 6.662499904632568px 0px #00000016;
+    
+    box-shadow: 0px 14.681249618530273px 17.873437881469727px 0px #0000001D;
+    
+    border: none;
+    margin-left: 25px;
+    padding: 4px;
+    width: 40vw;
+    border-radius: 5px;
+    
+}
+
+.colnav1 h2{
+    padding-top: 25px;
+    color: white;
+   
+}
+.colnav1 h6{
+    padding-top: 2px;
+    color: white;
+   
+}
+.tp{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.top{
+    background:#FDB310;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    color: #111;
+}
+.cardoverlay{
+    background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.5)
+    );
+    height:90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    padding-top: 6vh;
+    font-style: 'Poppins';
+    font-weight: 700;
+}
+.t1{
+    font-style: 'Poppins';
+    font-weight: 700;
+    font-size: xx-large;
+}
+.t9{
+    font-style: 'Poppins';
+    font-weight: 700;
+    font-size: xx-large;
+}
+.t3{
+    font-style: 'Poppins';
+    font-weight: 700;
+    font-size: xx-large;
+    margin-top: 4vh;
+}
+.dt2{
+    display: flex;
+    
+}
+.dt4{
+    display: flex;
+    margin-top: 5vh;
+}
+.dt3{
+    background: linear-gradient(0deg, rgba(251, 184, 50, 0.76), rgba(251, 184, 50, 0.76)),
+    linear-gradient(0deg, rgba(251, 184, 50, 0.35), rgba(251, 184, 50, 0.35));
+    ;
+    width: 320px;
+    height: 6vh;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 1vh;
+    color: black;
+    font-weight: 700;
+}
+.ll{
+    width: 70px;
+    height: 6px;
+    margin-top: 10px;
+    margin-right: 4px;
+}
+.lr{
+    width: 70px;
+    height: 6px;
+    margin-top: 12px;
+    margin-left: 4px;
+}
+.t2{
+    font-style: 'Poppins';
+    font-weight: 600;
+    font-size: large;
+}
+.tl{
+    font-style: 'Poppins';
+    font-weight: 600;
+    font-size: small;
+}
+.tg{
+    font-style: 'Poppins';
+    font-weight: 600;
+    font-size: small;
+    margin-top: 1vh;
+}
+.ts{
+    font-style: 'Poppins';
+    font-weight: 500;
+    font-size: x-large;
+}
+.m8{
+    padding: 5px;
+    height: 15vh;
+}
+.m1 p{
+   font-size: x-small;
+   font-weight: 700;
+   text-align: center;
+}
+.bannerfadeButton{
+    height: 7.4rem;
+    background-image: linear-gradient(180deg,
+    transparent, rgba(37,37,37,0.61),#111) ;
+}
+.vl{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 7px;
+    height: 90px;
+    width: 4px;
+}
+.btn{
+    background: linear-gradient(0deg, rgba(251, 184, 50, 0.76), rgba(251, 184, 50, 0.76)),
+    linear-gradient(0deg, rgba(251, 184, 50, 0.35), rgba(251, 184, 50, 0.35));
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 12px;
+}
+.btn:hover{
+    color: black;
+    background: white;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 12px;
+}
+@media(max-width:400px){
+    .colnav{
+        background: #F5F5F5;
+        height: 70vh;    
+        display: flex;
+        align-items: center;
+        margin-bottom: 5vh;
+       
+    }
+    .colnav1{
+        height: 100vh;
+    }
+    .colnav1 h2{
+       font-size: large;
+    }
+    .colnav1 h6{
+       font-size: small;
+    }
+    .colnav1 label{
+        font-size: small;
+     
+     }
+    .colnav1 p{
+        font-size: small;
+     
+     }
+    .cardoverlay{
+        height:70vh;
+    }
+    .t1{
+        margin-top: 5px;
+        font-weight: 700;
+        font-size: x-large;
+    }
+    .t2{
+        font-weight: 500;
+        font-size: medium;
+    }
+    .ll{
+        width: 50px;
+        height: 4px;
+    }
+    .lr{
+        width: 50px;
+        height: 4px;
+    }
+    .t3{
+        font-weight: 600;
+        font-size: larger;
+        margin-top: 3vh;
+    }
+    .dt3{
+        width: 320px;
+        height: 6vh;
+        border-radius: 20px;
+        text-align: center;
+        padding-top: 1.3vh;
+        color: black;
+        font-weight: 700;
+    }
+    
+
+    .btn{
+        font-weight: 500;
+        margin-top: 20px;
+        padding: 10px;
+    }
+}
+
+
+.login{
+    width: 60vw;
+    height: 70vh;
+    background: linear-gradient(180deg, rgba(251, 184, 50, 0.4836) 0%, rgba(229, 63, 82, 0.4316) 100%),
+linear-gradient(0deg, rgba(251, 184, 50, 0.35), rgba(251, 184, 50, 0.35));
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+}
+.pi{
+    width: 0px !important;
+}
+.login h1{
+    margin-bottom: 30px;
+    font-size: 45px;
+}
+.login p{
+    font-size: large;
+}
+.login button{
+    width: 130px;
+    background: linear-gradient(180deg, #FEDB8D 29.48%, rgba(229, 63, 82, 0.79) 100%);
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: small;
+    margin-bottom: 10px;
+    border-radius: 8px;
+
+}
+.login .yo{
+    width: 200px;
+}
+.login button:hover{
+    background: linear-gradient(180deg, #FEDB8D 99.48%, rgba(229, 63, 82, 0.79) 100%);
+
+}
+
+.login input{
+    margin-bottom: 20px;
+    padding: 4px;
+    border-radius: 5px;
+    border: none;
+    width: 250px;
+}
+.login a{
+    color: #FFE600;
+}
+
+@media(max-width:500px){
+    .login h1{
+        margin-bottom: 30px;
+        font-size: xx-large;
+    }
+    .login p{
+        font-size: 14px;
+    }
+    .login a{
+        font-size: 14px;
+    }
+    .login button{
+        width: 110px;
+    }
+    
+    .login input{
+        margin-bottom: 20px;
+        padding: 4px;
+        border-radius: 5px;
+        border: none;
+        width: 150px;
+    }
+    .login{
+        width: 350px;
+        height: 50vh; 
+    }
+  
+}
+
+
