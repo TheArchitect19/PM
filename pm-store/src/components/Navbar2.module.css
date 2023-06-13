@@ -5,7 +5,7 @@
 
 .drop{
     width: 11px;
-    margin-left: 2.5px;
+    margin-left: 7px;
 }
 
 @media(max-width:1200px){
@@ -31,4 +31,9 @@
     a{
         font-size: medium;
     }
+}
+
+.parentUl{
+    display: flex;
+    justify-content: space-around;
 }

@@ -77,7 +77,7 @@ const Navbar = (data) => {
                   <div className={styles.txt}>
                     <img className={styles.m} src={losu} alt="" />
                     <div className={styles.innertxtl}>
-                      <h5>{log ? <>Profile</> : <>Login/Signup</>}</h5>
+                      <h5>{log ? <>Profile</> : <>Login / Signup</>}</h5>
                     </div>
                   </div>
 
