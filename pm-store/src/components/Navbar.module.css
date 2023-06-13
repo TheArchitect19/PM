@@ -38,12 +38,13 @@
 .txt p{
     display: flex;
     font-size: x-small;
-
+    margin: 0 3px;
 }
 .txt h5{
     display: flex;
     font-size: small;
     font-weight: 700;
+    margin: 3px;
 }
 @media(max-width:1200px){
     .navsty{
