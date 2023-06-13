@@ -3,8 +3,8 @@ import NavHom from '../components/NavHom'
 import Footer from '../components/Footer'
 import Hero3 from '../components/Hero3'
 
-// const url = "http://localhost:5000";
-const url = "https://backend.pandrimarket.com"
+const url = "http://localhost:5000";
+// const url = "https://backend.pandrimarket.com"
 
 
 const Home = () => {
@@ -22,12 +22,12 @@ const Home = () => {
             // user is not logged in
             setLog(false);
             alert("Please login to continue");
-            window.location.href = "/login";
+            window.location.href = "/login?redirect=ays";
           }
         })
     }
     checkLogin();
-  });
+  }, []);
   return (
     <>
       <NavHom data={log} />

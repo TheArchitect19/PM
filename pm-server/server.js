@@ -66,6 +66,11 @@ app.get('/test', (req, res) => {
 
 app.post('/upload', upload.single('image'), imageUpload);
 app.get('/getimg', getImg);
+app.get('/param', (req, res) => {
+	const id = req.query.id;
+	console.log(id);
+	res.send(id);
+})
 
 app.listen(5000, () => {
 	console.log("Server Running on port 5000");

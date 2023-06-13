@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import home from "../assets/svg/home.png";
 import ll from "../assets/svg/ll.png";
 import lr from "../assets/svg/lr.png";
@@ -8,16 +8,22 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from './firebase';
 
-// const url = "http://localhost:5000";
-const url = "https://backend.pandrimarket.com"
+const url = "http://localhost:5000";
+// const url = "https://backend.pandrimarket.com"
 
 const Navbar = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const redirect = searchParams.get('redirect');
+  console.log(redirect);
   const [state, setState] = useState({
     phone: "",
   });
   const [password, setPassword] = useState({
     password: ""
   });
+
+  const [otpLogin, setOtpLogin] = useState(false);
   const [show, setShow] = useState(false);
   const [tog, setTog] = useState(false);
   const [otp, setotp] = useState('');
@@ -55,21 +61,25 @@ const Navbar = () => {
       alert("Please enter a valid phone number.")
     }
     else {
-
-      if (state.phone && password.password) {
-        await fetch(`${url}/login`, {
+      
+      if (state.phone && (password.password || otpLogin)) {
+        let apiCall = `${url}/login`;
+        if (redirect !== null) {
+          apiCall = `${url}/login?redirect=${redirect}`;
+        }
+        await fetch(apiCall, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
           },
           credentials: 'include',
-          body: JSON.stringify({ phone: state.phone, password: password.password }),
+          body: JSON.stringify({ phone: state.phone, password: password.password, otp: otpLogin }),
         })
           .then(res => {
             return res.json();
           })
           .then(res => {
-            // console.log(res);
+            console.log(res);
             // Handle the response or perform any necessary actions
             if (res.ok) {
               window.location.href = res.redirectUrl;
@@ -77,8 +87,12 @@ const Navbar = () => {
             else {
               alert(res.message);
             }
+          })
+          .catch(err => {
+            alert(err);
           });
-      } else {
+      }
+      else {
         alert("Invalid input");
       }
     }
@@ -131,7 +145,10 @@ const Navbar = () => {
       return;
     final.confirm(otp).then((result) => {
       // success
-      alert("Logged In");
+      console.log(result);
+      setOtpLogin(!otpLogin);
+      console.log(otpLogin);
+      login();
     }).catch((err) => {
       alert("Invalid OTP, please try again.");
     })
