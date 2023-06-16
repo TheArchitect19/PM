@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.section4Container {
+  /* magic */
+  display: flex;
+  /* x axis center of child divs */
+  justify-content: center;
+  /* background image */
+  background: url("../assets/svg/hero.png");
+  /* fit the image in the whole background / cover full area */
+  background-size: cover;
+  /* image should not repeat */
+  background-repeat: no-repeat;
+  /* height of div */
+  height: 70vh;
+  /* y axis center of child divs */
+  align-items: center;
+  /* all the child divs will align column wise  */
+  flex-direction: column;
+  /* useful for its child element */
+  position: relative;
+}
+.section4Container div {
+  /* magic */
+  display: flex;
+}
+@media (width<900px) {
+  .section4Container div {
+    flex-direction: column;
+  }
+  .section4Container{
+    height: 50vh;
+  }
+}
+.section4Container div a {
+  /* decoration starts  */
+  padding: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  /* decoration ends */
+  /* why not black? 100% black is not professional */
+  color: #2f2f2f;
+}
+.section4Container div a:hover {
+  /* decoration starts */
+  color: #ffffff;
+  text-shadow: 1.5px 1.5px 2px rgb(39, 39, 39);
+  /* decoration ends */
+}
+
+.section4Container div:last-child {
+  position: relative;
+  width: 50%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.section4Container div:last-child img {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+}
+
+.clo{
+    width: 100%;
+    border-radius:50px;
+}
+
+.s7d1 {
+  height: 30vh;
+  background-color: #ffe2a2;
+  margin-bottom: 13rem;
+}
+
+@media(width<600px){
+    .section4Container div:last-child {
+      width: 100%;
+    }
+.s7d1{
+    height: 35vh;
+    margin-bottom: 2rem;
+}
+.section4Container div:last-child img {
+    width: 95%;
+    border-radius: 10px;
+  }
+}
+
+
+
+
+
+.section3Container{
+    padding: 0;
+    }
+.section3Container2{
+    padding: 0;
+    margin: 2rem;
+    }
+.section3Container3{
+    padding: 0rem 0;
+    }
+    .section3Wrapper{
+        /* background-color: #2f2f2f; */
+        display: flex;
+        flex-direction: row;
+        /* background:url('../assets/svg/rounded-div2.png'); */
+        /* background-repeat: no-repeat; */
+        /* background-size: contain; */
+        /* background-position: right; */
+        padding:2.5rem 3rem;
+        /* height: 400px; */
+    }
+    .section3Wrapper2{
+        /* background-color: #2f2f2f; */
+        display: flex;
+        flex-direction: row;
+        /* background:url('../assets/svg/rounded-div2.png'); */
+        /* background-repeat: no-repeat; */
+        /* background-size: contain; */
+        /* background-position: right; */
+        padding:0rem 3rem 0 3rem;
+        /* height: 400px; */
+    }
+    .section3Wrapper3{
+        /* background-color: #2f2f2f; */
+        display: flex;
+        flex-direction: row;
+        /* background:url('../assets/svg/rounded-div2.png'); */
+        /* background-repeat: no-repeat; */
+        /* background-size: contain; */
+        /* background-position: right; */
+        padding:0rem 3rem;
+        /* height: 400px; */
+    }
+    .section3Img{
+        width: 30%;
+        position: relative;
+    }
+    .section3Img img{
+        /* height: 85%; */
+    position: absolute;
+    width: 55%;
+    }
+    .section3Img2 img{
+        /* height: 85%; */
+    width: 80%;
+    }
+    .img1{
+        bottom: 0;
+        left: 0;
+    }
+    .img2{
+        top: 0;
+        right: 0;
+    }
+    .section3Details{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        /* align-items: center; */
+        justify-content: center;
+        padding: 3rem;
+    }
+    .section3Details2{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        /* align-items: center; */
+        justify-content: center;
+        padding: 2rem 3rem;
+    }
+    .section3Details3{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* align-items: center; */
+        justify-content: center;
+        padding: 0 3rem;
+    }
+    .section3Heading{
+        display: inline-block;
+        border-bottom: 1px solid black;
+        line-height: 50px;
+        font-size: 30px;
+        font-weight: 900;
+    }
+    .section3Heading2{
+        text-align: center;
+        display: inline-block;
+        border-bottom: 1px solid black;
+        line-height: 50px;
+        font-size: 30px;
+        font-weight: 900;
+        padding: 0 10rem;
+    }
+    
+    .section3Details p{
+        font-size: 16px;
+        padding: 2rem 0;
+        line-height: 25px;
+    }
+    
+    .section3Details3 p{
+        font-size: 16px;
+        padding: 2rem 0;
+        line-height: 25px;
+    }
+
+
+
+
+@media(width<900px){
+.section3Container{
+    padding: 1rem;
+    }
+.section3Container2{
+    padding: 0;
+    margin: 1rem;
+    }
+.section3Container3{
+    padding: 1rem;
+    }
+    .section3Wrapper{
+        /* background-color: #2f2f2f; */
+        display: flex;
+        flex-direction: column;
+        /* background:url('../assets/svg/rounded-div2.png'); */
+        /* background-repeat: no-repeat; */
+        /* background-size: contain; */
+        /* background-position: right; */
+        padding:0rem;
+        /* height: 400px; */
+    }
+    .section3Wrapper2{
+        /* background-color: #2f2f2f; */
+        display: flex;
+        flex-direction: column;
+        /* background:url('../assets/svg/rounded-div2.png'); */
+        /* background-repeat: no-repeat; */
+        /* background-size: contain; */
+        /* background-position: right; */
+        padding:0rem;
+        /* height: 400px; */
+    }
+    .section3Wrapper3{
+        /* background-color: #2f2f2f; */
+        display: flex;
+        flex-direction: column;
+        /* background:url('../assets/svg/rounded-div2.png'); */
+        /* background-repeat: no-repeat; */
+        /* background-size: contain; */
+        /* background-position: right; */
+        padding:0rem;
+        /* height: 400px; */
+    }
+    .section3Img{
+       display: flex;
+       width: 100%;
+    }
+    .section3Img2{
+        display: flex;
+        justify-content: center;
+    }
+    .section3Img img{
+        /* height: 85%; */
+    position: relative;
+    width: 50%;
+    
+    }
+    .section3Img2 img{
+        /* height: 85%; */
+    width: 100%;
+    }
+
+    .section3Details{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* align-items: center; */
+        justify-content: center;
+        padding: 0rem;
+    }
+    .section3Details2{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* align-items: center; */
+        justify-content: center;
+        padding: 0;
+    }
+    .section3Details3{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* align-items: center; */
+        justify-content: center;
+        padding: 0rem;
+    }
+    .section3Heading{
+        display: inline-block;
+        border-bottom: 1px solid black;
+        line-height: 50px;
+        font-size: 20px;
+        font-weight: 900;
+    }
+    .section3Heading2{
+        text-align: start;
+        display: inline-block;
+        border-bottom: 1px solid black;
+        line-height: 30px;
+        font-size: 20px;
+        font-weight: 900;
+        padding: 0rem;
+    }
+    
+    .section3Details p{
+        font-size: 14px;
+        padding: 0;
+        line-height: 20px;
+        font-weight: 300;
+        padding: 1rem 0;
+    }
+    .section3Details2 p{
+        font-size: 14px;
+        padding: 0;
+        line-height: 20px;
+        font-weight: 300;
+        padding: 1rem 0;
+    }
+    
+    .section3Details3 p{
+        font-size: 14px;
+        padding: 0;
+        line-height: 20px;
+        font-weight: 300;
+        padding: 1rem 0;
+    }
+}
+
+.abt{
+    width: 100%;
+}
