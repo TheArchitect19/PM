@@ -12,6 +12,7 @@ import {
   import { RiLockPasswordFill } from "react-icons/ri";
   import {IoIosCall } from "react-icons/io";
   import { GrMapLocation } from "react-icons/gr";
+import Navbar from '../components/NavHom';
 
 const Profile = () => {
     const [activeComponent, setActiveComponent] = useState('profile1');
@@ -29,6 +30,8 @@ const Profile = () => {
         return component === activeComponent ? { backgroundColor: 'white', width:"30px", alignSelf:"end" } : {};
       };
   return (
+    <>
+    <Navbar/>
     <div className={styles.parent}>
       <div className={styles.sidenav}>
         <p>MY PROFILE</p>
@@ -72,6 +75,7 @@ const Profile = () => {
         {activeComponent === 'profile3' && <Profile3 />}
       </div>
     </div>
+    </>
   );
 };
 
