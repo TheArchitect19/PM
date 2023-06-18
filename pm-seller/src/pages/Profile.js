@@ -1,0 +1,249 @@
+import React, { useState } from 'react';
+import styles from "./Profile.module.css";
+import dp from "../assets/GirlPic.png";
+import {
+  AiFillFacebook,
+  AiFillGoogleSquare,
+} from "react-icons/ai";
+import {
+    AiOutlineMail,
+  } from "react-icons/ai";
+  import {BiUser } from "react-icons/bi";
+  import { RiLockPasswordFill } from "react-icons/ri";
+  import {IoIosCall } from "react-icons/io";
+  import { GrMapLocation } from "react-icons/gr";
+
+const Profile = () => {
+    const [activeComponent, setActiveComponent] = useState('profile1');
+
+    const handleNavClick = (component) => {
+      setActiveComponent(component);
+    };
+    const getButtonStyle = (component) => {
+        return component === activeComponent ? { backgroundColor: 'white', color: 'black' } : {};
+      };
+    const getButtonStyle2 = (component) => {
+        return component === activeComponent ? { backgroundColor: 'white', width:"30px", alignSelf:"end", borderRadius:"50% 0 0 0" } : {};
+      };
+    const getButtonStyle3 = (component) => {
+        return component === activeComponent ? { backgroundColor: 'white', width:"30px", alignSelf:"end" } : {};
+      };
+  return (
+    <div className={styles.parent}>
+      <div className={styles.sidenav}>
+        <p>MY PROFILE</p>
+        <div>
+          <div>
+            <img src={dp} alt="" />
+          </div>
+          <div>
+            <a>Upload Photo</a>
+            <p>Maxmium Upload Size is 1 MB</p>
+            <div>
+              <AiFillGoogleSquare
+                size={30}
+                style={{ marginRight: "0.5rem", cursor: "pointer" }}
+              />
+              <AiFillFacebook size={30} style={{ cursor: "pointer" }} />
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li onClick={() => handleNavClick('profile1')}
+           style={getButtonStyle('profile1')}>
+            PERSONAL DETAILS
+            <p>Fill up your Personal details here</p>
+          </li>
+          <li onClick={() => handleNavClick('profile2')}
+           style={getButtonStyle('profile2')}>
+            CHANGE MOBILE NUMBER
+            <p>You can change your mobile number anytime from this section</p>
+          </li>
+          <li onClick={() => handleNavClick('profile3')}
+          style={getButtonStyle('profile3')}>
+            CHANGE PASSWORD
+            <p>You can change your password anytime from this section</p>
+          </li>
+        </ul>
+      </div>
+      <div className={styles.rightPart}>
+      {activeComponent === 'profile1' && <Profile1 />}
+        {activeComponent === 'profile2' && <Profile2 />}
+        {activeComponent === 'profile3' && <Profile3 />}
+      </div>
+    </div>
+  );
+};
+
+export default Profile;
+
+// _________________________________________________________________
+
+const Profile1 = () => {
+    return (
+      <div>
+                  <div className={styles.personalDetails}>
+            <form action="">
+              <div className={styles.labelInloc}>
+                Full Name
+                <div className={styles.inloc}>
+                  <BiUser />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name here"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+                Email ID
+                <div className={styles.inloc}>
+                  <AiOutlineMail />
+                  <input
+                    type="email"
+                    name="name"
+                    placeholder="Enter your email ID here"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+                Whatsapp Number
+                <div className={styles.inloc}>
+                  <IoIosCall />
+                  <input
+                    type="number"
+                    name="name"
+                    placeholder="Enter your email ID here"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc2}>
+                <input
+                  type="checkbox"
+                  id="vehicle1"
+                  name="vehicle1"
+                  value="Bike"
+                />
+                <label htmlFor="vehicle1">
+                  {" "}
+                  Do you want to receive updates on Whatsapp ?{" "}
+                </label>
+                <br></br>
+              </div>
+              <div className={styles.labelInloc}>
+                Address
+                <div className={styles.inloc}>
+                  <GrMapLocation />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your current address"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+                Password
+                <div className={styles.inloc}>
+                  <RiLockPasswordFill />
+                  <input
+                    type="password"
+                    name="name"
+                    placeholder="Enter your password here"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+                <button>Submit</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    )
+  }
+  
+// ___________________________________________________________
+
+const Profile2 = () => {
+    return (
+      <div>
+                  <div className={styles.personalDetails}>
+            <form action="">
+              <div className={styles.labelInloc}>
+              Existing/ Old Phone Number
+                <div className={styles.inloc}>
+                  <IoIosCall />
+                  <input
+                    type="number"
+                    name="name"
+                    placeholder="Enter your old phone number"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+              New Phone Number
+                <div className={styles.inloc}>
+                  <IoIosCall />
+                  <input
+                    type="number"
+                    name="name"
+                    placeholder="Enter your new phone number"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+                <button>Submit</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    )
+  }
+
+//   _____________________________________________________________________
+
+const Profile3 = () => {
+    return (
+      <div>
+                  <div className={styles.personalDetails}>
+            <form action="">
+              <div className={styles.labelInloc}>
+              Existing/ Old Pasword
+                <div className={styles.inloc}>
+                  <RiLockPasswordFill />
+                  <input
+                    type="password"
+                    name="name"
+                    placeholder="Enter your old password"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+              New Password
+                <div className={styles.inloc}>
+                  <RiLockPasswordFill />
+                  <input
+                    type="password"
+                    name="name"
+                    placeholder="Enter your new password"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+              Confirm New Password
+                <div className={styles.inloc}>
+                  <RiLockPasswordFill />
+                  <input
+                    type="password"
+                    name="name"
+                    placeholder="Enter your new password"
+                  />
+                </div>
+              </div>
+              <div className={styles.labelInloc}>
+                <button>Submit</button>
+              </div>
+            </form>
+          </div>
+      </div>
+    )
+  }
