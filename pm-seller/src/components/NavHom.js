@@ -35,7 +35,7 @@ const Navbar = (data) => {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div className={styles.navsty}>
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav">
               <li class="nav-item ">
                 <a class="nav-link mx-3" href="/">
                   <div className={styles.txt}>
