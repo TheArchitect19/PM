@@ -7,7 +7,10 @@ import m from "../assets/svg/m.png";
 import gyb from "../assets/svg/gyb.png";
 import losu from "../assets/svg/losu.png";
 import store from "../assets/svg/store.png";
+import cart from "../assets/svg/cart.png";
+
 import styles from "./Navbar.module.css"
+import { colors } from "@mui/material";
 
 const Navbar = (data) => {
   const [log, setLog] = useState(false);
@@ -17,27 +20,17 @@ const Navbar = (data) => {
   })
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">
+    
+        
+        
+
+        
+          <div className={styles.navsty}>
+           
+          <a  href="/">
           <img className={styles.pm} src={pmnavlogo} alt="" />
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div className={styles.navsty}>
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item ">
-                <a class="nav-link mx-3" href="/">
+                <a   href="/">
                   <div className={styles.txt}>
                     <img className={styles.m} src={m} alt="" />
                     <div className={styles.innertxt}>
@@ -47,9 +40,9 @@ const Navbar = (data) => {
                   </div>
 
                 </a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link mx-3" href="/">
+           
+             
+                <a   href="/">
                   <div className={styles.txt}>
                     <img className={styles.m} src={gyb} alt="" />
                     <div className={styles.innertxt}>
@@ -59,35 +52,44 @@ const Navbar = (data) => {
                   </div>
 
                 </a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link mx-3" href="/ays">
+             
+              
+                <a   href="/ays">
                   <div className={styles.txt}>
                     <img className={styles.m} src={store} alt="" />
                     <div className={styles.innertxt}>
                       <h5>Add Your Store</h5>
-                      <p>Join our platform</p>
+                      <p>Sell your products online</p>
                     </div>
                   </div>
 
                 </a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link mx-3" href={log ? "/profile" : "/login"}>
+            
+             
+                <a   href={log ? "/profile" : "/login"}>
                   <div className={styles.txt}>
                     <img className={styles.m} src={losu} alt="" />
-                    <div className={styles.innertxtl}>
+                    <div className={styles.innertxt}>
                       <h5>{log ? <>Profile</> : <>Login / Signup</>}</h5>
                     </div>
                   </div>
 
                 </a>
-              </li>
-              </ul>
+                
+                <a   href="/cart">
+                  <div className={styles.txt}>
+                    <img className={styles.m} src={cart} alt="" />
+                    <div className={styles.innertxt}>
+                    <h5 style={{color:'white'}}>.</h5>
+                    </div>
+                  </div>
+
+                </a>
+              
           </div>
 
-        </div>
-      </nav>
+       
+   
     </>
   );
 };

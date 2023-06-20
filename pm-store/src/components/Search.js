@@ -30,10 +30,12 @@ const Navbar = () => {
             Location
             <img className={styles.drop} src={drop} alt="" />
           </div>
+          <div className={styles.shop3}>
             <button className={styles.btn}>
               <img className={styles.sb} src={search} alt="" />
               Search
             </button>
+            </div>
           </div>
 
         </div>
