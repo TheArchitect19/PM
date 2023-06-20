@@ -13,9 +13,9 @@ const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
   return (
     <>
-      { (
+      {  (
         <div className={className} onClick={onClick}>
-          <ArrowBackIos style={{ color: 'black', fontSize: '30px' }} />
+          <ArrowBackIos style={{ color: 'black', fontSize: '25px' }} />
         </div>
       )}
     </>
@@ -28,7 +28,7 @@ const NextBtn = (props) => {
     <>
       { (
         <div className={className} onClick={onClick}>
-          <ArrowForwardIos style={{ color: 'black', fontSize: '30px' }} />
+          <ArrowForwardIos style={{ color: 'black', fontSize: '25px' }} />
         </div>
       )}
     </>
@@ -105,20 +105,25 @@ const MultiItemCarousel = () => {
 
 const Card = ({ item }) => {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <img
+       <div className='cont'>
+       <img
         className='multi__image'
         src={item}
         alt=''
         style={{
-          width: '90%',
-          height: '270px',
+          width: '100%',
+          height: '170px',
           objectFit: 'contain',
           marginBottom: '10px',
         }}
       />
-     
-    </div>
+      <div className='card_info'>
+        <h5>Parag Fashion</h5>
+        <h6>Women Solid Sweatshirt</h6>
+        <p>Rs. 1079 <span> Rs. 1799 </span><a style={{color:'#FF0724'}}> (40% OFF)</a></p>
+        <p style={{color:'grey',fontSize:'15px'}}>56 reviews</p>
+      </div>
+      </div>
   );
 };
 
