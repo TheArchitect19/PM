@@ -12,11 +12,10 @@ import Cg from '../components/Cg'
 import Git from '../components/Git'
 import Pms from '../components/Pms'
 import Carousel from '../components/Carousel'
-
 import { useCookies, CookiesProvider } from 'react-cookie';
+import url_json from "../url.json";
 
-const url = "http://localhost:5000";
-// const url = "https://backend.pandrimarket.com"
+const url = url_json.url;
 
 const Home = () => {
   // const [cookies] = useCookies(['login']);
@@ -32,6 +31,7 @@ const Home = () => {
         .then(res => res.json())
         .then(res => {
           if (res === 0) {
+            console.log(res);
             // user is logged in
             setLog(true);
           }

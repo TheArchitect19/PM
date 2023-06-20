@@ -7,15 +7,14 @@ import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from './firebase';
+import url_json from "../url.json";
 
-const url = "http://localhost:5000";
-// const url = "https://backend.pandrimarket.com"
+const url = url_json.url;
 
 const Navbar = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const redirect = searchParams.get('redirect');
-  console.log(redirect);
   const [state, setState] = useState({
     phone: "",
   });
@@ -47,20 +46,15 @@ const Navbar = () => {
   });
 
   async function checkPhoneExists() {
-    await fetch(`${url}/checkPhoneExists`, {
+    const response = await fetch(`${url}/checkPhoneExists`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(state),
-    })
-      .then(res => res.json())
-      .then(res => {
-        // res = 1: phone exists exist
-        // res = 0: phone doesn't exist
-        // else error
-        return res;
-      })
+    });
+    const data = await response.json();
+    return data;
   }
 
   function toggle() {
@@ -80,7 +74,7 @@ const Navbar = () => {
     else {
 
       if (state.phone && (password.password || otpLogin)) {
-        const res = checkPhoneExists();
+        const res = await checkPhoneExists();
         if (res === 1) {
           let apiCall = `${url}/login`;
           if (redirect !== null) {
@@ -130,8 +124,8 @@ const Navbar = () => {
       // use this block to bypass otp verification
 
       // otp verification bypass block ends
-      
-      const res = checkPhoneExists();
+
+      const res = await checkPhoneExists();
       if (res === 1) {
         // send otp
         const number = "+" + state.phone;
@@ -197,7 +191,6 @@ const Navbar = () => {
             {tog ? <>
               <div style={{ color: "black", display: !show ? "block" : "none" }}>
                 <PhoneInput
-
                   countryCallingCodeEditable={false}
                   country={'in'}
                   value={state.phone}
@@ -218,7 +211,6 @@ const Navbar = () => {
                 country={'in'}
                 value={state.phone}
                 onChange={phone => setState({ phone })}
-
               />
               <br></br>
               <input type="text" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} style={{ width: '300px' }} />

@@ -11,6 +11,7 @@ import Community from './pages/Community';
 import Login from './pages/Login';
 import Signup from './pages/SIgnup';
 import RegShop from './pages/RegShop';
+import Profile from './pages/Profile';
 import Upload from './pages/Upload';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/signup" element={(<Signup />)} />
           <Route path="/ays" element={(<RegShop />)} />
           <Route path="/upload" element={(<Upload />)} />
+          <Route path="/profile" element={(<Profile/>)} />
         </Routes>
       </BrowserRouter>
     </>
