@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Profile.module.css";
-import dp from "../assets/GirlPic.png";
+import dp from "../assets/img/dp.jpg";
 import { AiFillFacebook, AiFillGoogleSquare } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
