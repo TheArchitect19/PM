@@ -3,7 +3,10 @@
     margin-bottom: 5px;
 }
 .navsty{
-    margin-left: 10vw;
+    /* margin-left: 10vw; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .m{
@@ -14,36 +17,31 @@
     display: flex;
     font-size: small;
     font-weight: 700;
-    margin-top: 10px;
-    margin-right: 2vw;
-    margin-left: 2vw;
-   
 }
+
 .innertxt{
     display: flex;
     flex-direction: column;
     font-size: x-small;
     margin-top: 4px;
-
-    
 }
 .innertxtl{
     display: flex;
     flex-direction: column;
-    font-size: small;
+    font-size: 10px;
     margin-top: 12px;
-
-    
 }
+
 .txt p{
     display: flex;
-    font-size: x-small;
+    font-size: 10px;
 
 }
 .txt h5{
     display: flex;
-    font-size: small;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 900;
+    margin-bottom: 5px;
 }
 @media(max-width:1200px){
     .navsty{

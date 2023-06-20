@@ -1,7 +1,7 @@
 .sidenav{
     background: linear-gradient(120.79deg, rgba(247, 186, 65, 0.93) 6.56%, rgba(245, 72, 92, 0.83) 94.06%);
     width: 35%;
-    height: 100vh;
+    height: 100%;
 }
 
 .sidenav ul{
@@ -102,11 +102,12 @@
 .rightPart{
     width: 65%;
     /* background-color: aqua; */
-    height: 100vh;
+    height: 100%;
 }
 
 .parent{
     display:flex;
+    height: 900px;
 }
 
 
@@ -139,6 +140,7 @@ border-radius: 13px;
     padding-left: 1rem;
     margin-left: 0.5rem;
     padding: 0.5rem ;
+    outline: none;
   }
 
 .labelInloc{
