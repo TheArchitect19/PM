@@ -1,60 +1,74 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Profile.module.css";
 import dp from "../assets/GirlPic.png";
-import {
-  AiFillFacebook,
-  AiFillGoogleSquare,
-} from "react-icons/ai";
-import {
-  AiOutlineMail,
-} from "react-icons/ai";
+import { AiFillFacebook, AiFillGoogleSquare } from "react-icons/ai";
+import { AiOutlineMail } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoIosCall } from "react-icons/io";
 import { GrMapLocation } from "react-icons/gr";
-import Navbar from '../components/NavHom';
-import url_json from "../url.json";
+import Navbar from "../components/NavHom";
+// import url_json from "../url.json";
 
-const url = url_json.url;
+// const url = url_json.url;
 
 const Profile = () => {
   const [log, setLog] = useState(false);
-  const [activeComponent, setActiveComponent] = useState('profile1');
+  const [activeComponent, setActiveComponent] = useState("profile1");
 
-  useEffect(() => {
-    async function checkLogin() {
-      await fetch(`${url}/checkLogin`, {
-        method: "GET",
-        credentials: "include"
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res === 0) {
-            console.log(res);
-            // user is logged in
-            setLog(true);
-          }
-          else {
-            setLog(false);
-          }
-        })
-    };
+  // useEffect(() => {
+  //   async function checkLogin() {
+  //     await fetch(`${url}/checkLogin`, {
+  //       method: "GET",
+  //       credentials: "include"
+  //     })
+  //       .then(res => res.json())
+  //       .then(res => {
+  //         if (res === 0) {
+  //           console.log(res);
+  //           // user is logged in
+  //           setLog(true);
+  //         }
+  //         else {
+  //           setLog(false);
+  //         }
+  //       })
+  //   };
 
-    checkLogin();
-  }, []);
+  //   checkLogin();
+  // }, []);
 
   const handleNavClick = (component) => {
     setActiveComponent(component);
   };
   const getButtonStyle = (component) => {
-    return component === activeComponent ? { backgroundColor: 'white', color: 'black' } : {};
+    return component === activeComponent
+      ? { backgroundColor: "white", color: "black" }
+      : {};
   };
-  const getButtonStyle2 = (component) => {
-    return component === activeComponent ? { backgroundColor: 'white', width: "30px", alignSelf: "end", borderRadius: "50% 0 0 0" } : {};
+
+  // _____________________
+  const [selectedImage, setSelectedImage] = useState(dp);
+  const fileInputRef = useRef(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setSelectedImage(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
-  const getButtonStyle3 = (component) => {
-    return component === activeComponent ? { backgroundColor: 'white', width: "30px", alignSelf: "end" } : {};
+
+  const handleClick = () => {
+    fileInputRef.current.click();
   };
+  // _________________________
+
   return (
     <>
       <Navbar data={log} />
@@ -63,11 +77,24 @@ const Profile = () => {
           <p>MY PROFILE</p>
           <div>
             <div>
-              <img src={dp} alt="" />
+              <img
+                src={selectedImage}
+                alt="Preview Image"
+                style={{ width: "200px", height: "200px" }}
+              />
+              <div className={styles.customfileupload} onClick={handleClick}>
+                <input
+                  type="file"
+                  id="upload-input"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  ref={fileInputRef}
+                />
+                <span>Upload Image</span>
+              </div>
+              <p>Maxmium Upload Size is 1 MB</p>
             </div>
             <div>
-              <a>Upload Photo</a>
-              <p>Maxmium Upload Size is 1 MB</p>
               <div>
                 <AiFillGoogleSquare
                   size={30}
@@ -78,27 +105,33 @@ const Profile = () => {
             </div>
           </div>
           <ul>
-            <li onClick={() => handleNavClick('profile1')}
-              style={getButtonStyle('profile1')}>
+            <li
+              onClick={() => handleNavClick("profile1")}
+              style={getButtonStyle("profile1")}
+            >
               PERSONAL DETAILS
               <p>Fill up your Personal details here</p>
             </li>
-            <li onClick={() => handleNavClick('profile2')}
-              style={getButtonStyle('profile2')}>
+            <li
+              onClick={() => handleNavClick("profile2")}
+              style={getButtonStyle("profile2")}
+            >
               CHANGE MOBILE NUMBER
               <p>You can change your mobile number anytime from this section</p>
             </li>
-            <li onClick={() => handleNavClick('profile3')}
-              style={getButtonStyle('profile3')}>
+            <li
+              onClick={() => handleNavClick("profile3")}
+              style={getButtonStyle("profile3")}
+            >
               CHANGE PASSWORD
               <p>You can change your password anytime from this section</p>
             </li>
           </ul>
         </div>
         <div className={styles.rightPart}>
-          {activeComponent === 'profile1' && <Profile1 />}
-          {activeComponent === 'profile2' && <Profile2 />}
-          {activeComponent === 'profile3' && <Profile3 />}
+          {activeComponent === "profile1" && <Profile1 />}
+          {activeComponent === "profile2" && <Profile2 />}
+          {activeComponent === "profile3" && <Profile3 />}
         </div>
       </div>
     </>
@@ -148,12 +181,7 @@ const Profile1 = () => {
             </div>
           </div>
           <div className={styles.labelInloc2}>
-            <input
-              type="checkbox"
-              id="vehicle1"
-              name="vehicle1"
-              value="Bike"
-            />
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
             <label htmlFor="vehicle1">
               {" "}
               Do you want to receive updates on Whatsapp ?{" "}
@@ -188,8 +216,8 @@ const Profile1 = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // ___________________________________________________________
 
@@ -226,8 +254,8 @@ const Profile2 = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 //   _____________________________________________________________________
 
@@ -275,5 +303,5 @@ const Profile3 = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
