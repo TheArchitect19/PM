@@ -46,6 +46,23 @@ const Navbar = () => {
     checkLogin();
   });
 
+  async function checkPhoneExists() {
+    await fetch(`${url}/checkPhoneExists`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then(res => res.json())
+      .then(res => {
+        // res = 1: phone exists exist
+        // res = 0: phone doesn't exist
+        // else error
+        return res;
+      })
+  }
+
   function toggle() {
     setTog(!tog);
   }
@@ -61,36 +78,45 @@ const Navbar = () => {
       alert("Please enter a valid phone number.")
     }
     else {
-      
+
       if (state.phone && (password.password || otpLogin)) {
-        let apiCall = `${url}/login`;
-        if (redirect !== null) {
-          apiCall = `${url}/login?redirect=${redirect}`;
+        const res = checkPhoneExists();
+        if (res === 1) {
+          let apiCall = `${url}/login`;
+          if (redirect !== null) {
+            apiCall = `${url}/login?redirect=${redirect}`;
+          }
+          await fetch(apiCall, {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            credentials: 'include',
+            body: JSON.stringify({ phone: state.phone, password: password.password, otp: otpLogin }),
+          })
+            .then(res => {
+              return res.json();
+            })
+            .then(res => {
+              console.log(res);
+              // Handle the response or perform any necessary actions
+              if (res.ok) {
+                window.location.href = res.redirectUrl;
+              }
+              else {
+                alert(res.message);
+              }
+            })
+            .catch(err => {
+              alert(err);
+            });
         }
-        await fetch(apiCall, {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          credentials: 'include',
-          body: JSON.stringify({ phone: state.phone, password: password.password, otp: otpLogin }),
-        })
-          .then(res => {
-            return res.json();
-          })
-          .then(res => {
-            console.log(res);
-            // Handle the response or perform any necessary actions
-            if (res.ok) {
-              window.location.href = res.redirectUrl;
-            }
-            else {
-              alert(res.message);
-            }
-          })
-          .catch(err => {
-            alert(err);
-          });
+        else if (res === 0) {
+          alert("This phone number not registered with us. Please register");
+        }
+        else {
+          alert("Sorry for the error, it will be resolved soon.");
+        }
       }
       else {
         alert("Invalid input");
@@ -104,37 +130,28 @@ const Navbar = () => {
       // use this block to bypass otp verification
 
       // otp verification bypass block ends
-
-      await fetch(`${url}/checkPhoneExists`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(state),
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res === 1) {
-            // send otp
-            const number = "+" + state.phone;
-            let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-            auth.signInWithPhoneNumber(number, verify).then((result) => {
-              setfinal(result);
-              alert("OTP Sent");
-              setShow(true);
-            })
-              .catch((err) => {
-                alert(err);
-                window.location.reload();
-              });
-          }
-          else if (res === 0) {
-            alert("This phone number not registered with us. Please signup");
-          }
-          else {
-            alert("Sorry for the error, it will be resolved soon.");
-          }
+      
+      const res = checkPhoneExists();
+      if (res === 1) {
+        // send otp
+        const number = "+" + state.phone;
+        let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+        auth.signInWithPhoneNumber(number, verify).then((result) => {
+          setfinal(result);
+          alert("OTP Sent");
+          setShow(true);
         })
+          .catch((err) => {
+            alert(err);
+            window.location.reload();
+          });
+      }
+      else if (res === 0) {
+        alert("This phone number not registered with us. Please register");
+      }
+      else {
+        alert("Sorry for the error, it will be resolved soon.");
+      }
     }
     else {
       alert("Please enter a valid phone number");
@@ -159,8 +176,8 @@ const Navbar = () => {
   }
   return (
     <>
-      <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center",height:"100vh" }} className={styles.colnav}>
-        <div className={styles.cardoverlay} style={{height:'100vh'}}>
+      <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center", height: "100vh" }} className={styles.colnav}>
+        <div className={styles.cardoverlay} style={{ height: '100vh' }}>
           <div className={styles.tp}>
 
           </div>
@@ -180,7 +197,7 @@ const Navbar = () => {
             {tog ? <>
               <div style={{ color: "black", display: !show ? "block" : "none" }}>
                 <PhoneInput
-                  
+
                   countryCallingCodeEditable={false}
                   country={'in'}
                   value={state.phone}
@@ -196,21 +213,21 @@ const Navbar = () => {
                 <button onClick={ValidateOtp}>Verify</button>
               </div>
             </> : <> <div style={{ color: "black" }}>
-              <PhoneInput 
+              <PhoneInput
                 countryCallingCodeEditable={false}
                 country={'in'}
                 value={state.phone}
                 onChange={phone => setState({ phone })}
-              
+
               />
               <br></br>
-              <input type="text" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} style={{width:'300px'}} />
+              <input type="text" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} style={{ width: '300px' }} />
               <br></br>
-              <button  onClick={login}>Login</button>
+              <button onClick={login}>Login</button>
             </div>
             </>
             }
-            <button style={{width:'200px'}} onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
+            <button style={{ width: '200px' }} onClick={toggle}>{!tog ? <>Login with otp instead?</> : <>Login with your password</>}</button>
             {/* <button onClick={click}>Click</button> */}
 
             <p>New user?&nbsp;<a href="/signup">Register Now</a> </p>

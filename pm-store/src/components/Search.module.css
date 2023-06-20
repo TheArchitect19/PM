@@ -5,40 +5,45 @@
     height: 40vh;    
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 .main{
   display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  /* box-shadow: 1px 1px 5px black; */
 }
+
 .colnav h1{
   font-family: 'Poppins';
   color: white;
   font-weight: 700;
   text-align: center;
-  padding-top: 15px;
+  /* padding-top: 15px; */
 }
 
 .inloc{
   width: 30vw;
-  height: 45px;
+  /* height: 45px; */
   background:  #FFFFFF;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  margin-top: 8vh;
-  border-right: 4px solid #D9D9D9;
-  
-  
+  /* margin-top: 8vh; */
+  border-right: 3px solid #D9D9D9;
 }
+
 .inloc input{
-  width: 24vw;
-  height: 45px;
+  width: 100%;
+  height: 100%;
   border: 0px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  padding-left: 5px;
+  /* padding-left: 5px; */
 }
 .inloc img{
   width: 6.5vw;
@@ -46,16 +51,46 @@
   padding: 3.5px;
   border-radius: 10px;
   border: 0px;
+  cursor: pointer;
 }
+
+
 .shop{
-  margin-top: 8vh;
-  padding-left: 5px;
+  /* margin-top: 8vh; */
+  padding: 0 1rem;
   background:#ffffff;
-  font-weight: 600;
-  border-right: 4px solid #D9D9D9;
+  /* font-weight: 600; */
+  border-right: 3px solid #D9D9D9;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
+.shop2{
+  /* margin-top: 8vh; */
+  padding: 0 1rem;
+  background:#ffffff;
+  /* font-weight: 600; */
+  border-right: 0px;
+  display: flex;
+  align-items: center;
+  border-right: 3px solid #D9D9D9;
+  cursor: pointer;
+}
+.shop3{
+  /* margin-top: 8vh; */
+  padding: 0.3rem 0.3rem;
+  background:#ffffff;
+  /* font-weight: 600; */
+  border-right: 0px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+
 .drop{
   width: 20px;
   padding: 5px;
@@ -63,19 +98,8 @@
 .spim{
 padding: 5px;
 }
-.search{
-  margin-top: 8vh;
-  padding-left: 5px;
-  padding-right: 5px;
-  background:#ffffff;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
 .btn{
-  padding: 5px;
+  padding: 1rem 10px;
   color: white;
   background: linear-gradient(180deg, #D93548 0%, rgba(255, 83, 105, 0.8) 100%);
   width: 100px;
@@ -83,12 +107,66 @@ padding: 5px;
   border-radius: 7px;
   height: 6.5vh;
   padding-right: 10px;
+  display: flex;
+  align-items: center;
 }
 .btn:hover{
-
   color: white;
-  background: #e7314a;
+  background: #d13046;
 }
+
+@media(width<900px){
+  .main{
+    flex-direction: column;
+    margin: 0;
+    width: 87%;
+    /* padding: 3rem 0; */
+  }
+  .inloc{
+    width: 100%;
+    border-radius: 8px;
+    border: 0px;
+    margin:  0 0 0.5rem 0;
+  }
+  .inloc input{
+    padding: 0.7rem 0;
+    font-size: 11.5px;
+  }
+  .shop{
+    border:0px;
+    border-radius: 8px;
+    margin:  0 0 0.5rem 0;
+    padding: 0.15rem 0.6rem;
+    font-size: 11.5px;
+    justify-content: center;
+    margin: 0 7px 0 0;
+  }
+  .shop2{
+    border:0px;
+    border-radius: 8px;
+    margin:  0 0 0.5rem 0;
+    padding: 0.15rem 0.6rem;
+    font-size: 11.5px;
+    justify-content: center;
+    margin: 0 7px 0 0;
+    /* text-align: center; */
+  }
+  .shop3{
+    border:0px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+  }
+  .search .btn{
+    /* width: 100%; */
+    border-radius: 7px;
+    padding: 0.5rem 0.6rem;
+    font-size: 11.5px;
+    justify-content: center;
+  }
+}
+
 .sb{
   padding: 2px;
   height: 25px;
@@ -99,26 +177,10 @@ padding: 5px;
   }
 }
 @media(max-width:400px){
-  .colnav{
-    height: 30vh;    
-
-}
   .colnav h1{
     font-size: larger;
   }
-  .inloc{
-    width: 15vw;
-    height: 25px;
-  }
-  .inloc input{
-    width: 15vw;
-    height: 25px;
-   
-  }
-  .shop{
-    font-size: small;
-    height: 25px;
-  }
+
   .spim{
     padding: 2px;
     height: 20px;
@@ -128,15 +190,11 @@ padding: 5px;
       padding: 2px;
     }
     .btn{
-      padding: 1px;
-      color: white;
-      background: #E23C51;
-      width: 80px;
+      /* width: 80px; */
       font-weight: 100;
-      border-radius: 7px;
-      font-size: small;
-      height: 22px;
-      padding-right: 10px;
+      padding: 0.5rem 0.6rem;
+    font-size: 11.5px;
+    border-radius: 7px;
     }
     .sb{
       padding: 1px;
