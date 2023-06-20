@@ -57,46 +57,53 @@
     justify-content: center;
 }
 .sidenav>div div:first-child{
-    width: 40%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 1rem 1rem 4rem;
 }
 .sidenav>div div:last-child{
-    width: 60%;
+    width: 50%;
 }
 .sidenav>div div:first-child img{
     width: 100%;
-    padding: 3rem 0rem 3rem 3rem;
+    padding: 1rem;
+    border-radius: 50%;
 }
 .sidenav>div div:last-child{
    display: flex;
    flex-direction: column;
 }
-.sidenav>div div:last-child a{
-    border: 2.5px solid black;
+.sidenav>div div:first-child div{
+    border: 2.3px solid rgb(50, 50, 50);
     border-style: dashed;
     border-radius: 20px;
-    padding: 0.4rem 0.7rem;
+    padding: 0.2rem 0.7rem;
     /* width: 150px; */
     text-align: center;
-    font-weight: bold;
-    margin: 0 4rem;
-    margin-bottom: 0.7rem;
+    font-size: 14px;
     cursor: pointer;
+    color: #333;
 }
-.sidenav>div div:last-child a:hover{
-    background-color: rgba(255, 255, 255, 0.204);
+.sidenav>div div:first-child div:hover{
+    background-color: rgba(255, 255, 255, 0.45);
 }
 
 
-.sidenav>div div:last-child p{
-    margin: 0;
+.sidenav>div div:first-child p{
+    margin: 0.5rem 0;
     text-align: center;
-    margin-bottom: 0.7rem;
+    font-size: 13px;
+    /* margin-bottom: 0.7rem; */
 }
 .sidenav>div div:last-child div{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding: 0;
 }
 
 .rightPart{
@@ -197,8 +204,8 @@ padding: 0.5rem;
         width: 100%;
         height:fit-content;
     }
-    .sidenav>div div:first-child img{
-        padding:3rem;
+    .sidenav>div div:first-child{
+        padding: 0 2rem;
     }
     .sidenav ul{
         padding-left: 0%;
@@ -217,4 +224,33 @@ padding: 0.5rem;
     .inloc{
         width: 90vw;
     }
+}
+
+
+
+.customfileupload {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.customfileupload span {
+  position: relative;
+  z-index: 1;
+}
+
+.customfileupload input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }

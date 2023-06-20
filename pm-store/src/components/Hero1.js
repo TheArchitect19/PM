@@ -7,15 +7,14 @@ import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from './firebase';
+import url_json from "../url.json";
 
-const url = "http://localhost:5000";
-// const url = "https://backend.pandrimarket.com"
+const url = url_json.url;
 
 const Navbar = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const redirect = searchParams.get('redirect');
-  console.log(redirect);
   const [state, setState] = useState({
     phone: "",
   });
@@ -47,20 +46,15 @@ const Navbar = () => {
   });
 
   async function checkPhoneExists() {
-    await fetch(`${url}/checkPhoneExists`, {
+    const response = await fetch(`${url}/checkPhoneExists`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(state),
-    })
-      .then(res => res.json())
-      .then(res => {
-        // res = 1: phone exists exist
-        // res = 0: phone doesn't exist
-        // else error
-        return res;
-      })
+    });
+    const data = await response.json();
+    return data;
   }
 
   function toggle() {
@@ -72,15 +66,14 @@ const Navbar = () => {
     setPassword(data);
   }
 
-  //login fetch
-  async function login() {
+  async function loginWithOtp() {
     if (state.phone.length < 12) {
       alert("Please enter a valid phone number.")
     }
     else {
 
-      if (state.phone && (password.password || otpLogin)) {
-        const res = checkPhoneExists();
+      if (state.phone) {
+        const res = await checkPhoneExists();
         if (res === 1) {
           let apiCall = `${url}/login`;
           if (redirect !== null) {
@@ -92,7 +85,59 @@ const Navbar = () => {
               "Content-type": "application/json",
             },
             credentials: 'include',
-            body: JSON.stringify({ phone: state.phone, password: password.password, otp: otpLogin }),
+            body: JSON.stringify({ phone: state.phone, password: password.password, otp: true }),
+          })
+            .then(res => {
+              return res.json();
+            })
+            .then(res => {
+              console.log(res);
+              // Handle the response or perform any necessary actions
+              if (res.ok) {
+                window.location.href = res.redirectUrl;
+              }
+              else {
+                alert(res.message);
+              }
+            })
+            .catch(err => {
+              alert(err);
+            });
+        }
+        else if (res === 0) {
+          alert("This phone number not registered with us. Please register");
+        }
+        else {
+          alert("Sorry for the error, it will be resolved soon.");
+        }
+      }
+      else {
+        alert("Invalid input");
+      }
+    }
+  }
+
+  //login fetch
+  async function login() {
+    if (state.phone.length < 12) {
+      alert("Please enter a valid phone number.")
+    }
+    else {
+
+      if (state.phone && password.password) {
+        const res = await checkPhoneExists();
+        if (res === 1) {
+          let apiCall = `${url}/login`;
+          if (redirect !== null) {
+            apiCall = `${url}/login?redirect=${redirect}`;
+          }
+          await fetch(apiCall, {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            credentials: 'include',
+            body: JSON.stringify({ phone: state.phone, password: password.password, otp: false }),
           })
             .then(res => {
               return res.json();
@@ -130,8 +175,8 @@ const Navbar = () => {
       // use this block to bypass otp verification
 
       // otp verification bypass block ends
-      
-      const res = checkPhoneExists();
+
+      const res = await checkPhoneExists();
       if (res === 1) {
         // send otp
         const number = "+" + state.phone;
@@ -162,12 +207,10 @@ const Navbar = () => {
       return;
     final.confirm(otp).then((result) => {
       // success
-      console.log(result);
-      setOtpLogin(!otpLogin);
-      console.log(otpLogin);
-      login();
+      loginWithOtp();
     }).catch((err) => {
       alert("Invalid OTP, please try again.");
+      window.location.reload();
     })
   }
 
@@ -197,7 +240,6 @@ const Navbar = () => {
             {tog ? <>
               <div style={{ color: "black", display: !show ? "block" : "none" }}>
                 <PhoneInput
-
                   countryCallingCodeEditable={false}
                   country={'in'}
                   value={state.phone}
@@ -218,7 +260,6 @@ const Navbar = () => {
                 country={'in'}
                 value={state.phone}
                 onChange={phone => setState({ phone })}
-
               />
               <br></br>
               <input type="text" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} style={{ width: '300px' }} />

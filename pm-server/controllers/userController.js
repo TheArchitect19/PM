@@ -5,6 +5,15 @@ const stream = require('stream');
 const S3 = require('aws-sdk/clients/s3')
 const fetch = require('node-fetch');
 
+const age = 3 * 24 * 60 * 60    // 3 days => in seconds
+
+const createToken = (data) => {
+	// payload => data
+	return jwt.sign({ data }, process.env.ACCESS_TOKEN_SECRET, {
+		expiresIn: age
+	})
+}
+
 // function to get current year
 async function getYear() {
 	try {
@@ -36,10 +45,10 @@ const addShop = (req, res) => {
 // endpoint to update the profile(personal info) of current logged in user
 const saveProfile = (req, res) => {
 	const phoneLoggedIn = res.user.data.phone;
-	const { name, email, address, isWhatsapp, password } = req.body;
+	const { name, email, whatsapp_number, address, isWhatsapp } = req.body;
 	const client = req.client;
 
-	client.query('update users set name=$1, email=$2, address=$3, isWhatsapp=$4, password=$5 where phone=$6', [name, email, address, isWhatsapp, password, phoneLoggedIn], (err, results) => {
+	client.query('update users set name=$1, email=$2, address=$3, isWhatsapp=$4, whatsapp=$5 where phone=$6', [name, email, address, isWhatsapp, whatsapp_number, phoneLoggedIn], (err, results) => {
 		if (err) {
 			console.log(err);
 			res.status(500).json({ ok: false, message: "Oops, an internal server error occurred.", error: err });
@@ -106,4 +115,72 @@ const saveProfilePic = async (req, res) => {
 	}
 }
 
-module.exports = { addShop, saveProfile, saveProfilePic };
+const getUserInfo = (req, res) => {
+	const phoneLoggedIn = res.user.data.phone;
+	const client = req.client;
+
+	client.query("select * from users where phone=$1", [phoneLoggedIn], (err, results) => {
+		if (err) {
+			res.status(500).json({ ok: false, message: "Server error", error: err });
+		}
+		else {
+			res.status(200).json({ ok: true, message: "Data received", value: results.rows[0] });
+		}
+	})
+}
+
+const changePassword = (req, res) => {
+	const phoneLoggedIn = res.user.data.phone;
+	const client = req.client;
+	const { oldPassword, newPassword } = req.body;
+	console.log(oldPassword, newPassword);
+
+	client.query("select password from users where phone=$1", [phoneLoggedIn], (err1, result1) => {
+		if (err1) {
+			res.status(500).json({ ok: false, message: "Server error", error: err1 });
+		}
+		else {
+			const oldPwd = result1.rows[0].password;
+			console.log(oldPwd);
+			if (oldPassword === oldPwd) {
+				client.query("update users set password=$1 where phone=$2", [newPassword, phoneLoggedIn], (err2, result2) => {
+					if (err2) {
+						res.status(500).json({ ok: false, message: "Server error", error: err2 });
+					}
+					else {
+						res.status(200).json({ ok: true, message: "Password updated" });
+					}
+				})
+			}
+			else {
+				res.status(401).json({ ok: false, message: "Incorrect old password" });
+			}
+		}
+	})
+}
+
+const updateNumber = (req, res) => {
+	const phoneLoggedIn = res.user.data.phone;
+	const client = req.client;
+	const { phone } = req.body;
+
+	client.query("update users set phone=$1 where phone=$2", [phone, phoneLoggedIn], (err, results) => {
+		if (err) {
+			res.status(500).json({ ok: false, message: "Server error", error: err });
+		}
+		else {
+			const token = createToken({ "phone": phone });
+			// res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
+			res.cookie('login', token, {
+				httpOnly: true,
+				secure: true,
+				sameSite: 'none',
+				maxAge: age * 1000,
+				domain: 'pandrimarket.com',
+			});
+			res.status(200).json({ ok: true, message: "Phone number updated" });
+		}
+	})
+}
+
+module.exports = { addShop, saveProfile, saveProfilePic, getUserInfo, changePassword, updateNumber };

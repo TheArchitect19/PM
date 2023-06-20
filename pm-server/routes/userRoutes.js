@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { addShop, saveProfile, saveProfilePic } = require('../controllers/userController');
+const { addShop, saveProfile, saveProfilePic, getUserInfo, changePassword, updateNumber } = require('../controllers/userController');
 const { checkUser } = require('../middleware/checkUser');
 
 const multer = require('multer');
@@ -10,6 +10,9 @@ const router = Router();
 
 router.post('/addShop', checkUser, addShop);
 router.post('/saveProfile', checkUser, saveProfile);
+router.get('/getUserInfo', checkUser, getUserInfo);
+router.post('/changePassword', checkUser, changePassword);
+router.post('/updateNumber', checkUser, updateNumber);
 router.post('/saveProfilePic', checkUser, upload.single('file'), saveProfilePic);
 
 module.exports = router;
