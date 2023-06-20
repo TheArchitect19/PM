@@ -66,14 +66,13 @@ const Navbar = () => {
     setPassword(data);
   }
 
-  //login fetch
-  async function login() {
+  async function loginWithOtp() {
     if (state.phone.length < 12) {
       alert("Please enter a valid phone number.")
     }
     else {
 
-      if (state.phone && (password.password || otpLogin)) {
+      if (state.phone) {
         const res = await checkPhoneExists();
         if (res === 1) {
           let apiCall = `${url}/login`;
@@ -86,7 +85,59 @@ const Navbar = () => {
               "Content-type": "application/json",
             },
             credentials: 'include',
-            body: JSON.stringify({ phone: state.phone, password: password.password, otp: otpLogin }),
+            body: JSON.stringify({ phone: state.phone, password: password.password, otp: true }),
+          })
+            .then(res => {
+              return res.json();
+            })
+            .then(res => {
+              console.log(res);
+              // Handle the response or perform any necessary actions
+              if (res.ok) {
+                window.location.href = res.redirectUrl;
+              }
+              else {
+                alert(res.message);
+              }
+            })
+            .catch(err => {
+              alert(err);
+            });
+        }
+        else if (res === 0) {
+          alert("This phone number not registered with us. Please register");
+        }
+        else {
+          alert("Sorry for the error, it will be resolved soon.");
+        }
+      }
+      else {
+        alert("Invalid input");
+      }
+    }
+  }
+
+  //login fetch
+  async function login() {
+    if (state.phone.length < 12) {
+      alert("Please enter a valid phone number.")
+    }
+    else {
+
+      if (state.phone && password.password) {
+        const res = await checkPhoneExists();
+        if (res === 1) {
+          let apiCall = `${url}/login`;
+          if (redirect !== null) {
+            apiCall = `${url}/login?redirect=${redirect}`;
+          }
+          await fetch(apiCall, {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            credentials: 'include',
+            body: JSON.stringify({ phone: state.phone, password: password.password, otp: false }),
           })
             .then(res => {
               return res.json();
@@ -156,12 +207,10 @@ const Navbar = () => {
       return;
     final.confirm(otp).then((result) => {
       // success
-      console.log(result);
-      setOtpLogin(!otpLogin);
-      console.log(otpLogin);
-      login();
+      loginWithOtp();
     }).catch((err) => {
       alert("Invalid OTP, please try again.");
+      window.location.reload();
     })
   }
 

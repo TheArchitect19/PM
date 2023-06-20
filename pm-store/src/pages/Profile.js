@@ -320,7 +320,6 @@ const Profile2 = () => {
       return;
     final.confirm(otp).then((result) => {
       // success
-      console.log(result);
       updateNumber();
     }).catch((err) => {
       alert("Invalid OTP, please try again.");
