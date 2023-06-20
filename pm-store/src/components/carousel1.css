@@ -4,3 +4,20 @@
     color: #3A1C07;
     font-weight: 700;
 }
+.card_info{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 38px;
+}
+.card_info h6{
+    color: #3A1C07;
+}
+.card_info span{
+    font-size: 11px;
+    text-decoration: line-through;
+    margin-right: 2px;
+}
+.card_info a{
+    font-size: small;
+}
