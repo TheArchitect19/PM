@@ -15,7 +15,6 @@
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    padding: 2%;
 }
 .card_info h6{
     color: #3A1C07;
