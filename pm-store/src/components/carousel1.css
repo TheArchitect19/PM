@@ -21,3 +21,76 @@
 .card_info a{
     font-size: small;
 }
+.budget{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: #E53F52;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    color: white;
+    
+}
+
+
+.bigbudget{
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+}
+.bigbudget h2{
+    font-weight: 700;
+}
+.yo{
+    color: transparent;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+@media(max-width:1300px){
+    .bigbudget{
+        width: 45vw;
+    }
+}
+@media(max-width:1050px){
+    .bigbudget{
+        width: 59vw;
+    }
+    
+}
+@media(max-width:740px){
+    .yo{
+        display: none;
+    }
+    .bigbudget{
+        width: 69vw;
+    }
+    
+}
+@media(max-width:700px){
+    
+    .budget{
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background: #E53F52;
+        padding-top: 14px;
+        padding-bottom: 10px;
+        color: white;
+        display: none;
+    }
+}
+@media(max-width:420px){
+    
+    .budget{
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background: #E53F52;
+        padding-top: 14px;
+        padding-bottom: 10px;
+        color: white;
+        display: block;
+    }
+}
