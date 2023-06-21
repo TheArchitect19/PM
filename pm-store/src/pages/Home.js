@@ -13,7 +13,8 @@ import Git from '../components/Git'
 import Pms from '../components/Pms'
 import Carousel from '../components/Carousel'
 import Carousel1 from '../components/Carousel1'
-
+import Budget from '../components/Budget'
+import BBC from '../components/BBCarousel'
 import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
 
@@ -55,6 +56,8 @@ const Home = () => {
         <Catalogue />
         <Carousel1 />
         <Hero />
+        <Budget />
+        <BBC />
         <Video />
         <Pms />
         <Carousel />

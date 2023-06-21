@@ -4,6 +4,8 @@
     align-items: center;
     overflow: hidden;
     margin-bottom: 5vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 @media(max-width:400px){
 .vid{
