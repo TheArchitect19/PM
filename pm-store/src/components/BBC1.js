@@ -2,35 +2,79 @@ import React from 'react'
 import styles from './BBC.module.css'
 const BBCarousel = () => {
   return (
-    <div className={styles.maindiv}>
-       <div className={styles.smadiv1}>
+    <div className={styles.main1div}>
+       <div className={styles.smadiv11}>
           <div className={styles.innerdiv}>
-           <h5>UNDER RS. 899</h5>
-           <h6>Ethnic Wear</h6>
+           <h5>Western Wear</h5>
+          <h6>STARTING AT RS.899</h6>
+
           </div> 
        </div>
-       <div className={styles.smadiv2}>
+       <div className={styles.smadiv12}>
        <div className={styles.innerdiv}>
-           <h5>UNDER RS. 599</h5>
-           <h6>Sneakers</h6>
+           <h5>Lehenga</h5>
+           <h6>UPTO  50% OFF</h6>
           </div> 
        </div>
-       <div className={styles.smadiv3}>
+       <div className={styles.smadiv13}>
        <div className={styles.innerdiv}>
-           <h5>UNDER RS. 799</h5>
-           <h6>Kurtis</h6>
+       <h5>Casuals Men</h5>
+           <h6>STARTING AT RS. 799</h6>
           </div> 
        </div>
-       <div className={styles.smadiv4}>
+       <div className={styles.smadiv14}>
        <div className={styles.innerdiv}>
-           <h5>UNDER RS. 899</h5>
-           <h6>Handbags</h6>
+           <h5>Denims</h5>
+           <h6>UPTO RS. 500 OFF</h6>
           </div> 
        </div>
-       <div className={styles.smadiv5}>
+       <div className={styles.smadiv15}>
        <div className={styles.innerdiv}>
-           <h5>UNDER RS. 599</h5>
-           <h6>Casual Wear</h6>
+           <h5>Flats & Sliders</h5>
+           <h6>STARTING AT RS.399</h6>
+          </div> 
+       </div>
+       <div className={styles.smadiv16}>
+       <div className={styles.innerdiv}>
+           <h5>Crop Tops</h5>
+           <h6>STARTING AT RS.399</h6>
+          </div> 
+       </div>
+       <div className={styles.smadiv17}>
+       <div className={styles.innerdiv}>
+           <h5>Jackets</h5>
+           <h6>STARTING AT RS.699</h6>
+          </div> 
+       </div>
+       <div className={styles.smadiv18}>
+       <div className={styles.innerdiv}>
+           <h5>Sports Shoes</h5>
+           <h6>UPTO 30% OFF</h6>
+          </div> 
+       </div>
+       <div className={styles.smadiv19}>
+       <div className={styles.innerdiv}>
+           <h5>Belts</h5>
+           <h6>UNDER RS. 599</h6>
+          </div> 
+       </div>
+       <div className={styles.smadiv110}>
+       <div className={styles.innerdiv}>
+       <h5>Tops & Tees</h5>
+           <h6>STARTING AT RS.399</h6>
+          
+          </div> 
+       </div>
+       <div className={styles.smadiv111}>
+       <div className={styles.innerdiv}>
+       <h5>Flats & Heels</h5>
+           <h6>STARTING AT RS.699</h6>
+          </div> 
+       </div>
+       <div className={styles.smadiv112}>
+       <div className={styles.innerdiv}>
+           <h5>Formal Wear</h5>
+           <h6>FLAT RS. 200 OFF</h6>
           </div> 
        </div>
     </div>

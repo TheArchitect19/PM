@@ -11,14 +11,14 @@ const BBCarousel = () => {
        </div>
        <div className={styles.smadiv2}>
        <div className={styles.innerdiv}>
-           <h5>UNDER RS. 599</h5>
+           <h5>UNDER RS. 999</h5>
            <h6>Sneakers</h6>
           </div> 
        </div>
        <div className={styles.smadiv3}>
        <div className={styles.innerdiv}>
-           <h5>UNDER RS. 799</h5>
-           <h6>Kurtis</h6>
+           <h5>UNDER RS. 699</h5>
+           <h6>Casual Wear</h6>
           </div> 
        </div>
        <div className={styles.smadiv4}>
@@ -29,8 +29,14 @@ const BBCarousel = () => {
        </div>
        <div className={styles.smadiv5}>
        <div className={styles.innerdiv}>
+           <h5>UNDER RS. 799</h5>
+           <h6>Kurtis</h6>
+          </div> 
+       </div>
+       <div className={styles.smadiv6}>
+       <div className={styles.innerdiv}>
            <h5>UNDER RS. 599</h5>
-           <h6>Casual Wear</h6>
+           <h6>T Shirts</h6>
           </div> 
        </div>
     </div>
