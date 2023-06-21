@@ -2,7 +2,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './carousel1.css';
-import {  multiData } from './data';
+import {  multiData } from './data2';
 import  ArrowBackIos  from '@mui/icons-material/ArrowBackIos';
 import  ArrowForwardIos  from '@mui/icons-material/ArrowForwardIos';
 import { useState } from 'react';
@@ -111,9 +111,8 @@ const Card = ({ item }) => {
         src={item}
         alt=''
         style={{
-          width: '100%',
-          height: '170px',
-          objectFit: 'contain',
+          width: '80%',
+          height: '250px',
           marginBottom: '10px',
         }}
       />

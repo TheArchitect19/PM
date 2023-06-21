@@ -14,6 +14,7 @@ import Pms from '../components/Pms'
 import Carousel from '../components/Carousel'
 import Carousel1 from '../components/Carousel1'
 import Budget from '../components/Budget'
+import Budget1 from '../components/Budget1'
 import BBC from '../components/BBCarousel'
 import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
@@ -55,12 +56,15 @@ const Home = () => {
         <Search />
         <Catalogue />
         <Carousel1 />
-        <Hero />
+        {/* <Hero /> */}
+        <Budget1 />
+        <BBC />
+        <BBC />
+        <Carousel />
         <Budget />
         <BBC />
         <Video />
         <Pms />
-        <Carousel />
         <Cat />
         <Ttm />
         <Cg />
