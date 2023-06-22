@@ -6,9 +6,9 @@ import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from './firebase';
+import url_json from "../url.json";
 
-// const url = "http://localhost:5000";
-const url = "https://backend.pandrimarket.com"
+const url = url_json.url;
 
 const Navbar = () => {
   const [state, setState] = useState({

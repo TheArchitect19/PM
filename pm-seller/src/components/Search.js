@@ -4,7 +4,7 @@ import shop from "../assets/svg/shop.png";
 import drop from "../assets/svg/drop.png";
 import loc from "../assets/svg/loc.png";
 import search from "../assets/svg/Search.png";
-import styles from "./Search.module.css"
+import styles from "./Search.module.css";
 const Navbar = () => {
   return (
     <>
@@ -30,15 +30,16 @@ const Navbar = () => {
             Location
             <img className={styles.drop} src={drop} alt="" />
           </div>
+          <div className={styles.shop3}>
             <button className={styles.btn}>
               <img className={styles.sb} src={search} alt="" />
               Search
             </button>
+            </div>
           </div>
 
         </div>
       </div>
-    
     </>
   );
 };

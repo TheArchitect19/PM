@@ -1,3 +1,4 @@
 {
-    "url": "https://backend.pandrimarket.com"
+    "url": "http://localhost:5000",
+    "seller": "http://localhost:3001"
 }

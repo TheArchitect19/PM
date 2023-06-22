@@ -66,7 +66,7 @@ const saveProfilePic = async (req, res) => {
 	const client = req.client;
 
 	if (file === null || file === undefined) {
-		res.status(500).json({ ok: false, message: "No image received." });
+		return res.status(500).json({ ok: false, message: "No image received." });
 	}
 
 	const year = await getYear();
@@ -170,14 +170,14 @@ const updateNumber = (req, res) => {
 		}
 		else {
 			const token = createToken({ "phone": phone });
-			// res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
-			res.cookie('login', token, {
-				httpOnly: true,
-				secure: true,
-				sameSite: 'none',
-				maxAge: age * 1000,
-				domain: 'pandrimarket.com',
-			});
+			res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
+			// res.cookie('login', token, {
+			// 	httpOnly: true,
+			// 	secure: true,
+			// 	sameSite: 'none',
+			// 	maxAge: age * 1000,
+			// 	domain: 'pandrimarket.com',
+			// });
 			res.status(200).json({ ok: true, message: "Phone number updated" });
 		}
 	})

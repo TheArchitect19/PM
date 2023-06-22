@@ -17,7 +17,7 @@ import Budget from '../components/Budget'
 import Budget1 from '../components/Budget1'
 import BBC from '../components/BBCarousel'
 import BBC1 from '../components/BBC1'
-import { useCookies, CookiesProvider } from 'react-cookie';
+// import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
 
 const url = url_json.url;
@@ -50,28 +50,26 @@ const Home = () => {
   }, []);
 
   return (
-    <CookiesProvider>
-      <>
-        <NavHom data={log} />
-        <Navbar2 />
-        <Search />
-        <Catalogue />
-        <Carousel1 />
-        {/* <Hero /> */}
-        <Budget1 />
-        <BBC1 />
-        <Carousel />
-        <Budget />
-        <BBC />
-        <Video />
-        <Pms />
-        <Cat />
-        <Ttm />
-        <Cg />
-        <Git />
-        <Footer />
-      </>
-    </CookiesProvider>
+    <>
+      <NavHom data={log} />
+      {/* <Navbar2 /> */}
+      <Search />
+      <Catalogue />
+      <Carousel1 />
+      {/* <Hero /> */}
+      <Budget1 />
+      <BBC1 />
+      <Carousel />
+      <Budget />
+      <BBC />
+      <Video />
+      <Pms />
+      <Cat />
+      <Ttm />
+      <Cg />
+      <Git />
+      <Footer />
+    </>
   )
 }
 
