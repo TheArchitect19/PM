@@ -31,7 +31,7 @@ const Footer = () => {
           <div>
             <div className={styles.FooterHeading}>VISIT OUR BLOG</div>
             <ul>
-              <li><a href="/blogs">Jigyasa </a> by PM</li>
+              <li><a href="/blogs" style={{fontFamily: "cursive"}} >Jigyasa </a> by PM</li>
             </ul>
             <div className={styles.FooterHeading}>FOLLOW US ON</div>
             <ul>
