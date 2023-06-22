@@ -12,7 +12,7 @@ const Navbar = () => {
         <h1>Search across 300+ Shops </h1>
         <div className={styles.main}>
           <div className={styles.inloc}>
-            <input
+            <input style={{outline:'none'}}
               type="text"
               name="name"
               placeholder="Search by shop, location or neighbourhood"
