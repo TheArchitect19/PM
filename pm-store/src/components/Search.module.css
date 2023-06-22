@@ -177,9 +177,12 @@ padding: 5px;
   }
 }
 @media(max-width:400px){
+  .inloc{
+    height: 4vh;
+  }
   .colnav{
     background: #F55366;
-    height: 30vh;    
+    height: 20vh;    
 }
   .colnav h1{
     font-size: larger;
@@ -192,6 +195,13 @@ padding: 5px;
     font-size: 11.5px;
     justify-content: center;
     margin: 0 7px 0 0;
+    height: 5vh;
+  }
+.shop2{
+    height: 5vh;
+  }
+.shop3{
+    height: 5vh;
   }
   
   .spim{
@@ -208,10 +218,13 @@ padding: 5px;
       padding: 0.5rem 0.6rem;
     font-size: 11.5px;
     border-radius: 7px;
+    height: 4vh;
+    width: 70px;
+    display: flex;
+    justify-content: space-evenly;
     }
     .sb{
-      padding: 1px;
-      height: 20px;
+      height: 18px;
     }
 
 }

@@ -53,20 +53,20 @@ const Home = () => {
     <CookiesProvider>
       <>
         <NavHom data={log} />
-        <Navbar2 />
+        {/* <Navbar2 /> */}
         <Search />
         <Catalogue />
         <Carousel1 />
         {/* <Hero /> */}
         <Budget1 />
         <BBC1 />
-        <Carousel />
+        {/* <Carousel /> */}
         <Budget />
         <BBC />
         <Video />
         <Pms />
-        <Cat />
-        <Ttm />
+        {/* <Cat /> */}
+        {/* <Ttm /> */}
         <Cg />
         <Git />
         <Footer />
