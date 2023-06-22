@@ -13,6 +13,7 @@ import Signup from './pages/SIgnup';
 import RegShop from './pages/RegShop';
 import Profile from './pages/Profile';
 import Upload from './pages/Upload';
+import Impact from './pages/Impact'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/ays" element={(<RegShop />)} />
           <Route path="/upload" element={(<Upload />)} />
           <Route path="/profile" element={(<Profile/>)} />
+          <Route path="/impact" element={(<Impact/>)} />
         </Routes>
       </BrowserRouter>
     </>

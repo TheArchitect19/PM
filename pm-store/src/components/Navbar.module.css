@@ -93,16 +93,19 @@ a:hover{
     }
 }
 @media(max-width:420px){
+    .navsty{
+        height: 8vh;
+    }
     .innertxt{
         display: none;
     }
     .pm{
-        height: 30px;
+        height: 35px;
         margin-right: 25px;
         margin-bottom: 3px;
     }
     .m{
-        height: 20px;
+        height: 25px;
         margin-right: 0px;
     }
 }

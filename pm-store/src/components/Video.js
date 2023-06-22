@@ -7,7 +7,7 @@ import styles from "./Video.module.css"
 function MyVideoPlayer()  {
   return (
     <div className={styles.vid}>
-        <Player poster={hero} >
+        <Player poster={hero}>
         <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
        <BigPlayButton position="center"/>
       <ControlBar autoHide={false} className="my-class" />

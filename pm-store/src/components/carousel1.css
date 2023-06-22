@@ -99,4 +99,12 @@
         color: white;
         display: block;
     }
+    .budget h2{
+        font-size: x-large;
+    }
+    .carousel1 h2{
+        font-size: x-large;
+    }
+
+    
 }
