@@ -413,18 +413,103 @@ backdrop-filter: blur(1.6px);
     }
     .smadiv1{
         margin: 10px;
-    
+        height: 30vh;
+    }
+    .innerdiv{
+        margin-top: calc(33vh - 20px - 9vh);
+        height: 9vh;
     }
     .smadiv2{
         margin: 10px;
-    
+        height: 30vh;
+       
     }
     .smadiv3{
         margin: 10px;
-    
+        height: 30vh;
+    }
+    .smadiv4{
+        height: 30vh;
     }
     .smadiv5{
         margin: 10px;
+        height: 30vh;
+        
+    }
+    .smadiv6{
+         height: 30vh;
+         margin: 10px;       
+    }
+    .smadiv11{
+        margin: 10px;
+        height: 30vh;
+        
+    
+    }
+    .smadiv12{
+        margin: 10px;
+        height: 30vh;
+        
+    
+    }
+    .smadiv13{
+        margin: 10px;
+        height: 30vh;
+        
+    
+    }
+    .smadiv14{
+        margin: 10px;
+    
+        height: 30vh;
+       
+    }
+    .smadiv15{
+        margin: 10px;
+    
+        height: 30vh;
+      
+    }
+    .smadiv16{
+        margin: 10px;
+    
+        height: 30vh;
+    
+    }
+    .smadiv17{
+        margin: 10px;
+    
+        height: 30vh;
+    
+    }
+    .smadiv18{
+        margin: 10px;
+    
+        height: 30vh;
+    
+    }
+    .smadiv19{
+        margin: 10px;
+        height: 30vh;
+    
+    
+    }
+    .smadiv110{
+        margin: 10px;
+        height: 30vh;
+    
+    
+    }
+    .smadiv111{
+        margin: 10px;
+        height: 30vh;
+    
+    
+    }
+    .smadiv112{
+        margin: 10px;
+        height: 30vh;
+    
     
     }
 }

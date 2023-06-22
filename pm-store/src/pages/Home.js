@@ -10,6 +10,7 @@ import Video from '../components/Video'
 import Ttm from '../components/Testimonial'
 import Cg from '../components/Cg'
 import Git from '../components/Git'
+import Banner from '../components/Banner'
 import Pms from '../components/Pms'
 import Carousel from '../components/Carousel'
 import Carousel1 from '../components/Carousel1'
@@ -50,26 +51,27 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <NavHom data={log} />
-      {/* <Navbar2 /> */}
-      <Search />
-      <Catalogue />
-      <Carousel1 />
-      {/* <Hero /> */}
-      <Budget1 />
-      <BBC1 />
-      <Carousel />
-      <Budget />
-      <BBC />
-      <Video />
-      <Pms />
-      <Cat />
-      <Ttm />
-      <Cg />
-      <Git />
-      <Footer />
-    </>
+      <>
+        <NavHom data={log} />
+        {/* <Navbar2 /> */}
+        <Search />
+        <Catalogue />
+        <Carousel1 />
+        {/* <Hero /> */}
+        <Budget1 />
+        <BBC1 />
+        {/* <Carousel /> */}
+        <Banner/>
+        <Budget />
+        <BBC />
+        <Video />
+        {/* <Pms /> */}
+        {/* <Cat /> */}
+        {/* <Ttm /> */}
+        <Cg />
+        <Git />
+        <Footer />
+      </>
   )
 }
 

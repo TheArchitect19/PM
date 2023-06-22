@@ -170,14 +170,14 @@ const updateNumber = (req, res) => {
 		}
 		else {
 			const token = createToken({ "phone": phone });
-			res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
-			// res.cookie('login', token, {
-			// 	httpOnly: true,
-			// 	secure: true,
-			// 	sameSite: 'none',
-			// 	maxAge: age * 1000,
-			// 	domain: 'pandrimarket.com',
-			// });
+			// res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
+			res.cookie('login', token, {
+				httpOnly: true,
+				secure: true,
+				sameSite: 'none',
+				maxAge: age * 1000,
+				domain: 'pandrimarket.com',
+			});
 			res.status(200).json({ ok: true, message: "Phone number updated" });
 		}
 	})

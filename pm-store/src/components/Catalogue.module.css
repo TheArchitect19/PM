@@ -39,18 +39,20 @@
     .m8{
         padding: 2px;
         width: 11vw;
+        height: 7vh;
+        padding-top: 8px;
     }
     .m1 p{
-        font-size: xx-small;
-        font-weight: 100;
+        font-size: x-small;
+        font-weight: 500;
         text-align: center;
      }
      .mx img{
         margin-left: 6px;
      }
     .mx p{
-        font-size: xx-small;
-        font-weight: 100;
+        font-size: x-small;
+        font-weight: 500;
         text-align: center;
      }
 
