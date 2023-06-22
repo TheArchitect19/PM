@@ -12,15 +12,11 @@ import Cg from '../components/Cg'
 import Git from '../components/Git'
 import Pms from '../components/Pms'
 import Carousel from '../components/Carousel'
+import url_json from "../url.json";
 
-import { useCookies, CookiesProvider } from 'react-cookie';
-
-// const url = "http://localhost:5000";
-const url = "https://backend.pandrimarket.com"
+const url = url_json.url;
 
 const Home = () => {
-  // const [cookies] = useCookies(['login']);
-  const [cookies, setCookies] = useState('');
   const [log, setLog] = useState(false);
 
   useEffect(() => {
@@ -31,7 +27,6 @@ const Home = () => {
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res);
           if (res === 0) {
             // user is logged in
             setLog(true);
@@ -46,23 +41,21 @@ const Home = () => {
   }, []);
 
   return (
-    <CookiesProvider>
-      <>
-        <NavHom data={log} />
-        <Navbar2 />
-        <Search />
-        <Catalogue />
-        <Hero />
-        <Video />
-        <Pms />
-        <Carousel />
-        <Cat />
-        <Ttm />
-        <Cg />
-        <Git />
-        <Footer />
-      </>
-    </CookiesProvider>
+    <>
+      <NavHom data={log} />
+      {/* <Navbar2 /> */}
+      <Search />
+      <Catalogue />
+      <Hero />
+      <Video />
+      <Pms />
+      <Carousel />
+      <Cat />
+      <Ttm />
+      <Cg />
+      <Git />
+      <Footer />
+    </>
   )
 }
 

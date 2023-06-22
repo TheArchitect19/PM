@@ -66,7 +66,7 @@ const saveProfilePic = async (req, res) => {
 	const client = req.client;
 
 	if (file === null || file === undefined) {
-		res.status(500).json({ ok: false, message: "No image received." });
+		return res.status(500).json({ ok: false, message: "No image received." });
 	}
 
 	const year = await getYear();

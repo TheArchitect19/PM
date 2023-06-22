@@ -12,7 +12,7 @@ const app = express();
 const port = 5000;
 
 const corsOptions = {
-	origin: ["http://localhost:3000", "https://pandrimarket.com"],
+	origin: ["http://localhost:3000", "https://pandrimarket.com", "http://localhost:3001", "https://sell.pandrimarket.com"],
 	credentials: true,
 };
 

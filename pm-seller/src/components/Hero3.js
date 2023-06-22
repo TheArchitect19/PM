@@ -1,8 +1,8 @@
 import { React, useState } from "react";
 import styles from "./Hero.module.css";
+import url_json from "../url.json";
 
-// const url = "http://localhost:5000";
-const url = "https://backend.pandrimarket.com"
+const url = url_json.url;
 
 const Navbar = () => {
     const [data, setData] = useState({
