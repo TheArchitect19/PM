@@ -66,7 +66,7 @@ const Home = () => {
         <Budget />
         <BBC />
         <Video />
-        <Pms />
+        {/* <Pms /> */}
         {/* <Cat /> */}
         {/* <Ttm /> */}
         <Cg />
