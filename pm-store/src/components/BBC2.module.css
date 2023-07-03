@@ -10,54 +10,152 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
-.smadiv11:hover{
-    scale: 1.1;
-    transition: 0.09s;
+.smadiv11:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+    
 }
-.smadiv12:hover{
-    scale: 1.1;
+.smadiv11:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv13:hover{
-    scale: 1.1;
+.smadiv12:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv12:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv14:hover{
-    scale: 1.1;
+.smadiv13:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv13:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv15:hover{
-    scale: 1.1;
+.smadiv14:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv14:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv16:hover{
-    scale: 1.1;
+.smadiv15:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv15:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv17:hover{
-    scale: 1.1;
+.smadiv16:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv16:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv18:hover{
-    scale: 1.1;
+.smadiv17:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv17:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv19:hover{
-    scale: 1.1;
+.smadiv18:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv18:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv110:hover{
-    scale: 1.1;
+.smadiv19:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv19:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv111:hover{
-    scale: 1.1;
+.smadiv110:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv110:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
-.smadiv112:hover{
-    scale: 1.1;
+.smadiv111:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv111:hover > .innerdiv > h5{
+    scale: 1.3;
     transition: 0.09s;
+
 }
+.smadiv112:hover > .innerdiv{
+    transition: 0.2s;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+
+}
+.smadiv112:hover > .innerdiv > h5{
+    scale: 1.3;
+    transition: 0.09s;
+
+}
+
+
 .smadiv1:hover{
     scale: 1.1;
     transition: 0.09s;

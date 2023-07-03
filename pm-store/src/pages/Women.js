@@ -10,6 +10,7 @@ import BBC from '../components/BBCarouselW'
 import BBC3 from '../components/BBC3'
 import BBC1 from '../components/BBC1'
 import BBC2 from '../components/BBC2'
+import HeroW from '../components/HeroW.js'
 // import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
 
@@ -45,6 +46,7 @@ const Home = () => {
   return (
       <>
         <NavHom data={log} />
+        <HeroW/>
         <Carousel1 />
         <Budget1 />
         <BBC3 />
