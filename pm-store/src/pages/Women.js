@@ -1,26 +1,16 @@
 import { React, useState, useEffect } from "react";
 import NavHom from '../components/NavHom'
-import Navbar2 from '../components/Navbar2'
 import Footer from '../components/Footer'
-import Search from '../components/Search'
-import Catalogue from '../components/Catalogue'
-import Cat from '../components/cat'
-import Hero from '../components/Hero'
-import Video from '../components/Video'
-import Ttm from '../components/Testimonial'
-import Cg from '../components/Cg'
-import Git from '../components/Git'
-import Banner from '../components/Banner'
-import Pms from '../components/Pms'
-import Carousel from '../components/Carousel'
-import Carousel1 from '../components/CarouselW'
+import Carousel1 from '../components/Carousel2'
 import Budget from '../components/Budget'
 import Budget1 from '../components/Budget2'
 import Budget2 from '../components/Budget3'
 import Budget3 from '../components/Budget4'
-import BBC from '../components/BBCarousel'
+import BBC from '../components/BBCarouselW'
+import BBC3 from '../components/BBC3'
 import BBC1 from '../components/BBC1'
 import BBC2 from '../components/BBC2'
+import HeroW from '../components/HeroW.js'
 // import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
 
@@ -56,27 +46,16 @@ const Home = () => {
   return (
       <>
         <NavHom data={log} />
-        {/* <Navbar2 /> */}
-        {/* <Search /> */}
-        {/* <Catalogue /> */}
+        <HeroW/>
         <Carousel1 />
-        {/* <Hero /> */}
         <Budget1 />
-        <BBC1 />
-        {/* <Carousel /> */}
-        {/* <Banner/> */}
+        <BBC3 />
         <Budget />
         <BBC />
         <Budget2 />
         <BBC2 />
         <Budget3 />
         <BBC1 />
-        {/* <Video /> */}
-        {/* <Pms /> */}
-        {/* <Cat /> */}
-        {/* <Ttm /> */}
-        {/* <Cg /> */}
-        {/* <Git /> */}
         <Footer />
       </>
   )

@@ -3,7 +3,7 @@ import styles from './BBC.module.css'
 const BBCarousel = () => {
   return (
     <div className={styles.main1div}>
-       <div className={styles.smadiv11}>
+       <div  className={styles.smadiv11}>
           <div className={styles.innerdiv}>
            <h5>Western Wear</h5>
           <h6>STARTING AT RS.899</h6>
@@ -18,7 +18,7 @@ const BBCarousel = () => {
        </div>
        <div className={styles.smadiv13}>
        <div className={styles.innerdiv}>
-       <h5>Casuals Men</h5>
+       <h5>Casuals</h5>
            <h6>STARTING AT RS. 799</h6>
           </div> 
        </div>
