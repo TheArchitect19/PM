@@ -35,7 +35,15 @@
     padding-top: 14px;
     padding-bottom: 10px;
     color: white;
-    
+}
+.budget2{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: #FFEEC3;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    color: #642A01;
 }
 
 
@@ -52,6 +60,12 @@
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
+}
+.yo2{
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color:#3A1C07;
 }
 
 @media(max-width:1300px){

@@ -6,7 +6,7 @@ import Bi from "../assets/svg/bi.png";
 import store from "../assets/svg/store.png";
 import play from "../assets/play.png";
 
-const Banner = () => {
+const Banner2 = () => {
   return (
     <div className={styles.maindiv}>
       <div className={styles.div1} >
@@ -14,7 +14,7 @@ const Banner = () => {
         <h2 style={{fontWeight:'700'}}>MEGA <br></br> SALE</h2>
       </div>
       <div className={styles.div2} style={{width:'30%'}}>
-           <img  src={Bi} />
+           <img  src={bannerm} />
       </div>
       <div className={styles.div3} style={{width:'50%'}}>
         <h1 style={{fontWeight:'700'}}>UPTO 50% OFF</h1>
@@ -33,4 +33,4 @@ const Banner = () => {
   )
 }
 
-export default Banner
+export default Banner2

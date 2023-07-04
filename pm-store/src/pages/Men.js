@@ -1,23 +1,24 @@
 import { React, useState, useEffect } from "react";
 import NavHom from '../components/NavHom'
 import Footer from '../components/Footer'
-import Carousel1 from '../components/Carousel2'
-import Budget from '../components/Budget'
-import Budget1 from '../components/Budget2'
-import Budget2 from '../components/Budget3'
-import Budget3 from '../components/Budget4'
-import BBC from '../components/BBCarouselW'
-import BBC3 from '../components/BBC3'
-import BBC1 from '../components/BBC1'
+import Carousel1M from '../components/Carousel1M'
+import BudgetM from '../components/BudgetM'
+import Budget1M from '../components/Budget1M'
+import Budget3M from '../components/Budget3M'
+import Budget4M from '../components/Budget4M'
+import BBCarouselM from '../components/BBCarouselM'
+import BBC3M from '../components/BBC3M'
+import BBC1M from '../components/BBC1M'
 import BBC2 from '../components/BBC2'
 import HeroW from '../components/HeroW.js'
 // import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
 import Banner from "../components/Banner";
+import Banner2 from "../components/Banner2";
 
 const url = url_json.url;
 
-const Home = () => {
+const Men = () => {
   // const [cookies] = useCookies(['login']);
   const [cookies, setCookies] = useState('');
   const [log, setLog] = useState(false);
@@ -47,19 +48,19 @@ const Home = () => {
   return (
       <>
         <NavHom data={log} />
-        <Banner/>
-        <Carousel1 />
-        <Budget1 />
-        <BBC3 />
-        <Budget />
-        <BBC />
-        <Budget2 />
+        <Banner2/>
+        <Carousel1M />
+        <Budget1M />
+        <BBC3M />
+        <BudgetM />
+        <BBCarouselM />
+        <Budget3M />
         <BBC2 />
-        <Budget3 />
-        <BBC1 />
+        <Budget4M />
+        <BBC1M />
         <Footer />
       </>
   )
 }
 
-export default Home
+export default Men
