@@ -2,10 +2,11 @@ const jwt = require("jsonwebtoken");
 require('dotenv').config();
 const sharp = require('sharp');
 const stream = require('stream');
-const S3 = require('aws-sdk/clients/s3')
+const S3 = require('aws-sdk/clients/s3');
 const fetch = require('node-fetch');
+const crypto = require('crypto');
 
-const age = 3 * 24 * 60 * 60    // 3 days => in seconds
+const age = 3 * 24 * 60 * 60;    // 3 days => in seconds
 
 const createToken = (data) => {
 	// payload => data
@@ -24,6 +25,24 @@ async function getYear() {
 	} catch (error) {
 		return null;
 	}
+}
+
+// function to get date
+async function getDate() {
+	try {
+		const response = await fetch('http://worldtimeapi.org/api/timezone/Etc/UTC');
+		const data = await response.json();
+		const currentYear = new Date(data.datetime).getFullYear();
+		return new Date(data.datetime).toDateString();
+	} catch (error) {
+		return null;
+	}
+}
+
+function hash(input) {
+	const hash = crypto.createHash('md5');
+	hash.update(input);
+	return hash.digest('hex');
 }
 
 // endpoint to add shop of the current logged in user
@@ -79,7 +98,7 @@ const saveProfilePic = async (req, res) => {
 		accessKeyId: process.env.accessKeyId,
 		secretAccessKey: process.env.secretAccessKey
 	}
-	var s3 = new S3(config)
+	var s3 = new S3(config);
 	const ext = file.originalname.slice(file.originalname.lastIndexOf('.') + 1);
 
 	try {
@@ -132,8 +151,8 @@ const getUserInfo = (req, res) => {
 const changePassword = (req, res) => {
 	const phoneLoggedIn = res.user.data.phone;
 	const client = req.client;
-	const { oldPassword, newPassword } = req.body;
-	console.log(oldPassword, newPassword);
+	const oldPassword = hash(req.body.oldPassword);
+	const newPassword = hash(req.body.newPassword);
 
 	client.query("select password from users where phone=$1", [phoneLoggedIn], (err1, result1) => {
 		if (err1) {
@@ -183,4 +202,115 @@ const updateNumber = (req, res) => {
 	})
 }
 
-module.exports = { addShop, saveProfile, saveProfilePic, getUserInfo, changePassword, updateNumber };
+async function uploadAllImages(s3, files, images, id, res, shop_name, name, config) {
+	for (let i = 1; i <= files.length; i++) {
+		const file = files[i - 1];
+		const ext = file.originalname.slice(file.originalname.lastIndexOf('.') + 1);
+		try {
+			const readableStream = stream.Readable.from(file.buffer);
+			const file_name = `${id}_${shop_name}_${name}_${i}.` + ext;
+			var params = {
+				Bucket: 'pm-objects',
+				Key: file_name,
+				Body: readableStream,
+				ACL: 'public-read',
+				ContentLength: file.buffer.length
+			}
+			await new Promise((resolve, reject) => {
+				s3.putObject(params, function (err, data) {
+					if (err) {
+						// client.end();
+						reject({ ok: false, message: 'Error uploading images', error: err });
+					}
+					else {
+						const url = 'https://pm-objects.' + config.endpoint + '/' + file_name;
+						console.log(`product${i} uploaded`);
+						images.push(url);
+						resolve();
+					}
+				});
+			});
+		} catch (error) {
+			res.status(500).json({ ok: false, message: "Error uploading images", error: error });
+		}
+	}
+}
+
+// end point to upload a product
+const uploadProduct = (req, res) => {
+	const phoneLoggedIn = res.user.data.phone;
+	const client = req.client;
+	const files = req.files;
+
+	if (!files || files.length === 0) {
+		return res.status(400).json({ ok: false, error: 'No files provided' });
+	}
+
+	const { shop_name, name, desc, stock, price, brand, gender, category } = req.body;
+
+	client.query('BEGIN', (err) => {
+		if (err) {
+			return client.query('ROLLBACK', () => {
+				client.end();
+				res.status(500).json({ ok: false, message: "Error while beginning", error: err });
+			});
+		}
+
+		client.query('insert into products (owner, shop_name, name, description, stock, price, brand, gender) values ($1, $2, $3, $4, $5, $6, $7, $8) returning id', [phoneLoggedIn, shop_name, name, desc, stock, price, brand, gender], async (err1, res1) => {
+			if (err1) {
+				return client.query('ROLLBACK', () => {
+					client.end();
+					res.status(500).json({ ok: false, message: "Error saving text data of the product", error: err1 });
+				});
+			}
+
+			const id = res1.rows[0].id;
+			console.log(id);
+			const date = await getDate();
+			const config = {
+				endpoint: `us-southeast-1.linodeobjects.com/product_images/${phoneLoggedIn}/${date}`,
+				accessKeyId: process.env.accessKeyId,
+				secretAccessKey: process.env.secretAccessKey
+			}
+			var s3 = new S3(config);
+
+			// to store all the image urls
+			let images = [];
+
+			// loop to upload images on bucket, and push the urls in images array
+			await uploadAllImages(s3, files, images, id, res, shop_name, name, config);
+
+			// save images to the database
+			client.query('insert into images (link, id) select unnest($1::text[]), $2::integer', [images, id], (err2, res2) => {
+				if (err2) {
+					return client.query('ROLLBACK', () => {
+						client.end();
+						res.status(500).json({ ok: false, message: "Error saving images of the product", error: err2 });
+					});
+				}
+
+				client.query('insert into categories (category, id) SELECT unnest($1::text[]), $2::integer', [category, id], (err3, res3) => {
+					if (err3) {
+						return client.query('ROLLBACK', () => {
+							client.end();
+							res.status(500).json({ ok: false, message: "Error saving categories of the product", error: err3 });
+						});
+					}
+
+					client.query('COMMIT', (err4) => {
+						if (err4) {
+							// Handle error and rollback transaction
+							return client.query('ROLLBACK', () => {
+								client.end();
+								res.status(500).json({ ok: false, message: "Error while commit", error: err4 });
+							});
+						}
+						client.end();
+						res.status(200).json({ok: true, message: "Product saved"});
+					});
+				});
+			});
+		});
+	});
+}
+module.exports = { addShop, saveProfile, saveProfilePic, getUserInfo, changePassword, updateNumber, uploadProduct };

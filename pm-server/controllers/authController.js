@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+const crypto = require('crypto');
+
 require('dotenv').config();
 
 const age = 3 * 24 * 60 * 60    // 3 days => in seconds
@@ -8,6 +10,12 @@ const createToken = (data) => {
 	return jwt.sign({ data }, process.env.ACCESS_TOKEN_SECRET, {
 		expiresIn: age
 	})
+}
+
+function hash(input) {
+	const hash = crypto.createHash('md5');
+	hash.update(input);
+	return hash.digest('hex');
 }
 
 // saves phone number of a user after verifying it
@@ -29,7 +37,8 @@ module.exports.signup = (req, res) => {
 // To login the user with password
 module.exports.login = (req, res) => {
 	const client = req.client
-	const { phone, password, otp } = req.body;
+	const { phone, otp } = req.body;
+	const password = hash(req.body.password);
 	const redirect = req.query.redirect;
 	if (otp) {
 		const token = createToken({ "phone": phone });
@@ -105,7 +114,7 @@ module.exports.login = (req, res) => {
 //saving the password after signup
 module.exports.savePassword = (req, res) => {
 	const client = req.client
-	const password = req.body.password;
+	const password = hash(req.body.password);
 	const phone = req.body.phone;
 	client.query('update users set password=($1) where phone=($2)', [password, phone], (err, results) => {
 		if (err) {

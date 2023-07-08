@@ -6,6 +6,7 @@ const { Client } = require('pg');
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const app = express();
@@ -40,6 +41,7 @@ app.get('/', (req, res) => {
 	res.send("Backend is ready");
 });
 
+
 app.use((req, res, next) => {
 	req.client = client;
 	next();
@@ -60,5 +62,5 @@ app.get('/test', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+	console.log(`Server is running on port ${port}`);
 });
