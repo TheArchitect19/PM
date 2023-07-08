@@ -3,14 +3,9 @@ import './carousel1.css';
 
 const MultiItemCarousel = () => {
   
-
- 
-
   return (
     <div  className='budget'>
-      
           <Card  />
-       
     </div>
   );
 };

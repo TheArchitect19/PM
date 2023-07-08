@@ -13,7 +13,9 @@ import Signup from './pages/SIgnup';
 import RegShop from './pages/RegShop';
 import Profile from './pages/Profile';
 import Upload from './pages/Upload';
-import Impact from './pages/Impact'
+import Impact from './pages/Impact';
+import Women from './pages/Women';
+import Men from './pages/Men';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/upload" element={(<Upload />)} />
           <Route path="/profile" element={(<Profile/>)} />
           <Route path="/impact" element={(<Impact/>)} />
+          <Route path="/women" element={(<Women/>)} />
+          <Route path="/men" element={(<Men/>)} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Banner.module.css'
 import pm from "../assets/svg/pm.png";
+import bannerm from "../assets/svg/bannerm.png"
 import Bi from "../assets/svg/bi.png";
 import store from "../assets/svg/store.png";
 import play from "../assets/play.png";
