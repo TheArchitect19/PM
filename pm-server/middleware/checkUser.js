@@ -7,20 +7,16 @@ const checkUser = (req, res, next) => {
     if (token) {
         jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decodedToken) => {
             if (err) {
-                res.status(500);
-                next();
-            }
-            else {
+                res.status(500).send({ error: 'Internal Server Error' });
+            } else {
                 res.user = decodedToken;
                 res.status(200);
                 next();
             }
-        })
+        });
+    } else {
+        res.status(401).send({ error: 'Unauthorized' });
     }
-    else {
-        res.status(401);
-        next();
-    }
-}
+};
 
 module.exports = { checkUser };

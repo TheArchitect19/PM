@@ -42,14 +42,14 @@ module.exports.login = (req, res) => {
 	const redirect = req.query.redirect;
 	if (otp) {
 		const token = createToken({ "phone": phone });
-		// res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
-		res.cookie('login', token, {
-			httpOnly: true,
-			secure: true,
-			sameSite: 'none',
-			maxAge: age * 1000, // 1 hour
-			domain: 'pandrimarket.com',
-		});
+		res.cookie('login', token, { httpOnly: true, maxAge: age * 1000, SameSite: "none" });
+		// res.cookie('login', token, {
+		// 	httpOnly: true,
+		// 	secure: true,
+		// 	sameSite: 'none',
+		// 	maxAge: age * 1000, // 1 hour
+		// 	domain: 'pandrimarket.com',
+		// });
 		if (redirect === 'ays') {
 			res.status(200).json({ message: 'Login successful', redirectUrl: '/ays', ok: true });
 		}
