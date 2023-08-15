@@ -22,6 +22,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd pm-store
-    - run: npm install --force
-    - run: npm run build
+    - run: cd pm-store && npm install --force
+    - run: cd pm-store && npm run build
