@@ -16,8 +16,6 @@ import Navbar from '../components/NavHom';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { firebase, auth } from '../components/firebase';
-import LazyLoad from 'react-lazyload';
-
 import url_json from "../url.json";
 
 const url = url_json.url;
@@ -29,7 +27,6 @@ const Profile = () => {
   const [gotFile, setGotFile] = useState(false);
   const [selectedImage, setSelectedImage] = useState(dp);
   const fileInputRef = useRef(null);
-  const [imgSize, setImgSize] = useState(true);
   const [p_info, set_p_info] = useState({
     name: "",
     email: "",
@@ -75,24 +72,31 @@ const Profile = () => {
         .then(res => res.json())
         .then(res => {
           if (res.ok) {
-            const data = { ...p_info };
-            data.name = res.value.name;
-            data.email = res.value.email;
-            data.phone = res.value.phone;
-            data.whatsapp_number = res.value.whatsapp;
-            data.address = res.value.address;
-            data.oldPassword = res.value.password;
-            data.aadhar = res.value.aadhar;
-            data.pan = res.value.pan;
-            data.profile_pic = res.value.profile_pic;
-            
+            set_p_info({
+              ...p_info,
+              name: res.value.name,
+              email: res.value.email,
+              phone: res.value.phone,
+              whatsapp_number: res.value.whatsapp,
+              address: res.value.address,
+              oldPassword: res.value.password,
+              aadhar: res.value.aadhar,
+              pan: res.value.pan,
+              profile_pic: res.value.profile_pic,
+            })
             if (res.value.iswhatsapp === "true") {
-              data.isWhatsapp = true
+              set_p_info({
+                ...p_info,
+                isWhatsapp: true
+              });
             }
             else {
-              data.isWhatsapp = false
+              set_p_info({
+                ...p_info,
+                isWhatsapp: false
+              });
             }
-            set_p_info(data);
+
             if (res.value.profile_pic !== null && res.value.profile_pic !== "") {
               setSelectedImage(res.value.profile_pic)
             }
@@ -147,14 +151,6 @@ const Profile = () => {
   const handleFileChange = (event) => {
     setGotFile(true);
     const file = event.target.files[0];
-    let mb = file.size / 1024;
-    mb = mb / 1024
-    if (mb > 1) {
-      setImgSize(false);
-    }
-    else {
-      setImgSize(true);
-    }
     const reader = new FileReader();
 
     reader.onload = () => {
@@ -187,13 +183,11 @@ const Profile = () => {
           <p>MY PROFILE</p>
           <div>
             <div>
-              {/* <LazyLoad height={200} once> */}
               <img
                 src={selectedImage}
                 alt="Preview Image"
                 style={{ width: "200px", height: "200px" }}
               />
-              {/* </LazyLoad> */}
               <div className={styles.customfileupload} onClick={handleClick}>
                 <input
                   type="file"
@@ -202,15 +196,13 @@ const Profile = () => {
                   onChange={handleFileChange}
                   ref={fileInputRef}
                 />
-                {!gotFile ? <span>Choose an Image</span> : <>Choose Another</>}
+                {!gotFile ? <span>Upload Image</span> : <>Choose Another</>}
               </div>
               <p></p>
-              {imgSize ? <><button onClick={saveProfilePic} disabled={isDisabled} style={{ display: gotFile ? "block" : "none" }}>
+              <button onClick={saveProfilePic} disabled={isDisabled} style={{ display: gotFile ? "block" : "none" }}>
                 {isDisabled ? <>Uploading...</> : <>Upload</>}
-              </button></> :
-                <></>}
-
-              {imgSize ? <p>Maxmium Upload Size is 1 MB</p> : <p style={{ color: "red" }}>Image size larger than 1 MB</p>}
+              </button>
+              <p>Maxmium Upload Size is 1 MB</p>
             </div>
             {/* <div>
               <div>

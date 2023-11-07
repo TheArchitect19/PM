@@ -1,19 +1,16 @@
 import React from 'react';
-import { Player, ControlBar, BigPlayButton } from 'video-react';
-import 'video-react/dist/video-react.css';
-import hero from "../assets/svg/video.png";
-import styles from "./Video.module.css"
-
-function MyVideoPlayer()  {
+import styled from './Video.module.css'; // Import your CSS file for styling
+import sample from "./my-video.mp4";
+const VideoPlayer = () => {
   return (
-    <div className={styles.vid}>
-        <Player poster={hero}>
-        <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-       <BigPlayButton position="center"/>
-      <ControlBar autoHide={false} className="my-class" />
-    </Player>
+    <div className={styled.videocontainer}>
+      <video controls className={styled.videoelement} >
+        <source src={sample} type="video/mp4" />
+        {/* You can add multiple source elements for different video formats (e.g., WebM, Ogg) */}
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 };
 
-export default MyVideoPlayer;
+export default VideoPlayer;

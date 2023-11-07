@@ -16,6 +16,9 @@ import Upload from './pages/Upload';
 import Impact from './pages/Impact';
 import Women from './pages/Women';
 import Men from './pages/Men';
+import Cart from './pages/Cart';
+import TC from './pages/TC'
+import PP from './pages/PP'
 
 function App() {
   return (
@@ -38,6 +41,9 @@ function App() {
           <Route path="/impact" element={(<Impact/>)} />
           <Route path="/women" element={(<Women/>)} />
           <Route path="/men" element={(<Men/>)} />
+          <Route path="/cart" element={(<Cart/>)} />
+          <Route path="/terms&conditions" element={(<TC/>)} />
+          <Route path="/privacypolicy" element={(<PP/>)} />
         </Routes>
       </BrowserRouter>
     </>

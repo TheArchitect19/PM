@@ -341,6 +341,7 @@ backdrop-filter: blur(1.6px);
     align-items: center;
     justify-content: center;
     margin-top: calc(40vh - 20px - 11vh);
+    font-family: 'Poppins';
 }
 .innerdiv:hover{
   height: 100%;
@@ -472,9 +473,9 @@ transition: 0.3s;
     
     }
 }
-@media(max-width:400px){
+@media(max-width:500px){
     .maindiv{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .smadiv4{
         margin: 10px;

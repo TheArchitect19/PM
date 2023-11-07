@@ -35,7 +35,7 @@ const Navbar = () => {
               <img className={styles.sb} src={search} alt="" />
               Search
             </button>
-            </div>
+          </div>
           </div>
 
         </div>

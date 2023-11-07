@@ -4,6 +4,7 @@
     margin-bottom: 10px;
     display: flex;
     overflow: hidden;
+    font-family: 'Poppins';
 }
 .div1{
     display: flex;
@@ -100,7 +101,11 @@
         width: 100px;
     }
 }
-@media(max-width:400px){
+@media(max-width:500px){
+    .maindiv{
+    height: 21vh;
+
+    }
     .div2 img{
         width: 150%;
     }
@@ -117,6 +122,22 @@
         width: 5%;
     }
     .div3{
-        margin-left: 30px;
+        margin-left: 45px;
+        margin-top: 64px;
+    }
+    .div3 h1{
+        font-size: 19px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+  
+    .div31{
+        display: none;
+    }
+    .div32 h5{
+        font-size: 14px;
+    }
+    .div32 img{
+        width: 120px;
     }
 }

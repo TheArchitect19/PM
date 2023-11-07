@@ -46,7 +46,7 @@ const carouselProperties = {
   // slidesToScroll={3}
   responsive: [
     {
-      breakpoint: 426,
+      breakpoint: 526,
       settings: {
         slidesToShow: 1,
         centerMode: false,
@@ -55,7 +55,7 @@ const carouselProperties = {
     {
       breakpoint: 769,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 2,
         centerMode: false,
       },
     },
@@ -81,9 +81,9 @@ const MultiItemCarousel = () => {
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
-  if (width <= 426) {
+  if (width <= 526) {
     slidesToShow = 1;
-  } else if (width > 426 && width <= 769) {
+  } else if (width > 526 && width <= 769) {
     slidesToShow = 3;
   } else if (width > 769 && width <= 1025) {
     slidesToShow = 4;
@@ -94,11 +94,13 @@ const MultiItemCarousel = () => {
   return (
     <div style={{ margin: '40px' }} className='carousel1'>
     <h2>HANDPICKED FOR YOU</h2>
+    <div className='icarousel1'>
       <Slider {...carouselProperties} >
         {multiData.map((item) => (
           <Card item={item} />
         ))}
       </Slider>
+    </div>
     </div>
   );
 };
@@ -111,7 +113,7 @@ const Card = ({ item }) => {
         src={item}
         alt=''
         style={{
-          width: '80%',
+          width: '70%',
           height: '250px',
           marginBottom: '10px',
         }}
@@ -122,7 +124,7 @@ const Card = ({ item }) => {
         <p>Rs. 1079 <span> Rs. 1799 </span><a style={{color:'#FF0724'}}> (40% OFF)</a></p>
         <p style={{color:'grey',fontSize:'15px'}}>56 reviews</p>
       </div>
-      </div>
+      </div>  
   );
 };
 

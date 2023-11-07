@@ -1,0 +1,138 @@
+.main{
+    display: flex;
+    justify-content: space-evenly;
+}
+.carta{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    width: 50%;
+    background-color: #e9e9e95b;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    
+}
+.txt{
+    margin-left: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+.txt1{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+.cupon{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.cupon h5{
+    margin-top: 6px;
+    margin-left: 6px;
+}
+.inloc{
+    /* height: 45px; */
+    background:  #FFFFFF;
+    padding: 0.19rem 0.8rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid #D6D6D6;
+  }
+  
+  .inloc input{
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding-left: 1rem;
+    margin-left: 0.5rem;
+    padding: 0.5rem ;
+    outline: none;
+  }
+  
+  .labelInloc{
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  
+  .labelInloc button{
+    background: #E23C51;
+    border-radius: 0;
+    height: 100%;
+    margin: 0;
+    
+  }
+  .labelInloc button:hover{
+    background: #b40018;
+    transition: 0.6s;
+  }
+  .pay{
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .cpay{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cpay button{
+    border-radius: 0;
+    border: none;
+    width: 300px;
+    margin-top: 20px;
+    background: #E23C51;
+  }
+  .cpay button:hover{
+    background: #b40018;
+    transition: 0.6s;
+  }
+  .payment{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 25px;
+    height: 73vh;
+    width: 30%;
+    box-shadow: 0px 14.6812px 17.8734px rgba(0, 0, 0, 0.11475), 0px 5.8px 6.6625px rgba(0, 0, 0, 0.085), 0px 1.26875px 2.37031px rgba(0, 0, 0, 0.05525);
+  }
+  .ca{
+    border: 1px solid rgb(235, 235, 235);
+    margin-top: 10px;
+  }
+  .ca img{
+    padding: 10px;
+  }
+  @media(max-width:400px){
+    .main{
+        flex-direction: column;
+    }
+    .payment{
+        padding: 20px;
+        margin: 10px;
+      }
+
+      .cpay button{
+        width: 230px;
+      }
+      .cupon h5{
+        margin-top: 6px;
+        margin-left: 4px;
+        font-size: 19px;
+    }
+    .labelInloc{
+        font-weight: 600;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        margin: 10px;
+      }
+  }
+  

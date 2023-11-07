@@ -38,16 +38,7 @@ const Navbar = (data) => {
           </div>
 
         </a>
-        <a href="/">
-          <div className={styles.txt}>
-            <img className={styles.m} src={gyb} alt="" />
-            <div className={styles.innertxt}>
-              <h5>Grow Your Business</h5>
-              <p>Join our platform</p>
-            </div>
-          </div>
-
-        </a>
+      
 
 
         <Link to={`${seller}/ays`} target="_blank" rel="noopener noreferrer">
