@@ -7,7 +7,7 @@ const MultiItemCarousel = () => {
  
 
   return (
-    <div  className='budget'style={{background:'transparent'}}>
+    <div  className='budget4'style={{background:'transparent'}}>
       
           <Card  />
        

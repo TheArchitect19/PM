@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './BBC3.module.css'
 const BBCarousel = () => {
   return (
-    <div className={styles.main1div}>
+    <div className={styles.maindiv}>
        <div className={styles.smadiv11}>
           <div className={styles.innerdiv}>
            <h5>Western Wear</h5>

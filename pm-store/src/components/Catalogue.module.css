@@ -31,10 +31,10 @@
    font-weight: 700;
    text-align: center;
 }
-@media(max-width:400px){
+@media(max-width:500px){
 
     .colnav{
-        height: 13vh;    
+        height: 9vh;    
     }
     .m8{
         padding: 2px;
@@ -42,18 +42,15 @@
         height: 7vh;
         padding-top: 8px;
     }
+    
     .m1 p{
-        font-size: x-small;
-        font-weight: 500;
-        text-align: center;
+        display: none;
      }
      .mx img{
         margin-left: 6px;
      }
     .mx p{
-        font-size: x-small;
-        font-weight: 500;
-        text-align: center;
+        display: none;
      }
 
 }

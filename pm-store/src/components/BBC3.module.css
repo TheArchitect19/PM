@@ -400,6 +400,7 @@ backdrop-filter: blur(1.6px);
     align-items: center;
     justify-content: center;
     margin-top: calc(40vh - 20px - 11vh);
+    font-family: 'Poppins';
 }
 @media(max-width:1080px){
     .main1div{
@@ -522,9 +523,9 @@ backdrop-filter: blur(1.6px);
     
     }
 }
-@media(max-width:400px){
+@media(max-width:500px){
     .maindiv{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .smadiv4{
         margin: 10px;
@@ -537,6 +538,12 @@ backdrop-filter: blur(1.6px);
     .innerdiv{
         margin-top: calc(33vh - 20px - 9vh);
         height: 9vh;
+    }
+    .innerdiv h5{
+        font-size: 16px;
+    }
+    .innerdiv h6{
+        font-size: 14px;
     }
     .smadiv2{
         margin: 10px;

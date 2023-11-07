@@ -62,9 +62,9 @@ const Home = () => {
         <BBC1 />
         {/* <Carousel /> */}
         <Banner/>
+        <Video />
         <Budget />
         <BBC />
-        <Video />
         {/* <Pms /> */}
         {/* <Cat /> */}
         {/* <Ttm /> */}

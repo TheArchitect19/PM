@@ -3,7 +3,12 @@
     flex-direction: column;
     align-items: center;
 }
-
+.budget4{
+    font-family: "Poppins";
+}
+.budget3{
+    font-family: "Poppins";
+}
 .carousel1 h2{
     text-align: center;
     padding-top: 2%;
@@ -35,6 +40,7 @@
     padding-top: 14px;
     padding-bottom: 10px;
     color: white;
+    font-family: 'Poppins';
 }
 .budget2{
     width: 100%;
@@ -101,24 +107,40 @@
         display: none;
     }
 }
-@media(max-width:420px){
+@media(max-width:520px){
     
     .budget{
         width: 100%;
         overflow-x: hidden;
         overflow-y: hidden;
         background: #E53F52;
-        padding-top: 14px;
-        padding-bottom: 10px;
+        padding-top: 8px;
+        padding-bottom: 1px;
         color: white;
         display: block;
+        height: 6.2vh;
+
     }
     .budget h2{
-        font-size: x-large;
+        font-size: large;
+        margin-top: 11px;
     }
     .carousel1 h2{
         font-size: x-large;
     }
-
+    .icarousel1{
+       background: #f3f2f2;
+       padding:6px;
+       border-radius: 2px;
+    }
+    .cont img{
+        padding-top: 15px;
+    }
+    .budget3{
+        padding: 10px;
+    }
+    .budget3 h4{
+        font-size: 18px;
+    }
     
 }

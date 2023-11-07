@@ -26,7 +26,7 @@ const Navbar = () => {
          <h2 style={{marginTop:'10px'}}> FREE</h2>
        </div>
        <div className={styles.headertxt1}>
-         <button style={{borderRadius:'8px',background:' linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.81) 100%)',color:'#2f2f2f'}}>SHOP MEN</button>
+         <a href="/men"><button style={{borderRadius:'8px',background:' linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.81) 100%)',color:'#2f2f2f'}}>SHOP MEN</button></a>
          <a href="/Women"><button className={styles.btn2} style={{borderRadius:'8px',background:' linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.81) 100%)',color:'#2f2f2f'}}>SHOP WOMEN</button></a>
        </div>
        </div>

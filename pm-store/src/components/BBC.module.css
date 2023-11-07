@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .maindiv{
     width: 100%;
     overflow: hidden;
@@ -299,12 +300,13 @@
     justify-content: center;
 }
 .innerdiv:hover{
+    
     background: linear-gradient(0deg, rgba(63, 77, 126, 0.38), rgba(63, 77, 126, 0.38)),
 linear-gradient(0deg, rgba(163, 163, 163, 0.26), rgba(163, 163, 163, 0.26));
 backdrop-filter: blur(1.0px);
 -webkit-backdrop-filter: blur(1.0px);
 transition: 1;
-
+font-family: 'Poppins';
 color: white;
 }
 .innerdiv h5{
@@ -335,7 +337,7 @@ color: white;
         width: 100%;
         overflow: hidden;
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .smadiv12{
         margin: 10px;
@@ -433,9 +435,9 @@ color: white;
     
     }
 }
-@media(max-width:400px){
+@media(max-width:500px){
     .maindiv{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .smadiv4{
         margin: 10px;
@@ -443,103 +445,126 @@ color: white;
     }
     .smadiv1{
         margin: 10px;
-        height: 30vh;
+        height: 20vh;
+        margin-right: 0;
+        margin-bottom: 0;
     }
     .innerdiv{
-        margin-top: calc(33vh - 20px - 9vh);
+        margin-top: calc(23vh - 20px - 9vh);
         height: 9vh;
+        background: linear-gradient(0deg, rgba(63, 77, 126, 0.38), rgba(63, 77, 126, 0.38)),
+linear-gradient(0deg, rgba(163, 163, 163, 0.26), rgba(163, 163, 163, 0.26));
+backdrop-filter: blur(1.0px);
+-webkit-backdrop-filter: blur(1.0px);
+transition: 1;
+color:whitesmoke;
+font-family: 'Poppins';
+
+    }
+    .innerdiv h5{
+       font-size: 16px;
+    }
+    .innerdiv h6{
+        font-size: 14px;
+     
     }
     .smadiv2{
         margin: 10px;
-        height: 30vh;
-       
+        height: 20vh;
+        margin-bottom: 0;
     }
     .smadiv3{
         margin: 10px;
-        height: 30vh;
+        height: 20vh;
+        margin-right: 0;
+        margin-bottom: 0;
     }
     .smadiv4{
-        height: 30vh;
+        height: 20vh;
+        margin-bottom: 0;
     }
     .smadiv5{
         margin: 10px;
-        height: 30vh;
+        height: 20vh;
+        margin-right: 0;
         
     }
     .smadiv6{
-         height: 30vh;
+         height: 20vh;
          margin: 10px;       
     }
     .smadiv11{
-        margin: 10px;
-        height: 30vh;
-        
-    
+        height: 20vh;
+        margin-right: 5px;
+        margin-bottom: 0px;
+
     }
     .smadiv12{
-        margin: 10px;
-        height: 30vh;
+        height: 20vh;
+        margin-left: 5px;
+        margin-bottom: 0px;
         
-    
     }
     .smadiv13{
-        margin: 10px;
-        height: 30vh;
+        height: 20vh;
+        margin-right: 5px;
+        margin-bottom: 0px;
         
-    
     }
     .smadiv14{
-        margin: 10px;
     
-        height: 30vh;
-       
+        height: 20vh;
+        margin-left: 5px;
+        margin-bottom: 0px;
+        
     }
     .smadiv15{
-        margin: 10px;
     
-        height: 30vh;
-      
+        height: 20vh;
+        margin-right: 5px;
+        margin-bottom: 0px;
+
     }
     .smadiv16{
-        margin: 10px;
     
-        height: 30vh;
+        height: 20vh;
+        margin-left: 5px;
+        margin-bottom: 0px;
     
     }
     .smadiv17{
-        margin: 10px;
     
-        height: 30vh;
-    
+        height: 20vh;
+        margin-right: 5px;
+        margin-bottom: 0px;
     }
     .smadiv18{
-        margin: 10px;
     
-        height: 30vh;
+        height: 20vh;
+        margin-left: 5px;
+        margin-bottom: 0px;
     
     }
     .smadiv19{
-        margin: 10px;
-        height: 30vh;
-    
-    
+        height: 20vh;
+        margin-right: 5px;
+        margin-bottom: 0px;
+
     }
     .smadiv110{
-        margin: 10px;
-        height: 30vh;
-    
-    
+        height: 20vh;
+        margin-left: 5px;
+        margin-bottom: 0px;
+
     }
     .smadiv111{
-        margin: 10px;
-        height: 30vh;
-    
+        height: 20vh;
+        margin-right: 5px;
     
     }
     .smadiv112{
-        margin: 10px;
-        height: 30vh;
-    
+        height: 20vh;
+        margin-left: 5px;
     
     }
 }

@@ -13,13 +13,13 @@ const Navbar = () => {
          <ul>
           <li>Muklava</li>  
           <li>Fashion House</li>  
-          <li>Manyavar & Mohey</li>  
+          <li>Manyavar&Mohey</li>  
           <li>Payal Collection</li>  
          </ul>
          <ul>
              <li>Parag Fashion</li>
-             <li>Hari Om Garments</li>
-             <li>Tulsi International</li>
+             <li>HariOm Garments</li>
+             <li>Tulsi </li>
          </ul>
      </div>
      </div>
