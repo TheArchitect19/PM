@@ -30,12 +30,12 @@ jobs:
     - name: Copying new build to server
       run: sshpass -p "$PASSWORD" scp -o StrictHostKeyChecking=no pm-store/build/* root@170.187.253.75:/home/store/tmp/build
       env:
-        PEM: ${{secrets.PASSWORD}}
+        PASSWORD: ${{secrets.PASSWORD}}
 
     - name: Doing the magic now
       run: sshpass -p "$PASSWORD" ssh StrictHostKeyChecking=no root@170.187.253.75 "sudo rm -r /home/store/build/ && sudo mv -r /home/store/tmp/build/* /home/store/build/ && sudo systemctl restart nginx"
       env:
-        PEM: ${{secrets.PASSWORD}}
+        PASSWORD: ${{secrets.PASSWORD}}
       
     - name: LIVE!!!
       run: echo "Site is live🚀🚀🚀"
