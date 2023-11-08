@@ -22,7 +22,7 @@ jobs:
         node-version: 16
 
     - name: Install dependencies
-      run: npm install --force
+      run: cd pm-store && npm install --force
 
     - name: Creating build
       run: npm run build
