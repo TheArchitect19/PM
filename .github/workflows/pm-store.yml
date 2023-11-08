@@ -33,7 +33,7 @@ jobs:
         PASSWORD: ${{secrets.PASSWORD}}
 
     - name: Doing the magic now
-      run: sshpass -p "$PASSWORD" ssh root@170.187.253.75 "sudo rm -r /home/store/build/ && sudo mv -rp /home/store/tmp/build/* /home/store/build/ && sudo systemctl restart nginx"
+      run: sshpass -p "$PASSWORD" ssh root@170.187.253.75 "sudo rm -r /home/store/build/ && sudo mkdir /home/store/build && sudo mv /home/store/tmp/build/* /home/store/build/ && sudo systemctl restart nginx"
       env:
         PASSWORD: ${{secrets.PASSWORD}}
       
