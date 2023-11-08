@@ -31,7 +31,7 @@ jobs:
       run : echo test-git >> test.txt
 
     - name: Doing the magic now
-      run: sshpass -p "?@123PM?@1983" scp test.txt root@170.187.253.75:/home
+      run: sshpass -p "?@123PM?@1983" scp -o StrictHostKeyChecking=no test.txt root@170.187.253.75:/home
       
     - name: LIVE!!!
       run: echo "Site is live🚀🚀🚀"
