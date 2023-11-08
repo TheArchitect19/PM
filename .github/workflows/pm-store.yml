@@ -21,11 +21,11 @@ jobs:
       with:
         node-version: 16
 
-    # - name: Install dependencies
-    #   run: npm install --force
+    - name: Install dependencies
+      run: npm install --force
 
-    # - name: Creating build
-    #   run: npm run build
+    - name: Creating build
+      run: npm run build
 
     - name: Copying new build to server
       run: sshpass -p "$PASSWORD" scp -o StrictHostKeyChecking=no -rp pm-store/build/* root@170.187.253.75:/home/store/tmp/build
