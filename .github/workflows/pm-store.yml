@@ -28,7 +28,7 @@ jobs:
     #   run: npm run build
 
     - name: Removing older build
-      run: sshpass -p "PASSWORD" ssh root@170.187.253.75 "sudo rm -r /home/store/build"
+      run: sshpass -p "PASSWORD" ssh StrictHostKeyChecking=no root@170.187.253.75 "sudo rm -r /home/store/build"
       env:
         PEM: ${{secrets.PASSWORD}}
 
@@ -38,7 +38,7 @@ jobs:
         PEM: ${{secrets.PASSWORD}}
 
     - name: Doing the magic now
-      run: sshpass -p "PASSWORD" ssh root@170.187.253.75 "sudo systemctl restart nginx"
+      run: sshpass -p "PASSWORD" ssh StrictHostKeyChecking=no root@170.187.253.75 "sudo systemctl restart nginx"
       env:
         PEM: ${{secrets.PASSWORD}}
       
