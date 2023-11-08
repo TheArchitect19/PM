@@ -27,11 +27,20 @@ jobs:
     # - name: Creating build
     #   run: npm run build
 
-    - name: Creating test file
-      run : echo test-git >> test.txt
+    - name: Removing older build
+      run: sshpass -p "PASSWORD" ssh root@170.187.253.75 "sudo rm -r /home/store/build"
+      env:
+        PEM: ${{secrets.PASSWORD}}
+
+    - name: Copying new build to server
+      run: sshpass -p "PASSWORD" scp -o StrictHostKeyChecking=no pm-store/build/* root@170.187.253.75:/home/store/build
+      env:
+        PEM: ${{secrets.PASSWORD}}
 
     - name: Doing the magic now
-      run: sshpass -p "?@123PM?@1983" scp -o StrictHostKeyChecking=no test.txt root@170.187.253.75:/home
+      run: sshpass -p "PASSWORD" ssh root@170.187.253.75 "sudo systemctl restart nginx"
+      env:
+        PEM: ${{secrets.PASSWORD}}
       
     - name: LIVE!!!
       run: echo "Site is live🚀🚀🚀"
