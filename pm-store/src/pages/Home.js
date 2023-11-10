@@ -69,7 +69,7 @@ const Home = () => {
         {/* <Cat /> */}
         {/* <Ttm /> */}
         <Cg />
-        <Git />
+        {/* <Git /> */}
         <Footer />
       </>
   )
