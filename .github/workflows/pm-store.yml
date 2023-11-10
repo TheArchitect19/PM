@@ -1,26 +1,41 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: pm-store CI
+name: Deploy
 
 on:
   push:
-    branches: "main"
+    branches:
+      - main
+
+env:
+  CI: false
 
 jobs:
   build:
+  
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v1
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: cd pm-store && npm install --force
-    - run: cd pm-store && npm run build
+        node-version: 16
+
+    - name: Install dependencies
+      run: cd pm-store && npm install --force
+
+    - name: Creating build
+      run: cd pm-store && npm run build
+
+    - name: Copying new build to server
+      run: sshpass -p "$PASSWORD" scp -o StrictHostKeyChecking=no -rp pm-store/build/* root@170.187.253.75:/home/store/tmp/build
+      env:
+        PASSWORD: ${{secrets.PASSWORD}}
+
+    - name: Doing the magic now
+      run: sshpass -p "$PASSWORD" ssh root@170.187.253.75 "sudo rm -r /home/store/build/ && sudo mkdir /home/store/build && sudo mv /home/store/tmp/build/* /home/store/build/ && sudo systemctl restart nginx"
+      env:
+        PASSWORD: ${{secrets.PASSWORD}}
+      
+    - name: LIVE!!!
+      run: echo "Site is live🚀🚀🚀"
