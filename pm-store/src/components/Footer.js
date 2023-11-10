@@ -56,7 +56,7 @@ const Footer = () => {
           <div className={styles.FooterHeading}>VISIT OUR BLOG</div>
           <ul>
             <li>
-              <a href="/blogs" style={{ fontFamily: "cursive" }}>
+              <a href="/blogs">
                 Jigyasa
               </a>{" "}
               by PM
@@ -98,9 +98,6 @@ const Footer = () => {
             </a>
             <a href="/terms&conditions">
               <li>Terms & Conditions</li>
-            </a>
-            <a href="/privacypolicy">
-              <li>Privacy Policy</li>
             </a>
           </ul>
         </div>
