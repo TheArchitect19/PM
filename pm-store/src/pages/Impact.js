@@ -35,10 +35,8 @@ const Impact = () => {
   }, []);
     return (
       <>
-      <Navbar data={log}/>
       <Section9/>
       
-      <Footer/>
       </>
     )
   }

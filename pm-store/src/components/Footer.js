@@ -9,6 +9,7 @@ import {
 } from "react-icons/ai";
 import { RxTwitterLogo } from "react-icons/rx";
 import { ImLocation } from "react-icons/im";
+import { AiOutlineCopyright } from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -96,13 +97,25 @@ const Footer = () => {
                 <ImLocation size={25}/>
               
             </a>
-            <a href="/terms&conditions">
-              <li>Terms & Conditions</li>
-            </a>
+
           </ul>
         </div>
       </div>
-      <div className={styles.FooterBottom}></div>
+      <div className="w-full group">
+      <div className="max-w-container mx-auto pt-5 pb-3">
+        <p className="text-titleFont font-normal text-center flex md:items-center justify-center text-primeColor duration-200 text-sm">
+          <span className="text-md mr-[1px] mt-[2px] md:mt-0 text-center hidden md:inline-flex">
+            <AiOutlineCopyright />
+          </span>
+          Copyright 2023 | Pandri Market |
+          <a href="/terms&conditions" target="_blank" rel="noreferrer">
+            <span className="ml-1 font-medium group-hover:text-primeColor">
+              Terms & Conditions
+            </span>
+          </a>
+        </p>
+      </div>
+    </div>
     </div>
   );
 };

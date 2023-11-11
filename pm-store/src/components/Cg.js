@@ -12,7 +12,7 @@ const Navbar = () => {
         <h5>300+ Shops</h5>
         <div className={styles.tg}>
          <ul>
-         <Link to="/shop">
+         <Link to="/muklava">
            <li>Muklava</li>  
          </Link>
           <li>Fashion House</li>  

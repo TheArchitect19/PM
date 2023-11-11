@@ -15,7 +15,7 @@ import { GrMapLocation } from "react-icons/gr";
 import Navbar from '../components/NavHom';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { firebase, auth } from '../components/firebase';
+import { firebase, auth } from '../components/firebase copy';
 import url_json from "../url.json";
 
 const url = url_json.url;

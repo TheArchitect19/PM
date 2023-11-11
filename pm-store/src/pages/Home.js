@@ -20,6 +20,7 @@ import BBC from '../components/BBCarousel'
 import BBC1 from '../components/BBC1'
 // import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
+import HeaderBottom from "../components/home/Header/HeaderBottom";
 
 const url = url_json.url;
 
@@ -52,9 +53,10 @@ const Home = () => {
 
   return (
       <>
-        <NavHom data={log} />
+        {/* <NavHom data={log} /> */}
         {/* <Navbar2 /> */}
-        <Search />
+        {/* <Search /> */}
+        <HeaderBottom />
         <Catalogue />
         <Carousel1 />
         {/* <Hero /> */}
@@ -70,7 +72,7 @@ const Home = () => {
         {/* <Ttm /> */}
         <Cg />
         {/* <Git /> */}
-        <Footer />
+        {/* <Footer /> */}
       </>
   )
 }
