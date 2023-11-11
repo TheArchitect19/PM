@@ -48,8 +48,6 @@ const Men = () => {
   return (
       <>
         <NavHom data={log} />
-        <Banner2/>
-        <Carousel1M />
         <Budget1M />
         <BBC3M />
         <BudgetM />

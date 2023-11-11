@@ -34,10 +34,8 @@ const Story = () => {
   }, []);
     return (
       <>
-      <Navbar data={log}/>
       <Section5/>
       
-      <Footer/>
       </>
     )
   }

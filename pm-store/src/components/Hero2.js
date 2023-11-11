@@ -5,7 +5,7 @@ import lr from "../assets/svg/lr.png";
 import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { firebase, auth } from './firebase';
+import { firebase, auth } from './firebase copy';
 import url_json from "../url.json";
 
 const url = url_json.url;

@@ -33,10 +33,8 @@ const Vision = () => {
   }, []);
     return (
       <>
-      <Navbar data={log}/>
       <Section6/>
       
-      <Footer/>
       </>
     )
   }

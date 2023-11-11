@@ -38,7 +38,6 @@ const BlogPage = () => {
   }, []);
   return (
     <>
-    <Navbar data={log}/>
     <Section1/>
     <Section2/>
     <Section3/>
@@ -49,7 +48,6 @@ const BlogPage = () => {
     <Section2/>
     <Section3/>
     <Button1/>
-    <Footer/>
     </>
   )
 }

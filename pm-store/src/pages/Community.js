@@ -33,9 +33,7 @@ const Community = () => {
   }, []);
     return (
       <>
-      <Navbar data={log}/>
       <Section7/>
-      <Footer/>
       </>
     )
   }

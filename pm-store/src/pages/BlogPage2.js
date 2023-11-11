@@ -35,10 +35,8 @@ const BlogPage2 = () => {
   }, []);
     return (
       <>
-      <Navbar data={log}/>
       <Section8/>
       <Button1/>
-      <Footer/>
       </>
     )
   }
