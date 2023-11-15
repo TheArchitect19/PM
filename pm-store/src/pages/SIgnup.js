@@ -7,9 +7,7 @@ import Hero1 from '../components/Hero2'
 const Home = () => {
   return (
     <>
-      <NavHom />
       <Hero1 />
-      <Footer />
     </>
   )
 }
