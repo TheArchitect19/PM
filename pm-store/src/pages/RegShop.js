@@ -30,9 +30,7 @@ const Home = () => {
   }, []);
   return (
     <>
-      <NavHom data={log} />
       <Hero3 />
-      <Footer />
     </>
   )
 }
