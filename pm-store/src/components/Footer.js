@@ -65,29 +65,37 @@ const Footer = () => {
           </ul>
           <div className={styles.FooterHeading}>FOLLOW US ON</div>
           <ul className={styles.SocialIcons}>
-            <li>
+          <li>
+            <a href="https://www.instagram.com/pandrimarket">
               <AiOutlineInstagram size={30} />
+            </a>
             </li>
-            <li>
+          <li>
+            <a href="facebook.com/pandrimarket">
               <AiOutlineFacebook size={30} />
+            </a>
             </li>
-            <li>
-              <AiOutlineYoutube size={30} />
+          <li>
+            <a href="https://youtube.com/@pandrimarket">
+              <AiOutlineYoutube size={30}  />
+            </a>
             </li>
-            <li>
-              <RxTwitterLogo size={30} />
+          <li>
+            <a href="https://twitter.com/PandriMarket">
+              <RxTwitterLogo size={30}  />
+            </a>
             </li>
           </ul>
         </div>
         <div className={styles.FooterSection}>
           <div className={styles.FooterHeading}>CONTACT US</div>
           <ul className={styles.ContactInfo}>
-            <a href="tel:+910788-456897">
+            <a href="tel:+919244092424">
              
                 <AiTwotonePhone size={25} />
              
             </a>
-            <a href="mailto:jigyasapandrimarket@gmail.com">
+            <a href="mailto:admin@pandrimarket.com">
              
                 <AiFillMail size={25} />
              
