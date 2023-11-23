@@ -71,7 +71,7 @@ const Footer = () => {
             </a>
             </li>
           <li>
-            <a href="facebook.com/pandrimarket">
+            <a href="https://facebook.com/pandrimarket">
               <AiOutlineFacebook size={30} />
             </a>
             </li>
