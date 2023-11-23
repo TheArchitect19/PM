@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Signup from './pages/SIgnup';
 import RegShop from './pages/RegShop';
 import Profile from './pages/Profile';
+import UploadProduct from './pages/UploadProduct';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/signup" element={(<Signup />)} />
                 <Route path="/ays" element={(<RegShop />)} />
                 <Route path="/profile" element={(<Profile/>)} />
+                <Route path="/upload-product" element={(<UploadProduct/>)} />
                 </Routes>
       </BrowserRouter>
     </>
