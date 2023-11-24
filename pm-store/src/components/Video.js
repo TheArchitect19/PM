@@ -4,11 +4,7 @@ import sample from "./my-video.mp4";
 const VideoPlayer = () => {
   return (
     <div className={styled.videocontainer}>
-      <video controls className={styled.videoelement} >
-        <source src={sample} type="video/mp4" />
-        {/* You can add multiple source elements for different video formats (e.g., WebM, Ogg) */}
-        Your browser does not support the video tag.
-      </video>
+       <iframe src="https://www.youtube.com/embed/rX6IQE39caQ?si=6Zqn-83AwlQsW46Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   );
 };
