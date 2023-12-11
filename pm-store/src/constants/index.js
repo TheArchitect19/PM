@@ -234,7 +234,7 @@ export const paginationItems = [
   {
     _id: 1012,
     img: newArrFour,
-    productName: "Funny toys for babies",
+    productName: "Funny toys",
     price: "360.00",
     color: "Mixed",
     badge: false,
@@ -243,7 +243,7 @@ export const paginationItems = [
   {
     _id: 1013,
     img: newArrTwo,
-    productName: "Funny toys for babies",
+    productName: "Funny toys",
     price: "260.00",
     color: "Mixed",
     badge: false,
@@ -262,7 +262,7 @@ export const paginationItems = [
   {
     _id: 1015,
     img: newArrFour,
-    productName: "Funny toys for babies",
+    productName: "Funny toys",
     price: "460.00",
     color: "Mixed",
     badge: false,
@@ -442,7 +442,7 @@ export const paginationItems = [
   {
     _id: 1035,
     img: newArrFour,
-    productName: "Funny toys for babies",
+    productName: "Funny toys",
     price: "60.00",
     color: "Mixed",
     badge: false,
@@ -451,7 +451,7 @@ export const paginationItems = [
   {
     _id: 1036,
     img: newArrTwo,
-    productName: "Funny toys for babies",
+    productName: "Funny toys",
     price: "60.00",
     color: "Mixed",
     badge: false,
@@ -460,7 +460,7 @@ export const paginationItems = [
   {
     _id: 1037,
     img: newArrFour,
-    productName: "Funny toys for babies",
+    productName: "Funny toys",
     price: "60.00",
     color: "Mixed",
     badge: false,
