@@ -51,7 +51,7 @@ const Pagination = ({ itemsPerPage }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mdl:gap-4 lg:gap-10">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mdl:gap-4 lg:gap-10">
         <Items currentItems={currentItems} />
       </div>
       <div className="flex flex-col mdl:flex-row justify-center mdl:justify-between items-center">

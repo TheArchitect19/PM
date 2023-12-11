@@ -13,16 +13,23 @@ const Navbar = () => {
         <div className={styles.tg}>
          <ul>
          <Link to="/muklava">
-           <li>Muklava</li>  
+           <li>Muklava (Open)</li>  
          </Link>
+         </ul>
+        </div>
+        <div className={styles.tg}>
+         <ul>
+           <h5> Opening Soon - </h5>
           <li>Fashion House</li>  
           <li>Manyavar&Mohey</li>  
           <li>Payal Collection</li>  
          </ul>
          <ul>
+         <div className={styles.tg1}>
              <li>Parag Fashion</li>
              <li>HariOm Garments</li>
              <li>Tulsi </li>
+         </div>
          </ul>
      </div>
      </div>

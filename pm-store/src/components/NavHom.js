@@ -12,6 +12,8 @@ import cart from "../assets/svg/cart.png";
 import styles from "./Navbar.module.css"
 import { colors } from "@mui/material";
 import url from '../url.json';
+import { useSelector } from "react-redux";
+
 
 const seller = url.seller;
 
@@ -21,6 +23,7 @@ const Navbar = (data) => {
   useEffect(() => {
     setLog(data.data);
   })
+  const products = useSelector((state) => state.orebiReducer.products);
   return (
     <>
       <div className={styles.navsty}>
@@ -66,6 +69,11 @@ const Navbar = (data) => {
         <a href="/cart">
           <div className={styles.txt}>
             <img className={styles.m} src={cart} alt="" />
+            {products.length > 0 && (
+            <p className="absolute top-4 right-4 bg-primeColor text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
+              {products.length}
+            </p>
+          )}
             <div className={styles.innertxt}>
               <h5 style={{ color: 'white' }}>.</h5>
             </div>

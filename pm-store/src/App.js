@@ -33,6 +33,7 @@ import RegShop from './pages/RegShop';
 import Profile from './pages/Profile';
 import Upload from './pages/Upload';
 import Impact from './pages/Impact';
+import Product from "./pages/Product/Product";
 import TC from './pages/TC'
 import PP from './pages/PP'
 import ReactGA from 'react-ga';
@@ -77,6 +78,7 @@ const router = createBrowserRouter(
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/upload" element={<Upload />}></Route>
+        <Route path="/products" element={<Product />}></Route>
         <Route path="/ays" element={<RegShop />}></Route>
         <Route path="/terms&conditions" element={<TC />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
