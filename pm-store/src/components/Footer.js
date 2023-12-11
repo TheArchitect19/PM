@@ -66,12 +66,12 @@ const Footer = () => {
           <div className={styles.FooterHeading}>FOLLOW US ON</div>
           <ul className={styles.SocialIcons}>
           <li>
-            <a href="https://www.instagram.com/pandrimarket">
+            <a href="https://www.instagram.com/pandrimarket.raipur">
               <AiOutlineInstagram size={30} />
             </a>
             </li>
           <li>
-            <a href="facebook.com/pandrimarket">
+            <a href="https://facebook.com/pandrimarket.raipur">
               <AiOutlineFacebook size={30} />
             </a>
             </li>

@@ -35,8 +35,18 @@ import Upload from './pages/Upload';
 import Impact from './pages/Impact';
 import TC from './pages/TC'
 import PP from './pages/PP'
+import ReactGA from 'react-ga';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from "react";
+ReactGA.initialize('G-2QME7DHRZ4');
+
 
 const Layout = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
   return (
     <div>
       <Header />
