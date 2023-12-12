@@ -450,8 +450,8 @@ color: white;
         margin-bottom: 0;
     }
     .innerdiv{
-        margin-top: calc(23vh - 20px - 9vh);
-        height: 9vh;
+        
+        height: 100%;
         background: linear-gradient(0deg, rgba(63, 77, 126, 0.38), rgba(63, 77, 126, 0.38)),
 linear-gradient(0deg, rgba(163, 163, 163, 0.26), rgba(163, 163, 163, 0.26));
 backdrop-filter: blur(1.0px);
@@ -459,7 +459,6 @@ backdrop-filter: blur(1.0px);
 transition: 1;
 color:whitesmoke;
 font-family: 'Poppins';
-
     }
     .innerdiv h5{
        font-size: 16px;
