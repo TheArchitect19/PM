@@ -24,6 +24,24 @@ import spfOne from "./products/specialOffer/spfOne.webp";
 import spfTwo from "./products/specialOffer/spfTwo.webp";
 import spfThree from "./products/specialOffer/spfThree.webp";
 import spfFour from "./products/specialOffer/spfFour.webp";
+import spfFive from "../multicar7.jpg";
+import spf6 from "../multicar2.jpg";
+import spf7 from "../multicar3.jpg";
+import spf8 from "../multicar4.jpg";
+import spf9 from "../multicar5.jpg";
+import spf10 from "../multicar6.jpg";
+import spf11 from "../multicar21.jpg";
+import spf12 from "../multicar8.jpg";
+import spf13 from "../multicar9.jpg";
+import spf14 from "../multicar10.jpg";
+import spf15 from "../multicar11.jpg";
+import spf16 from "../multicar12.jpg";
+import spf17 from "../multicar13.jpg";
+import spf18 from "../multicar14.jpg";
+import spf19 from "../multicar15.jpg";
+import spf20 from "../multicar16.jpg";
+import spf21 from "../multicar17.jpg";
+import spf22 from "../multicar18.jpg";
 
 // Year Product
 import productOfTheYear from "./products/productOfTheYear.webp";
@@ -58,6 +76,24 @@ export {
   spfTwo,
   spfThree,
   spfFour,
+  spfFive,
+  spf6,
+  spf7,
+  spf8,
+  spf9,
+  spf10,
+  spf11,
+  spf12,
+  spf13,
+  spf14,
+  spf15,
+  spf16,
+  spf17,
+  spf18,
+  spf19,
+  spf20,
+  spf21,
+  spf22,
 
   // Year Product
   productOfTheYear,

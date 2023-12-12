@@ -7,6 +7,32 @@ import  ArrowBackIos  from '@mui/icons-material/ArrowBackIos';
 import  ArrowForwardIos  from '@mui/icons-material/ArrowForwardIos';
 import { useState } from 'react';
 import { useEffect } from 'react';
+
+import Product from "./home/Products/Product1";
+import { paginationItems } from "../constants1";
+
+const items = paginationItems;
+function Items({ currentItems }) {
+  return (
+    <>
+      {currentItems &&
+        currentItems.map((item) => (
+          <div key={item._id} className="w-full">
+            <Product
+              _id={item._id}
+              img={item.img}
+              productName={item.productName}
+              price={item.price}
+              color={item.color}
+              badge={item.badge}
+              des={item.des}
+            />
+          </div>
+        ))}
+    </>
+  );
+}
+
 let slidesToShow = 5;
 const PreviousBtn = (props) => {
   console.log(props);
@@ -96,8 +122,22 @@ const MultiItemCarousel = () => {
     <h2>HANDPICKED FOR YOU</h2>
     <div className='icarousel1'>
       <Slider {...carouselProperties} >
-        {multiData.map((item) => (
-          <Card item={item} />
+        {paginationItems.map((item) => (
+          <div key={item._id} className="w-100">
+            <Product
+              _id={item._id}
+              img={item.img}
+              productName={item.productName}
+              price={item.price}
+              color={item.color}
+              badge={item.badge}
+              des={item.des}
+              shop={item.shop}
+              mprice={item.mprice}
+              off={item.off}
+              review={item.review}
+            />
+          </div>
         ))}
       </Slider>
     </div>
@@ -105,27 +145,5 @@ const MultiItemCarousel = () => {
   );
 };
 
-const Card = ({ item }) => {
-  return (
-       <div className='cont'>
-       <img
-        className='multi__image'
-        src={item}
-        alt=''
-        style={{
-          width: '70%',
-          height: '250px',
-          marginBottom: '10px',
-        }}
-      />
-      <div className='card_info'>
-        <h5>Parag Fashion</h5>
-        <h6>Women Solid Sweatshirt</h6>
-        <p>Rs. 1079 <span> Rs. 1799 </span><a style={{color:'#FF0724'}}> (40% OFF)</a></p>
-        <p style={{color:'grey',fontSize:'15px'}}>56 reviews</p>
-      </div>
-      </div>  
-  );
-};
 
 export default MultiItemCarousel;
