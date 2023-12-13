@@ -2,14 +2,14 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './carousel1.css';
-import {  multiData } from './data';
+import { multiData } from './data';
 import { useState } from 'react';
 import { useEffect } from 'react';
 let slidesToShow = 2;
 
 
 const carouselProperties = {
- 
+
   slidesToShow: slidesToShow,
   slidesToScroll: 1,
   infinite: true,
@@ -45,15 +45,15 @@ const carouselProperties = {
 };
 
 const MultiItemCarousel = () => {
-  
 
- 
+
+
 
   return (
     <div className='budget'>
       <Slider {...carouselProperties} >
-        {multiData.map((item) => (
-          <Card item={item} />
+        {multiData.map((item, index) => (
+          <Card key={index} item={item} />
         ))}
       </Slider>
     </div>
@@ -67,7 +67,7 @@ const Card = ({ item }) => {
         <h2>BUDGET BUYS</h2>
         <h2 className='yo'>BUDGET BUYS</h2>
       </div>
-      </>
+    </>
   );
 };
 

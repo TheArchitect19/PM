@@ -10,21 +10,21 @@ services:
                       pip install -r requirements.txt &&
                       python manage.py runserver 0.0.0.0:8000"
 
-  # frontend:
-  #   restart: always
-  #   build: ./frontend
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - "./frontend:/frontend"
-  #     - "/frontend/node_modules"
-  #   command: > 
-  #     bash -c "cp -rfu /cache/node_modules/. /frontend/node_modules/  
-  #     && npm start"
-  #   depends_on:
-  #     - backend
-  #   environment:
-  #     - WATCHPACK_POLLING=true
+  frontend:
+    restart: always
+    build: ./pm-store
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./pm-store:/pm-store"
+      - "/pm-store/node_modules"
+    command: > 
+      bash -c "cp -rfu /cache/node_modules/. /pm-store/node_modules/  
+      && npm start"
+    depends_on:
+      - backend
+    environment:
+      - WATCHPACK_POLLING=true
   #   image: piyushthedock/dig-cert-nitrr-frontend:v1
 
   db:

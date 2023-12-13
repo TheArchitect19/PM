@@ -38,20 +38,42 @@ import TC from './pages/TC'
 import PP from './pages/PP'
 import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from 'axios';
 ReactGA.initialize('G-2QME7DHRZ4');
 
 
 const Layout = () => {
   const location = useLocation();
+  const [log, setLog] = useState(false);
 
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
   }, [location]);
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      try {
+        const res = await axios.post('http://localhost:8000/api/auth/check', { token: localStorage.getItem('user') });
+        if (res.data.ok) {
+          setLog(true);
+        }
+        else {
+          setLog(false);
+          localStorage.removeItem('user');
+        }
+      }
+      catch (error) {
+        console.log(error);
+        localStorage.removeItem('user');
+      }
+    }
+    checkLogin();
+  }, []);
+
   return (
     <div>
-      <Header />
-      
+      <Header log={log} />
       <SpecialCase />
       <ScrollRestoration />
       <Outlet />

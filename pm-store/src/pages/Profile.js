@@ -15,7 +15,7 @@ import { GrMapLocation } from "react-icons/gr";
 import Navbar from '../components/NavHom';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { firebase, auth } from '../components/firebase copy';
+// import { firebase, auth } from '../components/firebase copy';
 import url_json from "../url.json";
 
 const url = url_json.url;
@@ -434,30 +434,30 @@ const Profile2 = () => {
   }
 
   async function check() {
-    setIsDisabled(true);
-    const phoneExists = await checkPhoneExists();
-    if (phoneExists === 1) {
-      alert("A user with this phone number already exists");
-      setIsDisabled(false);
-    }
-    else if (state.phone.length < 12) {
-      alert("Please enter a valid phone number.");
-      setIsDisabled(false);
-    }
-    else {
-      const number = "+" + state.phone;
-      let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-      auth.signInWithPhoneNumber(number, verify).then((result) => {
-        setfinal(result);
-        alert("OTP Sent");
-        setIsDisabled(false);
-        setShow(true);
-      })
-        .catch((err) => {
-          alert(err);
-          window.location.reload();
-        });
-    }
+    // setIsDisabled(true);
+    // const phoneExists = await checkPhoneExists();
+    // if (phoneExists === 1) {
+    //   alert("A user with this phone number already exists");
+    //   setIsDisabled(false);
+    // }
+    // else if (state.phone.length < 12) {
+    //   alert("Please enter a valid phone number.");
+    //   setIsDisabled(false);
+    // }
+    // else {
+    //   const number = "+" + state.phone;
+    //   let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    //   auth.signInWithPhoneNumber(number, verify).then((result) => {
+    //     setfinal(result);
+    //     alert("OTP Sent");
+    //     setIsDisabled(false);
+    //     setShow(true);
+    //   })
+    //     .catch((err) => {
+    //       alert(err);
+    //       window.location.reload();
+    //     });
+    // }
   }
 
   return (
