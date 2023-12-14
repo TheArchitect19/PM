@@ -20,7 +20,7 @@ const Navbar = (data) => {
 
   useEffect(() => {
     setLog(data.data);
-  })
+  }, [data.data]);
   return (
     <>
       <div className={styles.navsty}>

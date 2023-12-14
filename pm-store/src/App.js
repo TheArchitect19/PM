@@ -7,13 +7,10 @@ import {
   ScrollRestoration,
 } from "react-router-dom";
 import Footer from "./components/Footer";
-import FooterBottom from "./components/home/Footer/FooterBottom";
 import Header from "./components/NavHom";
-import HeaderBottom from "./components/home/Header/HeaderBottom";
 import SpecialCase from "./components/SpecialCase/SpecialCase";
 import About from "./pages/AboutUs";
 import SignIn from "./pages/Account/SignIn";
-import SignUp from "./pages/Account/SignUp";
 import Cart from "./pages/Cart/Cart";
 import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home";
@@ -35,7 +32,6 @@ import Upload from './pages/Upload';
 import Impact from './pages/Impact';
 import Product from "./pages/Product/Product";
 import TC from './pages/TC'
-import PP from './pages/PP'
 import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react";
@@ -54,7 +50,7 @@ const Layout = () => {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const res = await axios.post('http://localhost:8000/api/auth/check', { token: localStorage.getItem('user') });
+        const res = await axios.post('http://localhost:8000/api/auth/check', { token: localStorage.getItem('user'), type: 'buyer' });
         if (res.data.ok) {
           setLog(true);
         }

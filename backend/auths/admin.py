@@ -1,4 +1,5 @@
 from django.contrib import admin
-from auths.models import Buyers
+from auths.models import Buyer, Seller
 
-admin.site.register(Buyers)
+admin.site.register(Buyer)
+admin.site.register(Seller)
