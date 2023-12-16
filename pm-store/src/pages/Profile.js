@@ -199,7 +199,7 @@ const Profile = () => {
                 {!gotFile ? <span>Upload Image</span> : <>Choose Another</>}
               </div>
               <p></p>
-              <button onClick={saveProfilePic} disabled={isDisabled} style={{ display: gotFile ? "block" : "none" }}>
+              <button className={styles.butt} onClick={saveProfilePic} disabled={isDisabled} style={{ display: gotFile ? "block" : "none" }}>
                 {isDisabled ? <>Uploading...</> : <>Upload</>}
               </button>
               <p>Maxmium Upload Size is 1 MB</p>
@@ -362,7 +362,7 @@ const Profile1 = ({ p_info, onInfoChange }) => {
             </div>
           </div>
           <div className={styles.labelInloc}>
-            <button disabled={isDisabled} type='submit'>
+            <button className={styles.butt} disabled={isDisabled} type='submit'>
               {isDisabled ? <>Saving...</> : <>Submit</>}
             </button>
           </div>
@@ -477,7 +477,7 @@ const Profile2 = () => {
             <br /><br />
             <div id="recaptcha-container"></div>
             <div className={styles.labelInloc}>
-              {!isDisabled ? <><button type='button' onClick={check}> Send OTP</button></> : <span>Please wait...</span>}
+              {!isDisabled ? <><button className={styles.butt} type='button' onClick={check}> Send OTP</button></> : <span>Please wait...</span>}
             </div>
           </div>
 
@@ -488,7 +488,7 @@ const Profile2 = () => {
                 onChange={(e) => { setotp(e.target.value) }} />
             </div>
             <div className={styles.labelInloc}>
-              {!isDisabled ? <><button type='button' onClick={ValidateOtp}>
+              {!isDisabled ? <><button className={styles.butt} type='button' onClick={ValidateOtp}>
                 Verify
               </button></> : <span>Verifying...</span>}
             </div>
@@ -585,7 +585,7 @@ const Profile3 = ({ p_info, onInfoChange }) => {
             </div>
           </div>
           <div className={styles.labelInloc}>
-            <button type="button" onClick={changePassword}>Submit</button>
+            <button className={styles.butt} type="button" onClick={changePassword}>Submit</button>
           </div>
         </form>
       </div>

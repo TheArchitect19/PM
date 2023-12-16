@@ -1,40 +1,106 @@
-import logo from './logo.svg';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  createRoutesFromElements,
+  Route,
+  ScrollRestoration,
+} from "react-router-dom";
+import Footer from "./components/Footer";
+import FooterBottom from "./components/home/Footer/FooterBottom";
+import Header from "./components/NavHom";
+import HeaderBottom from "./components/home/Header/HeaderBottom";
+import SpecialCase from "./components/SpecialCase/SpecialCase";
+import About from "./pages/AboutUs";
+import SignIn from "./pages/Account/SignIn";
+import SignUp from "./pages/Account/SignUp";
+import Cart from "./pages/Cart/Cart";
+import Contact from "./pages/Contact/Contact";
+import Home from "./pages/Home";
+import Journal from "./pages/Journal/Journal";
+import Offer from "./pages/Offer/Offer";
+import Payment from "./pages/payment/Payment";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Shop from "./pages/Shop/Shop";
 import Blogs from './pages/BlogPage';
 import Blogs2 from './pages/BlogPage2';
-import About from './pages/AboutUs';
 import Story from './pages/Story';
-import Home from './pages/Home';
 import Vision from './pages/Vision';
 import Community from './pages/Community';
 import Login from './pages/Login';
 import Signup from './pages/SIgnup';
 import RegShop from './pages/RegShop';
 import Profile from './pages/Profile';
-import UploadProduct from './pages/UploadProduct';
+import Upload from './pages/Upload';
+import Impact from './pages/Impact';
+import Product from "./pages/Product/Product";
+import TC from './pages/TC'
+import PP from './pages/PP'
+import ReactGA from 'react-ga';
+import { useLocation } from 'react-router-dom';
+import SellWithUs from "./pages/SellWithUs";
+import { useEffect } from "react";
+ReactGA.initialize('G-2QME7DHRZ4');
+
+
+const Layout = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+  }, [location]);
+  return (
+    <div>
+      <Header />
+      
+      <SpecialCase />
+      <ScrollRestoration />
+      <Outlet />
+      <Footer />
+      {/* <FooterBottom /> */}
+    </div>
+  );
+};
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route path="/" element={<Layout />}>
+        {/* ==================== Header Navlink Start here =================== */}
+        <Route index element={<Home />}></Route>
+        <Route path="/muklava" element={<Shop />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/blogs2" element={<Blogs2 />}></Route>
+        <Route path="/story" element={<Story />}></Route>
+        <Route path="/vision" element={<Vision />}></Route>
+        <Route path="/impact" element={<Impact />}></Route>
+        <Route path="/community" element={<Community />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/upload" element={<Upload />}></Route>
+        <Route path="/products" element={<Product />}></Route>
+        <Route path="/ays" element={<RegShop />}></Route>
+        <Route path="/terms&conditions" element={<TC />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/journal" element={<Journal />}></Route>
+        {/* ==================== Header Navlink End here ===================== */}
+        <Route path="/offer" element={<Offer />}></Route>
+        <Route path="/sell-with-pandrimarket" element={<SellWithUs />}></Route>
+        <Route path="/product/:_id" element={<ProductDetails />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/paymentgateway" element={<Payment />}></Route>
+      </Route>
+      <Route path="/signin" element={<SignIn />}></Route>
+    </Route>
+  )
+);
 
 function App() {
   return (
-    <>
-     <BrowserRouter>
-              <Routes>
-                {/* dashboard  */}
-                <Route path="/" element={(<Home />)} />
-                <Route path="/about" element={(<About />)} />
-                <Route path="/blogs" element={(<Blogs />)} />
-                <Route path="/blogs2" element={(<Blogs2 />)} />
-                <Route path="/story" element={(<Story />)} />
-                <Route path="/vision" element={(<Vision />)} />
-                <Route path="/community" element={(<Community />)} />
-                <Route path="/login" element={(<Login />)} />
-                <Route path="/signup" element={(<Signup />)} />
-                <Route path="/ays" element={(<RegShop />)} />
-                <Route path="/profile" element={(<Profile/>)} />
-                <Route path="/upload-product" element={(<UploadProduct/>)} />
-                </Routes>
-      </BrowserRouter>
-    </>
+    <div className="font-bodyFont">
+      <RouterProvider router={router} />
+    </div>
   );
 }
 

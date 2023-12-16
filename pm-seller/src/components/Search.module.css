@@ -117,14 +117,12 @@ padding: 5px;
 
 @media(width<900px){
   .main{
-    flex-direction: column;
     margin: 0;
     width: 87%;
     /* padding: 3rem 0; */
   }
   .inloc{
-    width: 100%;
-    border-radius: 8px;
+    width: 220px;
     border: 0px;
     margin:  0 0 0.5rem 0;
   }
@@ -133,37 +131,30 @@ padding: 5px;
     font-size: 11.5px;
   }
   .shop{
-    border:0px;
-    border-radius: 8px;
-    margin:  0 0 0.5rem 0;
-    padding: 0.15rem 0.6rem;
-    font-size: 11.5px;
-    justify-content: center;
-    margin: 0 7px 0 0;
+    display: none;
   }
   .shop2{
-    border:0px;
-    border-radius: 8px;
-    margin:  0 0 0.5rem 0;
-    padding: 0.15rem 0.6rem;
-    font-size: 11.5px;
-    justify-content: center;
-    margin: 0 7px 0 0;
-    /* text-align: center; */
+    display: none;
   }
-  .shop3{
-    border:0px;
-    border-radius: 8px;
-    align-items: center;
-    justify-content: center;
-    /* text-align: center; */
-  }
+  
   .search .btn{
-    /* width: 100%; */
     border-radius: 7px;
     padding: 0.5rem 0.6rem;
     font-size: 11.5px;
     justify-content: center;
+  }
+  .shop3{
+    /* margin-top: 8vh; */
+    padding: 0rem 0rem;
+    background:#ffffff;
+    /* font-weight: 600; */
+    border-right: 0px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 0px;
   }
 }
 
@@ -176,42 +167,65 @@ padding: 5px;
     display: none;
   }
 }
-@media(max-width:400px){
-  .colnav{
-    background: #F55366;
-    height: 30vh;    
+@media(max-width:500px){
+.inloc{
+    height: 4vh;
+    border-radius: 2px;
+  }
+.colnav{
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    padding-top: 7px; 
 }
-  .colnav h1{
-    font-size: larger;
+.colnav h1{
+    display: none;
   }
 .shop{
     border:0px;
-    border-radius: 8px;
+    border-radius: 2px;
     margin:  0 0 0.5rem 0;
     padding: 0.15rem 0.6rem;
     font-size: 11.5px;
     justify-content: center;
     margin: 0 7px 0 0;
+    height: 5vh;
+  }
+.shop2{
+    height: 5vh;
+  }
+.shop3{
+    height: 4vh;
+    
   }
   
-  .spim{
+.spim{
     padding: 2px;
     height: 20px;
     }
-    .drop{
+.drop{
       width: 10px;
       padding: 2px;
     }
-    .btn{
+.btn{
       /* width: 80px; */
       font-weight: 100;
-      padding: 0.5rem 0.6rem;
+      padding: 0rem 0.6rem;
     font-size: 11.5px;
-    border-radius: 7px;
+    border-radius: 0px;
+    height: 4vh;
+    width: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    color: white;
+    background: rgb(235, 11, 11);
+      
     }
-    .sb{
-      padding: 1px;
-      height: 20px;
+.sb{
+      height: 18px;
     }
 
 }

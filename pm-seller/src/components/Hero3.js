@@ -87,6 +87,10 @@ const Navbar = () => {
                         Bank Account Number :
                         <input type="text" name="bank_ac_no" placeholder="Enter your bank account number" onChange={(e) => handle(e)} />
                     </label>
+                    <label>
+                        Upload Shop images :
+                        <input type="text" name="bank_ac_no" placeholder="Enter your bank account number" onChange={(e) => handle(e)} />
+                    </label>
                     <div>
                         <input style={{ width: '120px', marginTop: '25px' }} type="button" value="Register" onClick={addShop} />
                     </div>

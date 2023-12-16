@@ -1,19 +1,12 @@
 import React from 'react';
-import { Player, ControlBar, BigPlayButton } from 'video-react';
-import 'video-react/dist/video-react.css';
-import hero from "../assets/svg/video.png";
-import styles from "./Video.module.css"
-
-function MyVideoPlayer()  {
+import styled from './Video.module.css'; // Import your CSS file for styling
+import sample from "./my-video.mp4";
+const VideoPlayer = () => {
   return (
-    <div className={styles.vid}>
-        <Player poster={hero} >
-        <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-       <BigPlayButton position="center"/>
-      <ControlBar autoHide={false} className="my-class" />
-    </Player>
+    <div className={styled.videocontainer}>
+       <iframe src="https://www.youtube.com/embed/rX6IQE39caQ?si=6Zqn-83AwlQsW46Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   );
 };
 
-export default MyVideoPlayer;
+export default VideoPlayer;

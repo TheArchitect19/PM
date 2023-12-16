@@ -6,6 +6,7 @@ import url_json from "../url.json";
 
 const url = url_json.url;
 
+
 const Home = () => {
   const [log, setLog] = useState(true);
 
@@ -21,17 +22,15 @@ const Home = () => {
             // user is not logged in
             setLog(false);
             alert("Please login to continue");
-            window.location.href = "/login";
+            window.location.href = "/login?redirect=ays";
           }
         })
     }
     checkLogin();
-  });
+  }, []);
   return (
     <>
-      <NavHom data={log} />
       <Hero3 />
-      <Footer />
     </>
   )
 }

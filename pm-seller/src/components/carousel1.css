@@ -1,0 +1,146 @@
+.cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.budget4{
+    font-family: "Poppins";
+}
+.budget3{
+    font-family: "Poppins";
+}
+.carousel1 h2{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: #3A1C07;
+    font-weight: 700;
+}
+.card_info{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.card_info h6{
+    color: #3A1C07;
+}
+.card_info span{
+    font-size: 11px;
+    text-decoration: line-through;
+    margin-right: 2px;
+}
+.card_info a{
+    font-size: small;
+}
+.budget{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: #E53F52;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    color: white;
+    font-family: 'Poppins';
+}
+.budget2{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: #FFEEC3;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    color: #642A01;
+}
+
+
+.bigbudget{
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+}
+.bigbudget h2{
+    font-weight: 700;
+}
+.yo{
+    color: transparent;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+.yo2{
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color:#3A1C07;
+}
+
+@media(max-width:1300px){
+    .bigbudget{
+        width: 45vw;
+    }
+}
+@media(max-width:1050px){
+    .bigbudget{
+        width: 59vw;
+    }
+    
+}
+@media(max-width:740px){
+    .yo{
+        display: none;
+    }
+    .bigbudget{
+        width: 69vw;
+    }
+    
+}
+@media(max-width:700px){
+    
+    .budget{
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background: #E53F52;
+        padding-top: 14px;
+        padding-bottom: 10px;
+        color: white;
+        display: none;
+    }
+}
+@media(max-width:520px){
+    
+    .budget{
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        background: #E53F52;
+        padding-top: 8px;
+        padding-bottom: 1px;
+        color: white;
+        display: block;
+        height: 6.2vh;
+
+    }
+    .budget h2{
+        font-size: large;
+        margin-top: 11px;
+    }
+    .carousel1 h2{
+        font-size: x-large;
+    }
+    .icarousel1{
+       background: #f3f2f2;
+       padding:6px;
+       border-radius: 2px;
+    }
+    .cont img{
+        padding-top: 15px;
+    }
+    .budget3{
+        padding: 10px;
+    }
+    .budget3 h4{
+        font-size: 18px;
+    }
+    
+}

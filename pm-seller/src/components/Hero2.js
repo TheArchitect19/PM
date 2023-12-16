@@ -5,7 +5,7 @@ import lr from "../assets/svg/lr.png";
 import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { firebase, auth } from './firebase';
+import { firebase, auth } from './firebase copy';
 import url_json from "../url.json";
 
 const url = url_json.url;
@@ -115,7 +115,6 @@ const Navbar = () => {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         if (res === 0) {
           alert("Registered");
           setPwd(true);
@@ -128,20 +127,21 @@ const Navbar = () => {
 
   //function to save password
   async function savePassword() {
-    if (password.password) {
+    if (password.password && state.phone) {
       await fetch(`${url}/savePassword`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ password: password.password }),
+        body: JSON.stringify({ phone: state.phone, password: password.password }),
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res);
-          // Handle the response or perform any necessary actions
-          alert("Password saved successfully");
-        });
+          alert(res.message);
+          if (res.ok) {
+            window.location.href = res.redirectUrl;
+          }
+        })
     } else {
       alert("Please enter a password");
     }

@@ -12,6 +12,8 @@ import cart from "../assets/svg/cart.png";
 import styles from "./Navbar.module.css"
 import { colors } from "@mui/material";
 import url from '../url.json';
+import { useSelector } from "react-redux";
+
 
 const seller = url.seller;
 
@@ -21,6 +23,7 @@ const Navbar = (data) => {
   useEffect(() => {
     setLog(data.data);
   })
+  const products = useSelector((state) => state.orebiReducer.products);
   return (
     <>
       <div className={styles.navsty}>
@@ -38,28 +41,19 @@ const Navbar = (data) => {
           </div>
 
         </a>
-        <a href="/">
-          <div className={styles.txt}>
-            <img className={styles.m} src={gyb} alt="" />
-            <div className={styles.innertxt}>
-              <h5>Grow Your Business</h5>
-              <p>Join our platform</p>
-            </div>
-          </div>
-
-        </a>
+      
 
 
-        <a href='/ays'>
+        <Link to={`${seller}/ays`} target="_blank" rel="noopener noreferrer">
           <div className={styles.txt}>
             <img className={styles.m} src={store} alt="" />
             <div className={styles.innertxt}>
-              <h5>Add Your Store</h5>
-              <p>Grow Your Business Online</p>
+              <h5>Sell With Us</h5>
+              <p>Grow Faster</p>
             </div>
           </div>
 
-        </a>
+        </Link>
 
 
         <a href={log ? "/profile" : "/login"}>
@@ -72,15 +66,20 @@ const Navbar = (data) => {
 
         </a>
 
-        {/* <a href="/cart">
+        <a href="/cart">
           <div className={styles.txt}>
             <img className={styles.m} src={cart} alt="" />
+            {products.length > 0 && (
+            <medium className="absolute top-4 right-4 bg-red-700 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
+              {products.length}
+            </medium>
+          )}
             <div className={styles.innertxt}>
               <h5 style={{ color: 'white' }}>.</h5>
             </div>
           </div>
 
-        </a> */}
+        </a>
 
       </div>
 

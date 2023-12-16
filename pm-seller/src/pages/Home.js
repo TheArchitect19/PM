@@ -10,13 +10,23 @@ import Video from '../components/Video'
 import Ttm from '../components/Testimonial'
 import Cg from '../components/Cg'
 import Git from '../components/Git'
+import Banner from '../components/Banner'
 import Pms from '../components/Pms'
 import Carousel from '../components/Carousel'
+import Carousel1 from '../components/Carousel1'
+import Budget from '../components/Budget'
+import Budget1 from '../components/Budget1'
+import BBC from '../components/BBCarousel'
+import BBC1 from '../components/BBC1'
+// import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
+import HeaderBottom from "../components/home/Header/HeaderBottom";
 
 const url = url_json.url;
 
 const Home = () => {
+  // const [cookies] = useCookies(['login']);
+  const [cookies, setCookies] = useState('');
   const [log, setLog] = useState(false);
 
   useEffect(() => {
@@ -28,6 +38,7 @@ const Home = () => {
         .then(res => res.json())
         .then(res => {
           if (res === 0) {
+            console.log(res);
             // user is logged in
             setLog(true);
           }
@@ -41,21 +52,28 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <NavHom data={log} />
-      {/* <Navbar2 /> */}
-      <Search />
-      <Catalogue />
-      <Hero />
-      <Video />
-      <Pms />
-      <Carousel />
-      <Cat />
-      <Ttm />
-      <Cg />
-      <Git />
-      <Footer />
-    </>
+      <>
+        {/* <NavHom data={log} /> */}
+        {/* <Navbar2 /> */}
+        {/* <Search /> */}
+        <HeaderBottom />
+        <Catalogue />
+        <Carousel1 />
+        {/* <Hero /> */}
+        <Budget1 />
+        <BBC1 />
+        {/* <Carousel /> */}
+        <Banner/>
+        <Video />
+        <Budget />
+        <BBC />
+        {/* <Pms /> */}
+        {/* <Cat /> */}
+        {/* <Ttm /> */}
+        <Cg />
+        {/* <Git /> */}
+        {/* <Footer /> */}
+      </>
   )
 }
 
