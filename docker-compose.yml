@@ -12,20 +12,19 @@ services:
 
   # frontend:
   #   restart: always
-  #   build: ./frontend
+  #   build: ./pm-store
   #   ports:
   #     - "3000:3000"
   #   volumes:
-  #     - "./frontend:/frontend"
-  #     - "/frontend/node_modules"
+  #     - "./pm-store:/pm-store"
+  #     - "/pm-store/node_modules"
   #   command: > 
-  #     bash -c "cp -rfu /cache/node_modules/. /frontend/node_modules/  
+  #     bash -c "cp -rfu /cache/node_modules/. /pm-store/node_modules/  
   #     && npm start"
   #   depends_on:
   #     - backend
   #   environment:
   #     - WATCHPACK_POLLING=true
-  #   image: piyushthedock/dig-cert-nitrr-frontend:v1
 
   db:
     image: postgres

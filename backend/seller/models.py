@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+class Shop(models.Model):
+  name = models.CharField()
+  description = models.CharField()
+  address = models.CharField()
+  business_name = models.CharField()
+  isCG = models.BooleanField()
+  GST = models.CharField()
+  bank_account = models.CharField()

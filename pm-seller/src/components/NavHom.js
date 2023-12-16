@@ -22,8 +22,12 @@ const Navbar = (data) => {
 
   useEffect(() => {
     setLog(data.data);
+<<<<<<< HEAD
   })
   const products = useSelector((state) => state.orebiReducer.products);
+=======
+  }, [data.data]);
+>>>>>>> f124845fd09ce124b17691051c81691ce131fa24
   return (
     <>
       <div className={styles.navsty}>

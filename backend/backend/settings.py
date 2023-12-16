@@ -28,6 +28,14 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+# SESSION_COOKIE_SECURE = False
+# CSRF_COOKIE_SECURE = False
+# SESSION_COOKIE_SAMESITE = None
 
 
 # Application definition
@@ -40,10 +48,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
-    'seller'
+    'seller',
+    'auths',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

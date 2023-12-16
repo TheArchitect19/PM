@@ -13,21 +13,16 @@ import styles from "./Navbar.module.css"
 import { colors } from "@mui/material";
 import url from '../url.json';
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 
 const seller = url.seller;
 
-const Navbar = (data) => {
-  const [log, setLog] = useState(false);
-
-  useEffect(() => {
-    setLog(data.data);
-  })
+const Navbar = ({log}) => {
   const products = useSelector((state) => state.orebiReducer.products);
   return (
     <>
       <div className={styles.navsty}>
-
         <a href="/">
           <img className={styles.pm} src={pmnavlogo} alt="" />
         </a>
@@ -39,10 +34,7 @@ const Navbar = (data) => {
               <p>Get 7-days free trial</p>
             </div>
           </div>
-
         </a>
-      
-
 
         <Link to={`${seller}/ays`} target="_blank" rel="noopener noreferrer">
           <div className={styles.txt}>
@@ -52,9 +44,7 @@ const Navbar = (data) => {
               <p>Grow Faster</p>
             </div>
           </div>
-
         </Link>
-
 
         <a href={log ? "/profile" : "/login"}>
           <div className={styles.txt}>
@@ -63,28 +53,29 @@ const Navbar = (data) => {
               <h5>{log ? <>Profile</> : <>Login / Signup</>}</h5>
             </div>
           </div>
-
         </a>
 
         <a href="/cart">
           <div className={styles.txt}>
             <img className={styles.m} src={cart} alt="" />
             {products.length > 0 && (
+<<<<<<< HEAD
             <medium className="absolute top-4 right-4 bg-red-700 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
               {products.length}
             </medium>
           )}
+=======
+              <p className="absolute top-4 right-4 bg-primeColor text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
+                {products.length}
+              </p>
+            )}
+>>>>>>> f124845fd09ce124b17691051c81691ce131fa24
             <div className={styles.innertxt}>
               <h5 style={{ color: 'white' }}>.</h5>
             </div>
           </div>
-
         </a>
-
       </div>
-
-
-
     </>
   );
 };

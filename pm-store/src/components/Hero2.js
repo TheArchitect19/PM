@@ -5,8 +5,11 @@ import lr from "../assets/svg/lr.png";
 import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { firebase, auth } from './firebase copy';
+// import { firebase, auth } from './firebase copy';
 import url_json from "../url.json";
+import { useGoogleLogin } from '@react-oauth/google';
+import GoogleButton from 'react-google-button'
+import axios from 'axios';
 
 const url = url_json.url;
 
@@ -14,7 +17,7 @@ const Navbar = () => {
   const [state, setState] = useState({
     phone: "",
   });
-
+  const [email, setEmail] = useState("");
   const [otp, setotp] = useState('');
   const [show, setshow] = useState(false);
   const [final, setfinal] = useState('');
@@ -24,20 +27,20 @@ const Navbar = () => {
   });
 
   useEffect(() => {
-    async function checkLogin() {
-      await fetch(`${url}/checkLogin`, {
-        method: "GET",
-        credentials: "include"
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res === 0) {
-            // user is logged in
-            window.location.href = "/";
-          }
-        })
-    }
-    checkLogin();
+    // async function checkLogin() {
+    //   await fetch(`${url}/checkLogin`, {
+    //     method: "GET",
+    //     credentials: "include"
+    //   })
+    //     .then(res => res.json())
+    //     .then(res => {
+    //       if (res === 0) {
+    //         // user is logged in
+    //         window.location.href = "/";
+    //       }
+    //     })
+    // }
+    // checkLogin();
   });
 
   function handle(e) {
@@ -46,65 +49,6 @@ const Navbar = () => {
     setPassword(data);
   }
 
-  async function check() {
-    if (state.phone.length >= 12) {
-
-      // use this block to bypass otp verification
-      // await fetch(`${url}/signup`, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-type": "application/json",
-      //   },
-      //   body: JSON.stringify(state),
-      // })
-      //   .then(res => res.json())
-      //   .then(res => {
-      //     console.log(res);
-      //     if (res === 0) {
-      //       alert("Phone number registered");
-      //       setPwd(true);
-      //     }
-      //     else {
-      //       alert("Sorry for the error, it will be resolved soon.");
-      //     }
-      //   });
-      // otp verification bypass block ends
-
-      await fetch(`${url}/checkPhoneExists`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(state),
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res === 0) {
-            // send otp
-            const number = "+" + state.phone;
-            let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-            auth.signInWithPhoneNumber(number, verify).then((result) => {
-              setfinal(result);
-              alert("OTP Sent");
-              setshow(true);
-            })
-              .catch((err) => {
-                alert(err);
-                window.location.reload();
-              });
-          }
-          else if (res === 1) {
-            alert("Phone number already registered. Please login");
-          }
-          else {
-            alert("Sorry for the error, it will be resolved soon.");
-          }
-        })
-    }
-    else {
-      alert("Please enter a valid phone number");
-    }
-  }
   async function register() {
     await fetch(`${url}/signup`, {
       method: "POST",
@@ -147,7 +91,6 @@ const Navbar = () => {
     }
   }
 
-
   // Validate OTP
   const ValidateOtp = () => {
     if (otp === null || final === null)
@@ -159,6 +102,50 @@ const Navbar = () => {
       alert("Wrong code");
     })
   }
+
+  const fetchEmail = async (codeResponse) => {
+    try {
+      const res = await axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${codeResponse.access_token}`);
+      setEmail(res.data.email);
+      try {
+        const res1 = await axios.post('http://localhost:8000/api/auth/login', {
+          email: res.data.email,
+          type: 'buyer'
+        });
+        localStorage.setItem('user', res1.data.token);
+        alert("Logged in");
+        window.location.reload();
+      }
+      catch (error) {
+        console.log("Couldn't log in");
+      }
+    }
+    catch (error) {
+      alert("Error while fetching email");
+    }
+  }
+
+  const googleClick = useGoogleLogin({
+    onSuccess: (codeResponse) => fetchEmail(codeResponse),
+    onError: (error) => alert("Error while fetching email")
+  });
+
+  const signup = async () => {
+    try {
+      const res = await axios.post('http://localhost:8000/api/auth/signup', {
+        email: email,
+        phone: state.phone,
+        type: 'buyer'
+      });
+      localStorage.setItem('user', res.data.token);
+      alert(res.data.message);
+    }
+    catch (error) {
+      console.log(error);
+      alert(error.response.data.message);
+    }
+  }
+
   return (
     <>
       <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center" }} className={styles.colnav}>
@@ -177,8 +164,25 @@ const Navbar = () => {
           </div>
           <div className={styles.login}>
             <h1>SignUp</h1>
-
-            {showPwdField ?
+            {email === "" && <GoogleButton
+              onClick={googleClick}
+            />}
+            {email !== "" &&
+              <>
+                <p>Please enter your phone number to continue</p>
+                <div style={{ color: "black", display: !show ? "block" : "none" }}>
+                  <PhoneInput
+                    countryCallingCodeEditable={false}
+                    country={'in'}
+                    value={state.phone}
+                    onChange={phone => setState({ phone })}
+                  />
+                </div>
+                <p></p>
+                <button onClick={signup}>Submit</button>
+              </>
+            }
+            {/* {showPwdField ?
               <>
                 Please set up a password for more security.
                 <input type="password" name="password" placeholder="Enter your password" onChange={(e) => handle(e)} />
@@ -205,7 +209,7 @@ const Navbar = () => {
                   <button onClick={ValidateOtp}>Verify</button>
                 </div>
               </div>
-            }
+            } */}
           </div>
 
 

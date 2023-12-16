@@ -29,27 +29,27 @@ const Home = () => {
   const [cookies, setCookies] = useState('');
   const [log, setLog] = useState(false);
 
-  useEffect(() => {
-    async function checkLogin() {
-      await fetch(`${url}/checkLogin`, {
-        method: "GET",
-        credentials: "include"
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res === 0) {
-            console.log(res);
-            // user is logged in
-            setLog(true);
-          }
-          else {
-            setLog(false);
-          }
-        })
-    };
+  // useEffect(() => {
+  //   async function checkLogin() {
+  //     await fetch(`${url}/checkLogin`, {
+  //       method: "GET",
+  //       credentials: "include"
+  //     })
+  //       .then(res => res.json())
+  //       .then(res => {
+  //         if (res === 0) {
+  //           console.log(res);
+  //           // user is logged in
+  //           setLog(true);
+  //         }
+  //         else {
+  //           setLog(false);
+  //         }
+  //       })
+  //   };
 
-    checkLogin();
-  }, []);
+  //   checkLogin();
+  // }, []);
 
   return (
       <>
