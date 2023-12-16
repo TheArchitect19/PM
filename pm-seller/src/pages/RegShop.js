@@ -2,10 +2,9 @@ import { React, useEffect, useState } from 'react'
 import NavHom from '../components/NavHom'
 import Footer from '../components/Footer'
 import Hero3 from '../components/Hero3'
-// import url_json from "../url.json";
-import axios from 'axios';
+import url_json from "../url.json";
 
-
+const url = url_json.url;
 
 
 const Home = () => {

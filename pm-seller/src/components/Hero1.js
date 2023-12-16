@@ -6,7 +6,7 @@ import lr from "../assets/svg/lr.png";
 import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { firebase, auth } from './firebase copy';
+// import { firebase, auth } from './firebase copy';
 import url_json from "../url.json";
 
 const url = url_json.url;
@@ -170,37 +170,34 @@ const Navbar = () => {
   }
 
   async function check() {
-    if (state.phone.length >= 12) {
-
-      // use this block to bypass otp verification
-
-      // otp verification bypass block ends
-
-      const res = await checkPhoneExists();
-      if (res === 1) {
-        // send otp
-        const number = "+" + state.phone;
-        let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-        auth.signInWithPhoneNumber(number, verify).then((result) => {
-          setfinal(result);
-          alert("OTP Sent");
-          setShow(true);
-        })
-          .catch((err) => {
-            alert(err);
-            window.location.reload();
-          });
-      }
-      else if (res === 0) {
-        alert("This phone number not registered with us. Please register");
-      }
-      else {
-        alert("Sorry for the error, it will be resolved soon.");
-      }
-    }
-    else {
-      alert("Please enter a valid phone number");
-    }
+    // if (state.phone.length >= 12) {
+    //   // use this block to bypass otp verification
+    //   // otp verification bypass block ends
+    //   const res = await checkPhoneExists();
+    //   if (res === 1) {
+    //     // send otp
+    //     const number = "+" + state.phone;
+    //     let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    //     auth.signInWithPhoneNumber(number, verify).then((result) => {
+    //       setfinal(result);
+    //       alert("OTP Sent");
+    //       setShow(true);
+    //     })
+    //       .catch((err) => {
+    //         alert(err);
+    //         window.location.reload();
+    //       });
+    //   }
+    //   else if (res === 0) {
+    //     alert("This phone number not registered with us. Please register");
+    //   }
+    //   else {
+    //     alert("Sorry for the error, it will be resolved soon.");
+    //   }
+    // }
+    // else {
+    //   alert("Please enter a valid phone number");
+    // }
   }
   const ValidateOtp = () => {
     if (otp === null || final === null)
@@ -213,25 +210,18 @@ const Navbar = () => {
       window.location.reload();
     })
   }
-
-  function click() {
-    window.location.href = "/welcome";
-  }
+  
   return (
     <>
       <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center", height: "100vh" }} className={styles.colnav}>
         <div className={styles.cardoverlay} style={{ height: '100vh' }}>
           <div className={styles.tp}>
-
           </div>
-
           <p className={styles.t1}>Shop At Pandri Market</p>
-
           <div className={styles.dt2}>
             <img className={styles.ll} src={ll} alt="" />
             <p className={styles.t2}>Start Selling Online and earn more</p>
             <img className={styles.lr} src={lr} alt="" />
-
           </div>
           <div className={styles.login}>
             <h1>Login</h1>
@@ -273,7 +263,6 @@ const Navbar = () => {
 
             <p>New user?&nbsp;<a href="/signup">Register Now</a> </p>
           </div>
-
         </div>
       </div >
     </>

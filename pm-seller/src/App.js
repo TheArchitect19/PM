@@ -7,13 +7,10 @@ import {
   ScrollRestoration,
 } from "react-router-dom";
 import Footer from "./components/Footer";
-import FooterBottom from "./components/home/Footer/FooterBottom";
 import Header from "./components/NavHom";
-import HeaderBottom from "./components/home/Header/HeaderBottom";
 import SpecialCase from "./components/SpecialCase/SpecialCase";
 import About from "./pages/AboutUs";
 import SignIn from "./pages/Account/SignIn";
-import SignUp from "./pages/Account/SignUp";
 import Cart from "./pages/Cart/Cart";
 import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home";
@@ -34,25 +31,46 @@ import Profile from './pages/Profile';
 import Upload from './pages/Upload';
 import Impact from './pages/Impact';
 import Product from "./pages/Product/Product";
+import SWU from "./pages/SellWithUs";
 import TC from './pages/TC'
-import PP from './pages/PP'
 import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom';
-import SellWithUs from "./pages/SellWithUs";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from 'axios';
 ReactGA.initialize('G-2QME7DHRZ4');
 
 
 const Layout = () => {
   const location = useLocation();
+  const [log, setLog] = useState(false);
 
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
   }, [location]);
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      try {
+        const res = await axios.post('http://localhost:8000/api/auth/check', { token: localStorage.getItem('user'), type: 'buyer' });
+        if (res.data.ok) {
+          setLog(true);
+        }
+        else {
+          setLog(false);
+          localStorage.removeItem('user');
+        }
+      }
+      catch (error) {
+        console.log(error);
+        localStorage.removeItem('user');
+      }
+    }
+    checkLogin();
+  }, []);
+
   return (
     <div>
-      <Header />
-      
+      <Header log={log} />
       <SpecialCase />
       <ScrollRestoration />
       <Outlet />
@@ -82,11 +100,12 @@ const router = createBrowserRouter(
         <Route path="/products" element={<Product />}></Route>
         <Route path="/ays" element={<RegShop />}></Route>
         <Route path="/terms&conditions" element={<TC />}></Route>
+        <Route path="/sell-with-pandrimarket" element={<SWU />}></Route>
+
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/journal" element={<Journal />}></Route>
         {/* ==================== Header Navlink End here ===================== */}
         <Route path="/offer" element={<Offer />}></Route>
-        <Route path="/sell-with-pandrimarket" element={<SellWithUs />}></Route>
         <Route path="/product/:_id" element={<ProductDetails />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/paymentgateway" element={<Payment />}></Route>
