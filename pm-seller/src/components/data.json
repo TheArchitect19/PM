@@ -1,0 +1,14 @@
+[
+    { "name": "multicar1", "path": "../assets/multicar1.jpg" },
+    { "name": "multicar10", "path": "../assets/multicar10.jpg" },
+    { "name": "multicar2", "path": "../assets/multicar2.jpg" },
+    { "name": "multicar3", "path": "../assets/multicar3.jpg" },
+    { "name": "multicar11", "path": "../assets/multicar11.jpg" },
+    { "name": "multicar4", "path": "../assets/multicar4.jpg" },
+    { "name": "multicar5", "path": "../assets/multicar5.jpg" },
+    { "name": "multicar9", "path": "../assets/multicar9.jpg" },
+    { "name": "multicar6", "path": "../assets/multicar6.jpg" },
+    { "name": "multicar7", "path": "../assets/multicar7.jpg" },
+    { "name": "multicar8", "path": "../assets/multicar8.jpg" }
+  ]
+  

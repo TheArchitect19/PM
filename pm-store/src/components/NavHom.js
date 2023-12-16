@@ -59,10 +59,17 @@ const Navbar = ({log}) => {
           <div className={styles.txt}>
             <img className={styles.m} src={cart} alt="" />
             {products.length > 0 && (
+<<<<<<< HEAD
+            <medium className="absolute top-4 right-4 bg-red-700 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
+              {products.length}
+            </medium>
+          )}
+=======
               <p className="absolute top-4 right-4 bg-primeColor text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
                 {products.length}
               </p>
             )}
+>>>>>>> f124845fd09ce124b17691051c81691ce131fa24
             <div className={styles.innertxt}>
               <h5 style={{ color: 'white' }}>.</h5>
             </div>

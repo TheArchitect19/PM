@@ -15,7 +15,7 @@ import { GrMapLocation } from "react-icons/gr";
 import Navbar from '../components/NavHom';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { firebase, auth } from '../components/firebase';
+// import { firebase, auth } from '../components/firebase copy';
 import url_json from "../url.json";
 
 const url = url_json.url;
@@ -196,11 +196,12 @@ const Profile = () => {
                   onChange={handleFileChange}
                   ref={fileInputRef}
                 />
-                {!gotFile ? <span>Upload Image</span> : <></>}
-                <button onClick={saveProfilePic} disabled={isDisabled} style={{ display: gotFile ? "block" : "none" }}>
-                  {isDisabled ? <>Uploading...</> : <>Upload</>}
-                </button>
+                {!gotFile ? <span>Upload Image</span> : <>Choose Another</>}
               </div>
+              <p></p>
+              <button className={styles.butt} onClick={saveProfilePic} disabled={isDisabled} style={{ display: gotFile ? "block" : "none" }}>
+                {isDisabled ? <>Uploading...</> : <>Upload</>}
+              </button>
               <p>Maxmium Upload Size is 1 MB</p>
             </div>
             {/* <div>
@@ -361,7 +362,7 @@ const Profile1 = ({ p_info, onInfoChange }) => {
             </div>
           </div>
           <div className={styles.labelInloc}>
-            <button disabled={isDisabled} type='submit'>
+            <button className={styles.butt} disabled={isDisabled} type='submit'>
               {isDisabled ? <>Saving...</> : <>Submit</>}
             </button>
           </div>
@@ -433,30 +434,30 @@ const Profile2 = () => {
   }
 
   async function check() {
-    setIsDisabled(true);
-    const phoneExists = await checkPhoneExists();
-    if (phoneExists === 1) {
-      alert("A user with this phone number already exists");
-      setIsDisabled(false);
-    }
-    else if (state.phone.length < 12) {
-      alert("Please enter a valid phone number.");
-      setIsDisabled(false);
-    }
-    else {
-      const number = "+" + state.phone;
-      let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-      auth.signInWithPhoneNumber(number, verify).then((result) => {
-        setfinal(result);
-        alert("OTP Sent");
-        setIsDisabled(false);
-        setShow(true);
-      })
-        .catch((err) => {
-          alert(err);
-          window.location.reload();
-        });
-    }
+    // setIsDisabled(true);
+    // const phoneExists = await checkPhoneExists();
+    // if (phoneExists === 1) {
+    //   alert("A user with this phone number already exists");
+    //   setIsDisabled(false);
+    // }
+    // else if (state.phone.length < 12) {
+    //   alert("Please enter a valid phone number.");
+    //   setIsDisabled(false);
+    // }
+    // else {
+    //   const number = "+" + state.phone;
+    //   let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    //   auth.signInWithPhoneNumber(number, verify).then((result) => {
+    //     setfinal(result);
+    //     alert("OTP Sent");
+    //     setIsDisabled(false);
+    //     setShow(true);
+    //   })
+    //     .catch((err) => {
+    //       alert(err);
+    //       window.location.reload();
+    //     });
+    // }
   }
 
   return (
@@ -476,7 +477,7 @@ const Profile2 = () => {
             <br /><br />
             <div id="recaptcha-container"></div>
             <div className={styles.labelInloc}>
-              {!isDisabled ? <><button type='button' onClick={check}> Send OTP</button></> : <span>Please wait...</span>}
+              {!isDisabled ? <><button className={styles.butt} type='button' onClick={check}> Send OTP</button></> : <span>Please wait...</span>}
             </div>
           </div>
 
@@ -487,7 +488,7 @@ const Profile2 = () => {
                 onChange={(e) => { setotp(e.target.value) }} />
             </div>
             <div className={styles.labelInloc}>
-              {!isDisabled ? <><button type='button' onClick={ValidateOtp}>
+              {!isDisabled ? <><button className={styles.butt} type='button' onClick={ValidateOtp}>
                 Verify
               </button></> : <span>Verifying...</span>}
             </div>
@@ -584,7 +585,7 @@ const Profile3 = ({ p_info, onInfoChange }) => {
             </div>
           </div>
           <div className={styles.labelInloc}>
-            <button type="button" onClick={changePassword}>Submit</button>
+            <button className={styles.butt} type="button" onClick={changePassword}>Submit</button>
           </div>
         </form>
       </div>

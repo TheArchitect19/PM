@@ -170,9 +170,10 @@ border-radius: 13px;
    margin: 0;
 }
 
-button{
+.butt{
     background: linear-gradient(120.79deg, rgba(247, 186, 65, 0.93) 6.56%, rgba(245, 72, 92, 0.83) 94.06%);
 border: 1px solid rgba(251, 184, 50, 0.35);
+-webkit-backdrop-filter: blur(7.4px);
 backdrop-filter: blur(7.4px);
 /* Note: backdrop-filter has minimal browser support */
 

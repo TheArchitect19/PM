@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import { Link } from "react-router-dom";
 import cg from "../assets/svg/cg.png";
 import styles from "./Cg.module.css"
 const Navbar = () => {
@@ -11,15 +12,24 @@ const Navbar = () => {
         <h5>300+ Shops</h5>
         <div className={styles.tg}>
          <ul>
-          <li>Muklava</li>  
+         <Link to="/muklava">
+           <li>Muklava (Open)</li>  
+         </Link>
+         </ul>
+        </div>
+        <div className={styles.tg}>
+         <ul>
+           <h5> Opening Soon - </h5>
           <li>Fashion House</li>  
-          <li>Manyavar & Mohey</li>  
+          <li>Manyavar&Mohey</li>  
           <li>Payal Collection</li>  
          </ul>
          <ul>
+         <div className={styles.tg1}>
              <li>Parag Fashion</li>
-             <li>Hari Om Garments</li>
-             <li>Tulsi International</li>
+             <li>HariOm Garments</li>
+             <li>Tulsi </li>
+         </div>
          </ul>
      </div>
      </div>

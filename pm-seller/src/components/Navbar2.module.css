@@ -1,11 +1,25 @@
 .colnav{
     background: #FFF3B2CC;
-    
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    height: 8vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+}
+.yo{
+    display: flex;
+    flex-direction: row;
+}
+.drop{
+    width: 9px;
+    margin-left: 4px;
 }
 
-.drop{
-    width: 11px;
-    margin-left: 2.5px;
+a{
+    font-size: medium;
+    display: inline;
 }
 
 @media(max-width:1200px){
@@ -21,14 +35,16 @@
         display: none;
     }
     a{
-        font-size: x-small;
+        font-size: small;
     }
 }
 @media(max-width:950px){
-    .drop{
+    .colnav{
         display: none;
     }
-    a{
-        font-size: medium;
-    }
+}
+
+.parentUl{
+    display: flex;
+    justify-content: space-around;
 }

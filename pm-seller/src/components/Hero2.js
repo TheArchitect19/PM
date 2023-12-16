@@ -1,31 +1,32 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import home from "../assets/svg/home.png";
 import ll from "../assets/svg/ll.png";
 import lr from "../assets/svg/lr.png";
 import styles from "./Hero.module.css";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-// import url_json from "../url.json";
+// import { firebase, auth } from './firebase copy';
+import url_json from "../url.json";
 import { useGoogleLogin } from '@react-oauth/google';
 import GoogleButton from 'react-google-button'
 import axios from 'axios';
 
-// const url = url_json.url;
+const url = url_json.url;
 
 const Navbar = () => {
   const [state, setState] = useState({
     phone: "",
   });
   const [email, setEmail] = useState("");
-  // const [otp, setotp] = useState('');
-  // const [show, setshow] = useState(false);
-  // const [final, setfinal] = useState('');
-  // const [showPwdField, setPwd] = useState(false);
-  // const [password, setPassword] = useState({
-  //   password: ""
-  // });
+  const [otp, setotp] = useState('');
+  const [show, setshow] = useState(false);
+  const [final, setfinal] = useState('');
+  const [showPwdField, setPwd] = useState(false);
+  const [password, setPassword] = useState({
+    password: ""
+  });
 
-  // useEffect(() => {
+  useEffect(() => {
     // async function checkLogin() {
     //   await fetch(`${url}/checkLogin`, {
     //     method: "GET",
@@ -40,67 +41,67 @@ const Navbar = () => {
     //     })
     // }
     // checkLogin();
-  // });
+  });
 
-  // function handle(e) {
-  //   const data = { ...password };
-  //   data[e.target.name] = e.target.value;
-  //   setPassword(data);
-  // }
+  function handle(e) {
+    const data = { ...password };
+    data[e.target.name] = e.target.value;
+    setPassword(data);
+  }
 
-  // async function register() {
-  //   await fetch(`${url}/signup`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(state),
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       if (res === 0) {
-  //         alert("Registered");
-  //         setPwd(true);
-  //       }
-  //       else {
-  //         alert("Sorry for the error, it will be resolved soon.");
-  //       }
-  //     });
-  // }
+  async function register() {
+    await fetch(`${url}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(state),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res === 0) {
+          alert("Registered");
+          setPwd(true);
+        }
+        else {
+          alert("Sorry for the error, it will be resolved soon.");
+        }
+      });
+  }
 
   //function to save password
-  // async function savePassword() {
-  //   if (password.password && state.phone) {
-  //     await fetch(`${url}/savePassword`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-type": "application/json",
-  //       },
-  //       body: JSON.stringify({ phone: state.phone, password: password.password }),
-  //     })
-  //       .then(res => res.json())
-  //       .then(res => {
-  //         alert(res.message);
-  //         if (res.ok) {
-  //           window.location.href = res.redirectUrl;
-  //         }
-  //       })
-  //   } else {
-  //     alert("Please enter a password");
-  //   }
-  // }
+  async function savePassword() {
+    if (password.password && state.phone) {
+      await fetch(`${url}/savePassword`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ phone: state.phone, password: password.password }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          alert(res.message);
+          if (res.ok) {
+            window.location.href = res.redirectUrl;
+          }
+        })
+    } else {
+      alert("Please enter a password");
+    }
+  }
 
   // Validate OTP
-  // const ValidateOtp = () => {
-  //   if (otp === null || final === null)
-  //     return;
-  //   final.confirm(otp).then((result) => {
-  //     // success
-  //     register();
-  //   }).catch((err) => {
-  //     alert("Wrong code");
-  //   })
-  // }
+  const ValidateOtp = () => {
+    if (otp === null || final === null)
+      return;
+    final.confirm(otp).then((result) => {
+      // success
+      register();
+    }).catch((err) => {
+      alert("Wrong code");
+    })
+  }
 
   const fetchEmail = async (codeResponse) => {
     try {
@@ -109,7 +110,7 @@ const Navbar = () => {
       try {
         const res1 = await axios.post('http://localhost:8000/api/auth/login', {
           email: res.data.email,
-          type: 'seller'
+          type: 'buyer'
         });
         localStorage.setItem('user', res1.data.token);
         alert("Logged in");
@@ -134,7 +135,7 @@ const Navbar = () => {
       const res = await axios.post('http://localhost:8000/api/auth/signup', {
         email: email,
         phone: state.phone,
-        type: 'seller'
+        type: 'buyer'
       });
       localStorage.setItem('user', res.data.token);
       alert(res.data.message);
@@ -150,12 +151,16 @@ const Navbar = () => {
       <div style={{ backgroundImage: `url(${home})`, backgroundSize: "cover", backgroundPosition: "center center" }} className={styles.colnav}>
         <div className={styles.cardoverlay}>
           <div className={styles.tp}>
+
           </div>
+
           <p className={styles.t1}>Shop At Pandri Market</p>
+
           <div className={styles.dt2}>
             <img className={styles.ll} src={ll} alt="" />
             <p className={styles.t2}>Start Selling Online and earn more</p>
             <img className={styles.lr} src={lr} alt="" />
+
           </div>
           <div className={styles.login}>
             <h1>SignUp</h1>
@@ -165,7 +170,7 @@ const Navbar = () => {
             {email !== "" &&
               <>
                 <p>Please enter your phone number to continue</p>
-                <div style={{ color: "black" }}>
+                <div style={{ color: "black", display: !show ? "block" : "none" }}>
                   <PhoneInput
                     countryCallingCodeEditable={false}
                     country={'in'}
@@ -206,8 +211,11 @@ const Navbar = () => {
               </div>
             } */}
           </div>
+
+
         </div>
       </div>
+
     </>
   );
 };

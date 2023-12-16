@@ -2,6 +2,7 @@
     height: 60px;
     margin-bottom: 5px;
     margin-right: 100px;
+    font-family: 'Poppins';
 }
 .navsty{
     background: #F9F9F9;
@@ -64,6 +65,7 @@ a:hover{
     }
     .txt p{
         display: none;
+        margin: 0px;
     }
     .txt h5{
         display: flex;
@@ -92,17 +94,21 @@ a:hover{
         letter-spacing: -0.03rem;
     }
 }
-@media(max-width:420px){
+@media(max-width:520px){
+    .navsty{
+        height: 8vh;
+    }
     .innertxt{
         display: none;
     }
     .pm{
-        height: 30px;
-        margin-right: 25px;
+        height: 45px;
+        margin-right: 35px;
         margin-bottom: 3px;
     }
     .m{
-        height: 20px;
+        height: 26px;
         margin-right: 0px;
+        padding: 0px;
     }
 }

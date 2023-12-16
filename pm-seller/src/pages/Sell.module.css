@@ -1,0 +1,111 @@
+.c1 {
+    position: relative;
+    height: 200px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid;
+    border-color: #b91c1c;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #b91c1c;
+    font-weight: 700;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  }
+  .c1 img{
+    height: 50%;
+  }
+
+  .c1 button{
+    margin-top: 5px;
+    background: #b91c1c;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .c1 button:hover{
+     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+  }
+
+.c2 {
+    position: relative;
+    height: 220px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid;
+    border-color: #b91c1c;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #b91c1c;
+    font-weight: 700;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+  }
+  .c2 img{
+    height: 50%;
+  }
+
+  .c2 button{
+    margin-top: 5px;
+    background: #b91c1c;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .c2 button:hover{
+     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+  }
+  
+@media(max-width:500px){
+    .c1{
+        width: 110px;
+        
+    }
+    .c2{
+        width: 110px;
+    }
+    .c1 p{
+        font-size: 10px;
+    }
+    .c2 p{
+        font-size: 10px;
+    }
+    .c1 button{
+        margin-top: 5px;
+        background: #b91c1c;
+        color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+        border-radius: 8px;
+        height: 25px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .c2 button{
+        margin-top: 5px;
+        background: #b91c1c;
+        color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+        border-radius: 8px;
+        height: 25px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+}

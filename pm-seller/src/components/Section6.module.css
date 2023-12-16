@@ -64,7 +64,9 @@
   width: 100%;
   top: 50px;
 }
-
+.imgm{
+    width: 100%;
+}
 .clo{
     width: 100%;
     border-radius:50px;
@@ -141,10 +143,20 @@
         width: 30%;
         position: relative;
     }
+    .sectionXImg{
+        width: 30%;
+        position: relative;
+    }
     .section3Img img{
         /* height: 85%; */
     position: absolute;
     width: 55%;
+    }
+    .sectionXImg img{
+        /* height: 85%; */
+    position: absolute;
+    width: 100%;
+    height: 60%;
     }
     .section3Img2 img{
         /* height: 85%; */

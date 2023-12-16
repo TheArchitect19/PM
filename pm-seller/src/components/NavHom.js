@@ -12,19 +12,17 @@ import cart from "../assets/svg/cart.png";
 import styles from "./Navbar.module.css"
 import { colors } from "@mui/material";
 import url from '../url.json';
+import { useSelector } from "react-redux";
+import axios from "axios";
+
 
 const seller = url.seller;
 
-const Navbar = (data) => {
-  const [log, setLog] = useState(false);
-
-  useEffect(() => {
-    setLog(data.data);
-  }, [data.data]);
+const Navbar = ({log}) => {
+  const products = useSelector((state) => state.orebiReducer.products);
   return (
     <>
       <div className={styles.navsty}>
-
         <a href="/">
           <img className={styles.pm} src={pmnavlogo} alt="" />
         </a>
@@ -36,31 +34,17 @@ const Navbar = (data) => {
               <p>Get 7-days free trial</p>
             </div>
           </div>
-
-        </a>
-        <a href="/">
-          <div className={styles.txt}>
-            <img className={styles.m} src={gyb} alt="" />
-            <div className={styles.innertxt}>
-              <h5>Grow Your Business</h5>
-              <p>Join our platform</p>
-            </div>
-          </div>
-
         </a>
 
-
-        <a href='/ays'>
+        <Link to={`${seller}/ays`} target="_blank" rel="noopener noreferrer">
           <div className={styles.txt}>
             <img className={styles.m} src={store} alt="" />
             <div className={styles.innertxt}>
-              <h5>Add Your Store</h5>
-              <p>Grow Your Business Online</p>
+              <h5>Sell With Us</h5>
+              <p>Grow Faster</p>
             </div>
           </div>
-
-        </a>
-
+        </Link>
 
         <a href={log ? "/profile" : "/login"}>
           <div className={styles.txt}>
@@ -69,23 +53,22 @@ const Navbar = (data) => {
               <h5>{log ? <>Profile</> : <>Login / Signup</>}</h5>
             </div>
           </div>
-
         </a>
 
-        {/* <a href="/cart">
+        <a href="/cart">
           <div className={styles.txt}>
             <img className={styles.m} src={cart} alt="" />
+            {products.length > 0 && (
+              <p className="absolute top-4 right-4 bg-primeColor text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-semibold">
+                {products.length}
+              </p>
+            )}
             <div className={styles.innertxt}>
               <h5 style={{ color: 'white' }}>.</h5>
             </div>
           </div>
-
-        </a> */}
-
+        </a>
       </div>
-
-
-
     </>
   );
 };
