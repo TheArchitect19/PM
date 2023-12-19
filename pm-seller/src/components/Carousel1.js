@@ -1,147 +1,44 @@
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './carousel1.css';
-import {  multiData } from './data2';
-import  ArrowBackIos  from '@mui/icons-material/ArrowBackIos';
-import  ArrowForwardIos  from '@mui/icons-material/ArrowForwardIos';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState } from 'react';
+import hero from "../assets/hero.png"
 
-import Product from "./home/Products/Product1";
-import { paginationItems } from "../constants1";
-
-const items = paginationItems;
-function Items({ currentItems }) {
+const ComponentName = () => {
   return (
-    <>
-      {currentItems &&
-        currentItems.map((item) => (
-          <div key={item._id} className="w-full">
-            <Product
-              _id={item._id}
-              img={item.img}
-              productName={item.productName}
-              price={item.price}
-              color={item.color}
-              badge={item.badge}
-              des={item.des}
-            />
+    <div className="bg-gradient-to-b from-[#F55B68]-50 to-[#F55B68]-100">
+      <section className="py-10 sm:py-16 lg:py-14">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+            <div>
+              <h1 className="text-4xl font-bold text-black sm:text-4xl lg:text-7xl">
+                Collaborate seamlessly, with <br/>
+                <div className="relative inline-flex">
+                  <span className="absolute inset-x-0 bottom-0 border-b-[30px] border-[#F55B68]"></span>
+                  <h1 className="relative text-4xl font-bold text-black sm:text-4xl lg:text-7xl">PM</h1>
+                </div>
+              </h1>
+
+              <p className="mt-8 text-base text-black sm:text-md">Explore diverse products and services, effortlessly connecting sellers like you with interested customers. Elevate your online selling experience with Pandrimarket.</p>
+
+              <div className="mt-10 sm:flex sm:items-center sm:space-x-8">
+                <a href="#hiw" title="" className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-200 bg-[#F98774] hover:bg-[#F55466] focus:bg-orange-600" role="button"> Start exploring </a>
+
+                <a href="#vid" title="" className="inline-flex items-center mt-6 text-base font-semibold transition-all duration-200 sm:mt-0 hover:opacity-80">
+                  <svg className="w-10 h-10 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path fill="#F55B68" stroke="#F55B68" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Watch video
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <img className="w-full" src={hero} alt="" />
+            </div>
           </div>
-        ))}
-    </>
+        </div>
+      </section>
+    </div>
   );
 }
 
-let slidesToShow = 5;
-const PreviousBtn = (props) => {
-  const { className, onClick, currentSlide } = props;
-  return (
-    <>
-      {  (
-        <div className={className} onClick={onClick}>
-          <ArrowBackIos style={{ color: 'black', fontSize: '25px' }} />
-        </div>
-      )}
-    </>
-  );
-};
-const NextBtn = (props) => {
-  const { className, onClick, slideCount, currentSlide } = props;
-  return (
-    <>
-      { (
-        <div className={className} onClick={onClick}>
-          <ArrowForwardIos style={{ color: 'black', fontSize: '25px' }} />
-        </div>
-      )}
-    </>
-  );
-};
-
-const carouselProperties = {
-  prevArrow: <PreviousBtn />,
-  nextArrow: <NextBtn />,
-  slidesToShow: slidesToShow,
-  slidesToScroll: 2,
-  infinite: true,
-  autoplay: true,
-  speed: 300,
-  // slidesToScroll={3}
-  responsive: [
-    {
-      breakpoint: 526,
-      settings: {
-        slidesToShow: 1,
-        centerMode: false,
-      },
-    },
-    {
-      breakpoint: 769,
-      settings: {
-        slidesToShow: 2,
-        centerMode: false,
-      },
-    },
-    {
-      breakpoint: 1025,
-      settings: {
-        slidesToShow: 4,
-        centerMode: false,
-        slidesToScroll: 2,
-      },
-    },
-  ],
-};
-
-const MultiItemCarousel = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const updateWidth = () => {
-    setWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
-  }, []);
-
-  if (width <= 526) {
-    slidesToShow = 1;
-  } else if (width > 526 && width <= 769) {
-    slidesToShow = 3;
-  } else if (width > 769 && width <= 1025) {
-    slidesToShow = 4;
-  } else {
-    slidesToShow = 5;
-  }
-
-  return (
-    <div style={{ margin: '40px' }} className='carousel1'>
-    <h2>HANDPICKED FOR YOU</h2>
-    <div className='icarousel1'>
-      <Slider {...carouselProperties} >
-        {paginationItems.map((item) => (
-          <div key={item._id} className="w-100">
-            <Product
-              _id={item._id}
-              img={item.img}
-              productName={item.productName}
-              price={item.price}
-              color={item.color}
-              badge={item.badge}
-              des={item.des}
-              shop={item.shop}
-              mprice={item.mprice}
-              off={item.off}
-              review={item.review}
-            />
-          </div>
-        ))}
-      </Slider>
-    </div>
-    </div>
-  );
-};
-
-
-export default MultiItemCarousel;
+export default ComponentName;

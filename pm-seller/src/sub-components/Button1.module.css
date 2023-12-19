@@ -1,4 +1,4 @@
-button{
+.butt{
     border: none;
     padding: 1rem;
     background-color: #fdb2109e;
@@ -6,7 +6,7 @@ button{
     font-weight: 900;
     cursor: pointer;
 }
-button:hover{
+.butt:hover{
     background-color: #ffd57a9e;
 }
 .Button1Container{

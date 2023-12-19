@@ -5,7 +5,7 @@ const Button1 = () => {
   return (
     <>
     <div className={styles.Button1Container}>
-    <button>
+    <button className={styles.butt}>
         SEE MORE BLOGS
     </button>
     </div>

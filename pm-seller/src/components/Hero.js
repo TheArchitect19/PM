@@ -1,52 +1,49 @@
-import { React, useState } from "react";
-import home from "../assets/svg/home.png";
-import ll from "../assets/svg/ll.png";
-import lr from "../assets/svg/lr.png";
-import vl from "../assets/svg/vl.png";
-import styles from "./Hero.module.css"
-const Navbar = () => {
-  return (
-    <>
-    <div  style={{ backgroundImage: `url(${home})`, backgroundSize:"cover",backgroundPosition:"center center"}} className={styles.colnav}>
-      <div className={styles.cardoverlay}>
-      <div className={styles.tp}>      
-      <div className={styles.top}>
-         App Exclusive Offer
-      </div>
-      </div>
 
-        <p className={styles.t1}>Shop At Pandri Market</p>
-      
-        <div className={styles.dt2}>
-        <img className={styles.ll} src={ll} alt="" />
-        <p className={styles.t2}>Your local market now online</p>
-        <img className={styles.lr} src={lr} alt="" />
+import React from 'react';
 
-        </div>
-        <p className={styles.t3}>Start Selling Online And earn more</p>
-        <div className={styles.dt3}>
-        <p className={styles.t2}>BUILD YOUR STORE WITH US </p>
-            
-        </div>
-        <div className={styles.dt4}>
-            <div>
-               <p className={styles.ts}>Starting at</p>
-               <p className={styles.t9}>Rs.199</p>
-               
+const HowItWorks = () => {
+    return (
+        <section id='hiw' className="py-10 bg-white sm:py-16 lg:py-24">
+            <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div className="max-w-2xl mx-auto text-center">
+                    <h2 className="text-3xl font-bold leading-tight text-[#F55566] sm:text-4xl lg:text-5xl">How does it work?</h2>
+                    <p className="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">Elevate your online presence and showcase your products or services with ease. Our user-friendly platform puts you in control, allowing you to tailor your page to reflect your unique brand identity. </p>
+                </div>
+
+                <div className="relative mt-12 lg:mt-20">
+                    <div className="absolute inset-x-0 hidden xl:px-44 top-2 md:block md:px-20 lg:px-28">
+                        <img className="w-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/steps/2/curved-dotted-line.svg" alt="" />
+                    </div>
+
+                    <div className="relative grid grid-cols-1 text-center gap-y-12 md:grid-cols-3 gap-x-12">
+                        <div>
+                            <div className="flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow">
+                                <span className="text-xl font-semibold text-black"> 1 </span>
+                            </div>
+                            <h3 className="mt-6 text-xl font-semibold leading-tight text-[#F55566] md:mt-10">Create a account</h3>
+                            <p className="mt-4 text-base text-gray-600">Create an account to embark on a journey of personalized services tailored just for you. Your account is not just a registration; it's your key to unlocking a host of features that enhance your journey with us.</p>
+                        </div>
+
+                        <div>
+                            <div className="flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow">
+                                <span className="text-xl font-semibold text-black"> 2 </span>
+                            </div>
+                            <h3 className="mt-6 text-xl font-semibold leading-tight text-[#F55566] md:mt-10">Pick a plan</h3>
+                            <p className="mt-4 text-base text-gray-600">Dive into a seamless experience, where your preferences shape your interactions. Join us and discover a world of convenience and exclusive offerings designed with you in mind.</p>
+                        </div>
+
+                        <div>
+                            <div className="flex items-center justify-center w-16 h-16 mx-auto bg-white border-2 border-gray-200 rounded-full shadow">
+                                <span className="text-xl font-semibold text-black"> 3 </span>
+                            </div>
+                            <h3 className="mt-6 text-xl font-semibold leading-tight text-[#F55566] md:mt-10">Release & Launch</h3>
+                            <p className="mt-4 text-base text-gray-600">Release & Launch Your Online Presence,  Release your brand, captivate your audience, and launch into a new era of online visibility. Get ready to amplify your reach and connect with customers.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <img className={styles.vl} src={vl} alt="" />
-            <div>
-            <p className={styles.tg}>Get Started</p>
-            <p className={styles.tl}>with 7-days</p>
-            <p className={styles.tl}>free trial</p>
-               
-            </div>
-        </div>
-        <button className={styles.btn}>PICK A PLAN</button>
-      </div>
-    </div>
-    </>
-  );
-};
+        </section>
+    );
+}
 
-export default Navbar;
+export default HowItWorks;
