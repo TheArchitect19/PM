@@ -18,6 +18,7 @@ import Budget from '../components/Budget'
 import Budget1 from '../components/Budget1'
 import BBC from '../components/BBCarousel'
 import BBC1 from '../components/BBC1'
+import SWU from '../components/SellWithUs'
 // import { useCookies, CookiesProvider } from 'react-cookie';
 import url_json from "../url.json";
 import HeaderBottom from "../components/home/Header/HeaderBottom";
@@ -56,22 +57,21 @@ const Home = () => {
         {/* <NavHom data={log} /> */}
         {/* <Navbar2 /> */}
         {/* <Search /> */}
-        <HeaderBottom />
-        <Catalogue />
+        {/* <HeaderBottom /> */}
         <Carousel1 />
-        {/* <Hero /> */}
-        <Budget1 />
-        <BBC1 />
+        <Hero />
+        {/* <BBC1 /> */}
         {/* <Carousel /> */}
-        <Banner/>
         <Video />
-        <Budget />
-        <BBC />
+        <Budget1 />
+        {/* <Budget />
+        <BBC /> */}
+        <Banner/>
         {/* <Pms /> */}
         {/* <Cat /> */}
-        {/* <Ttm /> */}
-        <Cg />
-        {/* <Git /> */}
+        <Ttm />
+        {/* <Cg /> */}
+        <SWU />
         {/* <Footer /> */}
       </>
   )

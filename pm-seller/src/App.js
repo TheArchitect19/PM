@@ -6,7 +6,7 @@ import {
   Route,
   ScrollRestoration,
 } from "react-router-dom";
-import Footer from "./components/Footer";
+import Footer from "./components/Git";
 import Header from "./components/NavHom";
 import SpecialCase from "./components/SpecialCase/SpecialCase";
 import About from "./pages/AboutUs";
@@ -31,7 +31,6 @@ import Profile from './pages/Profile';
 import Upload from './pages/Upload';
 import Impact from './pages/Impact';
 import Product from "./pages/Product/Product";
-import SWU from "./pages/SellWithUs";
 import TC from './pages/TC'
 import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom';
@@ -100,7 +99,6 @@ const router = createBrowserRouter(
         <Route path="/products" element={<Product />}></Route>
         <Route path="/ays" element={<RegShop />}></Route>
         <Route path="/terms&conditions" element={<TC />}></Route>
-        <Route path="/sell-with-pandrimarket" element={<SWU />}></Route>
 
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/journal" element={<Journal />}></Route>
