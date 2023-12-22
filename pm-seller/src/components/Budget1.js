@@ -10,7 +10,7 @@ const Hero = () => {
                     <p className="mt-4 text-2xl font-medium">Highly Customized Plans For You</p>
 
                     <div className="flex flex-col items-center justify-center px-16 mt-8 space-y-4 sm:space-y-0 sm:space-x-4 sm:flex-row lg:mt-12 sm:px-0">
-                        <a href="#" title="" className="inline-flex items-center justify-center w-full px-8 py-4 text-base font-semibold text-white transition-all duration-200 bg-[#F55466] border border-transparent rounded-md sm:w-auto hover:bg-pink-900 focus:bg-blue-700" role="button"> Upload Product </a>
+                        <a href="/reg-shops" title="" className="inline-flex items-center justify-center w-full px-8 py-4 text-base font-semibold text-white transition-all duration-200 bg-[#F55466] border border-transparent rounded-md sm:w-auto hover:bg-pink-900 focus:bg-blue-700" role="button"> Your Shops </a>
 
                         <a href="#" title="" className="inline-flex items-center justify-center w-full px-8 py-4 text-base font-semibold text-black transition-all duration-200 bg-transparent border border-black rounded-md sm:w-auto hover:bg-black hover:text-white focus:bg-black focus:text-white" role="button">
                             <svg className="w-5 h-5 mr-2 -ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,7 +20,7 @@ const Hero = () => {
                         </a>
                     </div>
 
-                    <p className="mt-6 text-base text-black">Already have an account? <a href="#" title="" className="text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">Log in</a></p>
+                    <p className="mt-6 text-base text-black">Login to see your shops <p className='text-3xl font-semibold'> &#8595;</p> <a href="#" title="" className="text-[#F55466] transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">Log in</a></p>
                 </div>
             </div>
         </section>
