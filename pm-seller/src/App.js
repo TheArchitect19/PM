@@ -29,6 +29,7 @@ import Signup from './pages/SIgnup';
 import RegShop from './pages/RegShop';
 import Profile from './pages/Profile';
 import Upload from './pages/Upload';
+import Upload1 from './pages/Upload1';
 import Impact from './pages/Impact';
 import Product from "./pages/Product/Product";
 import TC from './pages/TC'
@@ -95,7 +96,8 @@ const router = createBrowserRouter(
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
-        <Route path="/upload" element={<Upload />}></Route>
+        <Route path="/reg-shops" element={<Upload />}></Route>
+        <Route path="/upload" element={<Upload1 />}></Route>
         <Route path="/products" element={<Product />}></Route>
         <Route path="/ays" element={<RegShop />}></Route>
         <Route path="/terms&conditions" element={<TC />}></Route>
