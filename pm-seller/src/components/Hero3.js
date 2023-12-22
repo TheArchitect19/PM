@@ -1,107 +1,205 @@
-import { React, useState } from "react";
-import styles from "./Hero.module.css";
-import url_json from "../url.json";
+import React, { useState } from 'react';
 
-const url = url_json.url;
+function App() {
+  const [shopDetails, setShopDetails] = useState({
+    name: '',
+    description: '',
+    address: '',
+    shopImage: null,
+    banners: null,
+    instagramHandle: '',
+    youtubeHandle: '',
+    gstNumber: '',
+    bankAccountNumber: '',
+  });
 
-const Navbar = () => {
-    const [data, setData] = useState({
-        shop_name: "",
-        shop_desc: "",
-        shop_address: "",
-        business_name: "",
-        outside_cg: "",
-        gst_no: "",
-        bank_ac_no: ""
+  const handleChange = (e) => {
+    const { name, value, type } = e.target;
+
+    setShopDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: type === 'file' ? e.target.files[0] : value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: Handle the form submission logic (e.g., send data to the server)
+    console.log('Shop Details:', shopDetails);
+    // Reset the form after submission
+    setShopDetails({
+      name: '',
+      description: '',
+      address: '',
+      shopImage: null,
+      banners: null,
+      instagramHandle: '',
+      youtubeHandle: '',
+      gstNumber: '',
+      bankAccountNumber: '',
     });
+  };
 
-    function handle(e) {
-        const tmp = { ...data };
-        tmp[e.target.name] = e.target.value;
-        setData(tmp);
-    }
-    async function addShop() {
-        await fetch(`${url}/addShop`, {
-            method: "POST",
-            credentials: "include",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify(data)
-        })
-            .then(res => {
-                console.log(res);
-                return res.text();
-            })
-            .then(res => {
-                alert(res);
-            });
-    }
-    return (
-        <>
-            <div style={{ backgroundSize: "cover", backgroundPosition: "center center" }} className={styles.colnav1}>
-
-                <h2>Tell us a little about your store.</h2>
-                <h6>This is an initial information of your Business. You can change it anytime.</h6>
-
-                <form>
-                    {/* <label>
-            Owner :
-                <input type="text" name="name" placeholder="Enter the name of the owner" />
-            </label> */}
-                    <label>
-                        Name:
-                        <input type="text" name="shop_name" placeholder="Enter the name of the shop" onChange={(e) => handle(e)} />
-                    </label>
-                    <label>
-                        Description :
-                        <input style={{ height: '50px' }} type="text" name="shop_desc" placeholder="Enter a brief description of the shop, its offerings, or its unique selling points." onChange={(e) => handle(e)} />
-                    </label>
-                    <label>
-                        Address :
-                        <input style={{ height: '70px' }} type="text" name="shop_address" placeholder="Enter the  location of the shop" onChange={(e) => handle(e)} />
-                    </label>
-                    <label>
-                        Business Name :
-                        <input type="text" name="business_name" placeholder="Your registered business name" onChange={(e) => handle(e)} />
-                        {/* <select>
-                            <option value="Select your business type" selected>Select your business type</option>
-                            <option value="Clothing/Apparel">Clothing/Apparel</option>
-                            <option value="Home and Furniture">Home and Furniture</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Beauty and Personal Care">Beauty and Personal Care</option>
-                            <option value="Sports and Fitness">Sports and Fitness</option>
-                            <option value="Toys and Games">Toys and Games</option>
-                            <option value="Others">Others</option>
-                        </select> */}
-                    </label>
-                    <div style={{ display: 'flex' }}>
-                        <input type="checkbox" name="outside_cg" style={{ height: '15px', boxShadow: 'none', width: '5vw', marginTop: '5px', marginLeft: '175px' }} onChange={(e) => handle(e)} />
-                        <p style={{ color: 'white' }}>Is your shop located outside Chhattisgarh? </p>
-                    </div>
-                    <label>
-                        GST Number :
-                        <input type="text" name="gst_no" placeholder="Enter the GST number" onChange={(e) => handle(e)} />
-                    </label>
-                    <label>
-                        Bank Account Number :
-                        <input type="text" name="bank_ac_no" placeholder="Enter your bank account number" onChange={(e) => handle(e)} />
-                    </label>
-                    <label>
-                        Upload Shop images :
-                        <input type="text" name="bank_ac_no" placeholder="Enter your bank account number" onChange={(e) => handle(e)} />
-                    </label>
-                    <div>
-                        <input style={{ width: '120px', marginTop: '25px' }} type="button" value="Register" onClick={addShop} />
-                    </div>
-                </form>
-
-
-
-
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-5">
+      <div className="max-w-2xl w-full p-6 bg-white rounded-md shadow-md">
+        <h2 className="text-2xl font-semibold mb-6">Shop Registration</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="grid grid-cols-2 gap-4">
+            {/* Shop Name */}
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+                Shop Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={shopDetails.name}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
             </div>
-        </>
-    );
-};
 
-export default Navbar;
+            {/* Description */}
+            <div className="mb-4">
+              <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">
+                Description
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                value={shopDetails.description}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              ></textarea>
+            </div>
+
+            {/* Address */}
+            <div className="mb-4">
+              <label htmlFor="address" className="block text-gray-700 text-sm font-bold mb-2">
+                Address
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value={shopDetails.address}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+
+            {/* Shop Image */}
+            <div className="mb-4">
+              <label htmlFor="shopImage" className="block text-gray-700 text-sm font-bold mb-2">
+                Shop Image
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                id="shopImage"
+                name="shopImage"
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+
+            {/* Banners */}
+            <div className="mb-4">
+              <label htmlFor="banners" className="block text-gray-700 text-sm font-bold mb-2">
+                Banners
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                id="banners"
+                name="banners"
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+
+            {/* Instagram Handle */}
+            <div className="mb-4">
+              <label htmlFor="instagramHandle" className="block text-gray-700 text-sm font-bold mb-2">
+                Instagram Handle
+              </label>
+              <input
+                type="text"
+                id="instagramHandle"
+                name="instagramHandle"
+                value={shopDetails.instagramHandle}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+
+            {/* YouTube Handle */}
+            <div className="mb-4">
+              <label htmlFor="youtubeHandle" className="block text-gray-700 text-sm font-bold mb-2">
+                YouTube Handle
+              </label>
+              <input
+                type="text"
+                id="youtubeHandle"
+                name="youtubeHandle"
+                value={shopDetails.youtubeHandle}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+
+            {/* GST Number */}
+            <div className="mb-4">
+              <label htmlFor="gstNumber" className="block text-gray-700 text-sm font-bold mb-2">
+                GST Number
+              </label>
+              <input
+                type="text"
+                id="gstNumber"
+                name="gstNumber"
+                value={shopDetails.gstNumber}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+
+            {/* Bank Account Number */}
+            <div className="mb-4">
+              <label htmlFor="bankAccountNumber" className="block text-gray-700 text-sm font-bold mb-2">
+                Bank Account Number
+              </label>
+              <input
+                type="text"
+                id="bankAccountNumber"
+                name="bankAccountNumber"
+                value={shopDetails.bankAccountNumber}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+          >
+            Register Shop
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default App;
