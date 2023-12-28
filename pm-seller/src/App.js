@@ -17,7 +17,7 @@ import Blogs2 from './pages/BlogPage2';
 import Story from './pages/Story';
 import Vision from './pages/Vision';
 import Community from './pages/Community';
-import Login from './pages/Login';
+// import Login from './pages/Login';
 import Signup from './pages/SIgnup';
 import RegShop from './pages/RegShop';
 import Profile from './pages/Profile';
@@ -28,7 +28,7 @@ import Product from "./pages/Product/Product";
 import TC from './pages/TC'
 import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom';
-import { useContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 ReactGA.initialize('G-2QME7DHRZ4');
 
 
