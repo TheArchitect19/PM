@@ -33,6 +33,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     ".pandrimarket.com"
 ]
+CSRF_TRUSTED_ORIGINS=['https://*.pandrimarket.com']
 
 # SESSION_COOKIE_SECURE = False
 # CSRF_COOKIE_SECURE = False
