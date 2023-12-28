@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const UploadProducts = () => {
   const [product, setProduct] = useState({
@@ -11,7 +13,16 @@ const UploadProducts = () => {
     size: '',
     images: [],
     video: '',
+    hashtags: '',
   });
+  const location = useLocation();
+  const navigate = useNavigate();
+  const params = new URLSearchParams(location.search);
+  const shopName = params.get('shop');
+
+  if (!shopName) {
+    navigate('/reg-shops');
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,10 +34,28 @@ const UploadProducts = () => {
     setProduct({ ...product, images });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can send the product data to your backend or perform other actions here
-    console.log('Product Data:', product);
+    console.table(product);
+    const formData = new FormData();
+    formData.append('token', localStorage.getItem('user'));
+    formData.append('shopName', shopName);
+    Object.keys(product).forEach((key) => {
+      if (key !== 'images') {
+        formData.append(key, product[key]);
+      }
+    });
+    for (let i = 1; i <= product.images.length; i++) {
+      formData.append(`image${i}`, product.images[i - 1]);
+    }
+    try {
+      const res = await axios.post('http://localhost:8000/api/seller/upload_product', formData);
+      console.log(res);
+      alert(res.data.message);
+    }
+    catch (error) {
+      alert(error.response.data.message);
+    }
   };
 
   return (
@@ -129,6 +158,7 @@ const UploadProducts = () => {
             <input
               type="file"
               name="images"
+              accept='image/*'
               onChange={handleImageChange}
               multiple
               className="w-full border border-gray-300 p-3 mt-1"

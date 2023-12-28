@@ -4,10 +4,11 @@ import jwt
 import os
 
 def check(request):
-  data = dict(request.data)
+  data = request.data
   try:
-    decoded = jwt.decode(data['token'], os.environ.get("DJANGO_SECRET_KEY"), algorithms=['HS256'])
-    if data['type'] == decoded['type']:
+    token = data['token']
+    decoded = jwt.decode(token, os.environ.get("DJANGO_SECRET_KEY"), algorithms=['HS256'])
+    if decoded['type'] == 'seller':
       return True
     else:
       return False
@@ -22,3 +23,8 @@ def isAuthenticated(view_func):
     else:
       return Response({'message': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
   return wrapper
+
+
+def decodeToken(token):
+  decoded = jwt.decode(token, os.environ.get("DJANGO_SECRET_KEY"), algorithms=['HS256'])
+  return decoded

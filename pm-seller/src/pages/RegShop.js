@@ -9,25 +9,24 @@ const url = url_json.url;
 
 const Home = () => {
   const [log, setLog] = useState(true);
-
-  useEffect(() => {
-    async function checkLogin() {
-      await fetch(`${url}/checkLogin`, {
-        method: "GET",
-        credentials: "include"
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res !== 0) {
-            // user is not logged in
-            setLog(false);
-            alert("Please login to continue");
-            window.location.href = "/login?redirect=ays";
-          }
-        })
-    }
-    checkLogin();
-  }, []);
+  // useEffect(() => {
+  //   async function checkLogin() {
+  //     await fetch(`${url}/checkLogin`, {
+  //       method: "GET",
+  //       credentials: "include"
+  //     })
+  //       .then(res => res.json())
+  //       .then(res => {
+  //         if (res !== 0) {
+  //           // user is not logged in
+  //           setLog(false);
+  //           alert("Please login to continue");
+  //           window.location.href = "/login?redirect=ays";
+  //         }
+  //       })
+  //   }
+  //   checkLogin();
+  // }, []);
   return (
     <>
       <Hero3 />

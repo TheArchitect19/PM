@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import AuthContext from '../context/AuthContext';
+import axios from 'axios';
 
 function App() {
   const [shopDetails, setShopDetails] = useState({
     name: '',
     description: '',
     address: '',
-    shopImage: null,
-    banners: null,
-    instagramHandle: '',
-    youtubeHandle: '',
-    gstNumber: '',
-    bankAccountNumber: '',
+    shop_image: null,
+    banner: null,
+    instagram_handle: '',
+    yt_handle: '',
+    GST: '',
+    bank_account: '',
+    token: localStorage.getItem('user')
   });
+  const contextData = useContext(AuthContext);
+  useEffect(() => {
+    if (!contextData.auth) {
+      alert("Please login to continue");
+      window.location.href = "/login?ref=ays"
+    }
+  }, [contextData.auth])
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -22,22 +32,38 @@ function App() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Handle the form submission logic (e.g., send data to the server)
-    console.log('Shop Details:', shopDetails);
-    // Reset the form after submission
-    setShopDetails({
-      name: '',
-      description: '',
-      address: '',
-      shopImage: null,
-      banners: null,
-      instagramHandle: '',
-      youtubeHandle: '',
-      gstNumber: '',
-      bankAccountNumber: '',
+    console.log(shopDetails);
+    const formData = new FormData();
+    formData.append('token', localStorage.getItem('user'));
+    Object.keys(shopDetails).map((key) => {
+      formData.append(key, shopDetails[key]);
+      return null;
     });
+    try {
+      const res = await axios.post('http://localhost:8000/api/seller/reg_shop', formData, {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      });
+      alert(res.data.message);
+    }
+    catch (error) {
+      alert(error.response.data.message);
+    }
+    // Reset the form after submission
+    // setShopDetails({
+    //   name: '',
+    //   description: '',
+    //   address: '',
+    //   shop_image: null,
+    //   banner: null,
+    //   instagram_handle: '',
+    //   yt_handle: '',
+    //   GST: '',
+    //   bank_account: '',
+    // });
   };
 
   return (
@@ -102,7 +128,7 @@ function App() {
                 type="file"
                 accept="image/*"
                 id="shopImage"
-                name="shopImage"
+                name="shop_image"
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                 required
@@ -118,10 +144,10 @@ function App() {
                 type="file"
                 accept="image/*"
                 id="banners"
-                name="banners"
+                name="banner"
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-                required
+              // required
               />
             </div>
 
@@ -133,8 +159,8 @@ function App() {
               <input
                 type="text"
                 id="instagramHandle"
-                name="instagramHandle"
-                value={shopDetails.instagramHandle}
+                name="instagram_handle"
+                value={shopDetails.instagram_handle}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                 required
@@ -149,8 +175,8 @@ function App() {
               <input
                 type="text"
                 id="youtubeHandle"
-                name="youtubeHandle"
-                value={shopDetails.youtubeHandle}
+                name="yt_handle"
+                value={shopDetails.yt_handle}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                 required
@@ -165,8 +191,8 @@ function App() {
               <input
                 type="text"
                 id="gstNumber"
-                name="gstNumber"
-                value={shopDetails.gstNumber}
+                name="GST"
+                value={shopDetails.GST}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                 required
@@ -181,8 +207,8 @@ function App() {
               <input
                 type="text"
                 id="bankAccountNumber"
-                name="bankAccountNumber"
-                value={shopDetails.bankAccountNumber}
+                name="bank_account"
+                value={shopDetails.bank_account}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                 required

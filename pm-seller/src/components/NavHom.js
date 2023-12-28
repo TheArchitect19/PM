@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom';
 import TextField from "@mui/material/TextField";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -14,11 +14,11 @@ import { colors } from "@mui/material";
 import url from '../url.json';
 import { useSelector } from "react-redux";
 import axios from "axios";
+import AuthContext from "../context/AuthContext";
 
+const Navbar = () => {
+  const contextData = useContext(AuthContext);
 
-const seller = url.seller;
-
-const Navbar = ({log}) => {
   const products = useSelector((state) => state.orebiReducer.products);
   return (
     <>
@@ -36,7 +36,7 @@ const Navbar = ({log}) => {
           </div>
         </a>
 
-        <Link to={`${seller}/ays`} target="_blank" rel="noopener noreferrer">
+        <Link to={`/ays`}>
           <div className={styles.txt}>
             <img className={styles.m} src={store} alt="" />
             <div className={styles.innertxt}>
@@ -46,16 +46,16 @@ const Navbar = ({log}) => {
           </div>
         </Link>
 
-        <a href={log ? "/profile" : "/login"}>
+        <a href={contextData.auth ? "/profile" : "/login"}>
           <div className={styles.txt}>
             <img className={styles.m} src={losu} alt="" />
             <div className={styles.innertxt}>
-              <h5>{log ? <>Profile</> : <>Login / Signup</>}</h5>
+              <h5>{contextData.auth ? <>Profile</> : <>Login / Signup</>}</h5>
             </div>
           </div>
         </a>
 
-        <a href="/cart">
+        {/* <a href="/cart">
           <div className={styles.txt}>
             <img className={styles.m} src={cart} alt="" />
             {products.length > 0 && (
@@ -67,7 +67,7 @@ const Navbar = ({log}) => {
               <h5 style={{ color: 'white' }}>.</h5>
             </div>
           </div>
-        </a>
+        </a> */}
       </div>
     </>
   );

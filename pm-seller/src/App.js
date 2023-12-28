@@ -1,11 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet,
-  createRoutesFromElements,
-  Route,
-  ScrollRestoration,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, createRoutesFromElements, Route, ScrollRestoration } from "react-router-dom";
 import Footer from "./components/Git";
 import Header from "./components/NavHom";
 import SpecialCase from "./components/SpecialCase/SpecialCase";
@@ -35,42 +28,20 @@ import Product from "./pages/Product/Product";
 import TC from './pages/TC'
 import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from "react";
-import axios from 'axios';
+import { useContext, useEffect, useState } from "react";
 ReactGA.initialize('G-2QME7DHRZ4');
 
 
 const Layout = () => {
   const location = useLocation();
-  const [log, setLog] = useState(false);
 
   useEffect(() => {
     ReactGA.pageview(location.pathname + location.search);
   }, [location]);
 
-  useEffect(() => {
-    const checkLogin = async () => {
-      try {
-        const res = await axios.post('http://localhost:8000/api/auth/check', { token: localStorage.getItem('user'), type: 'buyer' });
-        if (res.data.ok) {
-          setLog(true);
-        }
-        else {
-          setLog(false);
-          localStorage.removeItem('user');
-        }
-      }
-      catch (error) {
-        console.log(error);
-        localStorage.removeItem('user');
-      }
-    }
-    checkLogin();
-  }, []);
-
   return (
     <div>
-      <Header log={log} />
+      <Header />
       <SpecialCase />
       <ScrollRestoration />
       <Outlet />
@@ -84,33 +55,33 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<Layout />}>
         {/* ==================== Header Navlink Start here =================== */}
-        <Route index element={<Home />}></Route>
-        <Route path="/muklava" element={<Shop />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/blogs" element={<Blogs />}></Route>
-        <Route path="/blogs2" element={<Blogs2 />}></Route>
-        <Route path="/story" element={<Story />}></Route>
-        <Route path="/vision" element={<Vision />}></Route>
-        <Route path="/impact" element={<Impact />}></Route>
-        <Route path="/community" element={<Community />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/profile" element={<Profile />}></Route>
-        <Route path="/reg-shops" element={<Upload />}></Route>
-        <Route path="/upload" element={<Upload1 />}></Route>
-        <Route path="/products" element={<Product />}></Route>
-        <Route path="/ays" element={<RegShop />}></Route>
-        <Route path="/terms&conditions" element={<TC />}></Route>
+        <Route index element={<Home />} />
+        <Route path="/muklava" element={<Shop />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs2" element={<Blogs2 />} />
+        <Route path="/story" element={<Story />} />
+        <Route path="/vision" element={<Vision />} />
+        <Route path="/impact" element={<Impact />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/login" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/reg-shops" element={<Upload />} />
+        <Route path="/upload" element={<Upload1 />} />
+        <Route path="/products" element={<Product />} />
+        <Route path="/ays" element={<RegShop />} />
+        <Route path="/terms&conditions" element={<TC />} />
 
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/journal" element={<Journal />}></Route>
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/journal" element={<Journal />} />
         {/* ==================== Header Navlink End here ===================== */}
-        <Route path="/offer" element={<Offer />}></Route>
-        <Route path="/product/:_id" element={<ProductDetails />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
-        <Route path="/paymentgateway" element={<Payment />}></Route>
+        <Route path="/offer" element={<Offer />} />
+        <Route path="/product/:_id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/paymentgateway" element={<Payment />} />
       </Route>
-      <Route path="/signin" element={<SignIn />}></Route>
+      <Route path="/signin" element={<SignIn />} />
     </Route>
   )
 );
