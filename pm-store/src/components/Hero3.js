@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import styles from "./Hero.module.css";
 import url_json from "../url.json";
+import urls from '../urls.json';
 
 const url = url_json.url;
 

@@ -38,6 +38,8 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 ReactGA.initialize('G-2QME7DHRZ4');
 
+import urls from './url.json';
+
 
 const Layout = () => {
   const location = useLocation();
@@ -50,7 +52,7 @@ const Layout = () => {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const res = await axios.post('http://localhost:8000/api/auth/check', { token: localStorage.getItem('user'), type: 'buyer' });
+        const res = await axios.post(`${urls.server}/api/auth/check`, { token: localStorage.getItem('user'), type: 'buyer' });
         if (res.data.ok) {
           setLog(true);
         }

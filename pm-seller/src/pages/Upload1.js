@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import urls from '../urls.json';
 
 const UploadProducts = () => {
   const [product, setProduct] = useState({
@@ -49,7 +50,7 @@ const UploadProducts = () => {
       formData.append(`image${i}`, product.images[i - 1]);
     }
     try {
-      const res = await axios.post('http://localhost:8000/api/seller/upload_product', formData);
+      const res = await axios.post('${urls.server}/api/seller/upload_product', formData);
       console.log(res);
       alert(res.data.message);
     }

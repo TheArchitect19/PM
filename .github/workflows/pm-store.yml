@@ -20,6 +20,11 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 16
+    
+    - name: Generate urls.json file
+      run: cd pm-store && echo "$URLS" >> ./src/urls.json
+      env:
+        KEYS: ${{vars.URLS}}
 
     - name: Install dependencies
       run: cd pm-store && npm install --force

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import urls from '../urls.json';
 
 const ComponentName = () => {
   const contextData = useContext(AuthContext);
@@ -13,11 +14,11 @@ const ComponentName = () => {
       window.location.href = "/login?ref=reg-shop";
     }
     const getShops = async () => {
-      const res = await axios.post('http://localhost:8000/api/seller/get_shops', { token: localStorage.getItem('user') });
+      const res = await axios.post(`${urls.server}/api/seller/get_shops`, { token: localStorage.getItem('user') });
       let resShops = res.data.shops;
       resShops.forEach((shop) => {
-        shop.image = 'http://localhost:8000/media/' + shop.image;
-        shop.banner = 'http://localhost:8000/media/' + shop.banner;
+        shop.image = `${urls.server}/media/` + shop.image;
+        shop.banner = `${urls.server}/media/` + shop.banner;
       });
       setShops(resShops);
     }
