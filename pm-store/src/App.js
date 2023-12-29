@@ -36,9 +36,9 @@ import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import axios from 'axios';
-ReactGA.initialize('G-2QME7DHRZ4');
+import urls from './urls.json';
 
-import urls from './url.json';
+ReactGA.initialize('G-2QME7DHRZ4');
 
 
 const Layout = () => {

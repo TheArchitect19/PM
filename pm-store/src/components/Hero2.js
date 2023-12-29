@@ -109,7 +109,7 @@ const Navbar = () => {
       const res = await axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${codeResponse.access_token}`);
       setEmail(res.data.email);
       try {
-        const res1 = await axios.post('${urls.server}/api/auth/login', {
+        const res1 = await axios.post(`${urls.server}/api/auth/login`, {
           email: res.data.email,
           type: 'buyer'
         });
@@ -133,7 +133,7 @@ const Navbar = () => {
 
   const signup = async () => {
     try {
-      const res = await axios.post('${urls.server}/api/auth/signup', {
+      const res = await axios.post(`${urls.server}/api/auth/signup`, {
         email: email,
         phone: state.phone,
         type: 'buyer'

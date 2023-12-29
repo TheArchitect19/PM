@@ -50,7 +50,7 @@ const UploadProducts = () => {
       formData.append(`image${i}`, product.images[i - 1]);
     }
     try {
-      const res = await axios.post('${urls.server}/api/seller/upload_product', formData);
+      const res = await axios.post(`${urls.server}/api/seller/upload_product`, formData);
       console.log(res);
       alert(res.data.message);
     }
