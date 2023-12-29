@@ -1,4 +1,4 @@
-name: Deploy
+name: Store Deploy
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
     - name: Generate urls.json file
       run: cd pm-store && echo "$URLS" >> ./src/urls.json
       env:
-        KEYS: ${{vars.URLS}}
+        URLS: ${{vars.URLS}}
 
     - name: Install dependencies
       run: cd pm-store && npm install --force
