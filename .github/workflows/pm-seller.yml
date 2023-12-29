@@ -1,0 +1,46 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  CI: false
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
+
+    - name: Generate urls.json file
+      run: cd pm-seller && echo "$URLS" >> ./src/urls.json
+      env:
+        KEYS: ${{vars.URLS}}
+
+    - name: Install dependencies
+      run: cd pm-seller && npm install --force
+
+    - name: Creating build
+      run: cd pm-seller && npm run build
+
+    - name: Copying new build to server
+      run: sshpass -p "$PASSWORD" scp -o StrictHostKeyChecking=no -rp pm-seller/build/* root@170.187.253.75:/home/sell/tmp/build
+      env:
+        PASSWORD: ${{secrets.PASSWORD}}
+
+    - name: Doing the magic now
+      run: sshpass -p "$PASSWORD" ssh root@170.187.253.75 "sudo rm -r /home/sell/build/ && sudo mkdir /home/sell/build && sudo mv /home/sell/tmp/build/* /home/sell/build/ && sudo systemctl restart nginx"
+      env:
+        PASSWORD: ${{secrets.PASSWORD}}
+      
+    - name: LIVE!!!
+      run: echo "Site is live🚀🚀🚀"
