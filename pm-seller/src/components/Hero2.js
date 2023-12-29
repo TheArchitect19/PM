@@ -77,6 +77,7 @@ const Navbar = () => {
       localStorage.setItem('user', res.data.token);
       alert(res.data.message);
       contextData.setAuth(res.data.token);
+      ref ? navigate(`/${ref}`) : navigate("/");
     }
     catch (error) {
       console.log(error);
