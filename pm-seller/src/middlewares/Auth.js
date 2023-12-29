@@ -1,6 +1,8 @@
+import urls from '../urls.json';
+
 const checkAuth = async () => {
   try {
-    const res = await axios.post('http://localhost:8000/api/auth/check', { token: localStorage.getItem('user'), type: 'seller' });
+    const res = await axios.post('${urls.server}/api/auth/check', { token: localStorage.getItem('user'), type: 'seller' });
     if (res.data.ok) {
       setUser(true);
       contextData.setAuth(localStorage.getItem('user'));
