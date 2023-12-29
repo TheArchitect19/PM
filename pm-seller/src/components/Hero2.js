@@ -10,7 +10,6 @@ import GoogleButton from 'react-google-button'
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AuthContext from "../context/AuthContext";
-import urls from '../urls.json';
 
 const Navbar = () => {
   const location = useLocation();
@@ -43,7 +42,7 @@ const Navbar = () => {
       const res = await axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${codeResponse.access_token}`);
       setEmail(res.data.email);
       try {
-        const res1 = await axios.post(`${urls.server}/api/auth/login`, {
+        const res1 = await axios.post('http://localhost:8000/api/auth/login', {
           email: res.data.email,
           type: 'seller'
         });
@@ -69,7 +68,7 @@ const Navbar = () => {
 
   const signup = async () => {
     try {
-      const res = await axios.post(`${urls.server}/api/auth/signup`, {
+      const res = await axios.post('http://localhost:8000/api/auth/signup', {
         email: email,
         phone: state.phone,
         type: 'seller'

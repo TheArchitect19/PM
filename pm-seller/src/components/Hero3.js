@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
-import urls from '../urls.json';
 
 function App() {
   const [shopDetails, setShopDetails] = useState({
@@ -43,7 +42,7 @@ function App() {
       return null;
     });
     try {
-      const res = await axios.post(`${urls.server}/api/seller/reg_shop`, formData, {
+      const res = await axios.post('http://localhost:8000/api/seller/reg_shop', formData, {
         headers: {
           'content-type': 'multipart/form-data'
         }

@@ -36,8 +36,6 @@ import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import urls from './urls.json';
-
 ReactGA.initialize('G-2QME7DHRZ4');
 
 
@@ -52,7 +50,7 @@ const Layout = () => {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const res = await axios.post(`${urls.server}/api/auth/check`, { token: localStorage.getItem('user'), type: 'buyer' });
+        const res = await axios.post('http://localhost:8000/api/auth/check', { token: localStorage.getItem('user'), type: 'buyer' });
         if (res.data.ok) {
           setLog(true);
         }
