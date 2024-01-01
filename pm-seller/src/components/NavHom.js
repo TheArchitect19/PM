@@ -15,11 +15,23 @@ import url from '../url.json';
 import { useSelector } from "react-redux";
 import axios from "axios";
 import AuthContext from "../context/AuthContext";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const contextData = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const products = useSelector((state) => state.orebiReducer.products);
+
+  const openAys = () => {
+    if (!contextData.auth) {
+      alert("Please login to continue");
+      navigate("/login?ref=ays");
+    }
+    else {
+      navigate("/ays");
+    }
+  }
+
   return (
     <>
       <div className={styles.navsty}>
@@ -36,15 +48,13 @@ const Navbar = () => {
           </div>
         </a>
 
-        <Link to={`/ays`}>
-          <div className={styles.txt}>
-            <img className={styles.m} src={store} alt="" />
-            <div className={styles.innertxt}>
-              <h5>Sell With Us</h5>
-              <p>Grow Faster</p>
-            </div>
+        <div className={styles.txt} onClick={openAys} style={{ cursor: 'pointer' }}>
+          <img className={styles.m} src={store} alt="" />
+          <div className={styles.innertxt}>
+            <h5>Sell With Us</h5>
+            <p>Grow Faster</p>
           </div>
-        </Link>
+        </div>
 
         <a href={contextData.auth ? "/profile" : "/login"}>
           <div className={styles.txt}>

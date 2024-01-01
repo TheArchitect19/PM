@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.pandrimarket.com', 'localhost', '0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['.pandrimarket.com', 'localhost', '127.0.0.1']
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -107,6 +107,16 @@ DATABASES = {
 		'HOST': os.environ.get('DB_HOST'),
 		'PORT': 5432
 	}
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
 }
 
 # Password validation

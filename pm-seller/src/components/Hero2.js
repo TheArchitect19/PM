@@ -49,7 +49,8 @@ const Navbar = () => {
         });
         localStorage.setItem('user', res1.data.token);
         contextData.setAuth(res1.data.token);
-        ref ? navigate(`/${ref}`) : navigate("/");
+        // ref ? navigate(`/${ref}`) : navigate("/");
+        ref ? window.location.href = `/${ref}` : window.location.href = "/";
       }
       catch (error) {
         console.log("Couldn't log in");

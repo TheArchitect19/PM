@@ -6,7 +6,7 @@ from .models import Shop, Product
 from auths.models import Seller
 from .middlewares import isAuthenticated, decodeToken
 import jwt
-import os
+from django.core.cache import cache
 
 def ISR(exception):
   return Response({'ok': False, 'message': 'An error occurred', 'error': str(exception)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -40,7 +40,14 @@ def get_shops(request):
   try:
     decodedToken = decodeToken(data['token'])
     ownerEmail = decodedToken['email']
+    cacheKey = f'get_shops_{ownerEmail}'
+    cached = cache.get(cacheKey)
+    
+    if cached:
+      return Response({'ok': True, 'shops': cached}, status=status.HTTP_200_OK)
+
     shops = Shop.objects.filter(owner=Seller.objects.get(email=ownerEmail)).values()
+    cache.set(cacheKey, shops)
     return Response({'ok': True, 'shops': shops}, status=status.HTTP_200_OK)
   
   except Seller.DoesNotExist as e:
