@@ -1,59 +1,59 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styles from './BBC.module.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./BBC.module.css";
 const BBCarousel = () => {
   return (
     <div className={styles.maindiv}>
       <Link to="/products">
-       <div className={styles.smadiv1}>
+        <div className={styles.smadiv1}>
           <div className={styles.innerdiv}>
-           <h5>UNDER RS. 899</h5>
-           <h6>Ethnic Wear</h6>
+            <h5>UNDER RS. 899</h5>
+            <h6>Ethnic Wear</h6>
           </div> 
-       </div>
-       </Link>
-    <Link to="/products">
-       <div className={styles.smadiv2}>
-       <div className={styles.innerdiv}>
-           <h5>UNDER RS. 999</h5>
-           <h6>Sneakers</h6>
+        </div>
+      </Link>
+      <Link to="/products">
+        <div className={styles.smadiv2}>
+          <div className={styles.innerdiv}>
+            <h5>UNDER RS. 999</h5>
+            <h6>Sneakers</h6>
           </div> 
-       </div>
-       </Link>
-    <Link to="/products">
-       <div className={styles.smadiv3}>
-       <div className={styles.innerdiv}>
-           <h5>UNDER RS. 699</h5>
-           <h6>Casual Wear</h6>
+        </div>
+      </Link>
+      <Link to="/products">
+        <div className={styles.smadiv3}>
+          <div className={styles.innerdiv}>
+            <h5>UNDER RS. 699</h5>
+            <h6>Casual Wear</h6>
           </div> 
-       </div>
-       </Link>
-    <Link to="/products">
-       <div className={styles.smadiv4}>
-       <div className={styles.innerdiv}>
-           <h5>UNDER RS. 899</h5>
-           <h6>Handbags</h6>
+        </div>
+      </Link>
+      <Link to="/products">
+        <div className={styles.smadiv4}>
+          <div className={styles.innerdiv}>
+            <h5>UNDER RS. 899</h5>
+            <h6>Handbags</h6>
           </div> 
-       </div>
-       </Link>
-    <Link to="/products">
-       <div className={styles.smadiv5}>
-       <div className={styles.innerdiv}>
-           <h5>UNDER RS. 799</h5>
-           <h6>Kurtis</h6>
+        </div>
+      </Link>
+      <Link to="/products">
+        <div className={styles.smadiv5}>
+          <div className={styles.innerdiv}>
+            <h5>UNDER RS. 799</h5>
+            <h6>Kurtis</h6>
           </div> 
-       </div>
-       </Link>
-    <Link to="/products">
-       <div className={styles.smadiv6}>
-       <div className={styles.innerdiv}>
-           <h5>UNDER RS. 599</h5>
-           <h6>T Shirts</h6>
+        </div>
+      </Link>
+      <Link to="/products">
+        <div className={styles.smadiv6}>
+          <div className={styles.innerdiv}>
+            <h5>UNDER RS. 599</h5>
+            <h6>T Shirts</h6>
           </div> 
-       </div>
-       </Link>
+        </div>
+      </Link>
     </div>
-  )
-}
+  );
+};
 
-export default BBCarousel
+export default BBCarousel;

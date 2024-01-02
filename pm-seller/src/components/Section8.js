@@ -1,20 +1,20 @@
 import React from "react";
 import styles from "./Section4.module.css";
-import heroImg from "../assets/svg/hero.png";
-import abt from "../assets/svg/abt.png";
-import clo from "../assets/svg/clo.png";
+// import heroImg from "../assets/svg/hero.png";
+// import abt from "../assets/svg/abt.png";
+// import clo from "../assets/svg/clo.png";
 import i1 from "../assets/img/ovc6.png";
 import i2 from "../assets/img/ovc3.png";
 import i10 from "../assets/img/ovc4.png";
 import i11 from "../assets/img/ovc5.png";
 import i3 from "../assets/img/ovc2.png";
 import i4 from "../assets/img/ovc.png";
-import ib from "../assets/svg/ib.png";
-import pms from "../assets/svg/pms.png";
-import pmi from "../assets/svg/pmi.png";
-import pmc from "../assets/svg/pmc.png";
-import pmv from "../assets/svg/pmv.png";
-import sc from "../assets/svg/sc.png";
+// import ib from "../assets/svg/ib.png";
+// import pms from "../assets/svg/pms.png";
+// import pmi from "../assets/svg/pmi.png";
+// import pmc from "../assets/svg/pmc.png";
+// import pmv from "../assets/svg/pmv.png";
+// import sc from "../assets/svg/sc.png";
 import Section1 from "./Section1";
 
 const Section8 = () => {
@@ -43,7 +43,7 @@ const Section8 = () => {
                 the latest trends and styles. However, with the rise of
                 e-commerce platforms reduced go-to-market and social media
                 influencers focused on those shops and products that are paid
-                and sponsored, Pandri market's businesses have started facing
+                and sponsored, Pandri market&apos;s businesses have started facing
                 increased competition.
                 <br />
                 Therefore, understanding customer needs, preferences, and
@@ -61,10 +61,10 @@ const Section8 = () => {
                 Pandri Market wholesaler cum retailer shop owner who sells lady
                 couture fashionable high fashion designer wear decided to
                 conduct a customer research study to gain insights into
-                customers' preferences, perception of their brand, and
+                customers&apos; preferences, perception of their brand, and
                 competitor mapping.
                 <br />
-                The study aimed to gather information on customers' awareness of
+                The study aimed to gather information on customers&apos; awareness of
                 the latest fashion trends, offers, and promotions in Pandri
                 market. The study would help shopkeeper develop a better
                 understanding of the market and tailor their offerings
@@ -77,10 +77,10 @@ const Section8 = () => {
             <div className={styles.l1}>
               {/* <div><img className={styles.fimage} src={pmv} alt="" /></div> */}
               <p>
-            <h2>Results</h2>
+                <h2>Results</h2>
                 The study revealed that customers were highly curious about the
                 latest fashion trends, offers, and promotions in Pandri market
-                in real time information about what's happening in market and
+                in real time information about what&apos;s happening in market and
                 the visibility of shop to enhance to 24hrs by online shopping
                 fragment of Pandri Market. They relied heavily on social media
                 influencers, friends, and family for information and
@@ -123,7 +123,7 @@ const Section8 = () => {
                 One of the retailers in Pandri market, selling trendy
                 fashionable couture, was facing a decline in footfall and sales.
                 The management team realized that they lacked insights into
-                customers' evolving needs, preferences, and perception of their
+                customers&apos; evolving needs, preferences, and perception of their
                 brand compared to competitors.
                 <br />
                 They needed to conduct research to understand their customers
@@ -146,7 +146,7 @@ const Section8 = () => {
                 offers, and promotions in market, and brand perception on
                 Perceptual mapping of clothing brands. <br />
                 The interviews and focus group discussions delved deeper into
-                customers' preferences and needs, and the factors that influence
+                customers&apos; preferences and needs, and the factors that influence
                 their purchasing decisions.
               </p>
               <div>
@@ -163,7 +163,7 @@ const Section8 = () => {
                 online portal to float the Wholesale or Retailers offers in real
                 time. It is a must to have the presence of all shopkeepers of
                 Pandri market at Jigyasa Magazine one blog initiative for
-                continuous conduct research to understand customers' needs,
+                continuous conduct research to understand customers&apos; needs,
                 preferences, and perception of their brand compared to
                 competitors.
                 <br />

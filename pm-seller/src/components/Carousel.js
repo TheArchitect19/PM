@@ -1,12 +1,13 @@
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './carousel.css';
-import {  multiData } from './data';
-import  ArrowBackIos  from '@mui/icons-material/ArrowBackIos';
-import  ArrowForwardIos  from '@mui/icons-material/ArrowForwardIos';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./carousel.css";
+import {  multiData } from "./data";
+import  ArrowBackIos  from "@mui/icons-material/ArrowBackIos";
+import  ArrowForwardIos  from "@mui/icons-material/ArrowForwardIos";
+import { useState } from "react";
+import { useEffect } from "react";
 let slidesToShow = 5;
 
 const PreviousBtn = (props) => {
@@ -16,7 +17,7 @@ const PreviousBtn = (props) => {
     <>
       {currentSlide !== 0 && (
         <div className={className} onClick={onClick}>
-          <ArrowBackIos style={{ color: 'black', fontSize: '30px' }} />
+          <ArrowBackIos style={{ color: "black", fontSize: "30px" }} />
         </div>
       )}
     </>
@@ -29,7 +30,7 @@ const NextBtn = (props) => {
     <>
       {currentSlide !== slideCount - slidesToShow && (
         <div className={className} onClick={onClick}>
-          <ArrowForwardIos style={{ color: 'black', fontSize: '30px' }} />
+          <ArrowForwardIos style={{ color: "black", fontSize: "30px" }} />
         </div>
       )}
     </>
@@ -76,8 +77,8 @@ const MultiItemCarousel = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
   if (width <= 426) {
@@ -91,11 +92,11 @@ const MultiItemCarousel = () => {
   }
 
   return (
-    <div style={{ margin: '40px' }} className='carousel'>
-    <h2>ON THE `GRAM</h2>
+    <div style={{ margin: "40px" }} className='carousel'>
+      <h2>ON THE `GRAM</h2>
       <Slider {...carouselProperties}>
-        {multiData.map((item) => (
-          <Card item={item} />
+        {multiData.map((item, index) => (
+          <Card item={item} key={index} />
         ))}
       </Slider>
     </div>
@@ -104,16 +105,16 @@ const MultiItemCarousel = () => {
 
 const Card = ({ item }) => {
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: "center" }}>
       <img
         className='multi__image'
         src={item}
         alt=''
         style={{
-          width: '100%',
-          height: '170px',
-          objectFit: 'contain',
-          marginBottom: '10px',
+          width: "100%",
+          height: "170px",
+          objectFit: "contain",
+          marginBottom: "10px",
         }}
       />
      

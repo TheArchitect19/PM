@@ -54,7 +54,7 @@ const Color = () => {
               >
                 <span
                   style={{ background: item.base }}
-                  className={`w-3 h-3 bg-gray-500 rounded-full`}
+                  className={"w-3 h-3 bg-gray-500 rounded-full"}
                 ></span>
                 {item.title}
               </li>

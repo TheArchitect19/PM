@@ -1,3 +1,4 @@
+import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet, createRoutesFromElements, Route, ScrollRestoration } from "react-router-dom";
 import Footer from "./components/Git";
 import Header from "./components/NavHom";
@@ -12,24 +13,24 @@ import Offer from "./pages/Offer/Offer";
 import Payment from "./pages/payment/Payment";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Shop from "./pages/Shop/Shop";
-import Blogs from './pages/BlogPage';
-import Blogs2 from './pages/BlogPage2';
-import Story from './pages/Story';
-import Vision from './pages/Vision';
-import Community from './pages/Community';
+import Blogs from "./pages/BlogPage";
+import Blogs2 from "./pages/BlogPage2";
+import Story from "./pages/Story";
+import Vision from "./pages/Vision";
+import Community from "./pages/Community";
 // import Login from './pages/Login';
-import Signup from './pages/SIgnup';
-import RegShop from './pages/RegShop';
-import Profile from './pages/Profile';
-import Upload from './pages/Upload';
-import Upload1 from './pages/Upload1';
-import Impact from './pages/Impact';
+import Signup from "./pages/SIgnup";
+import RegShop from "./pages/RegShop";
+import Profile from "./pages/Profile";
+import Upload from "./pages/Upload";
+import Upload1 from "./pages/Upload1";
+import Impact from "./pages/Impact";
 import Product from "./pages/Product/Product";
-import TC from './pages/TC'
-import ReactGA from 'react-ga';
-import { useLocation } from 'react-router-dom';
+import TC from "./pages/TC";
+import ReactGA from "react-ga";
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-ReactGA.initialize('G-2QME7DHRZ4');
+ReactGA.initialize("G-2QME7DHRZ4");
 
 
 const Layout = () => {

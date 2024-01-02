@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from "react";
 import styles from "./Profile.module.css";
 import dp from "../assets/img/dp.jpg";
-import {
-  AiFillFacebook,
-  AiFillGoogleSquare,
-} from "react-icons/ai";
+// import {
+//   AiFillFacebook,
+//   AiFillGoogleSquare,
+// } from "react-icons/ai";
 import {
   AiOutlineMail,
 } from "react-icons/ai";
@@ -12,17 +12,18 @@ import { BiUser } from "react-icons/bi";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoIosCall } from "react-icons/io";
 import { GrMapLocation } from "react-icons/gr";
-import Navbar from '../components/NavHom';
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import Navbar from "../components/NavHom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 // import { firebase, auth } from '../components/firebase copy';
 import url_json from "../url.json";
 
 const url = url_json.url;
 
 const Profile = () => {
-  const [activeComponent, setActiveComponent] = useState('profile1');
-  const [log, setLog] = useState(false);
+  const [activeComponent, setActiveComponent] = useState("profile1");
+  // const [log, setLog] = useState(false);
+  const log = false;
   const [isDisabled, setIsDisabled] = useState(false);
   const [gotFile, setGotFile] = useState(false);
   const [selectedImage, setSelectedImage] = useState(dp);
@@ -44,82 +45,82 @@ const Profile = () => {
   });
   const [selectedFiles, setSelectedFiles] = useState([]);
 
-  useEffect(() => {
-    async function checkLogin() {
-      await fetch(`${url}/checkLogin`, {
-        method: "GET",
-        credentials: "include"
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res === 0) {
-            // user is logged in
-            setLog(true);
-          }
-          else {
-            alert("Please login to continue.");
-            window.location.href = "/";
-            setLog(false);
-          }
-        })
-    };
+  // useEffect(() => {
+  //   async function checkLogin() {
+  //     await fetch(`${url}/checkLogin`, {
+  //       method: "GET",
+  //       credentials: "include"
+  //     })
+  //       .then(res => res.json())
+  //       .then(res => {
+  //         if (res === 0) {
+  //           // user is logged in
+  //           setLog(true);
+  //         }
+  //         else {
+  //           alert("Please login to continue.");
+  //           window.location.href = "/";
+  //           setLog(false);
+  //         }
+  //       })
+  //   };
 
-    async function getUser() {
-      await fetch(`${url}/getUserInfo`, {
-        method: "GET",
-        credentials: "include"
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res.ok) {
-            set_p_info({
-              ...p_info,
-              name: res.value.name,
-              email: res.value.email,
-              phone: res.value.phone,
-              whatsapp_number: res.value.whatsapp,
-              address: res.value.address,
-              oldPassword: res.value.password,
-              aadhar: res.value.aadhar,
-              pan: res.value.pan,
-              profile_pic: res.value.profile_pic,
-            })
-            if (res.value.iswhatsapp === "true") {
-              set_p_info({
-                ...p_info,
-                isWhatsapp: true
-              });
-            }
-            else {
-              set_p_info({
-                ...p_info,
-                isWhatsapp: false
-              });
-            }
+  //   async function getUser() {
+  //     await fetch(`${url}/getUserInfo`, {
+  //       method: "GET",
+  //       credentials: "include"
+  //     })
+  //       .then(res => res.json())
+  //       .then(res => {
+  //         if (res.ok) {
+  //           set_p_info({
+  //             ...p_info,
+  //             name: res.value.name,
+  //             email: res.value.email,
+  //             phone: res.value.phone,
+  //             whatsapp_number: res.value.whatsapp,
+  //             address: res.value.address,
+  //             oldPassword: res.value.password,
+  //             aadhar: res.value.aadhar,
+  //             pan: res.value.pan,
+  //             profile_pic: res.value.profile_pic,
+  //           })
+  //           if (res.value.iswhatsapp === "true") {
+  //             set_p_info({
+  //               ...p_info,
+  //               isWhatsapp: true
+  //             });
+  //           }
+  //           else {
+  //             set_p_info({
+  //               ...p_info,
+  //               isWhatsapp: false
+  //             });
+  //           }
 
-            if (res.value.profile_pic !== null && res.value.profile_pic !== "") {
-              setSelectedImage(res.value.profile_pic)
-            }
-          }
-          else {
-            alert(res.message);
-          }
-        })
-    }
-    checkLogin();
-    getUser();
-  }, []);
+  //           if (res.value.profile_pic !== null && res.value.profile_pic !== "") {
+  //             setSelectedImage(res.value.profile_pic)
+  //           }
+  //         }
+  //         else {
+  //           alert(res.message);
+  //         }
+  //       })
+  //   }
+  //   checkLogin();
+  //   getUser();
+  // }, []);
 
   async function saveProfilePic() {
     setIsDisabled(true);
     const formData = new FormData();
     for (let i = 0; i < selectedFiles.length; i++) {
-      formData.append('file', selectedFiles[i]);
+      formData.append("file", selectedFiles[i]);
     }
 
     await fetch(`${url}/saveProfilePic`, {
-      method: 'POST',
-      credentials: 'include',
+      method: "POST",
+      credentials: "include",
       body: formData
     })
       .then((response) => response.json())
@@ -137,7 +138,7 @@ const Profile = () => {
       .catch((error) => {
         console.error(error);
       });
-  };
+  }
 
   const handleClick = () => {
     if (!gotFile) {
@@ -167,14 +168,14 @@ const Profile = () => {
     setActiveComponent(component);
   };
   const getButtonStyle = (component) => {
-    return component === activeComponent ? { backgroundColor: 'white', color: 'black' } : {};
+    return component === activeComponent ? { backgroundColor: "white", color: "black" } : {};
   };
-  const getButtonStyle2 = (component) => {
-    return component === activeComponent ? { backgroundColor: 'white', width: "30px", alignSelf: "end", borderRadius: "50% 0 0 0" } : {};
-  };
-  const getButtonStyle3 = (component) => {
-    return component === activeComponent ? { backgroundColor: 'white', width: "30px", alignSelf: "end" } : {};
-  };
+  // const getButtonStyle2 = (component) => {
+  //   return component === activeComponent ? { backgroundColor: 'white', width: "30px", alignSelf: "end", borderRadius: "50% 0 0 0" } : {};
+  // };
+  // const getButtonStyle3 = (component) => {
+  //   return component === activeComponent ? { backgroundColor: 'white', width: "30px", alignSelf: "end" } : {};
+  // };
   return (
     <>
       <Navbar data={log} />
@@ -185,7 +186,7 @@ const Profile = () => {
             <div>
               <img
                 src={selectedImage}
-                alt="Preview Image"
+                alt="Preview"
                 style={{ width: "200px", height: "200px" }}
               />
               <div className={styles.customfileupload} onClick={handleClick}>
@@ -239,9 +240,9 @@ const Profile = () => {
           </ul>
         </div>
         <div className={styles.rightPart}>
-          {activeComponent === 'profile1' && <Profile1 p_info={p_info} onInfoChange={handleInfoChange} />}
-          {activeComponent === 'profile2' && <Profile2 />}
-          {activeComponent === 'profile3' && <Profile3 p_info={p_info} onInfoChange={handleInfoChange} />}
+          {activeComponent === "profile1" && <Profile1 p_info={p_info} onInfoChange={handleInfoChange} />}
+          {activeComponent === "profile2" && <Profile2 />}
+          {activeComponent === "profile3" && <Profile3 p_info={p_info} onInfoChange={handleInfoChange} />}
         </div>
       </div>
     </>
@@ -261,7 +262,7 @@ const Profile1 = ({ p_info, onInfoChange }) => {
       onInfoChange({
         ...p_info,
         isWhatsapp: !p_info.isWhatsapp
-      })
+      });
     }
     else {
       const updatedInfo = { ...p_info, [name]: value };
@@ -290,7 +291,7 @@ const Profile1 = ({ p_info, onInfoChange }) => {
           alert(res.message);
           setIsDisabled(false);
         }
-      })
+      });
   }
   return (
     <div>
@@ -328,7 +329,7 @@ const Profile1 = ({ p_info, onInfoChange }) => {
               <IoIosCall />
               <PhoneInput
                 countryCallingCodeEditable={false}
-                country={'in'}
+                country={"in"}
                 value={p_info.whatsapp_number}
                 onChange={phone => onInfoChange({ ...p_info, whatsapp_number: phone })}
               />
@@ -369,16 +370,18 @@ const Profile1 = ({ p_info, onInfoChange }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // ___________________________________________________________
 
 const Profile2 = () => {
-  const [show, setShow] = useState(false);
-  const [otp, setotp] = useState('');
-  const [otpLogin, setOtpLogin] = useState(false);
-  const [final, setfinal] = useState('');
+  // const [show, setShow] = useState(false);
+  const show = false;
+  const [otp, setotp] = useState("");
+  // const [otpLogin, setOtpLogin] = useState(false);
+  // const [final, setfinal] = useState('');
+  const final = "";
   const [isDisabled, setIsDisabled] = useState(false);
   const [state, setState] = useState({
     phone: "",
@@ -391,7 +394,7 @@ const Profile2 = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify(state),
-      credentials: 'include'
+      credentials: "include"
     })
       .then(res => res.json())
       .then(res => {
@@ -406,7 +409,7 @@ const Profile2 = () => {
       })
       .catch(err => {
         alert(err);
-      })
+      });
   }
 
   const ValidateOtp = () => {
@@ -415,23 +418,25 @@ const Profile2 = () => {
       return;
     final.confirm(otp).then((result) => {
       // success
+      console.log(result);
       updateNumber();
     }).catch((err) => {
+      console.log(err);
       alert("Invalid OTP, please try again.");
       setIsDisabled(false);
-    })
-  }
-  async function checkPhoneExists() {
-    const response = await fetch(`${url}/checkPhoneExists`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(state),
     });
-    const data = await response.json();
-    return data;
-  }
+  };
+  // async function checkPhoneExists() {
+  //   const response = await fetch(`${url}/checkPhoneExists`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(state),
+  //   });
+  //   const data = await response.json();
+  //   return data;
+  // }
 
   async function check() {
     // setIsDisabled(true);
@@ -469,7 +474,7 @@ const Profile2 = () => {
               <IoIosCall />
               <PhoneInput
                 countryCallingCodeEditable={false}
-                country={'in'}
+                country={"in"}
                 value={state.phone}
                 onChange={phone => setState({ phone })}
               />
@@ -485,7 +490,7 @@ const Profile2 = () => {
             <div className={styles.inloc}>
               <RiLockPasswordFill />
               <input type="text" placeholder={"Enter your OTP"}
-                onChange={(e) => { setotp(e.target.value) }} />
+                onChange={(e) => { setotp(e.target.value); }} />
             </div>
             <div className={styles.labelInloc}>
               {!isDisabled ? <><button className={styles.butt} type='button' onClick={ValidateOtp}>
@@ -496,8 +501,8 @@ const Profile2 = () => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 //   _____________________________________________________________________
 
@@ -532,7 +537,7 @@ const Profile3 = ({ p_info, onInfoChange }) => {
             .catch(err => {
               alert("Oops, an error occurred!!!");
               console.log(err);
-            })
+            });
         }
         else {
           alert("Passwords don't match");
@@ -590,5 +595,5 @@ const Profile3 = ({ p_info, onInfoChange }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import urls from '../urls.json';
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import urls from "../urls.json";
 
 const UploadProducts = () => {
   const [product, setProduct] = useState({
-    name: '',
-    description: '',
-    price: '',
-    category: '',
-    brand: '',
-    stock: '',
-    size: '',
+    name: "",
+    description: "",
+    price: "",
+    category: "",
+    brand: "",
+    stock: "",
+    size: "",
     images: [],
-    video: '',
-    hashtags: '',
+    video: "",
+    hashtags: "",
   });
   const location = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
-  const shopName = params.get('shop');
+  const shopName = params.get("shop");
 
   if (!shopName) {
-    navigate('/reg-shops');
+    navigate("/reg-shops");
   }
 
   const handleInputChange = (e) => {
@@ -39,10 +39,10 @@ const UploadProducts = () => {
     e.preventDefault();
     console.table(product);
     const formData = new FormData();
-    formData.append('token', localStorage.getItem('user'));
-    formData.append('shopName', shopName);
+    formData.append("token", localStorage.getItem("user"));
+    formData.append("shopName", shopName);
     Object.keys(product).forEach((key) => {
-      if (key !== 'images') {
+      if (key !== "images") {
         formData.append(key, product[key]);
       }
     });

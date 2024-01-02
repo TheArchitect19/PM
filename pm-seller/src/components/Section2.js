@@ -14,10 +14,10 @@ const Section2 = () => {
             <div className={styles.section2Heading}>PANDRI MARKET CUSTOMER RESEARCH STUDY</div>
             <p>
               Pandri market in Raipur is known for its vibrant fashion and
-              retail scene. It's the go-to destination for fashion enthusiasts
+              retail scene. It&apos;s the go-to destination for fashion enthusiasts
               looking for the latest trends and styles. However, with the rise
               of e-commerce platforms reduced go-to-market and social media
-              influencers focused on..... <a href="#"> Read more</a>
+              influencers focused on..... <a href="/"> Read more</a>
             </p>
             <div className={styles.section2Person}>
               <img

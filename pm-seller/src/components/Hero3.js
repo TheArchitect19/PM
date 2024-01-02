@@ -1,35 +1,35 @@
-import React, { useContext, useEffect, useState } from 'react';
-import AuthContext from '../context/AuthContext';
-import axios from 'axios';
-import urls from '../urls.json';
+import React, { useContext, useEffect, useState } from "react";
+import AuthContext from "../context/AuthContext";
+import axios from "axios";
+import urls from "../urls.json";
 
 function App() {
   const [shopDetails, setShopDetails] = useState({
-    name: '',
-    description: '',
-    address: '',
+    name: "",
+    description: "",
+    address: "",
     shop_image: null,
     banner: null,
-    instagram_handle: '',
-    yt_handle: '',
-    GST: '',
-    bank_account: '',
-    token: localStorage.getItem('user')
+    instagram_handle: "",
+    yt_handle: "",
+    GST: "",
+    bank_account: "",
+    token: localStorage.getItem("user")
   });
   const contextData = useContext(AuthContext);
   useEffect(() => {
     if (!contextData.auth) {
       alert("Please login to continue");
-      window.location.href = "/login?ref=ays"
+      window.location.href = "/login?ref=ays";
     }
-  }, [contextData.auth])
+  }, [contextData.auth]);
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
 
     setShopDetails((prevDetails) => ({
       ...prevDetails,
-      [name]: type === 'file' ? e.target.files[0] : value,
+      [name]: type === "file" ? e.target.files[0] : value,
     }));
   };
 
@@ -37,7 +37,7 @@ function App() {
     e.preventDefault();
     console.log(shopDetails);
     const formData = new FormData();
-    formData.append('token', localStorage.getItem('user'));
+    formData.append("token", localStorage.getItem("user"));
     Object.keys(shopDetails).map((key) => {
       formData.append(key, shopDetails[key]);
       return null;
@@ -45,7 +45,7 @@ function App() {
     try {
       const res = await axios.post(`${urls.server}/api/seller/reg_shop`, formData, {
         headers: {
-          'content-type': 'multipart/form-data'
+          "content-type": "multipart/form-data"
         }
       });
       alert(res.data.message);
@@ -148,7 +148,7 @@ function App() {
                 name="banner"
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-              // required
+                // required
               />
             </div>
 

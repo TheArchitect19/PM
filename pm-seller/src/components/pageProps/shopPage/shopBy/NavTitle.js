@@ -1,5 +1,6 @@
 import React from "react";
 import { BiCaretDown } from "react-icons/bi";
+import PropTypes from "prop-types";
 
 const NavTitle = ({ title, icons }) => {
   return (
@@ -16,6 +17,11 @@ const NavTitle = ({ title, icons }) => {
       )}
     </div>
   );
+};
+
+NavTitle.propTypes = {
+  title: PropTypes.any,
+  icons: PropTypes.any
 };
 
 export default NavTitle;

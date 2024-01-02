@@ -1,16 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
+// import { motion } from "framer-motion";
+// import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import { FaSearch } from "react-icons/fa";
 import Flex from "../../designLayouts/Flex";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
 import { paginationItems } from "../../../constants";
 
 const HeaderBottom = () => {
-  const products = useSelector((state) => state.orebiReducer.products);
+  // const products = useSelector((state) => state.orebiReducer.products);
   const [show, setShow] = useState(false);
-  const [showUser, setShowUser] = useState(false);
+  // const [showUser, setShowUser] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
   useEffect(() => {
@@ -25,6 +25,7 @@ const HeaderBottom = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [showSearchBar, setShowSearchBar] = useState(false);
 
   const handleSearch = (e) => {
@@ -47,7 +48,7 @@ const HeaderBottom = () => {
             ref={ref}
             className="flex h-14 cursor-pointer items-center gap-2 text-primeColor"
           >
-           
+
           </div>
           <div className="relative w-full lg:w-[600px] h-[50px] text-base text-primeColor bg-white flex items-center gap-2 justify-between px-6 rounded-xl">
             <input
@@ -60,7 +61,7 @@ const HeaderBottom = () => {
             <FaSearch className="w-5 h-5" />
             {searchQuery && (
               <div
-                className={`w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer`}
+                className={"w-full mx-auto h-96 bg-white top-16 absolute left-0 z-50 overflow-y-scroll shadow-2xl scrollbar-hide cursor-pointer"}
               >
                 {searchQuery &&
                   filteredProducts.map((item) => (
@@ -102,8 +103,8 @@ const HeaderBottom = () => {
             )}
           </div>
           <div className="flex gap-4 mt-2 lg:mt-0 items-center pr-6 cursor-pointer relative">
-            
-            
+
+
           </div>
         </Flex>
       </div>

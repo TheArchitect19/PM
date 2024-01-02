@@ -1,26 +1,26 @@
-import { React, useState, useEffect, useContext } from "react";
-import { Link } from 'react-router-dom';
-import TextField from "@mui/material/TextField";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { React, useContext } from "react";
+// import { Link } from 'react-router-dom';
+// import TextField from "@mui/material/TextField";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import pmnavlogo from "../assets/svg/pm.png";
 import m from "../assets/svg/m.png";
-import gyb from "../assets/svg/gyb.png";
+// import gyb from "../assets/svg/gyb.png";
 import losu from "../assets/svg/losu.png";
 import store from "../assets/svg/store.png";
-import cart from "../assets/svg/cart.png";
-import styles from "./Navbar.module.css"
-import { colors } from "@mui/material";
-import url from '../url.json';
-import { useSelector } from "react-redux";
-import axios from "axios";
+// import cart from "../assets/svg/cart.png";
+import styles from "./Navbar.module.css";
+// import { colors } from "@mui/material";
+// import url from '../url.json';
+// import { useSelector } from "react-redux";
+// import axios from "axios";
 import AuthContext from "../context/AuthContext";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const contextData = useContext(AuthContext);
   const navigate = useNavigate();
-  const products = useSelector((state) => state.orebiReducer.products);
+  // const products = useSelector((state) => state.orebiReducer.products);
 
   const openAys = () => {
     if (!contextData.auth) {
@@ -30,7 +30,7 @@ const Navbar = () => {
     else {
       navigate("/ays");
     }
-  }
+  };
 
   return (
     <>
@@ -48,7 +48,7 @@ const Navbar = () => {
           </div>
         </a>
 
-        <div className={styles.txt} onClick={openAys} style={{ cursor: 'pointer' }}>
+        <div className={styles.txt} onClick={openAys} style={{ cursor: "pointer" }}>
           <img className={styles.m} src={store} alt="" />
           <div className={styles.innertxt}>
             <h5>Sell With Us</h5>

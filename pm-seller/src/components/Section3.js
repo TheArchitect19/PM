@@ -7,10 +7,10 @@ const Section3 = () => {
     <>
       <div className={styles.section3Container}>
         <div className={styles.section3Wrapper}>
-        <div className={styles.section3Details}>
+          <div className={styles.section3Details}>
             <div className={styles.section3Heading}>THE POWER OF CURIOSITY IN CUSTOMER RESEARCH</div>
             <p>
-            Curiosity is a powerful motivator for customers to stay informed about the latest fashion trends, offers, and promotions. Jigyasa by Pandri Market is a good digital marketing news page in the online portal to float the Wholesale or Retailers offers in real time. It is a must to have the presence of all shopkeepers..... <a href=""> Read more</a>
+            Curiosity is a powerful motivator for customers to stay informed about the latest fashion trends, offers, and promotions. Jigyasa by Pandri Market is a good digital marketing news page in the online portal to float the Wholesale or Retailers offers in real time. It is a must to have the presence of all shopkeepers..... <a href="/"> Read more</a>
             </p>
             <div className={styles.section3Person}>
               <img

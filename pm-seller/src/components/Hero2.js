@@ -3,20 +3,20 @@ import home from "../assets/svg/home.png";
 import ll from "../assets/svg/ll.png";
 import lr from "../assets/svg/lr.png";
 import styles from "./Hero.module.css";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
-import { useGoogleLogin } from '@react-oauth/google';
-import GoogleButton from 'react-google-button'
-import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { useGoogleLogin } from "@react-oauth/google";
+import GoogleButton from "react-google-button";
+import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
-import urls from '../urls.json';
+import urls from "../urls.json";
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
-  const ref = params.get('ref');
+  const ref = params.get("ref");
 
   const [state, setState] = useState({
     phone: "",
@@ -45,9 +45,9 @@ const Navbar = () => {
       try {
         const res1 = await axios.post(`${urls.server}/api/auth/login`, {
           email: res.data.email,
-          type: 'seller'
+          type: "seller"
         });
-        localStorage.setItem('user', res1.data.token);
+        localStorage.setItem("user", res1.data.token);
         contextData.setAuth(res1.data.token);
         // ref ? navigate(`/${ref}`) : navigate("/");
         ref ? window.location.href = `/${ref}` : window.location.href = "/";
@@ -61,11 +61,14 @@ const Navbar = () => {
       alert("Error while fetching email");
       setAskPhone(true);
     }
-  }
+  };
 
   const googleClick = useGoogleLogin({
     onSuccess: (codeResponse) => fetchEmail(codeResponse),
-    onError: (error) => alert("Error while fetching email")
+    onError: (error) => {
+      alert("Error while fetching email");
+      console.log(error);
+    }
   });
 
   const signup = async () => {
@@ -73,9 +76,9 @@ const Navbar = () => {
       const res = await axios.post(`${urls.server}/api/auth/signup`, {
         email: email,
         phone: state.phone,
-        type: 'seller'
+        type: "seller"
       });
-      localStorage.setItem('user', res.data.token);
+      localStorage.setItem("user", res.data.token);
       alert(res.data.message);
       contextData.setAuth(res.data.token);
       ref ? navigate(`/${ref}`) : navigate("/");
@@ -84,7 +87,7 @@ const Navbar = () => {
       console.log(error);
       alert(error.response.data.message);
     }
-  }
+  };
 
   return (
     <>
@@ -113,7 +116,7 @@ const Navbar = () => {
                 <div style={{ color: "black", display: "block" }}>
                   <PhoneInput
                     countryCallingCodeEditable={false}
-                    country={'in'}
+                    country={"in"}
                     value={state.phone}
                     onChange={phone => setState({ phone })}
                   />

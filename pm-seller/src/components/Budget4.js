@@ -1,4 +1,5 @@
-import './carousel1.css';
+import React from "react";
+import "./carousel1.css";
 
 
 const MultiItemCarousel = () => {
@@ -7,9 +8,9 @@ const MultiItemCarousel = () => {
  
 
   return (
-    <div  className='budget4'style={{background:'transparent'}}>
+    <div  className='budget4'style={{background:"transparent"}}>
       
-          <Card  />
+      <Card  />
        
     </div>
   );
@@ -18,11 +19,11 @@ const MultiItemCarousel = () => {
 const Card = () => {
   return (
     <>
-      <div style={{width:'100%',textAlign:'center'}}>
-        <h4 style={{fontWeight:'500',color:'transparent'}}>.</h4>
-        <h2 style={{fontWeight:'700',color:'#E53F52'}}>SHOP BY CATEGORY</h2>
+      <div style={{width:"100%",textAlign:"center"}}>
+        <h4 style={{fontWeight:"500",color:"transparent"}}>.</h4>
+        <h2 style={{fontWeight:"700",color:"#E53F52"}}>SHOP BY CATEGORY</h2>
       </div>
-      </>
+    </>
   );
 };
 

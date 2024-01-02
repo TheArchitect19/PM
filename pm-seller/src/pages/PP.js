@@ -2,7 +2,7 @@ import React from "react";
 import styled from "./TermsAndConditions.module.css"; // Import your CSS file
 
 const TermsAndConditions = () => {
-    const termsAndConditionsText = `
+  const termsAndConditionsText = `
     1. Information Collection and Use
     We may collect and use your personal information for various purposes, including order processing, customer support, and marketing. Our collection and use of your information are detailed in this Privacy Policy.
     

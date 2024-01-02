@@ -65,25 +65,25 @@ const Footer = () => {
           </ul>
           <div className={styles.FooterHeading}>FOLLOW US ON</div>
           <ul className={styles.SocialIcons}>
-          <li>
-            <a href="https://www.instagram.com/pandrimarket.raipur">
-              <AiOutlineInstagram size={30} />
-            </a>
+            <li>
+              <a href="https://www.instagram.com/pandrimarket.raipur">
+                <AiOutlineInstagram size={30} />
+              </a>
             </li>
-          <li>
-            <a href="https://facebook.com/pandrimarket.raipur">
-              <AiOutlineFacebook size={30} />
-            </a>
+            <li>
+              <a href="https://facebook.com/pandrimarket.raipur">
+                <AiOutlineFacebook size={30} />
+              </a>
             </li>
-          <li>
-            <a href="https://youtube.com/@pandrimarket">
-              <AiOutlineYoutube size={30}  />
-            </a>
+            <li>
+              <a href="https://youtube.com/@pandrimarket">
+                <AiOutlineYoutube size={30}  />
+              </a>
             </li>
-          <li>
-            <a href="https://twitter.com/PandriMarket">
-              <RxTwitterLogo size={30}  />
-            </a>
+            <li>
+              <a href="https://twitter.com/PandriMarket">
+                <RxTwitterLogo size={30}  />
+              </a>
             </li>
           </ul>
         </div>
@@ -92,17 +92,17 @@ const Footer = () => {
           <ul className={styles.ContactInfo}>
             <a href="tel:+919244092424">
              
-                <AiTwotonePhone size={25} />
+              <AiTwotonePhone size={25} />
              
             </a>
             <a href="mailto:admin@pandrimarket.com">
              
-                <AiFillMail size={25} />
+              <AiFillMail size={25} />
              
             </a>
             <a href="https://goo.gl/maps/GY2FSKUJaiesTwnk9">
               
-                <ImLocation size={25}/>
+              <ImLocation size={25}/>
               
             </a>
 
@@ -110,20 +110,20 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-full group">
-      <div className="max-w-container mx-auto pt-5 pb-3">
-        <p className="text-titleFont font-normal text-center flex md:items-center justify-center text-primeColor duration-200 text-sm">
-          <span className="text-md mr-[1px] mt-[2px] md:mt-0 text-center hidden md:inline-flex">
-            <AiOutlineCopyright />
-          </span>
-          Copyright 2023 | Pandri Market |
-          <a href="/terms&conditions" target="_blank" rel="noreferrer">
-            <span className="ml-1 font-medium group-hover:text-primeColor">
-              Terms & Conditions
+        <div className="max-w-container mx-auto pt-5 pb-3">
+          <p className="text-titleFont font-normal text-center flex md:items-center justify-center text-primeColor duration-200 text-sm">
+            <span className="text-md mr-[1px] mt-[2px] md:mt-0 text-center hidden md:inline-flex">
+              <AiOutlineCopyright />
             </span>
-          </a>
-        </p>
+          Copyright 2023 | Pandri Market |
+            <a href="/terms&conditions" target="_blank" rel="noreferrer">
+              <span className="ml-1 font-medium group-hover:text-primeColor">
+              Terms & Conditions
+              </span>
+            </a>
+          </p>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

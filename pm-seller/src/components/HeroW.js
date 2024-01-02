@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import styles from './HeroW.module.css'
+import styles from "./HeroW.module.css";
 export default function SimpleSlider() {
   var settings = {
     dots: true,
@@ -15,9 +15,9 @@ export default function SimpleSlider() {
     <Slider {...settings}>
       <div className={styles.div1}>
         <div className={styles.innerdiv}>
-        <h1>UPTO 50% OFF</h1>
-        <h2>Get Access To Exclusive Deals</h2>
-        <button>Shop Now</button>
+          <h1>UPTO 50% OFF</h1>
+          <h2>Get Access To Exclusive Deals</h2>
+          <button>Shop Now</button>
         </div>
       </div>
       <div className={styles.div2}>

@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from './Video.module.css'; // Import your CSS file for styling
-import sample from "./my-video.mp4";
+import React from "react";
+import styled from "./Video.module.css"; // Import your CSS file for styling
+// import sample from "./my-video.mp4";
 const VideoPlayer = () => {
   return (
     <div id='vid' className={styled.videocontainer}>

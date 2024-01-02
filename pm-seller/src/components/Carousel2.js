@@ -1,34 +1,35 @@
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './carousel1.css';
-import {  multiData } from './data3';
-import  ArrowBackIos  from '@mui/icons-material/ArrowBackIos';
-import  ArrowForwardIos  from '@mui/icons-material/ArrowForwardIos';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./carousel1.css";
+import { multiData } from "./data3";
+import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
+import { useState } from "react";
+import { useEffect } from "react";
 let slidesToShow = 5;
 const PreviousBtn = (props) => {
   console.log(props);
-  const { className, onClick, currentSlide } = props;
+  const { className, onClick } = props;
   return (
     <>
-      {  (
+      {(
         <div className={className} onClick={onClick}>
-          <ArrowBackIos style={{ color: 'black', fontSize: '25px' }} />
+          <ArrowBackIos style={{ color: "black", fontSize: "25px" }} />
         </div>
       )}
     </>
   );
 };
 const NextBtn = (props) => {
-  const { className, onClick, slideCount, currentSlide } = props;
+  const { className, onClick } = props;
   console.log(props);
   return (
     <>
-      { (
+      {(
         <div className={className} onClick={onClick}>
-          <ArrowForwardIos style={{ color: 'black', fontSize: '25px' }} />
+          <ArrowForwardIos style={{ color: "black", fontSize: "25px" }} />
         </div>
       )}
     </>
@@ -77,8 +78,8 @@ const MultiItemCarousel = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
   if (width <= 426) {
@@ -92,11 +93,11 @@ const MultiItemCarousel = () => {
   }
 
   return (
-    <div style={{ margin: '40px' }} className='carousel1'>
-    <h2>BESTSELLERS</h2>
+    <div style={{ margin: "40px" }} className='carousel1'>
+      <h2>BESTSELLERS</h2>
       <Slider {...carouselProperties} >
-        {multiData.map((item) => (
-          <Card item={item} />
+        {multiData.map((item, index) => (
+          <Card item={item} key={index} />
         ))}
       </Slider>
     </div>
@@ -105,24 +106,24 @@ const MultiItemCarousel = () => {
 
 const Card = ({ item }) => {
   return (
-       <div className='cont'>
-       <img
+    <div className='cont'>
+      <img
         className='multi__image'
         src={item}
         alt=''
         style={{
-          width: '80%',
-          height: '250px',
-          marginBottom: '10px',
+          width: "80%",
+          height: "250px",
+          marginBottom: "10px",
         }}
       />
       <div className='card_info'>
         <h5>Parag Fashion</h5>
         <h6>Women Solid Sweatshirt</h6>
-        <p>Rs. 1079 <span> Rs. 1799 </span><a style={{color:'#FF0724'}}> (40% OFF)</a></p>
-        <p style={{color:'grey',fontSize:'15px'}}>56 reviews</p>
+        <p>Rs. 1079 <span> Rs. 1799 </span><span style={{ color: "#FF0724" }}> (40% OFF)</span></p>
+        <p style={{ color: "grey", fontSize: "15px" }}>56 reviews</p>
       </div>
-      </div>
+    </div>
   );
 };
 

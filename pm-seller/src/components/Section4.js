@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Section4.module.css";
-import heroImg from "../assets/svg/hero.png";
+// import heroImg from "../assets/svg/hero.png";
 import abt from "../assets/svg/abt.png";
 import clo from "../assets/svg/clo.png";
 import i1 from "../assets/svg/i1.png";
@@ -19,7 +19,7 @@ const Section4 = () => {
     <>
       <div className={styles.section4Container}>
         <div>
-        <img className={styles.abt} src={abt} />
+          <img className={styles.abt} src={abt} alt="About Us" />
         </div>
         
         <div>
@@ -28,7 +28,7 @@ const Section4 = () => {
           <a href="/impact">Impact</a>
           <a href="/community">Community</a>
         </div>
-        <img className={styles.clo} src={clo} />
+        <img className={styles.clo} src={clo} alt="clo" />
       </div>
       <div className={styles.section4Container2}>
         <p>
@@ -38,7 +38,7 @@ const Section4 = () => {
           designers, artisans, local tribals of Chhattisgarh as well as young
           entrepreneurs by providing them with a digital platform to sell their
           products and have a constant source of income irrespective of the
-          market situation and future pandemics. 
+          market situation and future pandemics.
         </p>
       </div>
       <div className={styles.section4Container3}>
@@ -47,7 +47,7 @@ const Section4 = () => {
           Jaya Agrawal & Rahul Kumar Agrawal.
         </p>
 
-        <p>Here’s how it all started:</p>
+        <p>Here&apos;s how it all started:</p>
       </div>
 
       <div className={styles.section4Container4}>
@@ -63,10 +63,10 @@ const Section4 = () => {
                 by founding members Jaya Agrawal & Rahul Kumar Agrawal to
                 revolutionize the dynamics of selling and buying in local
                 markets. <br />
-                The Pandri Cloth Market - Chhattisgarh's largest textile market
-                and Raipur's biggest shopping hub underwent a complete shutdown
-                due to the onset of the pandemic. Shopkeepers and businessmen
-                who relied.... <a href="">Read More</a>
+                The Pandri Cloth Market - Chhattisgarh&apos;s largest textile market
+                and Raipur&apos;s biggest shopping hub underwent a complete shutdown
+                due to the onset of the pandemic.Shopkeepers and businessmen
+                who relied.... <a href="/">Read More</a>
               </p>
               <div>
                 <img className={styles.iimage} src={i2} alt="" />
@@ -83,7 +83,7 @@ const Section4 = () => {
                 in the future and hamper their functionality. We aim to offer
                 the customers a hassle-free and seamless shopping experience by
                 bringing the entire Pandri Market at the click of their
-                fingers..... <a href="">Read more</a>
+                fingers..... <a href="/">Read more</a>
               </p>
               <div>
                 <img className={styles.iimage} src={i4} alt="" />
@@ -108,8 +108,8 @@ const Section4 = () => {
                 Along with this, we also aim to solve the problems of the
                 customers pertaining to time constraints and the inability to
                 visit all shops at once by bringing such a vast market, covering
-                approximately 20 acres of land at the click of the customer's
-                thumb..... <a href="">Read more</a>
+                approximately 20 acres of land at the click of the customer&apos;s
+                thumb..... <a href="/">Read more</a>
               </p>
               <div>
                 <img className={styles.iimage} src={i3} alt="" />
@@ -123,11 +123,11 @@ const Section4 = () => {
                 hails from the city of Raipur, Chhattisgarh. He is the Founder
                 of Pandri Market and the brain behind this entire concept which
                 aims to bring the very renowned 40-year-old Pandri Cloth Market
-                online.  <br />
+                online. <br />
                 Mrs. Jaya Agarwal is a passionate teacher and skill development
                 coach from Raipur, Chhattisgarh. She is the Co-founder of Pandri
-                Market and holds a knack for business and entrepreneurship..... {" "}
-                <a href="">Read more</a>
+                Market and holds a knack for business and entrepreneurship.....{" "}
+                <a href="/">Read more</a>
               </p>
             </div>
           </div>
@@ -137,19 +137,19 @@ const Section4 = () => {
 
       <div className={styles.section4Container5}>
         <div>
-          <img className={styles.ib} src={ib} />
-      {/* <div className={styles.col}></div> */}
+          <img className={styles.ib} src={ib} alt="ib" />
+          {/* <div className={styles.col}></div> */}
         </div>
         <div className={styles.txt}>
           <p>MEMBERSHIP</p>
           <p>GROW YOUR BUSINESS WITH US</p>
           <p>
-            CHECKOUT OUT OUR <a>New Plans</a>
+            CHECKOUT OUT OUR <a href="/">New Plans</a>
           </p>
           <button className={styles.btn}>PICK A PLAN</button>
         </div>
         <div>
-          <img className={styles.sc} src={sc} />
+          <img className={styles.sc} src={sc} alt="sc" />
         </div>
       </div>
     </>

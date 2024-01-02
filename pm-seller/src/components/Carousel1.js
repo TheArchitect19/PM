@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import hero from "../assets/hero.png"
+import React from "react";
+import hero from "../assets/hero.png";
 
 const ComponentName = () => {
   return (
@@ -23,8 +23,8 @@ const ComponentName = () => {
 
                 <a href="#vid" title="" className="inline-flex items-center mt-6 text-base font-semibold transition-all duration-200 sm:mt-0 hover:opacity-80">
                   <svg className="w-10 h-10 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path fill="#F55B68" stroke="#F55B68" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path fill="#F55B68" stroke="#F55B68" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Watch video
                 </a>
@@ -39,6 +39,6 @@ const ComponentName = () => {
       </section>
     </div>
   );
-}
+};
 
 export default ComponentName;

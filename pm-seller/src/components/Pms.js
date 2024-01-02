@@ -1,17 +1,15 @@
 import { React } from "react";
-import styles from "./Pms.module.css"
+import styles from "./Pms.module.css";
 
-
-
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './carousel.css';
-import {  multiData } from './data1';
-import  ArrowBackIos  from '@mui/icons-material/ArrowBackIos';
-import  ArrowForwardIos  from '@mui/icons-material/ArrowForwardIos';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./carousel.css";
+import {  multiData } from "./data1";
+import  ArrowBackIos  from "@mui/icons-material/ArrowBackIos";
+import  ArrowForwardIos  from "@mui/icons-material/ArrowForwardIos";
+import { useState } from "react";
+import { useEffect } from "react";
 let slidesToShow = 5;
 
 
@@ -22,7 +20,7 @@ const PreviousBtn = (props) => {
     <>
       {currentSlide !== 0 && (
         <div className={className} onClick={onClick}>
-          <ArrowBackIos style={{ color: 'black', fontSize: '30px' }} />
+          <ArrowBackIos style={{ color: "black", fontSize: "30px" }} />
         </div>
       )}
     </>
@@ -35,7 +33,7 @@ const NextBtn = (props) => {
     <>
       {currentSlide !== slideCount - slidesToShow && (
         <div className={className} onClick={onClick}>
-          <ArrowForwardIos style={{ color: 'black', fontSize: '30px' }} />
+          <ArrowForwardIos style={{ color: "black", fontSize: "30px" }} />
         </div>
       )}
     </>
@@ -82,8 +80,8 @@ const MultiItemCarousel = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
   if (width <= 426) {
@@ -97,10 +95,10 @@ const MultiItemCarousel = () => {
   }
 
   return (
-    <div style={{ margin: '40px' }} className='carousel'>
+    <div style={{ margin: "40px" }} className='carousel'>
       <Slider {...carouselProperties}>
-        {multiData.map((item) => (
-          <Card item={item} />
+        {multiData.map((item, index) => (
+          <Card item={item} key={index} />
         ))}
       </Slider>
     </div>
@@ -109,17 +107,17 @@ const MultiItemCarousel = () => {
 
 const Card = ({ item }) => {
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: "center" }}>
       <div className={styles.ttm}>
        
-       <div className={styles.disp}>
+        <div className={styles.disp}>
           <img className={styles.mm} src={item} alt="" />
           <h6>Manyavar &</h6>
           <h6> Mohey</h6>
-       </div>
+        </div>
        
        
-    </div>
+      </div>
      
     </div>
   );

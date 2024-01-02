@@ -1,10 +1,9 @@
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './carousel1.css';
-import { multiData } from './data';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./carousel1.css";
+import { multiData } from "./data";
 let slidesToShow = 2;
 
 
@@ -16,7 +15,7 @@ const carouselProperties = {
   autoplay: true,
   speed: 9000,
   autoplaySpeed: 0,
-  cssEase: 'linear',
+  cssEase: "linear",
   // slidesToScroll={3}
   responsive: [
     {
@@ -61,6 +60,7 @@ const MultiItemCarousel = () => {
 };
 
 const Card = ({ item }) => {
+  console.log(item);
   return (
     <>
       <div className='bigbudget'>

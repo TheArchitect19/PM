@@ -1,7 +1,7 @@
-import React from 'react'
-import NavHom from '../components/NavHom'
-import Footer from '../components/Footer'
-import Hero1 from '../components/Hero2'
+import React from "react";
+// import NavHom from '../components/NavHom'
+// import Footer from '../components/Footer'
+import Hero1 from "../components/Hero2";
 
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Hero1 />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

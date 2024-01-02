@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import near from "../assets/svg/near.png";
 import shop from "../assets/svg/shop.png";
 import drop from "../assets/svg/drop.png";
@@ -12,7 +12,7 @@ const Navbar = () => {
         <h1>Search across 300+ Shops </h1>
         <div className={styles.main}>
           <div className={styles.inloc}>
-            <input style={{outline:'none'}}
+            <input style={{outline:"none"}}
               type="text"
               name="name"
               placeholder="Search by shop, location or neighbourhood"
@@ -20,22 +20,22 @@ const Navbar = () => {
             <img className={styles.near} src={near} alt="" />
           </div>
           <div style={{display:"flex", justifyContent:"space-evenly"}}>
-          <div className={styles.shop}>
-            <img className={styles.spim} src={shop} alt="" />
+            <div className={styles.shop}>
+              <img className={styles.spim} src={shop} alt="" />
             Shops
-            <img className={styles.drop} src={drop} alt="" />
-          </div>
-          <div className={styles.shop2}>
-            <img className={styles.spim} src={loc} alt="" />
+              <img className={styles.drop} src={drop} alt="" />
+            </div>
+            <div className={styles.shop2}>
+              <img className={styles.spim} src={loc} alt="" />
             Location
-            <img className={styles.drop} src={drop} alt="" />
-          </div>
-          <div className={styles.shop3}>
-            <button className={styles.btn}>
-              <img className={styles.sb} src={search} alt="" />
+              <img className={styles.drop} src={drop} alt="" />
+            </div>
+            <div className={styles.shop3}>
+              <button className={styles.btn}>
+                <img className={styles.sb} src={search} alt="" />
               Search
-            </button>
-          </div>
+              </button>
+            </div>
           </div>
 
         </div>

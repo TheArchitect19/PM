@@ -1,16 +1,16 @@
 import React from "react";
-import { BsSuitHeartFill } from "react-icons/bs";
-import { GiReturnArrow } from "react-icons/gi";
-import { FaShoppingCart } from "react-icons/fa";
-import { MdOutlineLabelImportant } from "react-icons/md";
+// import { BsSuitHeartFill } from "react-icons/bs";
+// import { GiReturnArrow } from "react-icons/gi";
+// import { FaShoppingCart } from "react-icons/fa";
+// import { MdOutlineLabelImportant } from "react-icons/md";
 import Image from "../../designLayouts/Image";
 import Badge from "./Badge";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../redux/orebiSlice";
+import { useNavigate } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { addToCart } from "../../../redux/orebiSlice";
 
 const Product = (props) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const _id = props.productName;
   const idString = (_id) => {
     return String(_id).toLowerCase().split(" ").join("");
@@ -98,11 +98,11 @@ const Product = (props) => {
       </div>
       <div className="max-w-80 py-6 flex flex-col gap-1 border-[1px] border-t-0 px-4">
         <div className='card_info'>
-        <h5>{props.shop}</h5>
-        <h6>{props.productName}</h6>
-        <p>Rs. {props.price} <span> Rs. {props.mprice} </span><a style={{color:'#FF0724'}}> ({props.off}% OFF)</a></p>
-        <p style={{color:'grey',fontSize:'15px'}}>{props.review} reviews</p>
-      </div>
+          <h5>{props.shop}</h5>
+          <h6>{props.productName}</h6>
+          <p>Rs. {props.price} <span> Rs. {props.mprice} </span><a href="/" style={{color:"#FF0724"}}> ({props.off}% OFF)</a></p>
+          <p style={{color:"grey",fontSize:"15px"}}>{props.review} reviews</p>
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 import "./index.css";
 import App from "./App";
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "./context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
