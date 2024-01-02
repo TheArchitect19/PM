@@ -30,7 +30,7 @@ jobs:
       run: cd pm-seller && npm install --force
 
     - name: Creating build
-      run: cd pm-seller && npm run build
+      run: cd pm-seller && npx eslint --fix . && npm run build
 
     - name: Copying new build to server
       run: sshpass -p "$PASSWORD" scp -o StrictHostKeyChecking=no -rp pm-seller/build/* root@170.187.253.75:/home/sell/tmp/build
